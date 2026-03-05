@@ -1,0 +1,1 @@
+# EveryMCP.com MVP

@@ -1,0 +1,11 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <rect x="70" y="70" width="1060" height="490" rx="24" fill="#F8FAFC"/>
+  <circle cx="210" cy="190" r="22" fill="#0EA5A4"/>
+  <rect x="260" y="160" width="520" height="60" rx="12" fill="#E2E8F0"/>
+  <rect x="140" y="290" width="420" height="40" rx="10" fill="#CBD5E1"/>
+  <rect x="140" y="350" width="680" height="24" rx="8" fill="#E2E8F0"/>
+  <rect x="140" y="390" width="620" height="24" rx="8" fill="#E2E8F0"/>
+  <text x="140" y="135" fill="#0F172A" font-size="58" font-family="Arial, sans-serif" font-weight="700">EveryMCP</text>
+  <text x="140" y="462" fill="#334155" font-size="32" font-family="Arial, sans-serif" font-weight="600">The Complete MCP Directory</text>
+</svg>

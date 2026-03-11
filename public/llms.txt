@@ -1,0 +1,10 @@
+# EveryMCP
+
+EveryMCP is a curated directory of Model Context Protocol (MCP) servers and tools, helping developers extend their AI agents with custom capabilities.
+
+## Features
+- Directory of verified MCP servers
+- Implementation guides and sponsorship opportunities
+- Resources for agentic AI development
+
+Learn more at https://everymcp.com

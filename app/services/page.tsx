@@ -6,7 +6,10 @@ import { LeadForm } from "@/components/LeadForm";
 export const metadata: Metadata = {
   title: "MCP Implementation Service",
   description:
-    "MCP setup, integration, and custom server implementation for production teams."
+    "MCP setup, integration, and custom server implementation for production teams.",
+  alternates: {
+    canonical: "/services"
+  }
 };
 
 const offerings = [
@@ -40,12 +43,17 @@ export default function ServicesPage() {
             <p className="mt-2 text-4xl font-extrabold text-ink">$2,000</p>
             <p className="mt-2 text-sm text-slate-600">Fixed setup package for MVP delivery and rollout.</p>
             <div className="mt-5">
-              <CheckoutButton plan="implementation" label="Buy implementation package" />
+              <CheckoutButton
+                plan="implementation"
+                label="Buy implementation package"
+                fallbackHref="#implementation-inquiry"
+                fallbackLabel="Open implementation inquiry form"
+              />
             </div>
           </div>
         </article>
 
-        <article className="rounded-3xl border border-slate-200 bg-white p-8 shadow-soft">
+        <article id="implementation-inquiry" className="rounded-3xl border border-slate-200 bg-white p-8 shadow-soft">
           <h2 className="text-2xl font-extrabold text-ink">Start Your Build</h2>
           <p className="mt-3 text-sm leading-7 text-slate-600">
             Share your stack and use case. We will follow up with a scope, timeline, and implementation plan.

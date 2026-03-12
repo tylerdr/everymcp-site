@@ -4,7 +4,10 @@ import { DirectoryExplorer } from "@/components/DirectoryExplorer";
 export const metadata: Metadata = {
   title: "MCP Directory",
   description:
-    "Search and filter verified MCP servers by category, use case, and platform."
+    "Search and filter verified MCP servers by category, use case, and platform.",
+  alternates: {
+    canonical: "/directory"
+  }
 };
 
 export default function DirectoryPage({

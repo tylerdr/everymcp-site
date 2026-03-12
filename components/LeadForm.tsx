@@ -5,11 +5,22 @@ import { FormEvent, useState } from "react";
 type LeadFormProps = {
   compact?: boolean;
   className?: string;
+  intent?: string;
+  messagePlaceholder?: string;
+  submitLabel?: string;
+  successMessage?: string;
 };
 
 type FormState = "idle" | "loading" | "success" | "error";
 
-export function LeadForm({ compact = false, className = "" }: LeadFormProps) {
+export function LeadForm({
+  compact = false,
+  className = "",
+  intent,
+  messagePlaceholder = "Use case and what you need built",
+  submitLabel = "Request Implementation Help",
+  successMessage = "Thanks. Your request was submitted."
+}: LeadFormProps) {
   const [state, setState] = useState<FormState>("idle");
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -41,6 +52,8 @@ export function LeadForm({ compact = false, className = "" }: LeadFormProps) {
 
   return (
     <form onSubmit={onSubmit} className={`space-y-4 ${className}`}>
+      {intent ? <input type="hidden" name="intent" value={intent} /> : null}
+
       <div className={compact ? "grid gap-4 sm:grid-cols-2" : "grid gap-4"}>
         <input
           required
@@ -66,7 +79,7 @@ export function LeadForm({ compact = false, className = "" }: LeadFormProps) {
       <textarea
         required
         name="message"
-        placeholder="Use case and what you need built"
+        placeholder={messagePlaceholder}
         rows={compact ? 4 : 5}
         className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none ring-sky transition focus:border-sky focus:ring-2"
       />
@@ -75,13 +88,11 @@ export function LeadForm({ compact = false, className = "" }: LeadFormProps) {
         disabled={state === "loading"}
         className="rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:bg-sky disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {state === "loading" ? "Sending..." : "Request Implementation Help"}
+        {state === "loading" ? "Sending..." : submitLabel}
       </button>
 
       {state === "success" && (
-        <p className="text-sm font-medium text-emerald-700">
-          Thanks. Your request was submitted.
-        </p>
+        <p className="text-sm font-medium text-emerald-700">{successMessage}</p>
       )}
       {state === "error" && (
         <p className="text-sm font-medium text-red-700">

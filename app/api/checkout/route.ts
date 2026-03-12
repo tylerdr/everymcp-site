@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
+import { siteUrl } from "@/lib/site";
 
 export const runtime = "nodejs";
 
@@ -51,7 +52,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid plan" }, { status: 400 });
     }
 
-    const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").trim();
     const stripe = new Stripe(stripeSecretKey);
     const selectedPlan = planConfig[plan];
     const configuredPrice = priceIdByPlan[plan]?.trim();

@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
 import { categories } from "@/data/categories";
 import { mcps } from "@/lib/mcps";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://everymcp.com";
+import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseEntries: MetadataRoute.Sitemap = ["", "/directory", "/services", "/sponsor"].map((path) => ({

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { CheckoutButton } from "@/components/CheckoutButton";
@@ -6,6 +7,12 @@ import { LeadForm } from "@/components/LeadForm";
 import { McpCard } from "@/components/McpCard";
 import { categories } from "@/data/categories";
 import { featuredMcps, mcps } from "@/lib/mcps";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/"
+  }
+};
 
 export default function Home() {
   return (
@@ -71,7 +78,12 @@ export default function Home() {
               <li>• Custom server extensions</li>
             </ul>
             <div className="mt-6">
-              <CheckoutButton plan="implementation" label="Buy implementation package" />
+              <CheckoutButton
+                plan="implementation"
+                label="Buy implementation package"
+                fallbackHref="/services#implementation-inquiry"
+                fallbackLabel="Open implementation inquiry form"
+              />
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link

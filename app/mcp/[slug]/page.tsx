@@ -17,7 +17,10 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 
   return {
     title: mcp.name,
-    description: mcp.description
+    description: mcp.description,
+    alternates: {
+      canonical: `/mcp/${mcp.slug}`
+    }
   };
 }
 

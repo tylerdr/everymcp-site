@@ -5,7 +5,10 @@ import { LeadForm } from "@/components/LeadForm";
 
 export const metadata: Metadata = {
   title: "Sponsor EveryMCP",
-  description: "Reach MCP buyers with a featured sponsor placement on EveryMCP."
+  description: "Reach MCP buyers with a featured sponsor placement on EveryMCP.",
+  alternates: {
+    canonical: "/sponsor"
+  }
 };
 
 const includes = [
@@ -38,21 +41,39 @@ export default function SponsorPage() {
             <p className="mt-2 text-4xl font-extrabold text-ink">$500</p>
             <p className="mt-2 text-sm text-slate-600">Launch sponsor slot (one-time placement package).</p>
             <div className="mt-5">
-              <CheckoutButton plan="sponsor" label="Reserve Sponsor Slot" />
+              <CheckoutButton
+                plan="sponsor"
+                label="Reserve Sponsor Slot"
+                fallbackHref="#sponsor-inquiry"
+                fallbackLabel="Open sponsor inquiry form"
+              />
             </div>
+            <p className="mt-3 text-sm text-slate-600">
+              Prefer to confirm audience fit first? Use the sponsor inquiry form and we&apos;ll reply with placement details.
+            </p>
           </div>
 
           <p className="mt-6 text-sm text-slate-600">
-            Need a combined sponsor + integration package? <Link href="/services" className="font-semibold text-sky hover:text-ink">Book implementation support</Link>.
+            Need a combined sponsor + integration package?{" "}
+            <Link href="/services" className="font-semibold text-sky hover:text-ink">
+              Book implementation support
+            </Link>
+            .
           </p>
         </article>
 
-        <article className="rounded-3xl border border-slate-200 bg-white p-8 shadow-soft">
+        <article id="sponsor-inquiry" className="rounded-3xl border border-slate-200 bg-white p-8 shadow-soft">
           <h2 className="text-2xl font-extrabold text-ink">Talk through sponsor fit</h2>
           <p className="mt-3 text-sm leading-7 text-slate-600">
-            Send your product and target audience. We&apos;ll confirm placement fit and timeline within one business day.
+            Send your product, audience, and launch window. We&apos;ll confirm placement fit, inventory, and timing within one business day.
           </p>
-          <LeadForm className="mt-6" />
+          <LeadForm
+            className="mt-6"
+            intent="sponsor"
+            messagePlaceholder="What are you sponsoring, who do you want to reach, and when do you want to run?"
+            submitLabel="Request Sponsor Details"
+            successMessage="Thanks. Your sponsor inquiry was submitted."
+          />
         </article>
       </div>
     </section>

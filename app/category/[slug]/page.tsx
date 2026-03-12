@@ -18,7 +18,10 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 
   return {
     title: `${category.name} MCP Servers`,
-    description: `${category.blurb} Explore MCP implementations in ${category.name}.`
+    description: `${category.blurb} Explore MCP implementations in ${category.name}.`,
+    alternates: {
+      canonical: `/category/${category.slug}`
+    }
   };
 }
 

@@ -7,7 +7,10 @@ type SearchParams = {
 
 export const metadata: Metadata = {
   title: "Checkout Complete",
-  description: "Your EveryMCP checkout is complete."
+  description: "Your EveryMCP checkout is complete.",
+  alternates: {
+    canonical: "/checkout/success"
+  }
 };
 
 export default function CheckoutSuccessPage({ searchParams }: { searchParams: SearchParams }) {

@@ -19,11 +19,6 @@ const planConfig: Record<Plan, { amount: number; name: string; description: stri
   }
 };
 
-const priceIdByPlan: Partial<Record<Plan, string>> = {
-  implementation: process.env.STRIPE_IMPLEMENTATION_PRICE_ID,
-  sponsor: process.env.STRIPE_SPONSOR_PRICE_ID
-};
-
 function parseBody(value: unknown): { plan?: Plan; email?: string } {
   if (!value || typeof value !== "object") {
     return {};
@@ -54,21 +49,20 @@ export async function POST(request: Request) {
 
     const stripe = new Stripe(stripeSecretKey);
     const selectedPlan = planConfig[plan];
-    const configuredPrice = priceIdByPlan[plan]?.trim();
 
-    const lineItem = configuredPrice
-      ? { price: configuredPrice, quantity: 1 }
-      : {
-          price_data: {
-            currency: "usd",
-            product_data: {
-              name: selectedPlan.name,
-              description: selectedPlan.description
-            },
-            unit_amount: selectedPlan.amount
-          },
-          quantity: 1
-        };
+    // Always build the price inline so a stale shared STRIPE_*_PRICE_ID cannot route EveryMCP buyers
+    // into another venture's Stripe product.
+    const lineItem = {
+      price_data: {
+        currency: "usd",
+        product_data: {
+          name: selectedPlan.name,
+          description: selectedPlan.description
+        },
+        unit_amount: selectedPlan.amount
+      },
+      quantity: 1
+    };
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",

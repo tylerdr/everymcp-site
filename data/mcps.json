@@ -8079,5 +8079,2455 @@
       "Entitlement management",
       "Revenue reporting"
     ]
+  },
+  {
+    "id": "anki-mcp",
+    "name": "Anki MCP",
+    "slug": "anki-mcp",
+    "description": "Create, review, and manage Anki flashcard decks programmatically via AnkiConnect.",
+    "category": "memory-context",
+    "tags": [
+      "flashcards",
+      "spaced-repetition",
+      "anki",
+      "learning"
+    ],
+    "author": "ankitects",
+    "repo": "https://github.com/ankitects/anki-mcp",
+    "featured": false,
+    "useCase": "Learning",
+    "platform": "Local",
+    "source": "ankitects",
+    "installation": "Install AnkiConnect add-on in Anki; server connects to localhost:8765.",
+    "useCases": [
+      "Card creation",
+      "Deck management",
+      "Review scheduling"
+    ]
+  },
+  {
+    "id": "capacitor-mcp",
+    "name": "Capacitor Storage MCP",
+    "slug": "capacitor-mcp",
+    "description": "Persistent key-value storage for mobile/web apps using Capacitor's storage plugin.",
+    "category": "memory-context",
+    "tags": [
+      "mobile",
+      "storage",
+      "capacitor",
+      "key-value"
+    ],
+    "author": "ionic-team",
+    "repo": "https://github.com/ionic-team/capacitor-mcp",
+    "featured": false,
+    "useCase": "Storage",
+    "platform": "Local",
+    "source": "ionic-team",
+    "installation": "Install @capacitor/preferences; configure platform (iOS/Android/Web).",
+    "useCases": [
+      "App state persistence",
+      "Settings storage",
+      "Session caching"
+    ]
+  },
+  {
+    "id": "notion-ai-mcp",
+    "name": "Notion AI MCP",
+    "slug": "notion-ai-mcp",
+    "description": "Use Notion as an AI memory layer \u2014 read/write pages, databases, and blocks via Notion API.",
+    "category": "memory-context",
+    "tags": [
+      "notion",
+      "knowledge-base",
+      "ai",
+      "pages"
+    ],
+    "author": "makenotion",
+    "repo": "https://github.com/makenotion/notion-mcp-server",
+    "featured": true,
+    "useCase": "Knowledge",
+    "platform": "Cloud",
+    "source": "makenotion",
+    "installation": "Set NOTION_API_KEY; configure database and page IDs for scoped access.",
+    "useCases": [
+      "Page creation",
+      "Database queries",
+      "Knowledge retrieval"
+    ]
+  },
+  {
+    "id": "haystack-mcp",
+    "name": "Haystack MCP",
+    "slug": "haystack-mcp",
+    "description": "Build RAG pipelines with Haystack's components: document stores, retrievers, and generators.",
+    "category": "memory-context",
+    "tags": [
+      "rag",
+      "haystack",
+      "pipelines",
+      "retrieval"
+    ],
+    "author": "deepset-ai",
+    "repo": "https://github.com/deepset-ai/haystack-mcp",
+    "featured": false,
+    "useCase": "RAG",
+    "platform": "Self-hosted",
+    "source": "deepset-ai",
+    "installation": "Install haystack-ai; configure pipeline YAML with chosen document store.",
+    "useCases": [
+      "Document ingestion",
+      "RAG retrieval",
+      "Hybrid search"
+    ]
+  },
+  {
+    "id": "notion-calendar-mcp",
+    "name": "Notion Calendar MCP",
+    "slug": "notion-calendar-mcp",
+    "description": "Sync Notion calendar databases with events, reminders, and recurring blocks.",
+    "category": "memory-context",
+    "tags": [
+      "notion",
+      "calendar",
+      "scheduling",
+      "productivity"
+    ],
+    "author": "makenotion",
+    "repo": "https://github.com/makenotion/notion-calendar-mcp",
+    "featured": false,
+    "useCase": "Productivity",
+    "platform": "Cloud",
+    "source": "makenotion",
+    "installation": "Set NOTION_API_KEY; link calendar database ID in config.",
+    "useCases": [
+      "Event creation",
+      "Calendar sync",
+      "Reminder management"
+    ]
+  },
+  {
+    "id": "guru-mcp",
+    "name": "Guru MCP",
+    "slug": "guru-mcp",
+    "description": "Search and retrieve knowledge cards from Guru's internal knowledge management platform.",
+    "category": "memory-context",
+    "tags": [
+      "knowledge-management",
+      "guru",
+      "enterprise",
+      "search"
+    ],
+    "author": "getguru",
+    "repo": "https://github.com/getguru/guru-mcp",
+    "featured": false,
+    "useCase": "Knowledge",
+    "platform": "Cloud",
+    "source": "getguru",
+    "installation": "Set GURU_USER_EMAIL and GURU_USER_TOKEN from Guru account settings.",
+    "useCases": [
+      "Knowledge search",
+      "Card retrieval",
+      "Collection browsing"
+    ]
+  },
+  {
+    "id": "notion-crm-mcp",
+    "name": "Notion CRM MCP",
+    "slug": "notion-crm-mcp",
+    "description": "Use Notion databases as a lightweight CRM \u2014 manage contacts, deals, and notes.",
+    "category": "memory-context",
+    "tags": [
+      "crm",
+      "notion",
+      "contacts",
+      "sales"
+    ],
+    "author": "community",
+    "repo": "https://github.com/makenotion/notion-mcp-server",
+    "featured": false,
+    "useCase": "CRM",
+    "platform": "Cloud",
+    "source": "makenotion",
+    "installation": "Set NOTION_API_KEY; configure contact and deal database IDs.",
+    "useCases": [
+      "Contact management",
+      "Deal tracking",
+      "Follow-up notes"
+    ]
+  },
+  {
+    "id": "rememberizer-mcp",
+    "name": "Rememberizer MCP",
+    "slug": "rememberizer-mcp",
+    "description": "Connect AI agents to Rememberizer's secure, searchable personal memory vault.",
+    "category": "memory-context",
+    "tags": [
+      "memory",
+      "personal",
+      "search",
+      "agents"
+    ],
+    "author": "skydeckai",
+    "repo": "https://github.com/skydeckai/rememberizer-mcp",
+    "featured": false,
+    "useCase": "Memory",
+    "platform": "Cloud",
+    "source": "skydeckai",
+    "installation": "Set REMEMBERIZER_API_KEY from your Rememberizer account.",
+    "useCases": [
+      "Memory storage",
+      "Contextual recall",
+      "Agent personalization"
+    ]
+  },
+  {
+    "id": "falkordb-mcp",
+    "name": "FalkorDB MCP",
+    "slug": "falkordb-mcp",
+    "description": "Graph database queries and knowledge graph operations on FalkorDB via Cypher.",
+    "category": "memory-context",
+    "tags": [
+      "graph-db",
+      "cypher",
+      "knowledge-graph",
+      "falkordb"
+    ],
+    "author": "FalkorDB",
+    "repo": "https://github.com/FalkorDB/falkordb-mcp",
+    "featured": false,
+    "useCase": "Knowledge Graph",
+    "platform": "Self-hosted",
+    "source": "FalkorDB",
+    "installation": "Run FalkorDB container; configure host, port, and auth.",
+    "useCases": [
+      "Graph queries",
+      "Entity relationships",
+      "Cypher execution"
+    ]
+  },
+  {
+    "id": "astradb-mcp",
+    "name": "DataStax Astra DB MCP",
+    "slug": "astradb-mcp",
+    "description": "Serverless vector + document database via DataStax Astra DB for RAG and AI apps.",
+    "category": "memory-context",
+    "tags": [
+      "vector-db",
+      "astra",
+      "cassandra",
+      "rag"
+    ],
+    "author": "datastax",
+    "repo": "https://github.com/datastax/astradb-mcp",
+    "featured": false,
+    "useCase": "Vector Search",
+    "platform": "Cloud",
+    "source": "datastax",
+    "installation": "Set ASTRA_DB_APPLICATION_TOKEN and ASTRA_DB_API_ENDPOINT.",
+    "useCases": [
+      "Vector search",
+      "Document storage",
+      "RAG retrieval"
+    ]
+  },
+  {
+    "id": "mechanize-mcp",
+    "name": "Mechanize MCP",
+    "slug": "mechanize-mcp",
+    "description": "Automate web forms, links, and cookies with Mechanize's stateful browser simulation.",
+    "category": "browser-automation",
+    "tags": [
+      "web-forms",
+      "scraping",
+      "python",
+      "mechanize"
+    ],
+    "author": "wwwmech",
+    "repo": "https://github.com/wwwmech/mechanize",
+    "featured": false,
+    "useCase": "Web Automation",
+    "platform": "CLI",
+    "source": "wwwmech",
+    "installation": "Install mechanize via pip; configure base URL and cookie jar.",
+    "useCases": [
+      "Form submission",
+      "Session management",
+      "Link traversal"
+    ]
+  },
+  {
+    "id": "httpx-mcp",
+    "name": "HTTPX MCP",
+    "slug": "httpx-mcp",
+    "description": "Make synchronous and async HTTP requests with full HTTP/2 support via HTTPX.",
+    "category": "browser-automation",
+    "tags": [
+      "http",
+      "requests",
+      "async",
+      "python"
+    ],
+    "author": "encode",
+    "repo": "https://github.com/encode/httpx-mcp",
+    "featured": false,
+    "useCase": "Web Requests",
+    "platform": "CLI",
+    "source": "encode",
+    "installation": "Install httpx; configure base URL, headers, and auth credentials.",
+    "useCases": [
+      "REST API calls",
+      "HTTP/2 requests",
+      "Async batch fetching"
+    ]
+  },
+  {
+    "id": "bright-data-mcp",
+    "name": "Bright Data MCP",
+    "slug": "bright-data-mcp",
+    "description": "Structured web data extraction powered by Bright Data's proxy and scraper infrastructure.",
+    "category": "browser-automation",
+    "tags": [
+      "proxy",
+      "scraping",
+      "bright-data",
+      "datasets"
+    ],
+    "author": "luminati-io",
+    "repo": "https://github.com/luminati-io/brightdata-mcp",
+    "featured": true,
+    "useCase": "Web Scraping",
+    "platform": "Cloud",
+    "source": "luminati-io",
+    "installation": "Set BRIGHTDATA_API_TOKEN; configure zones and scraping datasets.",
+    "useCases": [
+      "Data collection",
+      "Proxy rotation",
+      "Dataset access"
+    ]
+  },
+  {
+    "id": "oxylabs-mcp",
+    "name": "Oxylabs MCP",
+    "slug": "oxylabs-mcp",
+    "description": "Enterprise web scraping with residential proxies and SERP scraper via Oxylabs API.",
+    "category": "browser-automation",
+    "tags": [
+      "proxy",
+      "scraping",
+      "serp",
+      "oxylabs"
+    ],
+    "author": "oxylabs",
+    "repo": "https://github.com/oxylabs/oxylabs-mcp",
+    "featured": false,
+    "useCase": "Web Scraping",
+    "platform": "Cloud",
+    "source": "oxylabs",
+    "installation": "Set OXYLABS_USERNAME and OXYLABS_PASSWORD; choose scraper type.",
+    "useCases": [
+      "SERP scraping",
+      "Residential proxies",
+      "E-commerce data"
+    ]
+  },
+  {
+    "id": "scrapingbee-mcp",
+    "name": "ScrapingBee MCP",
+    "slug": "scrapingbee-mcp",
+    "description": "Headless browser scraping with JS rendering and premium proxies via ScrapingBee.",
+    "category": "browser-automation",
+    "tags": [
+      "scraping",
+      "headless",
+      "proxies",
+      "scrapingbee"
+    ],
+    "author": "scrapingbee",
+    "repo": "https://github.com/scrapingbee/scrapingbee-mcp",
+    "featured": false,
+    "useCase": "Web Scraping",
+    "platform": "Cloud",
+    "source": "scrapingbee",
+    "installation": "Set SCRAPINGBEE_API_KEY; configure render_js and proxy_type options.",
+    "useCases": [
+      "JS-heavy pages",
+      "Stealth scraping",
+      "Screenshot capture"
+    ]
+  },
+  {
+    "id": "crawlee-mcp",
+    "name": "Crawlee MCP",
+    "slug": "crawlee-mcp",
+    "description": "Build reliable web crawlers with Crawlee's Playwright/Puppeteer-based framework.",
+    "category": "browser-automation",
+    "tags": [
+      "crawling",
+      "playwright",
+      "puppeteer",
+      "nodejs"
+    ],
+    "author": "apify",
+    "repo": "https://github.com/apify/crawlee-mcp",
+    "featured": false,
+    "useCase": "Web Crawling",
+    "platform": "CLI",
+    "source": "apify",
+    "installation": "Install crawlee; configure router and request queue in server setup.",
+    "useCases": [
+      "Large-scale crawling",
+      "Data extraction",
+      "Link following"
+    ]
+  },
+  {
+    "id": "splash-mcp",
+    "name": "Splash MCP",
+    "slug": "splash-mcp",
+    "description": "JavaScript-enabled web rendering and screenshot capture via the Splash browser service.",
+    "category": "browser-automation",
+    "tags": [
+      "rendering",
+      "screenshots",
+      "splash",
+      "javascript"
+    ],
+    "author": "scrapinghub",
+    "repo": "https://github.com/scrapinghub/splash-mcp",
+    "featured": false,
+    "useCase": "Web Rendering",
+    "platform": "Self-hosted",
+    "source": "scrapinghub",
+    "installation": "Run Splash Docker container; configure host and port in server config.",
+    "useCases": [
+      "JS rendering",
+      "Screenshot capture",
+      "HAR export"
+    ]
+  },
+  {
+    "id": "gotenberg-mcp",
+    "name": "Gotenberg MCP",
+    "slug": "gotenberg-mcp",
+    "description": "Convert HTML, URLs, and Office files to PDF using the Gotenberg Docker service.",
+    "category": "browser-automation",
+    "tags": [
+      "pdf",
+      "conversion",
+      "html",
+      "gotenberg"
+    ],
+    "author": "gotenberg",
+    "repo": "https://github.com/gotenberg/gotenberg-mcp",
+    "featured": false,
+    "useCase": "Document Generation",
+    "platform": "Self-hosted",
+    "source": "gotenberg",
+    "installation": "Run Gotenberg Docker container; set GOTENBERG_URL.",
+    "useCases": [
+      "URL to PDF",
+      "HTML to PDF",
+      "Office file conversion"
+    ]
+  },
+  {
+    "id": "wappalyzer-mcp",
+    "name": "Wappalyzer MCP",
+    "slug": "wappalyzer-mcp",
+    "description": "Detect technologies used by any website (CMS, frameworks, analytics) via Wappalyzer.",
+    "category": "browser-automation",
+    "tags": [
+      "tech-detection",
+      "wappalyzer",
+      "fingerprinting",
+      "reconnaissance"
+    ],
+    "author": "wappalyzer",
+    "repo": "https://github.com/wappalyzer/wappalyzer-mcp",
+    "featured": false,
+    "useCase": "Research",
+    "platform": "API",
+    "source": "wappalyzer",
+    "installation": "Set WAPPALYZER_API_KEY; provide target URL to analyze tech stack.",
+    "useCases": [
+      "Tech stack detection",
+      "Competitive research",
+      "Sales intelligence"
+    ]
+  },
+  {
+    "id": "webshare-mcp",
+    "name": "Webshare MCP",
+    "slug": "webshare-mcp",
+    "description": "Access and manage Webshare's residential and datacenter proxy pool for web requests.",
+    "category": "browser-automation",
+    "tags": [
+      "proxy",
+      "residential",
+      "datacenter",
+      "webshare"
+    ],
+    "author": "webshare-io",
+    "repo": "https://github.com/webshare-io/webshare-mcp",
+    "featured": false,
+    "useCase": "Proxies",
+    "platform": "Cloud",
+    "source": "webshare-io",
+    "installation": "Set WEBSHARE_API_KEY; configure proxy type and rotation settings.",
+    "useCases": [
+      "Proxy rotation",
+      "Geo-targeted requests",
+      "IP management"
+    ]
+  },
+  {
+    "id": "pagespeed-mcp",
+    "name": "PageSpeed Insights MCP",
+    "slug": "pagespeed-mcp",
+    "description": "Run Google PageSpeed Insights audits and get Core Web Vitals scores for any URL.",
+    "category": "browser-automation",
+    "tags": [
+      "performance",
+      "pagespeed",
+      "web-vitals",
+      "seo"
+    ],
+    "author": "google",
+    "repo": "https://github.com/googlechrome/pagespeed-mcp",
+    "featured": false,
+    "useCase": "Performance",
+    "platform": "API",
+    "source": "googlechrome",
+    "installation": "Set GOOGLE_API_KEY with PageSpeed Insights API enabled.",
+    "useCases": [
+      "Performance scoring",
+      "Core Web Vitals",
+      "SEO audits"
+    ]
+  },
+  {
+    "id": "httpie-mcp",
+    "name": "HTTPie MCP",
+    "slug": "httpie-mcp",
+    "description": "Human-friendly HTTP client for testing APIs with HTTPie's intuitive CLI syntax.",
+    "category": "browser-automation",
+    "tags": [
+      "http",
+      "api-testing",
+      "httpie",
+      "cli"
+    ],
+    "author": "httpie",
+    "repo": "https://github.com/httpie/httpie-mcp",
+    "featured": false,
+    "useCase": "API Testing",
+    "platform": "CLI",
+    "source": "httpie",
+    "installation": "Install httpie; server wraps http CLI commands for structured output.",
+    "useCases": [
+      "API testing",
+      "Request inspection",
+      "Auth header handling"
+    ]
+  },
+  {
+    "id": "minio-mcp",
+    "name": "MinIO MCP",
+    "slug": "minio-mcp",
+    "description": "S3-compatible object storage on self-hosted MinIO clusters.",
+    "category": "file-systems-storage",
+    "tags": [
+      "s3",
+      "minio",
+      "object-storage",
+      "self-hosted"
+    ],
+    "author": "minio",
+    "repo": "https://github.com/minio/minio-mcp",
+    "featured": false,
+    "useCase": "Storage",
+    "platform": "Self-hosted",
+    "source": "minio",
+    "installation": "Set MINIO_ENDPOINT, MINIO_ACCESS_KEY, and MINIO_SECRET_KEY.",
+    "useCases": [
+      "Object upload",
+      "Bucket management",
+      "Presigned URLs"
+    ]
+  },
+  {
+    "id": "ftp-mcp",
+    "name": "FTP MCP",
+    "slug": "ftp-mcp",
+    "description": "Transfer files via FTP/SFTP with support for passive mode and directory traversal.",
+    "category": "file-systems-storage",
+    "tags": [
+      "ftp",
+      "sftp",
+      "file-transfer",
+      "legacy"
+    ],
+    "author": "community",
+    "repo": "https://github.com/modelcontextprotocol/servers",
+    "featured": false,
+    "useCase": "File Transfer",
+    "platform": "Self-hosted",
+    "source": "community",
+    "installation": "Configure FTP host, user, and password; supports active and passive mode.",
+    "useCases": [
+      "File upload",
+      "Directory listing",
+      "File download"
+    ]
+  },
+  {
+    "id": "icloud-mcp",
+    "name": "iCloud MCP",
+    "slug": "icloud-mcp",
+    "description": "Access iCloud Drive files and documents via the iCloud API for Apple ecosystem workflows.",
+    "category": "file-systems-storage",
+    "tags": [
+      "icloud",
+      "apple",
+      "cloud-storage",
+      "macos"
+    ],
+    "author": "community",
+    "repo": "https://github.com/picklepilot/icloud-mcp",
+    "featured": false,
+    "useCase": "Storage",
+    "platform": "Cloud",
+    "source": "picklepilot",
+    "installation": "Configure iCloud credentials; requires Apple ID with 2FA app-specific password.",
+    "useCases": [
+      "File access",
+      "Photo library",
+      "Document sync"
+    ]
+  },
+  {
+    "id": "synology-mcp",
+    "name": "Synology NAS MCP",
+    "slug": "synology-mcp",
+    "description": "Access and manage files on Synology NAS devices via the DSM File Station API.",
+    "category": "file-systems-storage",
+    "tags": [
+      "synology",
+      "nas",
+      "self-hosted",
+      "storage"
+    ],
+    "author": "synology",
+    "repo": "https://github.com/synology/synology-mcp",
+    "featured": false,
+    "useCase": "Storage",
+    "platform": "Self-hosted",
+    "source": "synology",
+    "installation": "Set SYNOLOGY_HOST, SYNOLOGY_USER, and SYNOLOGY_PASSWORD; requires DSM 7+.",
+    "useCases": [
+      "File browsing",
+      "Download station",
+      "NAS management"
+    ]
+  },
+  {
+    "id": "restic-mcp",
+    "name": "Restic MCP",
+    "slug": "restic-mcp",
+    "description": "Manage encrypted, deduplicated backups with Restic across multiple storage backends.",
+    "category": "file-systems-storage",
+    "tags": [
+      "backup",
+      "encryption",
+      "restic",
+      "deduplication"
+    ],
+    "author": "restic",
+    "repo": "https://github.com/restic/restic-mcp",
+    "featured": false,
+    "useCase": "Backup",
+    "platform": "CLI",
+    "source": "restic",
+    "installation": "Install restic; configure repository URL and password via env.",
+    "useCases": [
+      "Backup creation",
+      "Snapshot browsing",
+      "Restore operations"
+    ]
+  },
+  {
+    "id": "rclone-mcp",
+    "name": "Rclone MCP",
+    "slug": "rclone-mcp",
+    "description": "Sync and manage files across 70+ cloud storage providers using Rclone.",
+    "category": "file-systems-storage",
+    "tags": [
+      "sync",
+      "rclone",
+      "multi-cloud",
+      "backup"
+    ],
+    "author": "rclone",
+    "repo": "https://github.com/rclone/rclone-mcp",
+    "featured": true,
+    "useCase": "File Sync",
+    "platform": "CLI",
+    "source": "rclone",
+    "installation": "Install rclone; configure remotes in ~/.config/rclone/rclone.conf.",
+    "useCases": [
+      "Multi-cloud sync",
+      "Backup automation",
+      "Storage migration"
+    ]
+  },
+  {
+    "id": "pcloud-mcp",
+    "name": "pCloud MCP",
+    "slug": "pcloud-mcp",
+    "description": "Access and sync files in pCloud's zero-knowledge encrypted cloud storage.",
+    "category": "file-systems-storage",
+    "tags": [
+      "pcloud",
+      "privacy",
+      "encrypted",
+      "cloud-storage"
+    ],
+    "author": "pcloud",
+    "repo": "https://github.com/pcloud/pcloud-mcp",
+    "featured": false,
+    "useCase": "Storage",
+    "platform": "Cloud",
+    "source": "pcloud",
+    "installation": "Set PCLOUD_ACCESS_TOKEN from OAuth2 flow or API console.",
+    "useCases": [
+      "Encrypted file storage",
+      "File sharing",
+      "Folder management"
+    ]
+  },
+  {
+    "id": "mega-mcp",
+    "name": "MEGA MCP",
+    "slug": "mega-mcp",
+    "description": "End-to-end encrypted file storage and sharing on MEGA's privacy-first cloud platform.",
+    "category": "file-systems-storage",
+    "tags": [
+      "mega",
+      "encrypted",
+      "privacy",
+      "cloud-storage"
+    ],
+    "author": "meganz",
+    "repo": "https://github.com/meganz/mega-mcp",
+    "featured": false,
+    "useCase": "Storage",
+    "platform": "Cloud",
+    "source": "meganz",
+    "installation": "Set MEGA_EMAIL and MEGA_PASSWORD; uses client-side encryption.",
+    "useCases": [
+      "Encrypted uploads",
+      "File sharing",
+      "Folder browsing"
+    ]
+  },
+  {
+    "id": "spaces-mcp",
+    "name": "DigitalOcean Spaces MCP",
+    "slug": "spaces-mcp",
+    "description": "S3-compatible object storage on DigitalOcean Spaces CDN-backed infrastructure.",
+    "category": "file-systems-storage",
+    "tags": [
+      "digitalocean",
+      "spaces",
+      "cdn",
+      "s3-compatible"
+    ],
+    "author": "digitalocean",
+    "repo": "https://github.com/digitalocean/spaces-mcp",
+    "featured": false,
+    "useCase": "Storage",
+    "platform": "Cloud",
+    "source": "digitalocean",
+    "installation": "Set DO_SPACES_KEY, DO_SPACES_SECRET, and DO_SPACES_REGION.",
+    "useCases": [
+      "Object storage",
+      "CDN delivery",
+      "Static site hosting"
+    ]
+  },
+  {
+    "id": "linode-object-mcp",
+    "name": "Linode Object Storage MCP",
+    "slug": "linode-object-mcp",
+    "description": "S3-compatible object storage on Linode (Akamai) infrastructure.",
+    "category": "file-systems-storage",
+    "tags": [
+      "linode",
+      "s3-compatible",
+      "object-storage",
+      "akamai"
+    ],
+    "author": "linode",
+    "repo": "https://github.com/linode/linode-object-mcp",
+    "featured": false,
+    "useCase": "Storage",
+    "platform": "Cloud",
+    "source": "linode",
+    "installation": "Set LINODE_ACCESS_KEY and LINODE_SECRET_KEY; configure region cluster.",
+    "useCases": [
+      "Object storage",
+      "Bucket management",
+      "Static assets"
+    ]
+  },
+  {
+    "id": "storj-mcp",
+    "name": "Storj MCP",
+    "slug": "storj-mcp",
+    "description": "Decentralized cloud object storage on Storj's distributed network.",
+    "category": "file-systems-storage",
+    "tags": [
+      "decentralized",
+      "storj",
+      "object-storage",
+      "privacy"
+    ],
+    "author": "storj",
+    "repo": "https://github.com/storj/storj-mcp",
+    "featured": false,
+    "useCase": "Storage",
+    "platform": "Cloud",
+    "source": "storj",
+    "installation": "Set STORJ_ACCESS_GRANT; configure bucket and endpoint region.",
+    "useCases": [
+      "Decentralized storage",
+      "File backup",
+      "Privacy-first hosting"
+    ]
+  },
+  {
+    "id": "seafile-mcp",
+    "name": "Seafile MCP",
+    "slug": "seafile-mcp",
+    "description": "Self-hosted file sync and collaboration on Seafile with library versioning.",
+    "category": "file-systems-storage",
+    "tags": [
+      "seafile",
+      "self-hosted",
+      "sync",
+      "collaboration"
+    ],
+    "author": "haiwen",
+    "repo": "https://github.com/haiwen/seafile-mcp",
+    "featured": false,
+    "useCase": "Storage",
+    "platform": "Self-hosted",
+    "source": "haiwen",
+    "installation": "Set SEAFILE_URL and SEAFILE_TOKEN from Seafile Web API settings.",
+    "useCases": [
+      "File sync",
+      "Library management",
+      "Team collaboration"
+    ]
+  },
+  {
+    "id": "exa-mcp",
+    "name": "Exa AI MCP",
+    "slug": "exa-mcp",
+    "description": "Neural search with neural embeddings \u2014 find the most relevant web content for any query.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "search",
+      "neural",
+      "exa",
+      "semantic"
+    ],
+    "author": "exa-labs",
+    "repo": "https://github.com/exa-labs/exa-mcp-server",
+    "featured": false,
+    "useCase": "AI",
+    "platform": "API",
+    "source": "exa-labs",
+    "installation": "Set EXA_API_KEY; use neural or keyword search modes.",
+    "useCases": [
+      "Semantic web search",
+      "Research",
+      "Content discovery"
+    ]
+  },
+  {
+    "id": "you-com-mcp",
+    "name": "You.com MCP",
+    "slug": "you-com-mcp",
+    "description": "AI search and coding assistant API with chat, search, and code interfaces from You.com.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "search",
+      "coding",
+      "you-com",
+      "ai"
+    ],
+    "author": "youcom",
+    "repo": "https://github.com/youcom/you-mcp",
+    "featured": false,
+    "useCase": "AI",
+    "platform": "API",
+    "source": "youcom",
+    "installation": "Set YOU_API_KEY from You.com developer portal.",
+    "useCases": [
+      "AI-powered search",
+      "Code assistance",
+      "Research summaries"
+    ]
+  },
+  {
+    "id": "chroma-mcp",
+    "name": "Chroma MCP",
+    "slug": "chroma-mcp",
+    "description": "Open-source embedding database for LLM apps \u2014 persistent and in-memory modes.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "vector-db",
+      "chroma",
+      "open-source",
+      "embeddings"
+    ],
+    "author": "chroma-core",
+    "repo": "https://github.com/chroma-core/chroma-mcp",
+    "featured": true,
+    "useCase": "Vector Search",
+    "platform": "Self-hosted",
+    "source": "chroma-core",
+    "installation": "Install chromadb; configure client mode (HTTP or in-process).",
+    "useCases": [
+      "Document retrieval",
+      "RAG indexing",
+      "Embedding management"
+    ]
+  },
+  {
+    "id": "coze-mcp",
+    "name": "Coze MCP",
+    "slug": "coze-mcp",
+    "description": "Orchestrate Coze's AI bots, workflows, and knowledge bases via the Coze API.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "coze",
+      "bots",
+      "workflows",
+      "bytedance"
+    ],
+    "author": "coze-dev",
+    "repo": "https://github.com/coze-dev/coze-mcp",
+    "featured": false,
+    "useCase": "AI",
+    "platform": "Cloud",
+    "source": "coze-dev",
+    "installation": "Set COZE_ACCESS_TOKEN from Coze Open Platform settings.",
+    "useCases": [
+      "Bot orchestration",
+      "Knowledge retrieval",
+      "Workflow execution"
+    ]
+  },
+  {
+    "id": "dify-mcp",
+    "name": "Dify MCP",
+    "slug": "dify-mcp",
+    "description": "Build and invoke LLM apps, chatbots, and agents in Dify's open-source LLM platform.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "dify",
+      "llm-apps",
+      "open-source",
+      "workflows"
+    ],
+    "author": "langgenius",
+    "repo": "https://github.com/langgenius/dify-mcp",
+    "featured": false,
+    "useCase": "AI",
+    "platform": "Self-hosted",
+    "source": "langgenius",
+    "installation": "Set DIFY_API_KEY and DIFY_BASE_URL; configure app IDs.",
+    "useCases": [
+      "App invocation",
+      "Chatbot integration",
+      "Knowledge dataset queries"
+    ]
+  },
+  {
+    "id": "flowise-mcp",
+    "name": "Flowise MCP",
+    "slug": "flowise-mcp",
+    "description": "Invoke Flowise AI flows and chatflows with custom inputs via the Prediction API.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "flowise",
+      "no-code",
+      "ai",
+      "chatflows"
+    ],
+    "author": "FlowiseAI",
+    "repo": "https://github.com/FlowiseAI/Flowise-mcp",
+    "featured": false,
+    "useCase": "AI",
+    "platform": "Self-hosted",
+    "source": "FlowiseAI",
+    "installation": "Set FLOWISE_BASE_URL and optional FLOWISE_API_KEY; reference chatflow IDs.",
+    "useCases": [
+      "Chatflow invocation",
+      "RAG pipelines",
+      "Custom AI apps"
+    ]
+  },
+  {
+    "id": "nvidia-nim-mcp",
+    "name": "NVIDIA NIM MCP",
+    "slug": "nvidia-nim-mcp",
+    "description": "Run NVIDIA NIM microservices for optimized LLM, vision, and speech inference.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "nvidia",
+      "nim",
+      "inference",
+      "gpu"
+    ],
+    "author": "nvidia",
+    "repo": "https://github.com/nvidia/nim-mcp",
+    "featured": false,
+    "useCase": "AI",
+    "platform": "Cloud",
+    "source": "nvidia",
+    "installation": "Set NVIDIA_API_KEY from build.nvidia.com; select model endpoint.",
+    "useCases": [
+      "LLM inference",
+      "Vision models",
+      "Speech-to-text"
+    ]
+  },
+  {
+    "id": "cerebras-mcp",
+    "name": "Cerebras MCP",
+    "slug": "cerebras-mcp",
+    "description": "Ultra-fast inference on Cerebras Wafer-Scale Engine chips for LLMs.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "inference",
+      "cerebras",
+      "wse",
+      "speed"
+    ],
+    "author": "cerebras",
+    "repo": "https://github.com/cerebras/cerebras-mcp",
+    "featured": false,
+    "useCase": "AI",
+    "platform": "Cloud",
+    "source": "cerebras",
+    "installation": "Set CEREBRAS_API_KEY; select model (llama3.1-8b, llama3.1-70b).",
+    "useCases": [
+      "High-speed LLM",
+      "Low-latency inference",
+      "Batch generation"
+    ]
+  },
+  {
+    "id": "fireworks-mcp",
+    "name": "Fireworks AI MCP",
+    "slug": "fireworks-mcp",
+    "description": "Fastest open-source model inference with function calling on Fireworks AI.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "inference",
+      "fireworks",
+      "function-calling",
+      "speed"
+    ],
+    "author": "fw-ai",
+    "repo": "https://github.com/fw-ai/fireworks-mcp",
+    "featured": false,
+    "useCase": "AI",
+    "platform": "Cloud",
+    "source": "fw-ai",
+    "installation": "Set FIREWORKS_API_KEY; use OpenAI-compatible endpoints.",
+    "useCases": [
+      "Open model inference",
+      "Function calling",
+      "JSON mode"
+    ]
+  },
+  {
+    "id": "runway-mcp",
+    "name": "Runway MCP",
+    "slug": "runway-mcp",
+    "description": "Generate and edit videos with AI using Runway's Gen-3 and other video models.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "video",
+      "generation",
+      "runway",
+      "ai"
+    ],
+    "author": "runwayml",
+    "repo": "https://github.com/runwayml/runway-mcp",
+    "featured": false,
+    "useCase": "AI",
+    "platform": "API",
+    "source": "runwayml",
+    "installation": "Set RUNWAY_API_SECRET; configure model version and asset URLs.",
+    "useCases": [
+      "Video generation",
+      "Video editing",
+      "Image animation"
+    ]
+  },
+  {
+    "id": "turbo-mcp",
+    "name": "Turborepo MCP",
+    "slug": "turbo-mcp",
+    "description": "Manage and run Turborepo pipelines in monorepos with caching and task orchestration.",
+    "category": "development-tools",
+    "tags": [
+      "monorepo",
+      "turborepo",
+      "build",
+      "caching"
+    ],
+    "author": "vercel",
+    "repo": "https://github.com/vercel/turbo-mcp",
+    "featured": false,
+    "useCase": "Build",
+    "platform": "CLI",
+    "source": "vercel",
+    "installation": "Install turbo; configure turbo.json pipeline in your monorepo root.",
+    "useCases": [
+      "Task caching",
+      "Pipeline execution",
+      "Workspace management"
+    ]
+  },
+  {
+    "id": "nx-mcp",
+    "name": "Nx MCP",
+    "slug": "nx-mcp",
+    "description": "Build, test, and generate code in Nx monorepos with smart task execution and caching.",
+    "category": "development-tools",
+    "tags": [
+      "monorepo",
+      "nx",
+      "build",
+      "generators"
+    ],
+    "author": "nrwl",
+    "repo": "https://github.com/nrwl/nx-mcp",
+    "featured": false,
+    "useCase": "Build",
+    "platform": "CLI",
+    "source": "nrwl",
+    "installation": "Install @nx/cli; configure nx.json with task runner settings.",
+    "useCases": [
+      "Task running",
+      "Code generation",
+      "Cache management"
+    ]
+  },
+  {
+    "id": "moon-mcp",
+    "name": "moon MCP",
+    "slug": "moon-mcp",
+    "description": "Task runner and monorepo management tool for Node.js, Rust, and Deno projects.",
+    "category": "development-tools",
+    "tags": [
+      "monorepo",
+      "task-runner",
+      "moon",
+      "rust"
+    ],
+    "author": "moonrepo",
+    "repo": "https://github.com/moonrepo/moon-mcp",
+    "featured": false,
+    "useCase": "Build",
+    "platform": "CLI",
+    "source": "moonrepo",
+    "installation": "Install moon binary; configure .moon/workspace.yml.",
+    "useCases": [
+      "Task execution",
+      "Monorepo management",
+      "Dependency graph"
+    ]
+  },
+  {
+    "id": "lefthook-mcp",
+    "name": "Lefthook MCP",
+    "slug": "lefthook-mcp",
+    "description": "Git hooks manager for running tests, linters, and formatters on commit/push.",
+    "category": "development-tools",
+    "tags": [
+      "git-hooks",
+      "linting",
+      "testing",
+      "lefthook"
+    ],
+    "author": "evilmartians",
+    "repo": "https://github.com/evilmartians/lefthook-mcp",
+    "featured": false,
+    "useCase": "Code Quality",
+    "platform": "CLI",
+    "source": "evilmartians",
+    "installation": "Install lefthook binary; configure lefthook.yml in repo root.",
+    "useCases": [
+      "Pre-commit hooks",
+      "Pre-push validation",
+      "Parallel task execution"
+    ]
+  },
+  {
+    "id": "pre-commit-mcp",
+    "name": "pre-commit MCP",
+    "slug": "pre-commit-mcp",
+    "description": "Manage and run pre-commit hooks for code quality gates across any language.",
+    "category": "development-tools",
+    "tags": [
+      "git-hooks",
+      "pre-commit",
+      "code-quality",
+      "automation"
+    ],
+    "author": "pre-commit",
+    "repo": "https://github.com/pre-commit/pre-commit-mcp",
+    "featured": false,
+    "useCase": "Code Quality",
+    "platform": "CLI",
+    "source": "pre-commit",
+    "installation": "Install pre-commit; configure .pre-commit-config.yaml in repo.",
+    "useCases": [
+      "Hook management",
+      "Multi-language linting",
+      "Secret scanning"
+    ]
+  },
+  {
+    "id": "buf-mcp",
+    "name": "Buf MCP",
+    "slug": "buf-mcp",
+    "description": "Build, lint, and generate code from Protocol Buffer schemas using the Buf CLI.",
+    "category": "development-tools",
+    "tags": [
+      "protobuf",
+      "grpc",
+      "buf",
+      "schema"
+    ],
+    "author": "bufbuild",
+    "repo": "https://github.com/bufbuild/buf-mcp",
+    "featured": false,
+    "useCase": "API Design",
+    "platform": "CLI",
+    "source": "bufbuild",
+    "installation": "Install buf CLI; configure buf.yaml and buf.gen.yaml in your project.",
+    "useCases": [
+      "Protobuf linting",
+      "Code generation",
+      "Breaking change detection"
+    ]
+  },
+  {
+    "id": "mockoon-mcp",
+    "name": "Mockoon MCP",
+    "slug": "mockoon-mcp",
+    "description": "Mock REST APIs locally with Mockoon \u2014 define routes, responses, and middleware.",
+    "category": "development-tools",
+    "tags": [
+      "mocking",
+      "rest",
+      "api-testing",
+      "mockoon"
+    ],
+    "author": "mockoon",
+    "repo": "https://github.com/mockoon/mockoon-mcp",
+    "featured": false,
+    "useCase": "API Testing",
+    "platform": "CLI",
+    "source": "mockoon",
+    "installation": "Install Mockoon CLI; load environment files via CLI or GUI.",
+    "useCases": [
+      "API mocking",
+      "Development testing",
+      "Response simulation"
+    ]
+  },
+  {
+    "id": "msw-mcp",
+    "name": "Mock Service Worker MCP",
+    "slug": "msw-mcp",
+    "description": "Intercept and mock API requests in browser and Node.js environments with MSW.",
+    "category": "development-tools",
+    "tags": [
+      "mocking",
+      "msw",
+      "api-testing",
+      "service-worker"
+    ],
+    "author": "mswjs",
+    "repo": "https://github.com/mswjs/msw-mcp",
+    "featured": false,
+    "useCase": "Testing",
+    "platform": "CLI",
+    "source": "mswjs",
+    "installation": "Install msw; configure browser/Node handler setup.",
+    "useCases": [
+      "Request interception",
+      "API mocking",
+      "Integration testing"
+    ]
+  },
+  {
+    "id": "docusaurus-mcp",
+    "name": "Docusaurus MCP",
+    "slug": "docusaurus-mcp",
+    "description": "Build, preview, and deploy Docusaurus documentation sites via the CLI and API.",
+    "category": "development-tools",
+    "tags": [
+      "documentation",
+      "docusaurus",
+      "static-site",
+      "react"
+    ],
+    "author": "facebook",
+    "repo": "https://github.com/facebook/docusaurus-mcp",
+    "featured": false,
+    "useCase": "Documentation",
+    "platform": "CLI",
+    "source": "facebook",
+    "installation": "Install @docusaurus/core; server wraps build and serve commands.",
+    "useCases": [
+      "Docs site building",
+      "Search index generation",
+      "Plugin management"
+    ]
+  },
+  {
+    "id": "mintlify-mcp",
+    "name": "Mintlify MCP",
+    "slug": "mintlify-mcp",
+    "description": "Create and deploy beautiful developer documentation with Mintlify's docs platform.",
+    "category": "development-tools",
+    "tags": [
+      "documentation",
+      "mintlify",
+      "developer-docs",
+      "api"
+    ],
+    "author": "mintlify",
+    "repo": "https://github.com/mintlify/mintlify-mcp",
+    "featured": false,
+    "useCase": "Documentation",
+    "platform": "Cloud",
+    "source": "mintlify",
+    "installation": "Set MINTLIFY_API_KEY; configure docs project name and domain.",
+    "useCases": [
+      "Docs publishing",
+      "API reference generation",
+      "Content management"
+    ]
+  },
+  {
+    "id": "readme-mcp",
+    "name": "ReadMe MCP",
+    "slug": "readme-mcp",
+    "description": "Manage API documentation, guides, and changelogs on ReadMe's developer hub.",
+    "category": "development-tools",
+    "tags": [
+      "documentation",
+      "readme",
+      "api-docs",
+      "developer-hub"
+    ],
+    "author": "readmeio",
+    "repo": "https://github.com/readmeio/readme-mcp",
+    "featured": false,
+    "useCase": "Documentation",
+    "platform": "Cloud",
+    "source": "readmeio",
+    "installation": "Set README_API_KEY and README_VERSION from your ReadMe project settings.",
+    "useCases": [
+      "API docs sync",
+      "Guide management",
+      "Changelog publishing"
+    ]
+  },
+  {
+    "id": "allure-mcp",
+    "name": "Allure Report MCP",
+    "slug": "allure-mcp",
+    "description": "Generate and publish Allure test reports from any test framework output.",
+    "category": "development-tools",
+    "tags": [
+      "testing",
+      "reporting",
+      "allure",
+      "ci-cd"
+    ],
+    "author": "allure-framework",
+    "repo": "https://github.com/allure-framework/allure-mcp",
+    "featured": false,
+    "useCase": "Testing",
+    "platform": "CLI",
+    "source": "allure-framework",
+    "installation": "Install allure CLI; configure results directory from your test framework.",
+    "useCases": [
+      "Test report generation",
+      "Trend analysis",
+      "CI reporting"
+    ]
+  },
+  {
+    "id": "lighthouse-mcp",
+    "name": "Lighthouse MCP",
+    "slug": "lighthouse-mcp",
+    "description": "Run automated Lighthouse audits for performance, accessibility, SEO, and best practices.",
+    "category": "development-tools",
+    "tags": [
+      "lighthouse",
+      "performance",
+      "accessibility",
+      "seo"
+    ],
+    "author": "googlechrome",
+    "repo": "https://github.com/googlechrome/lighthouse-mcp",
+    "featured": false,
+    "useCase": "Performance",
+    "platform": "CLI",
+    "source": "googlechrome",
+    "installation": "Install lighthouse CLI; run audits against local or remote URLs.",
+    "useCases": [
+      "Performance auditing",
+      "Accessibility checks",
+      "SEO scoring"
+    ]
+  },
+  {
+    "id": "percy-mcp",
+    "name": "Percy MCP",
+    "slug": "percy-mcp",
+    "description": "Visual regression testing with pixel-perfect screenshot comparisons via Percy.",
+    "category": "development-tools",
+    "tags": [
+      "visual-testing",
+      "percy",
+      "screenshots",
+      "regression"
+    ],
+    "author": "percy",
+    "repo": "https://github.com/percy/percy-mcp",
+    "featured": false,
+    "useCase": "Testing",
+    "platform": "Cloud",
+    "source": "percy",
+    "installation": "Set PERCY_TOKEN; integrate with Playwright, Cypress, or Selenium.",
+    "useCases": [
+      "Visual snapshot",
+      "Diff review",
+      "Baseline management"
+    ]
+  },
+  {
+    "id": "redash-mcp",
+    "name": "Redash MCP",
+    "slug": "redash-mcp",
+    "description": "Run Redash queries and access dashboards via the Redash REST API.",
+    "category": "data-analysis",
+    "tags": [
+      "bi",
+      "redash",
+      "sql",
+      "dashboards"
+    ],
+    "author": "redash",
+    "repo": "https://github.com/redash/redash-mcp",
+    "featured": false,
+    "useCase": "BI",
+    "platform": "Self-hosted",
+    "source": "redash",
+    "installation": "Set REDASH_URL and REDASH_API_KEY from user profile settings.",
+    "useCases": [
+      "Query execution",
+      "Dashboard data",
+      "Visualization access"
+    ]
+  },
+  {
+    "id": "grafana-mcp",
+    "name": "Grafana MCP",
+    "slug": "grafana-mcp",
+    "description": "Query Grafana dashboards, panels, and data sources via the Grafana HTTP API.",
+    "category": "data-analysis",
+    "tags": [
+      "grafana",
+      "dashboards",
+      "monitoring",
+      "metrics"
+    ],
+    "author": "grafana",
+    "repo": "https://github.com/grafana/grafana-mcp",
+    "featured": true,
+    "useCase": "Monitoring",
+    "platform": "Self-hosted",
+    "source": "grafana",
+    "installation": "Set GRAFANA_URL and GRAFANA_API_KEY (service account token).",
+    "useCases": [
+      "Dashboard querying",
+      "Panel data extraction",
+      "Alert management"
+    ]
+  },
+  {
+    "id": "evidence-mcp",
+    "name": "Evidence MCP",
+    "slug": "evidence-mcp",
+    "description": "Build data-driven reports and apps with Evidence's SQL + Markdown framework.",
+    "category": "data-analysis",
+    "tags": [
+      "reporting",
+      "sql",
+      "markdown",
+      "evidence"
+    ],
+    "author": "evidence-dev",
+    "repo": "https://github.com/evidence-dev/evidence-mcp",
+    "featured": false,
+    "useCase": "Reporting",
+    "platform": "CLI",
+    "source": "evidence-dev",
+    "installation": "Install @evidence-dev/evidence; configure data sources in evidence.plugins.yaml.",
+    "useCases": [
+      "SQL reports",
+      "Interactive charts",
+      "Automated publishing"
+    ]
+  },
+  {
+    "id": "observable-mcp",
+    "name": "Observable MCP",
+    "slug": "observable-mcp",
+    "description": "Create and update Observable notebooks and Framework apps with live data.",
+    "category": "data-analysis",
+    "tags": [
+      "notebooks",
+      "visualization",
+      "observable",
+      "d3"
+    ],
+    "author": "observablehq",
+    "repo": "https://github.com/observablehq/observable-mcp",
+    "featured": false,
+    "useCase": "Data Visualization",
+    "platform": "Cloud",
+    "source": "observablehq",
+    "installation": "Set OBSERVABLE_API_KEY from your workspace settings.",
+    "useCases": [
+      "Notebook creation",
+      "Chart generation",
+      "Data app deployment"
+    ]
+  },
+  {
+    "id": "cube-mcp",
+    "name": "Cube MCP",
+    "slug": "cube-mcp",
+    "description": "Query semantic data models and build metrics APIs with Cube's headless BI layer.",
+    "category": "data-analysis",
+    "tags": [
+      "headless-bi",
+      "metrics",
+      "cube",
+      "semantic-layer"
+    ],
+    "author": "cube-js",
+    "repo": "https://github.com/cube-js/cube-mcp",
+    "featured": false,
+    "useCase": "BI",
+    "platform": "Self-hosted",
+    "source": "cube-js",
+    "installation": "Deploy Cube; set CUBE_REST_API_URL and CUBE_TOKEN.",
+    "useCases": [
+      "Metric queries",
+      "Dimension filtering",
+      "Pre-aggregation access"
+    ]
+  },
+  {
+    "id": "feast-mcp",
+    "name": "Feast MCP",
+    "slug": "feast-mcp",
+    "description": "Serve and retrieve ML features from Feast feature store for training and inference.",
+    "category": "data-analysis",
+    "tags": [
+      "feature-store",
+      "feast",
+      "mlops",
+      "features"
+    ],
+    "author": "feast-dev",
+    "repo": "https://github.com/feast-dev/feast-mcp",
+    "featured": false,
+    "useCase": "MLOps",
+    "platform": "Self-hosted",
+    "source": "feast-dev",
+    "installation": "Configure Feast feature_store.yaml; set registry and offline/online store backends.",
+    "useCases": [
+      "Feature retrieval",
+      "Feature set management",
+      "Training data generation"
+    ]
+  },
+  {
+    "id": "tecton-mcp",
+    "name": "Tecton MCP",
+    "slug": "tecton-mcp",
+    "description": "Real-time and batch feature serving from Tecton's enterprise feature platform.",
+    "category": "data-analysis",
+    "tags": [
+      "feature-store",
+      "tecton",
+      "mlops",
+      "real-time"
+    ],
+    "author": "tecton-ai",
+    "repo": "https://github.com/tecton-ai/tecton-mcp",
+    "featured": false,
+    "useCase": "MLOps",
+    "platform": "Cloud",
+    "source": "tecton-ai",
+    "installation": "Set TECTON_API_KEY and TECTON_CLUSTER_URL.",
+    "useCases": [
+      "Online feature serving",
+      "Historical backfill",
+      "Feature discovery"
+    ]
+  },
+  {
+    "id": "streamlit-mcp",
+    "name": "Streamlit MCP",
+    "slug": "streamlit-mcp",
+    "description": "Programmatically create and update Streamlit data apps and deploy to Streamlit Cloud.",
+    "category": "data-analysis",
+    "tags": [
+      "streamlit",
+      "data-apps",
+      "python",
+      "dashboards"
+    ],
+    "author": "streamlit",
+    "repo": "https://github.com/streamlit/streamlit-mcp",
+    "featured": false,
+    "useCase": "Data Apps",
+    "platform": "Cloud",
+    "source": "streamlit",
+    "installation": "Set STREAMLIT_API_KEY; reference app URLs and workspace IDs.",
+    "useCases": [
+      "App deployment",
+      "Script management",
+      "Analytics dashboards"
+    ]
+  },
+  {
+    "id": "redshift-mcp",
+    "name": "Amazon Redshift MCP",
+    "slug": "redshift-mcp",
+    "description": "Query and manage Amazon Redshift clusters via the AWS Redshift Data API.",
+    "category": "data-analysis",
+    "tags": [
+      "redshift",
+      "aws",
+      "sql",
+      "analytics"
+    ],
+    "author": "aws",
+    "repo": "https://github.com/aws/redshift-mcp",
+    "featured": false,
+    "useCase": "Analytics",
+    "platform": "Cloud",
+    "source": "aws",
+    "installation": "Configure AWS credentials; set REDSHIFT_CLUSTER_ID, DATABASE, and DB_USER.",
+    "useCases": [
+      "SQL analytics",
+      "COPY commands",
+      "Spectrum queries"
+    ]
+  },
+  {
+    "id": "shodan-mcp",
+    "name": "Shodan MCP",
+    "slug": "shodan-mcp",
+    "description": "Search internet-connected devices, open ports, and vulnerabilities via Shodan's API.",
+    "category": "web-search-research",
+    "tags": [
+      "shodan",
+      "security",
+      "iot",
+      "reconnaissance"
+    ],
+    "author": "shodan",
+    "repo": "https://github.com/shodan/shodan-mcp",
+    "featured": false,
+    "useCase": "Security Research",
+    "platform": "API",
+    "source": "shodan",
+    "installation": "Set SHODAN_API_KEY from your Shodan account.",
+    "useCases": [
+      "Device discovery",
+      "Port scanning results",
+      "CVE lookup"
+    ]
+  },
+  {
+    "id": "censys-mcp",
+    "name": "Censys MCP",
+    "slug": "censys-mcp",
+    "description": "Discover internet-facing assets and certificates via Censys's internet scan database.",
+    "category": "web-search-research",
+    "tags": [
+      "security",
+      "certificates",
+      "censys",
+      "attack-surface"
+    ],
+    "author": "censys",
+    "repo": "https://github.com/censys/censys-mcp",
+    "featured": false,
+    "useCase": "Security Research",
+    "platform": "API",
+    "source": "censys",
+    "installation": "Set CENSYS_API_ID and CENSYS_API_SECRET from Censys account.",
+    "useCases": [
+      "Asset discovery",
+      "TLS certificate search",
+      "Attack surface mapping"
+    ]
+  },
+  {
+    "id": "virustotal-mcp",
+    "name": "VirusTotal MCP",
+    "slug": "virustotal-mcp",
+    "description": "Scan URLs, files, IPs, and domains for malware using VirusTotal's 70+ AV engine API.",
+    "category": "web-search-research",
+    "tags": [
+      "security",
+      "malware",
+      "virustotal",
+      "threat-intel"
+    ],
+    "author": "VirusTotal",
+    "repo": "https://github.com/VirusTotal/virustotal-mcp",
+    "featured": false,
+    "useCase": "Security",
+    "platform": "API",
+    "source": "VirusTotal",
+    "installation": "Set VIRUSTOTAL_API_KEY from VirusTotal account (free tier available).",
+    "useCases": [
+      "URL scanning",
+      "File hash lookup",
+      "IP reputation"
+    ]
+  },
+  {
+    "id": "hunter-io-mcp",
+    "name": "Hunter.io MCP",
+    "slug": "hunter-io-mcp",
+    "description": "Find and verify professional email addresses for any domain via Hunter.io.",
+    "category": "web-search-research",
+    "tags": [
+      "email",
+      "hunter",
+      "lead-gen",
+      "verification"
+    ],
+    "author": "hunter-io",
+    "repo": "https://github.com/hunter-io/hunter-mcp",
+    "featured": false,
+    "useCase": "Lead Generation",
+    "platform": "API",
+    "source": "hunter-io",
+    "installation": "Set HUNTER_API_KEY from your Hunter.io account.",
+    "useCases": [
+      "Email discovery",
+      "Domain search",
+      "Email verification"
+    ]
+  },
+  {
+    "id": "clearbit-mcp",
+    "name": "Clearbit MCP",
+    "slug": "clearbit-mcp",
+    "description": "Enrich leads with company and person data from Clearbit's B2B data platform.",
+    "category": "web-search-research",
+    "tags": [
+      "enrichment",
+      "b2b",
+      "clearbit",
+      "leads"
+    ],
+    "author": "clearbit",
+    "repo": "https://github.com/clearbit/clearbit-mcp",
+    "featured": false,
+    "useCase": "Lead Generation",
+    "platform": "API",
+    "source": "clearbit",
+    "installation": "Set CLEARBIT_API_KEY from Clearbit dashboard.",
+    "useCases": [
+      "Person enrichment",
+      "Company lookup",
+      "Reveal API"
+    ]
+  },
+  {
+    "id": "zoominfo-mcp",
+    "name": "ZoomInfo MCP",
+    "slug": "zoominfo-mcp",
+    "description": "Access ZoomInfo's B2B database for company, contact, and intent data.",
+    "category": "web-search-research",
+    "tags": [
+      "b2b",
+      "zoominfo",
+      "intent",
+      "contacts"
+    ],
+    "author": "zoominfo",
+    "repo": "https://github.com/zoominfo/zoominfo-mcp",
+    "featured": false,
+    "useCase": "Lead Generation",
+    "platform": "API",
+    "source": "zoominfo",
+    "installation": "Set ZOOMINFO_CLIENT_ID and ZOOMINFO_PRIVATE_KEY for OAuth2.",
+    "useCases": [
+      "Company research",
+      "Contact discovery",
+      "Intent signals"
+    ]
+  },
+  {
+    "id": "apollo-mcp",
+    "name": "Apollo.io MCP",
+    "slug": "apollo-mcp",
+    "description": "Find prospects, companies, and sequences in Apollo.io's sales intelligence platform.",
+    "category": "web-search-research",
+    "tags": [
+      "sales",
+      "apollo",
+      "prospecting",
+      "sequences"
+    ],
+    "author": "apolloio",
+    "repo": "https://github.com/apolloio/apollo-mcp",
+    "featured": false,
+    "useCase": "Sales",
+    "platform": "Cloud",
+    "source": "apolloio",
+    "installation": "Set APOLLO_API_KEY from Apollo.io account settings.",
+    "useCases": [
+      "Prospect search",
+      "Company data",
+      "Sequence enrollment"
+    ]
+  },
+  {
+    "id": "pdl-mcp",
+    "name": "People Data Labs MCP",
+    "slug": "pdl-mcp",
+    "description": "Enrich people and company profiles with People Data Labs' 3B+ record API.",
+    "category": "web-search-research",
+    "tags": [
+      "enrichment",
+      "b2b",
+      "people-data",
+      "contacts"
+    ],
+    "author": "peopledatalabs",
+    "repo": "https://github.com/peopledatalabs/pdl-mcp",
+    "featured": false,
+    "useCase": "Lead Generation",
+    "platform": "API",
+    "source": "peopledatalabs",
+    "installation": "Set PDL_API_KEY from People Data Labs portal.",
+    "useCases": [
+      "Person enrichment",
+      "Company matching",
+      "Bulk data append"
+    ]
+  },
+  {
+    "id": "opensanctions-mcp",
+    "name": "OpenSanctions MCP",
+    "slug": "opensanctions-mcp",
+    "description": "Screen entities against global sanctions, PEP, and watchlist datasets via OpenSanctions.",
+    "category": "web-search-research",
+    "tags": [
+      "sanctions",
+      "compliance",
+      "aml",
+      "kyc"
+    ],
+    "author": "opensanctions",
+    "repo": "https://github.com/opensanctions/opensanctions-mcp",
+    "featured": false,
+    "useCase": "Compliance",
+    "platform": "API",
+    "source": "opensanctions",
+    "installation": "Set OPENSANCTIONS_API_KEY; configure match threshold.",
+    "useCases": [
+      "Sanctions screening",
+      "PEP checks",
+      "AML compliance"
+    ]
+  },
+  {
+    "id": "have-i-been-pwned-mcp",
+    "name": "Have I Been Pwned MCP",
+    "slug": "have-i-been-pwned-mcp",
+    "description": "Check if email addresses or passwords appear in known data breaches via HIBP API.",
+    "category": "web-search-research",
+    "tags": [
+      "security",
+      "breaches",
+      "hibp",
+      "passwords"
+    ],
+    "author": "troyhunt",
+    "repo": "https://github.com/troyhunt/hibp-mcp",
+    "featured": false,
+    "useCase": "Security",
+    "platform": "API",
+    "source": "troyhunt",
+    "installation": "Set HIBP_API_KEY from haveibeenpwned.com API subscription.",
+    "useCases": [
+      "Breach check",
+      "Password audit",
+      "Domain monitoring"
+    ]
+  },
+  {
+    "id": "opencorporates-mcp",
+    "name": "OpenCorporates MCP",
+    "slug": "opencorporates-mcp",
+    "description": "Search global company registry data from 160+ jurisdictions via OpenCorporates.",
+    "category": "web-search-research",
+    "tags": [
+      "companies",
+      "legal",
+      "compliance",
+      "opencorporates"
+    ],
+    "author": "opencorporates",
+    "repo": "https://github.com/opencorporates/opencorporates-mcp",
+    "featured": false,
+    "useCase": "Compliance",
+    "platform": "API",
+    "source": "opencorporates",
+    "installation": "Set OPENCORPORATES_API_TOKEN (free tier available).",
+    "useCases": [
+      "Company search",
+      "Officer lookup",
+      "Jurisdiction data"
+    ]
+  },
+  {
+    "id": "aws-bedrock-mcp",
+    "name": "AWS Bedrock MCP",
+    "slug": "aws-bedrock-mcp",
+    "description": "Access foundation models via AWS Bedrock \u2014 Claude, Llama, Mistral, and more.",
+    "category": "cloud-services",
+    "tags": [
+      "aws",
+      "bedrock",
+      "llm",
+      "foundation-models"
+    ],
+    "author": "aws",
+    "repo": "https://github.com/aws/bedrock-mcp",
+    "featured": true,
+    "useCase": "AI",
+    "platform": "Cloud",
+    "source": "aws",
+    "installation": "Configure AWS credentials with Bedrock model access; set AWS_REGION.",
+    "useCases": [
+      "LLM inference",
+      "Embeddings",
+      "Agent workflows"
+    ]
+  },
+  {
+    "id": "aws-rds-mcp",
+    "name": "AWS RDS MCP",
+    "slug": "aws-rds-mcp",
+    "description": "Manage Amazon RDS instances, snapshots, and parameter groups via AWS SDK.",
+    "category": "cloud-services",
+    "tags": [
+      "aws",
+      "rds",
+      "database",
+      "managed"
+    ],
+    "author": "aws",
+    "repo": "https://github.com/aws/rds-mcp",
+    "featured": false,
+    "useCase": "Database",
+    "platform": "Cloud",
+    "source": "aws",
+    "installation": "Configure AWS credentials; set DB_INSTANCE_IDENTIFIER and region.",
+    "useCases": [
+      "DB instance management",
+      "Snapshot creation",
+      "Parameter tuning"
+    ]
+  },
+  {
+    "id": "google-cloud-run-mcp",
+    "name": "Google Cloud Run MCP",
+    "slug": "google-cloud-run-mcp",
+    "description": "Deploy, manage, and invoke serverless containers on Google Cloud Run.",
+    "category": "cloud-services",
+    "tags": [
+      "google-cloud",
+      "cloud-run",
+      "serverless",
+      "containers"
+    ],
+    "author": "google",
+    "repo": "https://github.com/googleapis/cloud-run-mcp",
+    "featured": false,
+    "useCase": "Serverless",
+    "platform": "Cloud",
+    "source": "google",
+    "installation": "Set GOOGLE_APPLICATION_CREDENTIALS; configure project and region.",
+    "useCases": [
+      "Container deployment",
+      "Service management",
+      "Traffic splitting"
+    ]
+  },
+  {
+    "id": "firebase-mcp",
+    "name": "Firebase MCP",
+    "slug": "firebase-mcp",
+    "description": "Read and write Firebase Realtime Database, Firestore, and Firebase Auth data.",
+    "category": "cloud-services",
+    "tags": [
+      "firebase",
+      "google",
+      "firestore",
+      "realtime-db"
+    ],
+    "author": "firebase",
+    "repo": "https://github.com/firebase/firebase-mcp",
+    "featured": true,
+    "useCase": "BaaS",
+    "platform": "Cloud",
+    "source": "firebase",
+    "installation": "Set GOOGLE_APPLICATION_CREDENTIALS (service account); configure project ID.",
+    "useCases": [
+      "Firestore CRUD",
+      "Auth management",
+      "Real-time data"
+    ]
+  },
+  {
+    "id": "azure-openai-mcp",
+    "name": "Azure OpenAI MCP",
+    "slug": "azure-openai-mcp",
+    "description": "Access GPT-4, embeddings, and DALL-E via Azure OpenAI Service endpoints.",
+    "category": "cloud-services",
+    "tags": [
+      "azure",
+      "openai",
+      "llm",
+      "enterprise"
+    ],
+    "author": "microsoft",
+    "repo": "https://github.com/azure/azure-openai-mcp",
+    "featured": false,
+    "useCase": "AI",
+    "platform": "Cloud",
+    "source": "microsoft",
+    "installation": "Set AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_KEY, and deployment name.",
+    "useCases": [
+      "GPT-4 inference",
+      "Embeddings",
+      "DALL-E image generation"
+    ]
+  },
+  {
+    "id": "cloudflare-kv-mcp",
+    "name": "Cloudflare Workers KV MCP",
+    "slug": "cloudflare-kv-mcp",
+    "description": "Read and write key-value pairs in Cloudflare Workers KV from any environment.",
+    "category": "cloud-services",
+    "tags": [
+      "cloudflare",
+      "workers",
+      "kv",
+      "edge"
+    ],
+    "author": "cloudflare",
+    "repo": "https://github.com/cloudflare/workers-kv-mcp",
+    "featured": false,
+    "useCase": "Storage",
+    "platform": "Cloud",
+    "source": "cloudflare",
+    "installation": "Set CF_API_TOKEN, CF_ACCOUNT_ID, and KV_NAMESPACE_ID.",
+    "useCases": [
+      "Edge key-value storage",
+      "Config management",
+      "Session data"
+    ]
+  },
+  {
+    "id": "ovhcloud-mcp",
+    "name": "OVHcloud MCP",
+    "slug": "ovhcloud-mcp",
+    "description": "Manage OVHcloud VPS, dedicated servers, and managed Kubernetes via OVH API.",
+    "category": "cloud-services",
+    "tags": [
+      "ovhcloud",
+      "vps",
+      "servers",
+      "europe"
+    ],
+    "author": "ovh",
+    "repo": "https://github.com/ovh/ovhcloud-mcp",
+    "featured": false,
+    "useCase": "DevOps",
+    "platform": "Cloud",
+    "source": "ovh",
+    "installation": "Set OVH_ENDPOINT, OVH_APP_KEY, OVH_APP_SECRET, and OVH_CONSUMER_KEY.",
+    "useCases": [
+      "Server management",
+      "DNS zones",
+      "Object storage"
+    ]
+  },
+  {
+    "id": "vultr-mcp",
+    "name": "Vultr MCP",
+    "slug": "vultr-mcp",
+    "description": "Deploy and manage Vultr cloud instances, block storage, and Kubernetes clusters.",
+    "category": "cloud-services",
+    "tags": [
+      "vultr",
+      "vps",
+      "cloud",
+      "kubernetes"
+    ],
+    "author": "vultr",
+    "repo": "https://github.com/vultr/vultr-mcp",
+    "featured": false,
+    "useCase": "DevOps",
+    "platform": "Cloud",
+    "source": "vultr",
+    "installation": "Set VULTR_API_KEY from Vultr account API section.",
+    "useCases": [
+      "Instance deployment",
+      "Snapshot management",
+      "Firewall rules"
+    ]
+  },
+  {
+    "id": "postmark-mcp",
+    "name": "Postmark MCP",
+    "slug": "postmark-mcp",
+    "description": "Send and receive transactional and broadcast emails via Postmark's reliable API.",
+    "category": "communication",
+    "tags": [
+      "email",
+      "transactional",
+      "postmark",
+      "deliverability"
+    ],
+    "author": "wildbit",
+    "repo": "https://github.com/wildbit/postmark-mcp",
+    "featured": false,
+    "useCase": "Email",
+    "platform": "API",
+    "source": "wildbit",
+    "installation": "Set POSTMARK_SERVER_TOKEN from Postmark server settings.",
+    "useCases": [
+      "Transactional email",
+      "Template management",
+      "Bounce tracking"
+    ]
+  },
+  {
+    "id": "loops-mcp",
+    "name": "Loops MCP",
+    "slug": "loops-mcp",
+    "description": "Send email campaigns and transactional loops to your SaaS user base via Loops.",
+    "category": "communication",
+    "tags": [
+      "email",
+      "saas",
+      "loops",
+      "lifecycle"
+    ],
+    "author": "loops",
+    "repo": "https://github.com/loops/loops-mcp",
+    "featured": false,
+    "useCase": "Email",
+    "platform": "Cloud",
+    "source": "loops",
+    "installation": "Set LOOPS_API_KEY from Loops team settings.",
+    "useCases": [
+      "Transactional email",
+      "Campaign sending",
+      "Contact management"
+    ]
+  },
+  {
+    "id": "pushover-mcp",
+    "name": "Pushover MCP",
+    "slug": "pushover-mcp",
+    "description": "Send push notifications to iOS and Android devices via Pushover's notification API.",
+    "category": "communication",
+    "tags": [
+      "push-notifications",
+      "mobile",
+      "pushover",
+      "alerts"
+    ],
+    "author": "pushover",
+    "repo": "https://github.com/pushover/pushover-mcp",
+    "featured": false,
+    "useCase": "Notifications",
+    "platform": "API",
+    "source": "pushover",
+    "installation": "Set PUSHOVER_TOKEN and PUSHOVER_USER (or group key).",
+    "useCases": [
+      "Push alerts",
+      "Priority notifications",
+      "Device targeting"
+    ]
+  },
+  {
+    "id": "ntfy-mcp",
+    "name": "ntfy MCP",
+    "slug": "ntfy-mcp",
+    "description": "Send and receive push notifications to any device via ntfy's open-source pub-sub service.",
+    "category": "communication",
+    "tags": [
+      "notifications",
+      "ntfy",
+      "open-source",
+      "self-hosted"
+    ],
+    "author": "binwiederhier",
+    "repo": "https://github.com/binwiederhier/ntfy-mcp",
+    "featured": false,
+    "useCase": "Notifications",
+    "platform": "Self-hosted",
+    "source": "binwiederhier",
+    "installation": "Set NTFY_SERVER_URL (default: ntfy.sh) and optional auth token.",
+    "useCases": [
+      "Push notifications",
+      "Alert broadcasting",
+      "Self-hosted delivery"
+    ]
+  },
+  {
+    "id": "gotify-mcp",
+    "name": "Gotify MCP",
+    "slug": "gotify-mcp",
+    "description": "Self-hosted push notifications server \u2014 send messages to Gotify apps on any device.",
+    "category": "communication",
+    "tags": [
+      "notifications",
+      "self-hosted",
+      "gotify",
+      "privacy"
+    ],
+    "author": "gotify",
+    "repo": "https://github.com/gotify/gotify-mcp",
+    "featured": false,
+    "useCase": "Notifications",
+    "platform": "Self-hosted",
+    "source": "gotify",
+    "installation": "Set GOTIFY_URL and GOTIFY_APP_TOKEN.",
+    "useCases": [
+      "Private push notifications",
+      "Alert delivery",
+      "App message sending"
+    ]
+  },
+  {
+    "id": "plivo-mcp",
+    "name": "Plivo MCP",
+    "slug": "plivo-mcp",
+    "description": "Send SMS, make calls, and manage phone numbers globally via Plivo's communication API.",
+    "category": "communication",
+    "tags": [
+      "sms",
+      "voice",
+      "plivo",
+      "telephony"
+    ],
+    "author": "plivo",
+    "repo": "https://github.com/plivo/plivo-mcp",
+    "featured": false,
+    "useCase": "Messaging",
+    "platform": "API",
+    "source": "plivo",
+    "installation": "Set PLIVO_AUTH_ID and PLIVO_AUTH_TOKEN.",
+    "useCases": [
+      "SMS sending",
+      "Voice calls",
+      "Phone number management"
+    ]
+  },
+  {
+    "id": "signalwire-mcp",
+    "name": "SignalWire MCP",
+    "slug": "signalwire-mcp",
+    "description": "Make calls, send SMS, and build voice AI apps with SignalWire's Twilio-compatible API.",
+    "category": "communication",
+    "tags": [
+      "sms",
+      "voice",
+      "signalwire",
+      "telephony"
+    ],
+    "author": "signalwire",
+    "repo": "https://github.com/signalwire/signalwire-mcp",
+    "featured": false,
+    "useCase": "Messaging",
+    "platform": "Cloud",
+    "source": "signalwire",
+    "installation": "Set SIGNALWIRE_PROJECT_ID and SIGNALWIRE_TOKEN with space URL.",
+    "useCases": [
+      "SMS messaging",
+      "Voice calls",
+      "SWML voice AI"
+    ]
+  },
+  {
+    "id": "cal-com-mcp",
+    "name": "Cal.com MCP",
+    "slug": "cal-com-mcp",
+    "description": "Create and manage bookings, event types, and availability on Cal.com scheduling platform.",
+    "category": "communication",
+    "tags": [
+      "scheduling",
+      "cal-com",
+      "bookings",
+      "calendar"
+    ],
+    "author": "calcom",
+    "repo": "https://github.com/calcom/cal.com-mcp",
+    "featured": false,
+    "useCase": "Scheduling",
+    "platform": "Cloud",
+    "source": "calcom",
+    "installation": "Set CAL_API_KEY from Cal.com account settings.",
+    "useCases": [
+      "Booking creation",
+      "Availability management",
+      "Event type config"
+    ]
+  },
+  {
+    "id": "xata-branching-mcp",
+    "name": "Xata Branching MCP",
+    "slug": "xata-branching-mcp",
+    "description": "Branch-based workflow for Xata serverless databases \u2014 dev/staging/prod isolation.",
+    "category": "databases",
+    "tags": [
+      "xata",
+      "branching",
+      "serverless",
+      "postgres"
+    ],
+    "author": "xataio",
+    "repo": "https://github.com/xataio/xata-mcp",
+    "featured": false,
+    "useCase": "SQL",
+    "platform": "Cloud",
+    "source": "xataio",
+    "installation": "Set XATA_API_KEY; configure branch workflows in xata.sh project.",
+    "useCases": [
+      "Schema branching",
+      "Preview environments",
+      "Migration management"
+    ]
+  },
+  {
+    "id": "yugabytedb-mcp",
+    "name": "YugabyteDB MCP",
+    "slug": "yugabytedb-mcp",
+    "description": "Distributed SQL and document database with PostgreSQL and Cassandra compatibility.",
+    "category": "databases",
+    "tags": [
+      "distributed-sql",
+      "yugabyte",
+      "postgres",
+      "cassandra"
+    ],
+    "author": "yugabyte",
+    "repo": "https://github.com/yugabyte/yugabytedb-mcp",
+    "featured": false,
+    "useCase": "SQL",
+    "platform": "Self-hosted",
+    "source": "yugabyte",
+    "installation": "Set YUGABYTE_HOST and standard PG credentials; supports YSQL and YCQL.",
+    "useCases": [
+      "Distributed SQL",
+      "CQL queries",
+      "Multi-region HA"
+    ]
+  },
+  {
+    "id": "singlestore-mcp",
+    "name": "SingleStore MCP",
+    "slug": "singlestore-mcp",
+    "description": "Real-time analytics and transactions on SingleStore's unified MySQL-compatible DB.",
+    "category": "databases",
+    "tags": [
+      "singlestore",
+      "real-time",
+      "analytics",
+      "mysql-compatible"
+    ],
+    "author": "singlestore",
+    "repo": "https://github.com/singlestore-labs/singlestore-mcp",
+    "featured": false,
+    "useCase": "Analytics",
+    "platform": "Cloud",
+    "source": "singlestore-labs",
+    "installation": "Set SINGLESTORE_HOST, SINGLESTORE_USER, and SINGLESTORE_PASSWORD.",
+    "useCases": [
+      "Real-time HTAP",
+      "Vector search",
+      "Full-text search"
+    ]
+  },
+  {
+    "id": "arangodb-mcp",
+    "name": "ArangoDB MCP",
+    "slug": "arangodb-mcp",
+    "description": "Multi-model database \u2014 graph, document, and key-value via ArangoDB's REST API.",
+    "category": "databases",
+    "tags": [
+      "multi-model",
+      "graph",
+      "document",
+      "arangodb"
+    ],
+    "author": "arangodb",
+    "repo": "https://github.com/arangodb/arangodb-mcp",
+    "featured": false,
+    "useCase": "Multi-model",
+    "platform": "Self-hosted",
+    "source": "arangodb",
+    "installation": "Set ARANGO_URL, ARANGO_USERNAME, and ARANGO_PASSWORD.",
+    "useCases": [
+      "Graph traversal",
+      "Document queries",
+      "AQL execution"
+    ]
   }
 ]

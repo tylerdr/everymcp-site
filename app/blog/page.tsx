@@ -1,0 +1,60 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Blog — MCP Guides & Resources",
+  description:
+    "Practical guides, comparisons, and implementation resources for Model Context Protocol (MCP) servers and AI tooling.",
+  alternates: {
+    canonical: "/blog"
+  }
+};
+
+const posts = [
+  {
+    slug: "top-mcp-servers-for-developers",
+    title: "Top MCP Servers for Developers in 2025",
+    description:
+      "A curated guide to the best Model Context Protocol servers for production AI applications — databases, search, code execution, and more.",
+    date: "March 20, 2026",
+    readTime: "8 min read",
+    tag: "MCP Guide"
+  }
+];
+
+export default function BlogIndex() {
+  return (
+    <div className="mx-auto w-full max-w-3xl px-4 py-16 sm:px-6">
+      <header className="mb-12">
+        <p className="inline-flex rounded-full bg-sky/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-sky">
+          EveryMCP Blog
+        </p>
+        <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
+          MCP Guides & Resources
+        </h1>
+        <p className="mt-4 text-lg text-slate-600">
+          Practical guides for developers building with Model Context Protocol.
+        </p>
+      </header>
+
+      <div className="space-y-6">
+        {posts.map((post) => (
+          <Link
+            key={post.slug}
+            href={`/blog/${post.slug}`}
+            className="block rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:border-sky/30 hover:shadow-md"
+          >
+            <p className="inline-flex rounded-full bg-sky/10 px-3 py-0.5 text-xs font-bold uppercase tracking-[0.12em] text-sky">
+              {post.tag}
+            </p>
+            <h2 className="mt-3 text-xl font-bold text-ink">{post.title}</h2>
+            <p className="mt-2 text-sm text-slate-600">{post.description}</p>
+            <p className="mt-3 text-xs text-slate-400">
+              {post.date} · {post.readTime}
+            </p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}

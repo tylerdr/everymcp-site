@@ -1635,7 +1635,7 @@
     "id": "financial-datasets",
     "name": "Financial Datasets MCP",
     "slug": "financial-datasets",
-    "description": "Stock market API made for AI agents — access fundamentals, prices, and financial statements.",
+    "description": "Stock market API made for AI agents \u2014 access fundamentals, prices, and financial statements.",
     "category": "data-analysis",
     "tags": [
       "stocks",
@@ -6084,7 +6084,7 @@
     "id": "serper-mcp",
     "name": "Serper MCP",
     "slug": "serper-mcp",
-    "description": "Google Search results via Serper.dev's ultra-fast JSON API — no browser needed.",
+    "description": "Google Search results via Serper.dev's ultra-fast JSON API \u2014 no browser needed.",
     "category": "web-search-research",
     "tags": [
       "google",
@@ -8134,7 +8134,7 @@
     "id": "notion-ai-mcp",
     "name": "Notion AI MCP",
     "slug": "notion-ai-mcp",
-    "description": "Use Notion as an AI memory layer — read/write pages, databases, and blocks via Notion API.",
+    "description": "Use Notion as an AI memory layer \u2014 read/write pages, databases, and blocks via Notion API.",
     "category": "memory-context",
     "tags": [
       "notion",
@@ -8234,7 +8234,7 @@
     "id": "notion-crm-mcp",
     "name": "Notion CRM MCP",
     "slug": "notion-crm-mcp",
-    "description": "Use Notion databases as a lightweight CRM — manage contacts, deals, and notes.",
+    "description": "Use Notion databases as a lightweight CRM \u2014 manage contacts, deals, and notes.",
     "category": "memory-context",
     "tags": [
       "crm",
@@ -8934,7 +8934,7 @@
     "id": "exa-mcp",
     "name": "Exa AI MCP",
     "slug": "exa-mcp",
-    "description": "Neural search with neural embeddings — find the most relevant web content for any query.",
+    "description": "Neural search with neural embeddings \u2014 find the most relevant web content for any query.",
     "category": "ai-ml-tools",
     "tags": [
       "search",
@@ -8984,7 +8984,7 @@
     "id": "chroma-mcp",
     "name": "Chroma MCP",
     "slug": "chroma-mcp",
-    "description": "Open-source embedding database for LLM apps — persistent and in-memory modes.",
+    "description": "Open-source embedding database for LLM apps \u2014 persistent and in-memory modes.",
     "category": "ai-ml-tools",
     "tags": [
       "vector-db",
@@ -9334,7 +9334,7 @@
     "id": "mockoon-mcp",
     "name": "Mockoon MCP",
     "slug": "mockoon-mcp",
-    "description": "Mock REST APIs locally with Mockoon — define routes, responses, and middleware.",
+    "description": "Mock REST APIs locally with Mockoon \u2014 define routes, responses, and middleware.",
     "category": "development-tools",
     "tags": [
       "mocking",
@@ -10034,7 +10034,7 @@
     "id": "aws-bedrock-mcp",
     "name": "AWS Bedrock MCP",
     "slug": "aws-bedrock-mcp",
-    "description": "Access foundation models via AWS Bedrock — Claude, Llama, Mistral, and more.",
+    "description": "Access foundation models via AWS Bedrock \u2014 Claude, Llama, Mistral, and more.",
     "category": "cloud-services",
     "tags": [
       "aws",
@@ -10334,7 +10334,7 @@
     "id": "gotify-mcp",
     "name": "Gotify MCP",
     "slug": "gotify-mcp",
-    "description": "Self-hosted push notifications server — send messages to Gotify apps on any device.",
+    "description": "Self-hosted push notifications server \u2014 send messages to Gotify apps on any device.",
     "category": "communication",
     "tags": [
       "notifications",
@@ -10434,7 +10434,7 @@
     "id": "xata-branching-mcp",
     "name": "Xata Branching MCP",
     "slug": "xata-branching-mcp",
-    "description": "Branch-based workflow for Xata serverless databases — dev/staging/prod isolation.",
+    "description": "Branch-based workflow for Xata serverless databases \u2014 dev/staging/prod isolation.",
     "category": "databases",
     "tags": [
       "xata",
@@ -10509,7 +10509,7 @@
     "id": "arangodb-mcp",
     "name": "ArangoDB MCP",
     "slug": "arangodb-mcp",
-    "description": "Multi-model database — graph, document, and key-value via ArangoDB's REST API.",
+    "description": "Multi-model database \u2014 graph, document, and key-value via ArangoDB's REST API.",
     "category": "databases",
     "tags": [
       "multi-model",
@@ -10785,7 +10785,7 @@
     "id": "hasura-mcp",
     "name": "Hasura MCP Server",
     "slug": "hasura-mcp",
-    "description": "Query and manage Hasura GraphQL Engine — run queries, inspect metadata, and manage permissions via MCP.",
+    "description": "Query and manage Hasura GraphQL Engine \u2014 run queries, inspect metadata, and manage permissions via MCP.",
     "category": "databases",
     "tags": [
       "hasura",
@@ -10835,7 +10835,7 @@
     "id": "dapr-mcp",
     "name": "Dapr MCP Server",
     "slug": "dapr-mcp",
-    "description": "Interact with Dapr sidecar APIs — invoke services, manage state, send pub/sub messages, and query bindings via MCP.",
+    "description": "Interact with Dapr sidecar APIs \u2014 invoke services, manage state, send pub/sub messages, and query bindings via MCP.",
     "category": "cloud-services",
     "tags": [
       "dapr",
@@ -10985,7 +10985,7 @@
     "id": "envoy-mcp",
     "name": "Envoy Proxy MCP Server",
     "slug": "envoy-mcp",
-    "description": "Inspect Envoy proxy admin API — query cluster stats, listener configs, routes, and health checks via MCP.",
+    "description": "Inspect Envoy proxy admin API \u2014 query cluster stats, listener configs, routes, and health checks via MCP.",
     "category": "cloud-services",
     "tags": [
       "envoy",
@@ -11085,7 +11085,7 @@
     "id": "jaeger-mcp",
     "name": "Jaeger MCP Server",
     "slug": "jaeger-mcp",
-    "description": "Query Jaeger distributed trace data — search traces by service, operation, tags, and time range via MCP.",
+    "description": "Query Jaeger distributed trace data \u2014 search traces by service, operation, tags, and time range via MCP.",
     "category": "data-analysis",
     "tags": [
       "jaeger",
@@ -11310,7 +11310,7 @@
     "id": "heap-mcp",
     "name": "Heap Analytics MCP Server",
     "slug": "heap-mcp",
-    "description": "Query Heap user behavioral analytics — sessions, events, funnels, and retention data from your AI assistant.",
+    "description": "Query Heap user behavioral analytics \u2014 sessions, events, funnels, and retention data from your AI assistant.",
     "category": "data-analysis",
     "tags": [
       "heap",
@@ -11585,7 +11585,7 @@
     "id": "s3-compatible-mcp",
     "name": "S3-Compatible Storage MCP",
     "slug": "s3-compatible-mcp",
-    "description": "Unified MCP server for any S3-compatible storage — MinIO, Wasabi, Backblaze B2, DigitalOcean Spaces, and AWS S3.",
+    "description": "Unified MCP server for any S3-compatible storage \u2014 MinIO, Wasabi, Backblaze B2, DigitalOcean Spaces, and AWS S3.",
     "category": "file-systems-storage",
     "tags": [
       "s3",
@@ -11660,7 +11660,7 @@
     "id": "fetch-mcp",
     "name": "Fetch MCP Server",
     "slug": "fetch-mcp",
-    "description": "Make HTTP requests — GET, POST, PUT, DELETE — from your AI assistant and parse web content or API responses via MCP.",
+    "description": "Make HTTP requests \u2014 GET, POST, PUT, DELETE \u2014 from your AI assistant and parse web content or API responses via MCP.",
     "category": "web-search-research",
     "tags": [
       "http",
@@ -11685,7 +11685,7 @@
     "id": "memory-mcp",
     "name": "Memory MCP Server",
     "slug": "memory-mcp",
-    "description": "Persistent key-value memory for AI assistants — store, retrieve, and search facts across sessions via MCP.",
+    "description": "Persistent key-value memory for AI assistants \u2014 store, retrieve, and search facts across sessions via MCP.",
     "category": "memory-context",
     "tags": [
       "memory",
@@ -11710,7 +11710,7 @@
     "id": "everything-mcp",
     "name": "Everything MCP Server",
     "slug": "everything-mcp",
-    "description": "Test and demo MCP server with all resource types — useful for developing and testing MCP clients.",
+    "description": "Test and demo MCP server with all resource types \u2014 useful for developing and testing MCP clients.",
     "category": "development-tools",
     "tags": [
       "testing",
@@ -11735,7 +11735,7 @@
     "id": "filesystem-mcp",
     "name": "Filesystem MCP Server",
     "slug": "filesystem-mcp",
-    "description": "Read, write, and navigate local filesystem — files, directories, and file metadata — via MCP with path restrictions.",
+    "description": "Read, write, and navigate local filesystem \u2014 files, directories, and file metadata \u2014 via MCP with path restrictions.",
     "category": "file-systems-storage",
     "tags": [
       "filesystem",
@@ -11835,7 +11835,7 @@
     "id": "linear-mcp-official",
     "name": "Linear MCP (Official)",
     "slug": "linear-mcp-official",
-    "description": "Official Linear MCP server — create, update, and search issues, projects, and cycles with type-safe Linear API access.",
+    "description": "Official Linear MCP server \u2014 create, update, and search issues, projects, and cycles with type-safe Linear API access.",
     "category": "development-tools",
     "tags": [
       "linear",
@@ -11860,7 +11860,7 @@
     "id": "openai-agents-mcp",
     "name": "OpenAI Agents MCP Server",
     "slug": "openai-agents-mcp",
-    "description": "Use OpenAI Agents SDK tools — web search, file search, computer use, and code interpreter — exposed as MCP endpoints.",
+    "description": "Use OpenAI Agents SDK tools \u2014 web search, file search, computer use, and code interpreter \u2014 exposed as MCP endpoints.",
     "category": "ai-ml-tools",
     "tags": [
       "openai",
@@ -11910,7 +11910,7 @@
     "id": "macos-mcp",
     "name": "macOS MCP Server",
     "slug": "macos-mcp",
-    "description": "Control macOS system functions — open apps, manage windows, take screenshots, and run AppleScript via MCP.",
+    "description": "Control macOS system functions \u2014 open apps, manage windows, take screenshots, and run AppleScript via MCP.",
     "category": "browser-automation",
     "tags": [
       "macos",
@@ -11935,7 +11935,7 @@
     "id": "code-sandbox-mcp",
     "name": "Code Sandbox MCP Server",
     "slug": "code-sandbox-mcp",
-    "description": "Execute code in isolated sandboxes — Python, JavaScript, bash — and return output results via MCP.",
+    "description": "Execute code in isolated sandboxes \u2014 Python, JavaScript, bash \u2014 and return output results via MCP.",
     "category": "development-tools",
     "tags": [
       "sandbox",
@@ -11960,7 +11960,7 @@
     "id": "e2b-mcp",
     "name": "E2B Code Interpreter MCP",
     "slug": "e2b-mcp",
-    "description": "Run Python code securely in E2B cloud sandboxes — execute snippets, install packages, and return outputs via MCP.",
+    "description": "Run Python code securely in E2B cloud sandboxes \u2014 execute snippets, install packages, and return outputs via MCP.",
     "category": "development-tools",
     "tags": [
       "e2b",
@@ -12010,7 +12010,7 @@
     "id": "replit-mcp",
     "name": "Replit MCP Server",
     "slug": "replit-mcp",
-    "description": "Create, edit, and run Replit projects — access files, run code, and manage deployments from your AI assistant.",
+    "description": "Create, edit, and run Replit projects \u2014 access files, run code, and manage deployments from your AI assistant.",
     "category": "development-tools",
     "tags": [
       "replit",
@@ -12085,7 +12085,7 @@
     "id": "lancedb-mcp",
     "name": "LanceDB MCP Server",
     "slug": "lancedb-mcp",
-    "description": "Store and query embeddings in LanceDB — a serverless vector database optimized for AI/ML workloads via MCP.",
+    "description": "Store and query embeddings in LanceDB \u2014 a serverless vector database optimized for AI/ML workloads via MCP.",
     "category": "databases",
     "tags": [
       "lancedb",
@@ -12135,7 +12135,7 @@
     "id": "vectara-mcp",
     "name": "Vectara MCP Server",
     "slug": "vectara-mcp",
-    "description": "Query Vectara's enterprise RAG platform — hybrid search, grounded generation, and hallucination detection via MCP.",
+    "description": "Query Vectara's enterprise RAG platform \u2014 hybrid search, grounded generation, and hallucination detection via MCP.",
     "category": "ai-ml-tools",
     "tags": [
       "vectara",
@@ -12160,7 +12160,7 @@
     "id": "firecrawl-mcp",
     "name": "Firecrawl MCP Server",
     "slug": "firecrawl-mcp",
-    "description": "Crawl and extract clean, LLM-ready content from any website — including JavaScript-rendered pages — via MCP.",
+    "description": "Crawl and extract clean, LLM-ready content from any website \u2014 including JavaScript-rendered pages \u2014 via MCP.",
     "category": "web-search-research",
     "tags": [
       "firecrawl",
@@ -12285,7 +12285,7 @@
     "id": "neo4j-mcp",
     "name": "Neo4j MCP Server",
     "slug": "neo4j-mcp",
-    "description": "Query and manage Neo4j graph databases using Cypher queries — nodes, relationships, and graph analytics via MCP.",
+    "description": "Query and manage Neo4j graph databases using Cypher queries \u2014 nodes, relationships, and graph analytics via MCP.",
     "category": "databases",
     "tags": [
       "neo4j",
@@ -12310,7 +12310,7 @@
     "id": "couchdb-mcp",
     "name": "CouchDB MCP Server",
     "slug": "couchdb-mcp",
-    "description": "Query and manage Apache CouchDB — documents, views, design documents, and replication via MCP.",
+    "description": "Query and manage Apache CouchDB \u2014 documents, views, design documents, and replication via MCP.",
     "category": "databases",
     "tags": [
       "couchdb",
@@ -12360,7 +12360,7 @@
     "id": "algolia-insights-mcp",
     "name": "Algolia Insights MCP",
     "slug": "algolia-insights-mcp",
-    "description": "Query Algolia search analytics — click rates, conversion rates, no-results queries, and A/B test results via MCP.",
+    "description": "Query Algolia search analytics \u2014 click rates, conversion rates, no-results queries, and A/B test results via MCP.",
     "category": "data-analysis",
     "tags": [
       "algolia",
@@ -12454,6 +12454,2670 @@
       "Request execution",
       "Collection management",
       "Environment switching"
+    ]
+  },
+  {
+    "id": "sourcegraph-mcp",
+    "name": "Sourcegraph MCP",
+    "slug": "sourcegraph-mcp",
+    "description": "Search and navigate large codebases with Sourcegraph's universal code search.",
+    "category": "development-tools",
+    "tags": [
+      "code-search",
+      "navigation",
+      "monorepo"
+    ],
+    "author": "sourcegraph",
+    "repo": "https://github.com/sourcegraph/mcp-server",
+    "featured": false,
+    "useCase": "Code Navigation",
+    "platform": "API",
+    "source": "sourcegraph",
+    "installation": "Configure Sourcegraph instance URL and token.",
+    "useCases": [
+      "Code search",
+      "Symbol navigation",
+      "Cross-repo analysis"
+    ]
+  },
+  {
+    "id": "sops-mcp",
+    "name": "SOPS MCP",
+    "slug": "sops-mcp",
+    "description": "Manage encrypted secrets files with Mozilla SOPS for secure configuration handling.",
+    "category": "development-tools",
+    "tags": [
+      "secrets",
+      "encryption",
+      "devops"
+    ],
+    "author": "getsops",
+    "repo": "https://github.com/getsops/sops",
+    "featured": false,
+    "useCase": "Secrets Management",
+    "platform": "CLI",
+    "source": "getsops/sops",
+    "installation": "Install sops binary and configure key provider (KMS, PGP, age).",
+    "useCases": [
+      "Encrypt secrets",
+      "Decrypt configs",
+      "Key rotation"
+    ]
+  },
+  {
+    "id": "renovate-mcp",
+    "name": "Renovate MCP",
+    "slug": "renovate-mcp",
+    "description": "Automate dependency updates across repositories with Renovate's intelligent update engine.",
+    "category": "development-tools",
+    "tags": [
+      "dependencies",
+      "automation",
+      "updates"
+    ],
+    "author": "renovatebot",
+    "repo": "https://github.com/renovatebot/renovate",
+    "featured": false,
+    "useCase": "Dependency Management",
+    "platform": "API",
+    "source": "renovatebot/renovate",
+    "installation": "Configure Renovate with GitHub/GitLab token and repo access.",
+    "useCases": [
+      "Auto-update deps",
+      "Batch PRs",
+      "Config validation"
+    ]
+  },
+  {
+    "id": "nix-mcp",
+    "name": "Nix MCP",
+    "slug": "nix-mcp",
+    "description": "Reproducible builds and declarative system configuration via the Nix package manager.",
+    "category": "development-tools",
+    "tags": [
+      "reproducibility",
+      "packages",
+      "nix"
+    ],
+    "author": "nixos",
+    "repo": "https://github.com/nixos/nix",
+    "featured": false,
+    "useCase": "Package Management",
+    "platform": "CLI",
+    "source": "NixOS/nix",
+    "installation": "Install Nix and enable flakes for MCP integration.",
+    "useCases": [
+      "Reproducible builds",
+      "Dev shells",
+      "Package queries"
+    ]
+  },
+  {
+    "id": "earthly-mcp",
+    "name": "Earthly MCP",
+    "slug": "earthly-mcp",
+    "description": "Run containerized builds consistently across local and CI environments with Earthly.",
+    "category": "development-tools",
+    "tags": [
+      "ci",
+      "builds",
+      "containers"
+    ],
+    "author": "earthly",
+    "repo": "https://github.com/earthly/earthly",
+    "featured": false,
+    "useCase": "Build Automation",
+    "platform": "CLI",
+    "source": "earthly/earthly",
+    "installation": "Install earthly CLI and configure Earthfile in your repo.",
+    "useCases": [
+      "Portable builds",
+      "CI acceleration",
+      "Monorepo builds"
+    ]
+  },
+  {
+    "id": "graphql-mcp",
+    "name": "GraphQL MCP",
+    "slug": "graphql-mcp",
+    "description": "Introspect and query GraphQL APIs, browse schemas, and execute operations programmatically.",
+    "category": "development-tools",
+    "tags": [
+      "graphql",
+      "api",
+      "schema"
+    ],
+    "author": "community",
+    "repo": "https://github.com/modelcontextprotocol/servers",
+    "featured": false,
+    "useCase": "API Development",
+    "platform": "API",
+    "source": "community",
+    "installation": "Point at any GraphQL endpoint with optional auth headers.",
+    "useCases": [
+      "Schema browsing",
+      "Query execution",
+      "Type exploration"
+    ]
+  },
+  {
+    "id": "grpc-mcp",
+    "name": "gRPC MCP",
+    "slug": "grpc-mcp",
+    "description": "Interact with gRPC services via reflection or protobuf definitions through a natural-language interface.",
+    "category": "development-tools",
+    "tags": [
+      "grpc",
+      "protobuf",
+      "microservices"
+    ],
+    "author": "community",
+    "repo": "https://github.com/community/grpc-mcp",
+    "featured": false,
+    "useCase": "Service Communication",
+    "platform": "API",
+    "source": "community",
+    "installation": "Configure gRPC endpoint and provide service reflection or .proto files.",
+    "useCases": [
+      "Service calls",
+      "Schema inspection",
+      "Load testing"
+    ]
+  },
+  {
+    "id": "homebrew-mcp",
+    "name": "Homebrew MCP",
+    "slug": "homebrew-mcp",
+    "description": "Install, upgrade, and manage macOS/Linux packages through the Homebrew package manager.",
+    "category": "development-tools",
+    "tags": [
+      "packages",
+      "macos",
+      "linux"
+    ],
+    "author": "homebrew",
+    "repo": "https://github.com/Homebrew/brew",
+    "featured": false,
+    "useCase": "Package Management",
+    "platform": "CLI",
+    "source": "Homebrew/brew",
+    "installation": "Requires Homebrew installed; MCP wraps brew CLI commands.",
+    "useCases": [
+      "Install packages",
+      "Search formulae",
+      "Manage casks"
+    ]
+  },
+  {
+    "id": "trunk-mcp",
+    "name": "Trunk MCP",
+    "slug": "trunk-mcp",
+    "description": "Run, manage, and cache linters, formatters, and code quality tools with Trunk.",
+    "category": "development-tools",
+    "tags": [
+      "linting",
+      "formatting",
+      "code-quality"
+    ],
+    "author": "trunk-io",
+    "repo": "https://github.com/trunk-io/trunk",
+    "featured": false,
+    "useCase": "Code Quality",
+    "platform": "CLI",
+    "source": "trunk-io/trunk",
+    "installation": "Install trunk CLI and run trunk init in your repo.",
+    "useCases": [
+      "Lint orchestration",
+      "Format on commit",
+      "Security scanning"
+    ]
+  },
+  {
+    "id": "jfrog-mcp",
+    "name": "JFrog Artifactory MCP",
+    "slug": "jfrog-mcp",
+    "description": "Manage artifacts, repositories, and build metadata across JFrog Artifactory.",
+    "category": "development-tools",
+    "tags": [
+      "artifacts",
+      "registry",
+      "devops"
+    ],
+    "author": "jfrog",
+    "repo": "https://github.com/jfrog/jfrog-cli",
+    "featured": false,
+    "useCase": "Artifact Management",
+    "platform": "API",
+    "source": "jfrog",
+    "installation": "Configure JFrog Artifactory URL and API key.",
+    "useCases": [
+      "Package publishing",
+      "Artifact search",
+      "Build promotion"
+    ]
+  },
+  {
+    "id": "liquibase-mcp",
+    "name": "Liquibase MCP",
+    "slug": "liquibase-mcp",
+    "description": "Track, version, and deploy database schema changes with Liquibase migrations.",
+    "category": "development-tools",
+    "tags": [
+      "migrations",
+      "database",
+      "versioning"
+    ],
+    "author": "liquibase",
+    "repo": "https://github.com/liquibase/liquibase",
+    "featured": false,
+    "useCase": "Database Migrations",
+    "platform": "CLI",
+    "source": "liquibase/liquibase",
+    "installation": "Install Liquibase CLI and configure changelog and JDBC connection.",
+    "useCases": [
+      "Schema versioning",
+      "Rollback migrations",
+      "Diff databases"
+    ]
+  },
+  {
+    "id": "atlantis-mcp",
+    "name": "Atlantis MCP",
+    "slug": "atlantis-mcp",
+    "description": "Automate Terraform plan and apply via pull requests with Atlantis GitOps workflows.",
+    "category": "development-tools",
+    "tags": [
+      "terraform",
+      "gitops",
+      "iac"
+    ],
+    "author": "runatlantis",
+    "repo": "https://github.com/runatlantis/atlantis",
+    "featured": false,
+    "useCase": "Infrastructure Automation",
+    "platform": "API",
+    "source": "runatlantis/atlantis",
+    "installation": "Deploy Atlantis server and configure webhook for your VCS.",
+    "useCases": [
+      "Terraform PRs",
+      "Plan previews",
+      "Apply automation"
+    ]
+  },
+  {
+    "id": "kustomize-mcp",
+    "name": "Kustomize MCP",
+    "slug": "kustomize-mcp",
+    "description": "Customize Kubernetes manifests without templating using Kustomize's overlay system.",
+    "category": "development-tools",
+    "tags": [
+      "kubernetes",
+      "manifests",
+      "k8s"
+    ],
+    "author": "kubernetes-sigs",
+    "repo": "https://github.com/kubernetes-sigs/kustomize",
+    "featured": false,
+    "useCase": "Kubernetes Configuration",
+    "platform": "CLI",
+    "source": "kubernetes-sigs/kustomize",
+    "installation": "Install kustomize CLI; available via kubectl kustomize too.",
+    "useCases": [
+      "Manifest overlays",
+      "Environment config",
+      "Resource patching"
+    ]
+  },
+  {
+    "id": "devcontainer-mcp",
+    "name": "Dev Containers MCP",
+    "slug": "devcontainer-mcp",
+    "description": "Create, start, and manage VS Code Dev Containers for reproducible development environments.",
+    "category": "development-tools",
+    "tags": [
+      "containers",
+      "devenv",
+      "vscode"
+    ],
+    "author": "devcontainers",
+    "repo": "https://github.com/devcontainers/cli",
+    "featured": false,
+    "useCase": "Development Environments",
+    "platform": "CLI",
+    "source": "devcontainers/cli",
+    "installation": "Install @devcontainers/cli via npm; requires Docker.",
+    "useCases": [
+      "Env creation",
+      "Container lifecycle",
+      "Feature installation"
+    ]
+  },
+  {
+    "id": "tilt-mcp",
+    "name": "Tilt MCP",
+    "slug": "tilt-mcp",
+    "description": "Speed up microservice development with live updates, local Kubernetes, and smart rebuilds via Tilt.",
+    "category": "development-tools",
+    "tags": [
+      "kubernetes",
+      "local-dev",
+      "live-reload"
+    ],
+    "author": "tilt-dev",
+    "repo": "https://github.com/tilt-dev/tilt",
+    "featured": false,
+    "useCase": "Local Kubernetes Dev",
+    "platform": "CLI",
+    "source": "tilt-dev/tilt",
+    "installation": "Install Tilt binary and create a Tiltfile in your project root.",
+    "useCases": [
+      "Live reload",
+      "K8s local dev",
+      "Service orchestration"
+    ]
+  },
+  {
+    "id": "yarn-mcp",
+    "name": "Yarn MCP",
+    "slug": "yarn-mcp",
+    "description": "Manage JavaScript packages, workspaces, and scripts with Yarn's fast package manager.",
+    "category": "development-tools",
+    "tags": [
+      "nodejs",
+      "packages",
+      "monorepo"
+    ],
+    "author": "yarnpkg",
+    "repo": "https://github.com/yarnpkg/berry",
+    "featured": false,
+    "useCase": "Package Management",
+    "platform": "CLI",
+    "source": "yarnpkg/berry",
+    "installation": "Enable via Corepack or install yarn globally.",
+    "useCases": [
+      "Install packages",
+      "Workspace management",
+      "PnP mode"
+    ]
+  },
+  {
+    "id": "pypi-mcp",
+    "name": "PyPI MCP",
+    "slug": "pypi-mcp",
+    "description": "Search, fetch metadata, and browse Python packages from the Python Package Index.",
+    "category": "development-tools",
+    "tags": [
+      "python",
+      "packages",
+      "registry"
+    ],
+    "author": "pypa",
+    "repo": "https://github.com/pypa/pypi-json-api",
+    "featured": false,
+    "useCase": "Package Discovery",
+    "platform": "API",
+    "source": "pypa",
+    "installation": "No auth required; connects to public PyPI JSON API.",
+    "useCases": [
+      "Package search",
+      "Version listing",
+      "Dependency info"
+    ]
+  },
+  {
+    "id": "swagger-mcp",
+    "name": "Swagger / OpenAPI MCP",
+    "slug": "swagger-mcp",
+    "description": "Import, validate, and execute REST APIs defined by OpenAPI / Swagger specifications.",
+    "category": "development-tools",
+    "tags": [
+      "openapi",
+      "rest",
+      "api-docs"
+    ],
+    "author": "swagger-api",
+    "repo": "https://github.com/swagger-api/swagger-parser",
+    "featured": false,
+    "useCase": "API Development",
+    "platform": "API",
+    "source": "swagger-api",
+    "installation": "Point at any OpenAPI 2/3 spec URL or local file.",
+    "useCases": [
+      "API exploration",
+      "Spec validation",
+      "Mock generation"
+    ]
+  },
+  {
+    "id": "backstage-mcp",
+    "name": "Backstage MCP",
+    "slug": "backstage-mcp",
+    "description": "Browse the software catalog, TechDocs, and scaffolder templates in your Backstage developer portal.",
+    "category": "development-tools",
+    "tags": [
+      "developer-portal",
+      "catalog",
+      "platform"
+    ],
+    "author": "backstage",
+    "repo": "https://github.com/backstage/backstage",
+    "featured": false,
+    "useCase": "Developer Portal",
+    "platform": "API",
+    "source": "backstage/backstage",
+    "installation": "Configure Backstage base URL and optional auth token.",
+    "useCases": [
+      "Service catalog",
+      "TechDocs",
+      "Scaffold new services"
+    ]
+  },
+  {
+    "id": "octopus-deploy-mcp",
+    "name": "Octopus Deploy MCP",
+    "slug": "octopus-deploy-mcp",
+    "description": "Trigger and monitor deployments across environments with Octopus Deploy's release management.",
+    "category": "development-tools",
+    "tags": [
+      "deployments",
+      "ci-cd",
+      "release"
+    ],
+    "author": "octopus",
+    "repo": "https://github.com/OctopusDeploy/OctopusDeploy-Api",
+    "featured": false,
+    "useCase": "Release Management",
+    "platform": "API",
+    "source": "OctopusDeploy",
+    "installation": "Configure Octopus server URL and API key.",
+    "useCases": [
+      "Trigger deployments",
+      "Release management",
+      "Environment promotion"
+    ]
+  },
+  {
+    "id": "surrealdb-mcp",
+    "name": "SurrealDB MCP",
+    "slug": "surrealdb-mcp",
+    "description": "Query and manage SurrealDB's multi-model database with SurrealQL across documents, graphs, and time-series.",
+    "category": "databases",
+    "tags": [
+      "multi-model",
+      "surreal",
+      "graph"
+    ],
+    "author": "surrealdb",
+    "repo": "https://github.com/surrealdb/surrealdb",
+    "featured": false,
+    "useCase": "Multi-Model Database",
+    "platform": "Self-hosted",
+    "source": "surrealdb/surrealdb",
+    "installation": "Run SurrealDB server; configure endpoint and credentials.",
+    "useCases": [
+      "SurrealQL queries",
+      "Graph traversal",
+      "Real-time subscriptions"
+    ]
+  },
+  {
+    "id": "dynamodb-mcp",
+    "name": "DynamoDB MCP",
+    "slug": "dynamodb-mcp",
+    "description": "Query, scan, and manage AWS DynamoDB tables with full support for expressions and GSIs.",
+    "category": "databases",
+    "tags": [
+      "dynamodb",
+      "aws",
+      "nosql"
+    ],
+    "author": "aws",
+    "repo": "https://github.com/awslabs/mcp",
+    "featured": false,
+    "useCase": "NoSQL Database",
+    "platform": "AWS",
+    "source": "awslabs/mcp",
+    "installation": "Configure AWS credentials with DynamoDB access via IAM.",
+    "useCases": [
+      "Table queries",
+      "Item operations",
+      "Index management"
+    ]
+  },
+  {
+    "id": "memcached-mcp",
+    "name": "Memcached MCP",
+    "slug": "memcached-mcp",
+    "description": "Get, set, and manage cached data in Memcached for high-performance in-memory storage.",
+    "category": "databases",
+    "tags": [
+      "cache",
+      "memcached",
+      "in-memory"
+    ],
+    "author": "community",
+    "repo": "https://github.com/community/memcached-mcp",
+    "featured": false,
+    "useCase": "In-Memory Cache",
+    "platform": "Self-hosted",
+    "source": "community",
+    "installation": "Configure Memcached host and port.",
+    "useCases": [
+      "Cache reads",
+      "Cache writes",
+      "Key expiry"
+    ]
+  },
+  {
+    "id": "aerospike-mcp",
+    "name": "Aerospike MCP",
+    "slug": "aerospike-mcp",
+    "description": "Access and query Aerospike's real-time NoSQL database for high-throughput workloads.",
+    "category": "databases",
+    "tags": [
+      "nosql",
+      "real-time",
+      "high-throughput"
+    ],
+    "author": "aerospike",
+    "repo": "https://github.com/aerospike/aerospike-client-python",
+    "featured": false,
+    "useCase": "Real-Time NoSQL",
+    "platform": "Self-hosted",
+    "source": "aerospike",
+    "installation": "Configure Aerospike cluster hosts and namespace.",
+    "useCases": [
+      "Record operations",
+      "Scan queries",
+      "Aggregate pipelines"
+    ]
+  },
+  {
+    "id": "couchbase-mcp",
+    "name": "Couchbase MCP",
+    "slug": "couchbase-mcp",
+    "description": "Query and manage Couchbase buckets with N1QL and full-text search capabilities.",
+    "category": "databases",
+    "tags": [
+      "nosql",
+      "n1ql",
+      "couchbase"
+    ],
+    "author": "couchbase",
+    "repo": "https://github.com/couchbase/couchbase-python-client",
+    "featured": false,
+    "useCase": "NoSQL Database",
+    "platform": "Self-hosted",
+    "source": "couchbase",
+    "installation": "Configure Couchbase cluster URL and credentials.",
+    "useCases": [
+      "N1QL queries",
+      "Key-value ops",
+      "FTS queries"
+    ]
+  },
+  {
+    "id": "valkey-mcp",
+    "name": "Valkey MCP",
+    "slug": "valkey-mcp",
+    "description": "Interact with Valkey, the open-source Redis fork, for high-performance key-value storage.",
+    "category": "databases",
+    "tags": [
+      "valkey",
+      "redis-compatible",
+      "key-value"
+    ],
+    "author": "valkey-io",
+    "repo": "https://github.com/valkey-io/valkey",
+    "featured": false,
+    "useCase": "Key-Value Store",
+    "platform": "Self-hosted",
+    "source": "valkey-io/valkey",
+    "installation": "Configure Valkey host, port, and optional auth.",
+    "useCases": [
+      "String ops",
+      "Data structures",
+      "Pub/sub"
+    ]
+  },
+  {
+    "id": "alloydb-mcp",
+    "name": "AlloyDB MCP",
+    "slug": "alloydb-mcp",
+    "description": "Connect to Google AlloyDB, the fully managed PostgreSQL-compatible database for enterprise workloads.",
+    "category": "databases",
+    "tags": [
+      "postgresql",
+      "google",
+      "alloydb"
+    ],
+    "author": "google",
+    "repo": "https://github.com/GoogleCloudPlatform/alloydb-omni",
+    "featured": false,
+    "useCase": "Managed PostgreSQL",
+    "platform": "GCP",
+    "source": "GoogleCloudPlatform",
+    "installation": "Configure AlloyDB connection string via GCP credentials.",
+    "useCases": [
+      "SQL queries",
+      "High-availability reads",
+      "OLAP workloads"
+    ]
+  },
+  {
+    "id": "delta-lake-mcp",
+    "name": "Delta Lake MCP",
+    "slug": "delta-lake-mcp",
+    "description": "Read and write Delta Lake tables with ACID transactions for reliable big data lake operations.",
+    "category": "databases",
+    "tags": [
+      "delta-lake",
+      "data-lake",
+      "spark"
+    ],
+    "author": "delta-io",
+    "repo": "https://github.com/delta-io/delta",
+    "featured": false,
+    "useCase": "Data Lake Storage",
+    "platform": "Self-hosted",
+    "source": "delta-io/delta",
+    "installation": "Requires Spark/PySpark and Delta Lake package.",
+    "useCases": [
+      "ACID table reads",
+      "Time travel",
+      "Schema evolution"
+    ]
+  },
+  {
+    "id": "kusto-mcp",
+    "name": "Azure Data Explorer (Kusto) MCP",
+    "slug": "kusto-mcp",
+    "description": "Run KQL queries against Azure Data Explorer (Kusto) for log analytics and time-series data.",
+    "category": "databases",
+    "tags": [
+      "azure",
+      "kql",
+      "analytics"
+    ],
+    "author": "microsoft",
+    "repo": "https://github.com/Azure/azure-sdk-for-python",
+    "featured": false,
+    "useCase": "Log Analytics",
+    "platform": "Azure",
+    "source": "microsoft/azure",
+    "installation": "Configure ADX cluster URI and Azure credentials.",
+    "useCases": [
+      "KQL queries",
+      "Log analysis",
+      "Telemetry exploration"
+    ]
+  },
+  {
+    "id": "presto-mcp",
+    "name": "Presto MCP",
+    "slug": "presto-mcp",
+    "description": "Run distributed SQL queries across heterogeneous data sources with Presto/Trino's query engine.",
+    "category": "databases",
+    "tags": [
+      "presto",
+      "distributed-sql",
+      "analytics"
+    ],
+    "author": "prestodb",
+    "repo": "https://github.com/prestodb/presto",
+    "featured": false,
+    "useCase": "Distributed SQL",
+    "platform": "Self-hosted",
+    "source": "prestodb/presto",
+    "installation": "Configure Presto coordinator URL and catalog.",
+    "useCases": [
+      "Cross-source queries",
+      "Federated SQL",
+      "Data lake access"
+    ]
+  },
+  {
+    "id": "memgraph-mcp",
+    "name": "Memgraph MCP",
+    "slug": "memgraph-mcp",
+    "description": "Query real-time graph data with Cypher using Memgraph's in-memory graph database.",
+    "category": "databases",
+    "tags": [
+      "graph",
+      "cypher",
+      "real-time"
+    ],
+    "author": "memgraph",
+    "repo": "https://github.com/memgraph/memgraph",
+    "featured": false,
+    "useCase": "Graph Database",
+    "platform": "Self-hosted",
+    "source": "memgraph/memgraph",
+    "installation": "Run Memgraph instance; configure Bolt protocol endpoint.",
+    "useCases": [
+      "Graph queries",
+      "Pattern matching",
+      "Streaming analytics"
+    ]
+  },
+  {
+    "id": "apache-hbase-mcp",
+    "name": "Apache HBase MCP",
+    "slug": "apache-hbase-mcp",
+    "description": "Access Apache HBase for scalable, distributed columnar storage on Hadoop.",
+    "category": "databases",
+    "tags": [
+      "hbase",
+      "hadoop",
+      "columnar"
+    ],
+    "author": "apache",
+    "repo": "https://github.com/apache/hbase",
+    "featured": false,
+    "useCase": "Columnar Storage",
+    "platform": "Self-hosted",
+    "source": "apache/hbase",
+    "installation": "Configure HBase ZooKeeper quorum and table namespace.",
+    "useCases": [
+      "Row gets",
+      "Scans",
+      "Column family ops"
+    ]
+  },
+  {
+    "id": "aws-ecs-mcp",
+    "name": "AWS ECS MCP",
+    "slug": "aws-ecs-mcp",
+    "description": "Manage Amazon ECS clusters, services, and tasks for containerized application deployments.",
+    "category": "cloud-services",
+    "tags": [
+      "aws",
+      "ecs",
+      "containers"
+    ],
+    "author": "aws",
+    "repo": "https://github.com/awslabs/mcp",
+    "featured": false,
+    "useCase": "Container Orchestration",
+    "platform": "AWS",
+    "source": "awslabs/mcp",
+    "installation": "Configure AWS credentials with ECS permissions.",
+    "useCases": [
+      "Service scaling",
+      "Task management",
+      "Cluster inspection"
+    ]
+  },
+  {
+    "id": "aws-eks-mcp",
+    "name": "AWS EKS MCP",
+    "slug": "aws-eks-mcp",
+    "description": "Interact with Amazon EKS managed Kubernetes clusters for cloud-native workload management.",
+    "category": "cloud-services",
+    "tags": [
+      "aws",
+      "eks",
+      "kubernetes"
+    ],
+    "author": "aws",
+    "repo": "https://github.com/awslabs/mcp",
+    "featured": false,
+    "useCase": "Managed Kubernetes",
+    "platform": "AWS",
+    "source": "awslabs/mcp",
+    "installation": "Configure AWS credentials and kubeconfig for target EKS cluster.",
+    "useCases": [
+      "Pod management",
+      "Node groups",
+      "RBAC inspection"
+    ]
+  },
+  {
+    "id": "aws-sns-mcp",
+    "name": "AWS SNS MCP",
+    "slug": "aws-sns-mcp",
+    "description": "Publish messages and manage subscriptions with Amazon Simple Notification Service.",
+    "category": "cloud-services",
+    "tags": [
+      "aws",
+      "sns",
+      "messaging"
+    ],
+    "author": "aws",
+    "repo": "https://github.com/awslabs/mcp",
+    "featured": false,
+    "useCase": "Message Broadcasting",
+    "platform": "AWS",
+    "source": "awslabs/mcp",
+    "installation": "Configure AWS credentials with SNS publish/subscribe permissions.",
+    "useCases": [
+      "Topic publish",
+      "Subscription management",
+      "Fan-out messaging"
+    ]
+  },
+  {
+    "id": "aws-iam-mcp",
+    "name": "AWS IAM MCP",
+    "slug": "aws-iam-mcp",
+    "description": "Inspect and manage IAM users, roles, policies, and access keys in AWS Identity and Access Management.",
+    "category": "cloud-services",
+    "tags": [
+      "aws",
+      "iam",
+      "security"
+    ],
+    "author": "aws",
+    "repo": "https://github.com/awslabs/mcp",
+    "featured": false,
+    "useCase": "Identity Management",
+    "platform": "AWS",
+    "source": "awslabs/mcp",
+    "installation": "Configure AWS credentials with IAM read/write permissions.",
+    "useCases": [
+      "Policy inspection",
+      "Role management",
+      "Access review"
+    ]
+  },
+  {
+    "id": "aws-ecr-mcp",
+    "name": "AWS ECR MCP",
+    "slug": "aws-ecr-mcp",
+    "description": "Push, pull, and manage Docker images in Amazon Elastic Container Registry.",
+    "category": "cloud-services",
+    "tags": [
+      "aws",
+      "ecr",
+      "docker"
+    ],
+    "author": "aws",
+    "repo": "https://github.com/awslabs/mcp",
+    "featured": false,
+    "useCase": "Container Registry",
+    "platform": "AWS",
+    "source": "awslabs/mcp",
+    "installation": "Configure AWS credentials with ECR permissions and Docker installed.",
+    "useCases": [
+      "Image listing",
+      "Repository management",
+      "Scan results"
+    ]
+  },
+  {
+    "id": "aws-glue-mcp",
+    "name": "AWS Glue MCP",
+    "slug": "aws-glue-mcp",
+    "description": "Orchestrate ETL jobs, crawlers, and data catalogs in AWS Glue for serverless data integration.",
+    "category": "cloud-services",
+    "tags": [
+      "aws",
+      "glue",
+      "etl"
+    ],
+    "author": "aws",
+    "repo": "https://github.com/awslabs/mcp",
+    "featured": false,
+    "useCase": "ETL Orchestration",
+    "platform": "AWS",
+    "source": "awslabs/mcp",
+    "installation": "Configure AWS credentials with Glue job execution permissions.",
+    "useCases": [
+      "ETL job runs",
+      "Crawler triggers",
+      "Data catalog queries"
+    ]
+  },
+  {
+    "id": "aws-route53-mcp",
+    "name": "AWS Route 53 MCP",
+    "slug": "aws-route53-mcp",
+    "description": "Manage DNS records, hosted zones, and health checks via Amazon Route 53.",
+    "category": "cloud-services",
+    "tags": [
+      "aws",
+      "dns",
+      "route53"
+    ],
+    "author": "aws",
+    "repo": "https://github.com/awslabs/mcp",
+    "featured": false,
+    "useCase": "DNS Management",
+    "platform": "AWS",
+    "source": "awslabs/mcp",
+    "installation": "Configure AWS credentials with Route 53 read/write permissions.",
+    "useCases": [
+      "Record management",
+      "Zone inspection",
+      "Health checks"
+    ]
+  },
+  {
+    "id": "gcp-gke-mcp",
+    "name": "GCP GKE MCP",
+    "slug": "gcp-gke-mcp",
+    "description": "Manage Google Kubernetes Engine clusters, node pools, and workloads via GCP APIs.",
+    "category": "cloud-services",
+    "tags": [
+      "gcp",
+      "gke",
+      "kubernetes"
+    ],
+    "author": "google",
+    "repo": "https://github.com/GoogleCloudPlatform/gke-mcp",
+    "featured": false,
+    "useCase": "Managed Kubernetes",
+    "platform": "GCP",
+    "source": "GoogleCloudPlatform",
+    "installation": "Configure GCP credentials with container.admin role.",
+    "useCases": [
+      "Cluster management",
+      "Node scaling",
+      "Workload inspection"
+    ]
+  },
+  {
+    "id": "gcp-pubsub-mcp",
+    "name": "GCP Pub/Sub MCP",
+    "slug": "gcp-pubsub-mcp",
+    "description": "Publish and subscribe to messages on Google Cloud Pub/Sub for event-driven architectures.",
+    "category": "cloud-services",
+    "tags": [
+      "gcp",
+      "pubsub",
+      "messaging"
+    ],
+    "author": "google",
+    "repo": "https://github.com/GoogleCloudPlatform/mcp-toolbox-for-databases",
+    "featured": false,
+    "useCase": "Event Streaming",
+    "platform": "GCP",
+    "source": "GoogleCloudPlatform",
+    "installation": "Configure GCP credentials and project ID.",
+    "useCases": [
+      "Topic publishing",
+      "Subscription pulls",
+      "Message acknowledgment"
+    ]
+  },
+  {
+    "id": "azure-keyvault-mcp",
+    "name": "Azure Key Vault MCP",
+    "slug": "azure-keyvault-mcp",
+    "description": "Store, retrieve, and rotate secrets, keys, and certificates using Azure Key Vault.",
+    "category": "cloud-services",
+    "tags": [
+      "azure",
+      "secrets",
+      "security"
+    ],
+    "author": "microsoft",
+    "repo": "https://github.com/Azure/azure-sdk-for-python",
+    "featured": false,
+    "useCase": "Secrets Management",
+    "platform": "Azure",
+    "source": "microsoft/azure",
+    "installation": "Configure Azure credentials and Key Vault vault name.",
+    "useCases": [
+      "Secret retrieval",
+      "Key rotation",
+      "Certificate management"
+    ]
+  },
+  {
+    "id": "azure-aks-mcp",
+    "name": "Azure AKS MCP",
+    "slug": "azure-aks-mcp",
+    "description": "Manage Azure Kubernetes Service clusters, node pools, and deployments via Azure Resource Manager.",
+    "category": "cloud-services",
+    "tags": [
+      "azure",
+      "aks",
+      "kubernetes"
+    ],
+    "author": "microsoft",
+    "repo": "https://github.com/Azure/azure-sdk-for-python",
+    "featured": false,
+    "useCase": "Managed Kubernetes",
+    "platform": "Azure",
+    "source": "microsoft/azure",
+    "installation": "Configure Azure credentials with AKS Contributor role.",
+    "useCases": [
+      "Cluster upgrades",
+      "Node pool scaling",
+      "Credential management"
+    ]
+  },
+  {
+    "id": "tencent-cloud-mcp",
+    "name": "Tencent Cloud MCP",
+    "slug": "tencent-cloud-mcp",
+    "description": "Interact with Tencent Cloud services including COS, CVM, TKE, and SCF for China and global deployments.",
+    "category": "cloud-services",
+    "tags": [
+      "tencent",
+      "cloud",
+      "china"
+    ],
+    "author": "tencentcloud",
+    "repo": "https://github.com/TencentCloud/tencentcloud-sdk-python",
+    "featured": false,
+    "useCase": "Cloud Infrastructure",
+    "platform": "Tencent Cloud",
+    "source": "TencentCloud",
+    "installation": "Configure Tencent Cloud SecretId and SecretKey.",
+    "useCases": [
+      "COS operations",
+      "CVM management",
+      "SCF invocation"
+    ]
+  },
+  {
+    "id": "oracle-cloud-mcp",
+    "name": "Oracle Cloud MCP",
+    "slug": "oracle-cloud-mcp",
+    "description": "Access OCI compute, storage, and networking resources via Oracle Cloud Infrastructure APIs.",
+    "category": "cloud-services",
+    "tags": [
+      "oracle",
+      "oci",
+      "cloud"
+    ],
+    "author": "oracle",
+    "repo": "https://github.com/oracle/oci-python-sdk",
+    "featured": false,
+    "useCase": "Cloud Infrastructure",
+    "platform": "OCI",
+    "source": "oracle/oci-python-sdk",
+    "installation": "Configure OCI config file with tenancy and user credentials.",
+    "useCases": [
+      "Compute management",
+      "Object storage",
+      "Networking ops"
+    ]
+  },
+  {
+    "id": "scaleway-mcp",
+    "name": "Scaleway MCP",
+    "slug": "scaleway-mcp",
+    "description": "Manage Scaleway cloud resources including Instances, Kubernetes Kapsule, and Object Storage.",
+    "category": "cloud-services",
+    "tags": [
+      "scaleway",
+      "cloud",
+      "europe"
+    ],
+    "author": "scaleway",
+    "repo": "https://github.com/scaleway/scaleway-sdk-python",
+    "featured": false,
+    "useCase": "Cloud Infrastructure",
+    "platform": "Scaleway",
+    "source": "scaleway",
+    "installation": "Configure Scaleway API key and secret key.",
+    "useCases": [
+      "Instance management",
+      "K8s Kapsule",
+      "Object storage"
+    ]
+  },
+  {
+    "id": "trello-mcp",
+    "name": "Trello MCP",
+    "slug": "trello-mcp",
+    "description": "Create boards, lists, and cards, and manage team workflows in Trello.",
+    "category": "communication",
+    "tags": [
+      "project-management",
+      "kanban",
+      "atlassian"
+    ],
+    "author": "atlassian",
+    "repo": "https://github.com/atlassian/trello-mcp",
+    "featured": false,
+    "useCase": "Project Management",
+    "platform": "API",
+    "source": "atlassian",
+    "installation": "Configure Trello API key and OAuth token.",
+    "useCases": [
+      "Board management",
+      "Card creation",
+      "Checklist ops"
+    ]
+  },
+  {
+    "id": "typeform-mcp",
+    "name": "Typeform MCP",
+    "slug": "typeform-mcp",
+    "description": "Create forms, fetch responses, and analyze survey data from Typeform.",
+    "category": "communication",
+    "tags": [
+      "forms",
+      "surveys",
+      "data-collection"
+    ],
+    "author": "typeform",
+    "repo": "https://github.com/typeform/mcp-typeform",
+    "featured": false,
+    "useCase": "Survey & Forms",
+    "platform": "API",
+    "source": "typeform",
+    "installation": "Configure Typeform Personal Access Token.",
+    "useCases": [
+      "Form creation",
+      "Response retrieval",
+      "Answer analysis"
+    ]
+  },
+  {
+    "id": "smartsheet-mcp",
+    "name": "Smartsheet MCP",
+    "slug": "smartsheet-mcp",
+    "description": "Read and write Smartsheet spreadsheets, manage rows, columns, and cross-sheet formulas.",
+    "category": "communication",
+    "tags": [
+      "spreadsheet",
+      "project-management",
+      "collaboration"
+    ],
+    "author": "smartsheet",
+    "repo": "https://github.com/smartsheet/smartsheet-python-sdk",
+    "featured": false,
+    "useCase": "Project Management",
+    "platform": "API",
+    "source": "smartsheet",
+    "installation": "Configure Smartsheet API access token.",
+    "useCases": [
+      "Sheet read/write",
+      "Row updates",
+      "Column management"
+    ]
+  },
+  {
+    "id": "miro-mcp",
+    "name": "Miro MCP",
+    "slug": "miro-mcp",
+    "description": "Create and edit Miro boards, sticky notes, diagrams, and collaborative visual workspaces.",
+    "category": "communication",
+    "tags": [
+      "whiteboard",
+      "collaboration",
+      "diagrams"
+    ],
+    "author": "miro",
+    "repo": "https://github.com/miroapp/miro-mcp",
+    "featured": false,
+    "useCase": "Visual Collaboration",
+    "platform": "API",
+    "source": "miro",
+    "installation": "Configure Miro OAuth app credentials.",
+    "useCases": [
+      "Board creation",
+      "Sticky notes",
+      "Frame management"
+    ]
+  },
+  {
+    "id": "loom-mcp",
+    "name": "Loom MCP",
+    "slug": "loom-mcp",
+    "description": "Access Loom videos, workspaces, and sharing links for async video communication.",
+    "category": "communication",
+    "tags": [
+      "video",
+      "async",
+      "communication"
+    ],
+    "author": "loom",
+    "repo": "https://github.com/loom/loom-mcp",
+    "featured": false,
+    "useCase": "Async Video",
+    "platform": "API",
+    "source": "loom",
+    "installation": "Configure Loom API key from workspace settings.",
+    "useCases": [
+      "Video listing",
+      "Workspace browsing",
+      "Share link generation"
+    ]
+  },
+  {
+    "id": "surveymonkey-mcp",
+    "name": "SurveyMonkey MCP",
+    "slug": "surveymonkey-mcp",
+    "description": "Create surveys, collect responses, and analyze results via SurveyMonkey's research platform.",
+    "category": "communication",
+    "tags": [
+      "surveys",
+      "research",
+      "analytics"
+    ],
+    "author": "surveymonkey",
+    "repo": "https://github.com/surveymonkey/surveymonkey-api",
+    "featured": false,
+    "useCase": "Survey Research",
+    "platform": "API",
+    "source": "surveymonkey",
+    "installation": "Configure SurveyMonkey OAuth token from developer app.",
+    "useCases": [
+      "Survey creation",
+      "Response analysis",
+      "Collector management"
+    ]
+  },
+  {
+    "id": "webex-mcp",
+    "name": "Webex MCP",
+    "slug": "webex-mcp",
+    "description": "Send messages, schedule meetings, and manage Webex spaces and teams.",
+    "category": "communication",
+    "tags": [
+      "meetings",
+      "messaging",
+      "cisco"
+    ],
+    "author": "cisco",
+    "repo": "https://github.com/cisco-dev/webex-mcp",
+    "featured": false,
+    "useCase": "Team Communication",
+    "platform": "API",
+    "source": "cisco",
+    "installation": "Configure Webex Bot token or Personal Access Token.",
+    "useCases": [
+      "Message sending",
+      "Meeting scheduling",
+      "Space management"
+    ]
+  },
+  {
+    "id": "lucidchart-mcp",
+    "name": "Lucidchart MCP",
+    "slug": "lucidchart-mcp",
+    "description": "Create and manage Lucidchart diagrams, flowcharts, and org charts programmatically.",
+    "category": "communication",
+    "tags": [
+      "diagrams",
+      "flowcharts",
+      "visualization"
+    ],
+    "author": "lucid",
+    "repo": "https://github.com/lucid-software/lucidchart-mcp",
+    "featured": false,
+    "useCase": "Diagramming",
+    "platform": "API",
+    "source": "lucid",
+    "installation": "Configure Lucid API key and client credentials.",
+    "useCases": [
+      "Diagram creation",
+      "Shape management",
+      "Export docs"
+    ]
+  },
+  {
+    "id": "google-docs-mcp",
+    "name": "Google Docs MCP",
+    "slug": "google-docs-mcp",
+    "description": "Create, read, and edit Google Docs documents, append content, and manage sharing.",
+    "category": "communication",
+    "tags": [
+      "google",
+      "docs",
+      "writing"
+    ],
+    "author": "google",
+    "repo": "https://github.com/modelcontextprotocol/servers",
+    "featured": false,
+    "useCase": "Document Editing",
+    "platform": "API",
+    "source": "modelcontextprotocol/servers",
+    "installation": "Configure Google OAuth with Docs API scope.",
+    "useCases": [
+      "Doc creation",
+      "Content append",
+      "Format text"
+    ]
+  },
+  {
+    "id": "google-forms-mcp",
+    "name": "Google Forms MCP",
+    "slug": "google-forms-mcp",
+    "description": "Create Google Forms, manage questions, and retrieve form responses via the Forms API.",
+    "category": "communication",
+    "tags": [
+      "google",
+      "forms",
+      "surveys"
+    ],
+    "author": "google",
+    "repo": "https://github.com/modelcontextprotocol/servers",
+    "featured": false,
+    "useCase": "Form Building",
+    "platform": "API",
+    "source": "modelcontextprotocol/servers",
+    "installation": "Configure Google OAuth with Forms API scope.",
+    "useCases": [
+      "Form creation",
+      "Response retrieval",
+      "Question management"
+    ]
+  },
+  {
+    "id": "docusign-mcp",
+    "name": "DocuSign MCP",
+    "slug": "docusign-mcp",
+    "description": "Send documents for eSignature, track envelope status, and manage signing workflows in DocuSign.",
+    "category": "communication",
+    "tags": [
+      "esignature",
+      "documents",
+      "legal"
+    ],
+    "author": "docusign",
+    "repo": "https://github.com/docusign/docusign-esign-python-client",
+    "featured": false,
+    "useCase": "eSignature",
+    "platform": "API",
+    "source": "docusign",
+    "installation": "Configure DocuSign JWT or OAuth credentials.",
+    "useCases": [
+      "Envelope creation",
+      "Status tracking",
+      "Template management"
+    ]
+  },
+  {
+    "id": "basecamp-mcp",
+    "name": "Basecamp MCP",
+    "slug": "basecamp-mcp",
+    "description": "Manage projects, to-dos, messages, and schedules in Basecamp team project management.",
+    "category": "communication",
+    "tags": [
+      "project-management",
+      "team",
+      "collaboration"
+    ],
+    "author": "basecamp",
+    "repo": "https://github.com/basecamp/bc3-api",
+    "featured": false,
+    "useCase": "Project Management",
+    "platform": "API",
+    "source": "basecamp",
+    "installation": "Configure Basecamp OAuth app credentials.",
+    "useCases": [
+      "Project management",
+      "To-do lists",
+      "Message boards"
+    ]
+  },
+  {
+    "id": "freshservice-mcp",
+    "name": "Freshservice MCP",
+    "slug": "freshservice-mcp",
+    "description": "Manage IT service management tickets, assets, and CMDB in Freshservice.",
+    "category": "communication",
+    "tags": [
+      "itsm",
+      "helpdesk",
+      "freshworks"
+    ],
+    "author": "freshworks",
+    "repo": "https://github.com/freshworks/freshservice-mcp",
+    "featured": false,
+    "useCase": "IT Service Management",
+    "platform": "API",
+    "source": "freshworks",
+    "installation": "Configure Freshservice domain and API key.",
+    "useCases": [
+      "Ticket creation",
+      "Asset management",
+      "CMDB lookup"
+    ]
+  },
+  {
+    "id": "zoho-crm-mcp",
+    "name": "Zoho CRM MCP",
+    "slug": "zoho-crm-mcp",
+    "description": "Access contacts, leads, deals, and activities in Zoho CRM for sales pipeline management.",
+    "category": "communication",
+    "tags": [
+      "crm",
+      "sales",
+      "zoho"
+    ],
+    "author": "zoho",
+    "repo": "https://github.com/zoho/zoho-crm-python-sdk",
+    "featured": false,
+    "useCase": "CRM",
+    "platform": "API",
+    "source": "zoho",
+    "installation": "Configure Zoho OAuth credentials and CRM scope.",
+    "useCases": [
+      "Lead management",
+      "Deal tracking",
+      "Contact sync"
+    ]
+  },
+  {
+    "id": "greenhouse-mcp",
+    "name": "Greenhouse MCP",
+    "slug": "greenhouse-mcp",
+    "description": "Access job postings, candidates, and hiring workflows in Greenhouse ATS.",
+    "category": "communication",
+    "tags": [
+      "ats",
+      "hiring",
+      "hr"
+    ],
+    "author": "greenhouse",
+    "repo": "https://github.com/grnhse/greenhouse-api-docs",
+    "featured": false,
+    "useCase": "Applicant Tracking",
+    "platform": "API",
+    "source": "greenhouse",
+    "installation": "Configure Greenhouse API key from developer settings.",
+    "useCases": [
+      "Candidate pipeline",
+      "Job posting",
+      "Interview scheduling"
+    ]
+  },
+  {
+    "id": "workday-mcp",
+    "name": "Workday MCP",
+    "slug": "workday-mcp",
+    "description": "Query HR, payroll, and workforce data from Workday's enterprise HCM platform.",
+    "category": "communication",
+    "tags": [
+      "hr",
+      "payroll",
+      "enterprise"
+    ],
+    "author": "workday",
+    "repo": "https://github.com/workday/workday-mcp",
+    "featured": false,
+    "useCase": "Human Capital Management",
+    "platform": "API",
+    "source": "workday",
+    "installation": "Configure Workday tenant URL and ISU credentials.",
+    "useCases": [
+      "Employee data",
+      "Payroll queries",
+      "Org hierarchy"
+    ]
+  },
+  {
+    "id": "service-now-mcp",
+    "name": "ServiceNow MCP",
+    "slug": "service-now-mcp",
+    "description": "Create incidents, manage CMDB records, and query ServiceNow tables via REST APIs.",
+    "category": "communication",
+    "tags": [
+      "itsm",
+      "servicenow",
+      "enterprise"
+    ],
+    "author": "servicenow",
+    "repo": "https://github.com/ServiceNow/mcp-server-servicenow",
+    "featured": false,
+    "useCase": "ITSM",
+    "platform": "API",
+    "source": "ServiceNow",
+    "installation": "Configure ServiceNow instance URL and credentials.",
+    "useCases": [
+      "Incident management",
+      "CMDB queries",
+      "Change requests"
+    ]
+  },
+  {
+    "id": "deepl-mcp",
+    "name": "DeepL MCP",
+    "slug": "deepl-mcp",
+    "description": "Translate text and documents into 30+ languages with DeepL's AI-powered translation engine.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "translation",
+      "nlp",
+      "deepl"
+    ],
+    "author": "deepl",
+    "repo": "https://github.com/DeepLcom/deepl-python",
+    "featured": false,
+    "useCase": "Language Translation",
+    "platform": "API",
+    "source": "DeepLcom/deepl-python",
+    "installation": "Configure DeepL API authentication key.",
+    "useCases": [
+      "Text translation",
+      "Document translation",
+      "Language detection"
+    ]
+  },
+  {
+    "id": "whisper-mcp",
+    "name": "Whisper MCP",
+    "slug": "whisper-mcp",
+    "description": "Transcribe audio files and streams with OpenAI Whisper's state-of-the-art speech recognition.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "transcription",
+      "speech",
+      "whisper"
+    ],
+    "author": "openai",
+    "repo": "https://github.com/openai/whisper",
+    "featured": false,
+    "useCase": "Speech-to-Text",
+    "platform": "Local/API",
+    "source": "openai/whisper",
+    "installation": "Install openai-whisper or use OpenAI API transcription endpoint.",
+    "useCases": [
+      "Audio transcription",
+      "Subtitle generation",
+      "Meeting notes"
+    ]
+  },
+  {
+    "id": "unstructured-mcp",
+    "name": "Unstructured MCP",
+    "slug": "unstructured-mcp",
+    "description": "Extract and parse text from PDFs, Office documents, HTML, and images for LLM pipelines.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "document-parsing",
+      "etl",
+      "llm"
+    ],
+    "author": "unstructured-io",
+    "repo": "https://github.com/Unstructured-IO/unstructured",
+    "featured": false,
+    "useCase": "Document Extraction",
+    "platform": "API",
+    "source": "Unstructured-IO/unstructured",
+    "installation": "Install unstructured library or configure API key for cloud service.",
+    "useCases": [
+      "PDF extraction",
+      "Table parsing",
+      "Image OCR"
+    ]
+  },
+  {
+    "id": "label-studio-mcp",
+    "name": "Label Studio MCP",
+    "slug": "label-studio-mcp",
+    "description": "Manage annotation projects, tasks, and labels in Label Studio for ML training data.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "annotation",
+      "labeling",
+      "ml-training"
+    ],
+    "author": "heartex",
+    "repo": "https://github.com/HumanSignal/label-studio",
+    "featured": false,
+    "useCase": "Data Labeling",
+    "platform": "Self-hosted",
+    "source": "HumanSignal/label-studio",
+    "installation": "Configure Label Studio URL and API token.",
+    "useCases": [
+      "Task management",
+      "Label creation",
+      "Export annotations"
+    ]
+  },
+  {
+    "id": "lmstudio-mcp",
+    "name": "LM Studio MCP",
+    "slug": "lmstudio-mcp",
+    "description": "Run local large language models and expose them via OpenAI-compatible API with LM Studio.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "local-llm",
+      "inference",
+      "openai-compatible"
+    ],
+    "author": "lmstudio",
+    "repo": "https://github.com/lmstudio-ai/lmstudio-mcp",
+    "featured": false,
+    "useCase": "Local LLM Inference",
+    "platform": "Local",
+    "source": "lmstudio-ai",
+    "installation": "Install LM Studio and enable local server mode.",
+    "useCases": [
+      "Model inference",
+      "Model management",
+      "Chat completions"
+    ]
+  },
+  {
+    "id": "scale-ai-mcp",
+    "name": "Scale AI MCP",
+    "slug": "scale-ai-mcp",
+    "description": "Submit and manage AI training data tasks through Scale AI's data annotation platform.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "annotation",
+      "ai-training",
+      "quality"
+    ],
+    "author": "scale-ai",
+    "repo": "https://github.com/scaleapi/scaleapi-python-client",
+    "featured": false,
+    "useCase": "Data Annotation",
+    "platform": "API",
+    "source": "scaleapi",
+    "installation": "Configure Scale AI API key from dashboard.",
+    "useCases": [
+      "Task creation",
+      "Quality review",
+      "Batch management"
+    ]
+  },
+  {
+    "id": "aws-rekognition-mcp",
+    "name": "AWS Rekognition MCP",
+    "slug": "aws-rekognition-mcp",
+    "description": "Analyze images and videos with AWS Rekognition for object detection, faces, text, and content moderation.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "computer-vision",
+      "aws",
+      "image-analysis"
+    ],
+    "author": "aws",
+    "repo": "https://github.com/awslabs/mcp",
+    "featured": false,
+    "useCase": "Computer Vision",
+    "platform": "AWS",
+    "source": "awslabs/mcp",
+    "installation": "Configure AWS credentials with Rekognition permissions.",
+    "useCases": [
+      "Object detection",
+      "Face analysis",
+      "Text extraction"
+    ]
+  },
+  {
+    "id": "clarifai-mcp",
+    "name": "Clarifai MCP",
+    "slug": "clarifai-mcp",
+    "description": "Build and deploy visual AI models for image classification, detection, and segmentation via Clarifai.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "computer-vision",
+      "visual-ai",
+      "classification"
+    ],
+    "author": "clarifai",
+    "repo": "https://github.com/Clarifai/clarifai-python",
+    "featured": false,
+    "useCase": "Visual AI",
+    "platform": "API",
+    "source": "Clarifai/clarifai-python",
+    "installation": "Configure Clarifai Personal Access Token and app credentials.",
+    "useCases": [
+      "Image classification",
+      "Model training",
+      "Concept detection"
+    ]
+  },
+  {
+    "id": "datarobot-mcp",
+    "name": "DataRobot MCP",
+    "slug": "datarobot-mcp",
+    "description": "Automate ML model building, deployment, and monitoring with DataRobot's AutoML platform.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "automl",
+      "mlops",
+      "enterprise"
+    ],
+    "author": "datarobot",
+    "repo": "https://github.com/datarobot-community/datarobot-user-models",
+    "featured": false,
+    "useCase": "AutoML",
+    "platform": "API",
+    "source": "datarobot-community",
+    "installation": "Configure DataRobot API token and endpoint URL.",
+    "useCases": [
+      "Project creation",
+      "Model deployment",
+      "Prediction explanations"
+    ]
+  },
+  {
+    "id": "modal-inference-mcp",
+    "name": "Modal Inference MCP",
+    "slug": "modal-inference-mcp",
+    "description": "Deploy and run AI inference functions on Modal's serverless GPU cloud infrastructure.",
+    "category": "ai-ml-tools",
+    "tags": [
+      "gpu",
+      "serverless",
+      "inference"
+    ],
+    "author": "modal",
+    "repo": "https://github.com/modal-labs/modal-client",
+    "featured": false,
+    "useCase": "GPU Inference",
+    "platform": "Modal",
+    "source": "modal-labs/modal-client",
+    "installation": "Install modal client and configure API credentials.",
+    "useCases": [
+      "Function deployment",
+      "GPU scaling",
+      "Model serving"
+    ]
+  },
+  {
+    "id": "reddit-mcp",
+    "name": "Reddit MCP",
+    "slug": "reddit-mcp",
+    "description": "Search subreddits, read posts, and retrieve comments from Reddit for community research.",
+    "category": "web-search-research",
+    "tags": [
+      "reddit",
+      "social",
+      "community"
+    ],
+    "author": "community",
+    "repo": "https://github.com/community/reddit-mcp",
+    "featured": false,
+    "useCase": "Community Research",
+    "platform": "API",
+    "source": "community",
+    "installation": "Configure Reddit OAuth app client ID and secret.",
+    "useCases": [
+      "Post search",
+      "Comment retrieval",
+      "Subreddit browsing"
+    ]
+  },
+  {
+    "id": "unsplash-mcp",
+    "name": "Unsplash MCP",
+    "slug": "unsplash-mcp",
+    "description": "Search and retrieve high-quality stock photos from Unsplash's library of millions of images.",
+    "category": "web-search-research",
+    "tags": [
+      "images",
+      "stock-photos",
+      "creative"
+    ],
+    "author": "unsplash",
+    "repo": "https://github.com/unsplash/unsplash-js",
+    "featured": false,
+    "useCase": "Image Search",
+    "platform": "API",
+    "source": "unsplash/unsplash-js",
+    "installation": "Configure Unsplash Access Key from developer dashboard.",
+    "useCases": [
+      "Photo search",
+      "Random images",
+      "Download links"
+    ]
+  },
+  {
+    "id": "wolframalpha-mcp",
+    "name": "Wolfram Alpha MCP",
+    "slug": "wolframalpha-mcp",
+    "description": "Query Wolfram Alpha for computational knowledge, math, science, and real-world data answers.",
+    "category": "web-search-research",
+    "tags": [
+      "math",
+      "computation",
+      "knowledge"
+    ],
+    "author": "wolfram",
+    "repo": "https://github.com/wolfram-language/wolframalpha-api",
+    "featured": false,
+    "useCase": "Computational Knowledge",
+    "platform": "API",
+    "source": "wolfram",
+    "installation": "Configure Wolfram Alpha API App ID.",
+    "useCases": [
+      "Math computation",
+      "Science queries",
+      "Data lookup"
+    ]
+  },
+  {
+    "id": "giphy-mcp",
+    "name": "GIPHY MCP",
+    "slug": "giphy-mcp",
+    "description": "Search, retrieve, and embed GIFs from GIPHY's vast animated image library.",
+    "category": "web-search-research",
+    "tags": [
+      "gifs",
+      "media",
+      "entertainment"
+    ],
+    "author": "giphy",
+    "repo": "https://github.com/giphy/giphy-js",
+    "featured": false,
+    "useCase": "GIF Discovery",
+    "platform": "API",
+    "source": "giphy/giphy-js",
+    "installation": "Configure GIPHY API key from developer portal.",
+    "useCases": [
+      "GIF search",
+      "Trending GIFs",
+      "Sticker lookup"
+    ]
+  },
+  {
+    "id": "google-trends-mcp",
+    "name": "Google Trends MCP",
+    "slug": "google-trends-mcp",
+    "description": "Fetch search trend data and interest-over-time graphs from Google Trends for market research.",
+    "category": "web-search-research",
+    "tags": [
+      "trends",
+      "market-research",
+      "google"
+    ],
+    "author": "community",
+    "repo": "https://github.com/community/google-trends-mcp",
+    "featured": false,
+    "useCase": "Trend Analysis",
+    "platform": "API",
+    "source": "community",
+    "installation": "No API key needed; uses unofficial Google Trends API.",
+    "useCases": [
+      "Keyword trends",
+      "Regional interest",
+      "Topic comparison"
+    ]
+  },
+  {
+    "id": "internet-archive-mcp",
+    "name": "Internet Archive MCP",
+    "slug": "internet-archive-mcp",
+    "description": "Search and retrieve archived web pages, books, and media from the Internet Archive Wayback Machine.",
+    "category": "web-search-research",
+    "tags": [
+      "archive",
+      "wayback",
+      "history"
+    ],
+    "author": "archive",
+    "repo": "https://github.com/internetarchive/ia-sdk",
+    "featured": false,
+    "useCase": "Web Archiving",
+    "platform": "API",
+    "source": "internetarchive/ia-sdk",
+    "installation": "No auth required for read access; configure for uploads.",
+    "useCases": [
+      "Page snapshots",
+      "Book search",
+      "Media retrieval"
+    ]
+  },
+  {
+    "id": "ipinfo-mcp",
+    "name": "IPinfo MCP",
+    "slug": "ipinfo-mcp",
+    "description": "Look up geolocation, ASN, carrier, and abuse data for any IP address via IPinfo.",
+    "category": "web-search-research",
+    "tags": [
+      "ip",
+      "geolocation",
+      "networking"
+    ],
+    "author": "ipinfo",
+    "repo": "https://github.com/ipinfo/python",
+    "featured": false,
+    "useCase": "IP Intelligence",
+    "platform": "API",
+    "source": "ipinfo/python",
+    "installation": "Configure IPinfo access token for higher rate limits.",
+    "useCases": [
+      "IP lookup",
+      "Geolocation",
+      "ASN info"
+    ]
+  },
+  {
+    "id": "whois-mcp",
+    "name": "WHOIS MCP",
+    "slug": "whois-mcp",
+    "description": "Query WHOIS records for domain registration details, nameservers, and registrar information.",
+    "category": "web-search-research",
+    "tags": [
+      "domains",
+      "whois",
+      "dns"
+    ],
+    "author": "community",
+    "repo": "https://github.com/community/whois-mcp",
+    "featured": false,
+    "useCase": "Domain Research",
+    "platform": "API",
+    "source": "community",
+    "installation": "No auth required; uses IANA WHOIS protocol.",
+    "useCases": [
+      "Domain lookup",
+      "Registrar info",
+      "Expiry dates"
+    ]
+  },
+  {
+    "id": "vimeo-mcp",
+    "name": "Vimeo MCP",
+    "slug": "vimeo-mcp",
+    "description": "Upload, manage, and retrieve video metadata from Vimeo's professional video hosting platform.",
+    "category": "web-search-research",
+    "tags": [
+      "video",
+      "hosting",
+      "media"
+    ],
+    "author": "vimeo",
+    "repo": "https://github.com/vimeo/vimeo.py",
+    "featured": false,
+    "useCase": "Video Management",
+    "platform": "API",
+    "source": "vimeo/vimeo.py",
+    "installation": "Configure Vimeo OAuth access token.",
+    "useCases": [
+      "Video upload",
+      "Metadata editing",
+      "Album management"
+    ]
+  },
+  {
+    "id": "yelp-mcp",
+    "name": "Yelp MCP",
+    "slug": "yelp-mcp",
+    "description": "Search local businesses, retrieve reviews, and get location-based recommendations from Yelp.",
+    "category": "web-search-research",
+    "tags": [
+      "local",
+      "reviews",
+      "business"
+    ],
+    "author": "yelp",
+    "repo": "https://github.com/Yelp/yelp-fusion",
+    "featured": false,
+    "useCase": "Local Business Search",
+    "platform": "API",
+    "source": "Yelp/yelp-fusion",
+    "installation": "Configure Yelp Fusion API key.",
+    "useCases": [
+      "Business search",
+      "Review retrieval",
+      "Rating lookup"
+    ]
+  },
+  {
+    "id": "etherscan-mcp",
+    "name": "Etherscan MCP",
+    "slug": "etherscan-mcp",
+    "description": "Query Ethereum transactions, wallet balances, token transfers, and smart contract data via Etherscan.",
+    "category": "web-search-research",
+    "tags": [
+      "ethereum",
+      "blockchain",
+      "crypto"
+    ],
+    "author": "etherscan",
+    "repo": "https://github.com/etherscan-io/etherscan-api",
+    "featured": false,
+    "useCase": "Blockchain Research",
+    "platform": "API",
+    "source": "etherscan-io",
+    "installation": "Configure Etherscan API key from account settings.",
+    "useCases": [
+      "TX lookup",
+      "Wallet balance",
+      "Contract ABI"
+    ]
+  },
+  {
+    "id": "openbb-mcp",
+    "name": "OpenBB MCP",
+    "slug": "openbb-mcp",
+    "description": "Access financial market data, economic indicators, and investment research via the OpenBB Platform.",
+    "category": "web-search-research",
+    "tags": [
+      "finance",
+      "stocks",
+      "investment"
+    ],
+    "author": "openbb",
+    "repo": "https://github.com/OpenBB-finance/OpenBBTerminal",
+    "featured": false,
+    "useCase": "Financial Research",
+    "platform": "API",
+    "source": "OpenBB-finance/OpenBBTerminal",
+    "installation": "Install openbb package and configure data provider keys.",
+    "useCases": [
+      "Stock prices",
+      "Economic data",
+      "Portfolio analysis"
+    ]
+  },
+  {
+    "id": "joplin-mcp",
+    "name": "Joplin MCP",
+    "slug": "joplin-mcp",
+    "description": "Read and write notes, notebooks, and tags in Joplin, the open-source note-taking app.",
+    "category": "memory-context",
+    "tags": [
+      "notes",
+      "markdown",
+      "privacy"
+    ],
+    "author": "joplin",
+    "repo": "https://github.com/laurent22/joplin",
+    "featured": false,
+    "useCase": "Note Taking",
+    "platform": "Local",
+    "source": "laurent22/joplin",
+    "installation": "Enable Joplin Web Clipper service and configure API token.",
+    "useCases": [
+      "Note creation",
+      "Search notes",
+      "Notebook management"
+    ]
+  },
+  {
+    "id": "raindrop-mcp",
+    "name": "Raindrop MCP",
+    "slug": "raindrop-mcp",
+    "description": "Save, organize, and retrieve bookmarks from Raindrop.io's visual bookmark manager.",
+    "category": "memory-context",
+    "tags": [
+      "bookmarks",
+      "saving",
+      "collections"
+    ],
+    "author": "raindropio",
+    "repo": "https://github.com/nicowillis/raindrop-mcp",
+    "featured": false,
+    "useCase": "Bookmark Management",
+    "platform": "API",
+    "source": "raindrop.io",
+    "installation": "Configure Raindrop.io API token from developer settings.",
+    "useCases": [
+      "Bookmark saving",
+      "Collection search",
+      "Tag management"
+    ]
+  },
+  {
+    "id": "tana-mcp",
+    "name": "Tana MCP",
+    "slug": "tana-mcp",
+    "description": "Interact with Tana's structured data workspace for nodes, supertags, and knowledge management.",
+    "category": "memory-context",
+    "tags": [
+      "knowledge",
+      "structured-data",
+      "tana"
+    ],
+    "author": "tana",
+    "repo": "https://github.com/tana-inc/tana-mcp",
+    "featured": false,
+    "useCase": "Knowledge Management",
+    "platform": "API",
+    "source": "tana-inc",
+    "installation": "Configure Tana API token and workspace ID.",
+    "useCases": [
+      "Node creation",
+      "Supertag management",
+      "Semantic search"
+    ]
+  },
+  {
+    "id": "outline-mcp",
+    "name": "Outline MCP",
+    "slug": "outline-mcp",
+    "description": "Read and write team documentation and wikis in Outline's open-source knowledge base.",
+    "category": "memory-context",
+    "tags": [
+      "wiki",
+      "documentation",
+      "team"
+    ],
+    "author": "outline",
+    "repo": "https://github.com/outline/outline",
+    "featured": false,
+    "useCase": "Team Documentation",
+    "platform": "API",
+    "source": "outline/outline",
+    "installation": "Configure Outline API token and host URL.",
+    "useCases": [
+      "Doc creation",
+      "Collection search",
+      "Comment threads"
+    ]
+  },
+  {
+    "id": "foam-mcp",
+    "name": "Foam MCP",
+    "slug": "foam-mcp",
+    "description": "Traverse personal knowledge graphs in Foam, a VS Code-based Roam Research alternative.",
+    "category": "memory-context",
+    "tags": [
+      "knowledge-graph",
+      "vscode",
+      "zettelkasten"
+    ],
+    "author": "foambubble",
+    "repo": "https://github.com/foambubble/foam",
+    "featured": false,
+    "useCase": "Personal Knowledge",
+    "platform": "Local",
+    "source": "foambubble/foam",
+    "installation": "Install Foam VS Code extension; MCP reads workspace markdown.",
+    "useCases": [
+      "Note linking",
+      "Graph traversal",
+      "Back-links"
+    ]
+  },
+  {
+    "id": "trilium-mcp",
+    "name": "Trilium Notes MCP",
+    "slug": "trilium-mcp",
+    "description": "Manage hierarchical notes with rich text, scripting, and relation maps in Trilium Notes.",
+    "category": "memory-context",
+    "tags": [
+      "notes",
+      "hierarchy",
+      "self-hosted"
+    ],
+    "author": "zadam",
+    "repo": "https://github.com/zadam/trilium",
+    "featured": false,
+    "useCase": "Note Taking",
+    "platform": "Self-hosted",
+    "source": "zadam/trilium",
+    "installation": "Enable Trilium API; configure server URL and API key.",
+    "useCases": [
+      "Note creation",
+      "Attribute search",
+      "Relation maps"
+    ]
+  },
+  {
+    "id": "affine-mcp",
+    "name": "AFFiNE MCP",
+    "slug": "affine-mcp",
+    "description": "Create and manage pages, edgeless canvases, and workspaces in AFFiNE's open-source Notion alternative.",
+    "category": "memory-context",
+    "tags": [
+      "productivity",
+      "notion-alternative",
+      "collaboration"
+    ],
+    "author": "toeverything",
+    "repo": "https://github.com/toeverything/AFFiNE",
+    "featured": false,
+    "useCase": "Knowledge Management",
+    "platform": "Self-hosted/Cloud",
+    "source": "toeverything/AFFiNE",
+    "installation": "Configure AFFiNE server URL and workspace credentials.",
+    "useCases": [
+      "Page creation",
+      "Canvas editing",
+      "Block management"
+    ]
+  },
+  {
+    "id": "uipath-mcp",
+    "name": "UiPath MCP",
+    "slug": "uipath-mcp",
+    "description": "Trigger and monitor RPA bots and orchestrate automation processes in UiPath Orchestrator.",
+    "category": "browser-automation",
+    "tags": [
+      "rpa",
+      "automation",
+      "enterprise"
+    ],
+    "author": "uipath",
+    "repo": "https://github.com/UiPath/uipath-mcp",
+    "featured": false,
+    "useCase": "RPA Automation",
+    "platform": "API",
+    "source": "UiPath",
+    "installation": "Configure UiPath Orchestrator URL and OAuth credentials.",
+    "useCases": [
+      "Bot execution",
+      "Job monitoring",
+      "Queue management"
+    ]
+  },
+  {
+    "id": "lambdatest-mcp",
+    "name": "LambdaTest MCP",
+    "slug": "lambdatest-mcp",
+    "description": "Run cross-browser tests on 3000+ browser and OS combinations via LambdaTest cloud.",
+    "category": "browser-automation",
+    "tags": [
+      "testing",
+      "cross-browser",
+      "cloud"
+    ],
+    "author": "lambdatest",
+    "repo": "https://github.com/lambdatest/lambdatest-mcp",
+    "featured": false,
+    "useCase": "Cross-Browser Testing",
+    "platform": "API",
+    "source": "lambdatest",
+    "installation": "Configure LambdaTest username and access key.",
+    "useCases": [
+      "Test execution",
+      "Screenshot capture",
+      "Automation logs"
+    ]
+  },
+  {
+    "id": "testrail-mcp",
+    "name": "TestRail MCP",
+    "slug": "testrail-mcp",
+    "description": "Manage test cases, runs, and results in TestRail's test management platform.",
+    "category": "browser-automation",
+    "tags": [
+      "test-management",
+      "qa",
+      "reporting"
+    ],
+    "author": "gurock",
+    "repo": "https://github.com/gurock/testrail-mcp",
+    "featured": false,
+    "useCase": "Test Management",
+    "platform": "API",
+    "source": "gurock/testrail",
+    "installation": "Configure TestRail URL, username, and API key.",
+    "useCases": [
+      "Test case creation",
+      "Run management",
+      "Result tracking"
+    ]
+  },
+  {
+    "id": "ghost-inspector-mcp",
+    "name": "Ghost Inspector MCP",
+    "slug": "ghost-inspector-mcp",
+    "description": "Run automated browser tests and visual regression checks via Ghost Inspector.",
+    "category": "browser-automation",
+    "tags": [
+      "testing",
+      "visual-regression",
+      "automation"
+    ],
+    "author": "ghost-inspector",
+    "repo": "https://github.com/ghost-inspector/node-ghost-inspector",
+    "featured": false,
+    "useCase": "Browser Testing",
+    "platform": "API",
+    "source": "ghost-inspector",
+    "installation": "Configure Ghost Inspector API key.",
+    "useCases": [
+      "Test execution",
+      "Screenshot comparison",
+      "Suite management"
+    ]
+  },
+  {
+    "id": "robotframework-mcp",
+    "name": "Robot Framework MCP",
+    "slug": "robotframework-mcp",
+    "description": "Execute and manage Robot Framework test suites for acceptance testing and RPA.",
+    "category": "browser-automation",
+    "tags": [
+      "testing",
+      "rpa",
+      "keyword-driven"
+    ],
+    "author": "robotframework",
+    "repo": "https://github.com/robotframework/robotframework",
+    "featured": false,
+    "useCase": "Test Automation",
+    "platform": "CLI",
+    "source": "robotframework/robotframework",
+    "installation": "Install robotframework and configure test suite paths.",
+    "useCases": [
+      "Suite execution",
+      "Keyword management",
+      "Report generation"
+    ]
+  },
+  {
+    "id": "katalon-mcp",
+    "name": "Katalon MCP",
+    "slug": "katalon-mcp",
+    "description": "Run and manage automated tests across web, mobile, and API with Katalon Studio.",
+    "category": "browser-automation",
+    "tags": [
+      "testing",
+      "web",
+      "mobile"
+    ],
+    "author": "katalon",
+    "repo": "https://github.com/katalon-studio/katalon-mcp",
+    "featured": false,
+    "useCase": "Test Automation",
+    "platform": "API",
+    "source": "katalon-studio",
+    "installation": "Configure Katalon API key and project ID.",
+    "useCases": [
+      "Test execution",
+      "Report access",
+      "CI integration"
+    ]
+  },
+  {
+    "id": "power-bi-mcp",
+    "name": "Power BI MCP",
+    "slug": "power-bi-mcp",
+    "description": "Query datasets, refresh reports, and embed Power BI visuals via Microsoft Power BI REST API.",
+    "category": "data-analysis",
+    "tags": [
+      "bi",
+      "microsoft",
+      "reporting"
+    ],
+    "author": "microsoft",
+    "repo": "https://github.com/microsoft/PowerBI-Developer-Samples",
+    "featured": false,
+    "useCase": "Business Intelligence",
+    "platform": "API",
+    "source": "microsoft",
+    "installation": "Configure Azure AD app with Power BI API permissions.",
+    "useCases": [
+      "Dataset queries",
+      "Report refresh",
+      "Dashboard export"
+    ]
+  },
+  {
+    "id": "qlik-mcp",
+    "name": "Qlik MCP",
+    "slug": "qlik-mcp",
+    "description": "Access Qlik Sense apps, reload data, and run associative queries for business analytics.",
+    "category": "data-analysis",
+    "tags": [
+      "bi",
+      "associative",
+      "analytics"
+    ],
+    "author": "qlik",
+    "repo": "https://github.com/qlik-oss/qlik-mcp",
+    "featured": false,
+    "useCase": "Business Analytics",
+    "platform": "API",
+    "source": "qlik-oss",
+    "installation": "Configure Qlik Sense host and API key.",
+    "useCases": [
+      "App queries",
+      "Data reload",
+      "Selection management"
+    ]
+  },
+  {
+    "id": "plotly-mcp",
+    "name": "Plotly MCP",
+    "slug": "plotly-mcp",
+    "description": "Create interactive charts, dashboards, and data visualizations with Plotly's graphing library.",
+    "category": "data-analysis",
+    "tags": [
+      "visualization",
+      "charts",
+      "interactive"
+    ],
+    "author": "plotly",
+    "repo": "https://github.com/plotly/plotly.py",
+    "featured": false,
+    "useCase": "Data Visualization",
+    "platform": "API",
+    "source": "plotly/plotly.py",
+    "installation": "Install plotly package; configure Plotly Chart Studio token for cloud sharing.",
+    "useCases": [
+      "Chart creation",
+      "Dashboard design",
+      "Export to HTML"
+    ]
+  },
+  {
+    "id": "monte-carlo-mcp",
+    "name": "Monte Carlo MCP",
+    "slug": "monte-carlo-mcp",
+    "description": "Monitor data quality, view lineage, and manage incidents with Monte Carlo's data observability platform.",
+    "category": "data-analysis",
+    "tags": [
+      "data-quality",
+      "observability",
+      "lineage"
+    ],
+    "author": "montecarlodata",
+    "repo": "https://github.com/monte-carlo-data/mcp-server-monte-carlo",
+    "featured": false,
+    "useCase": "Data Observability",
+    "platform": "API",
+    "source": "monte-carlo-data",
+    "installation": "Configure Monte Carlo API key and secret.",
+    "useCases": [
+      "Quality incidents",
+      "Lineage graph",
+      "Table monitors"
+    ]
+  },
+  {
+    "id": "lightdash-mcp",
+    "name": "Lightdash MCP",
+    "slug": "lightdash-mcp",
+    "description": "Run BI queries and retrieve dashboards from Lightdash, the open-source dbt-native BI tool.",
+    "category": "data-analysis",
+    "tags": [
+      "bi",
+      "dbt",
+      "open-source"
+    ],
+    "author": "lightdash",
+    "repo": "https://github.com/lightdash/lightdash",
+    "featured": false,
+    "useCase": "Business Intelligence",
+    "platform": "API",
+    "source": "lightdash/lightdash",
+    "installation": "Configure Lightdash project URL and API token.",
+    "useCases": [
+      "Chart queries",
+      "Dashboard access",
+      "dbt metric exploration"
+    ]
+  },
+  {
+    "id": "meltano-mcp",
+    "name": "Meltano MCP",
+    "slug": "meltano-mcp",
+    "description": "Orchestrate ELT pipelines with Meltano's open-source DataOps platform and plugin ecosystem.",
+    "category": "data-analysis",
+    "tags": [
+      "elt",
+      "dataops",
+      "orchestration"
+    ],
+    "author": "meltano",
+    "repo": "https://github.com/meltano/meltano",
+    "featured": false,
+    "useCase": "ELT Orchestration",
+    "platform": "CLI",
+    "source": "meltano/meltano",
+    "installation": "Install meltano CLI and configure project with extractors/loaders.",
+    "useCases": [
+      "Pipeline execution",
+      "Plugin management",
+      "Environment config"
+    ]
+  },
+  {
+    "id": "rudderstack-mcp",
+    "name": "RudderStack MCP",
+    "slug": "rudderstack-mcp",
+    "description": "Send and route customer events to warehouses and destinations via RudderStack's CDP platform.",
+    "category": "data-analysis",
+    "tags": [
+      "cdp",
+      "event-tracking",
+      "routing"
+    ],
+    "author": "rudderlabs",
+    "repo": "https://github.com/rudderlabs/rudder-sdk-python",
+    "featured": false,
+    "useCase": "Customer Data Platform",
+    "platform": "API",
+    "source": "rudderlabs",
+    "installation": "Configure RudderStack write key and data plane URL.",
+    "useCases": [
+      "Event tracking",
+      "Trait updates",
+      "Destination routing"
+    ]
+  },
+  {
+    "id": "sql-mcp",
+    "name": "Generic SQL MCP",
+    "slug": "sql-mcp",
+    "description": "Connect to any SQL database via standard JDBC/ODBC connection strings for universal SQL query access.",
+    "category": "data-analysis",
+    "tags": [
+      "sql",
+      "universal",
+      "database"
+    ],
+    "author": "community",
+    "repo": "https://github.com/community/sql-mcp",
+    "featured": false,
+    "useCase": "SQL Access",
+    "platform": "Self-hosted",
+    "source": "community",
+    "installation": "Configure JDBC connection string for target database.",
+    "useCases": [
+      "Query execution",
+      "Schema inspection",
+      "Data export"
+    ]
+  },
+  {
+    "id": "starburst-mcp",
+    "name": "Starburst MCP",
+    "slug": "starburst-mcp",
+    "description": "Run distributed SQL queries across data lakes and databases with Starburst Enterprise (Trino).",
+    "category": "data-analysis",
+    "tags": [
+      "trino",
+      "distributed-sql",
+      "data-lake"
+    ],
+    "author": "starburst",
+    "repo": "https://github.com/starburstdata/starburst-mcp",
+    "featured": false,
+    "useCase": "Distributed SQL",
+    "platform": "API",
+    "source": "starburstdata",
+    "installation": "Configure Starburst cluster URL and credentials.",
+    "useCases": [
+      "Cross-catalog queries",
+      "Data lake access",
+      "Federated joins"
+    ]
+  },
+  {
+    "id": "parabola-mcp",
+    "name": "Parabola MCP",
+    "slug": "parabola-mcp",
+    "description": "Build no-code data pipelines and automations with Parabola's visual workflow editor.",
+    "category": "data-analysis",
+    "tags": [
+      "no-code",
+      "etl",
+      "automation"
+    ],
+    "author": "parabola",
+    "repo": "https://github.com/parabola-io/parabola-mcp",
+    "featured": false,
+    "useCase": "No-Code ETL",
+    "platform": "API",
+    "source": "parabola-io",
+    "installation": "Configure Parabola API key and flow IDs.",
+    "useCases": [
+      "Flow execution",
+      "Data transformation",
+      "Schedule management"
+    ]
+  },
+  {
+    "id": "syncthing-mcp",
+    "name": "Syncthing MCP",
+    "slug": "syncthing-mcp",
+    "description": "Manage file synchronization across devices with Syncthing's peer-to-peer sync protocol.",
+    "category": "file-systems-storage",
+    "tags": [
+      "sync",
+      "p2p",
+      "privacy"
+    ],
+    "author": "syncthing",
+    "repo": "https://github.com/syncthing/syncthing",
+    "featured": false,
+    "useCase": "File Sync",
+    "platform": "Self-hosted",
+    "source": "syncthing/syncthing",
+    "installation": "Run Syncthing daemon and configure REST API access.",
+    "useCases": [
+      "Folder sync",
+      "Device management",
+      "Conflict resolution"
+    ]
+  },
+  {
+    "id": "borgbackup-mcp",
+    "name": "BorgBackup MCP",
+    "slug": "borgbackup-mcp",
+    "description": "Create deduplicated, encrypted backups with BorgBackup for efficient long-term storage.",
+    "category": "file-systems-storage",
+    "tags": [
+      "backup",
+      "encryption",
+      "deduplication"
+    ],
+    "author": "borgbackup",
+    "repo": "https://github.com/borgbackup/borg",
+    "featured": false,
+    "useCase": "Backup & Archive",
+    "platform": "CLI",
+    "source": "borgbackup/borg",
+    "installation": "Install borgbackup; configure repository path and passphrase.",
+    "useCases": [
+      "Backup creation",
+      "Archive listing",
+      "Restore operations"
+    ]
+  },
+  {
+    "id": "ipfs-mcp",
+    "name": "IPFS MCP",
+    "slug": "ipfs-mcp",
+    "description": "Add, retrieve, and pin content on the InterPlanetary File System for decentralized storage.",
+    "category": "file-systems-storage",
+    "tags": [
+      "ipfs",
+      "decentralized",
+      "web3"
+    ],
+    "author": "ipfs",
+    "repo": "https://github.com/ipfs/kubo",
+    "featured": false,
+    "useCase": "Decentralized Storage",
+    "platform": "Self-hosted",
+    "source": "ipfs/kubo",
+    "installation": "Run IPFS node (kubo) and configure HTTP API.",
+    "useCases": [
+      "Content adding",
+      "CID retrieval",
+      "Pinning management"
     ]
   }
 ]

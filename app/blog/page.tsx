@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-claude-ai",
+    title: "Best MCP Servers for Claude AI: Supercharge Your Claude Setup",
+    description:
+      "Discover the top MCP servers to extend Claude AI with file access, web search, databases, code execution, memory, and productivity integrations.",
+    date: "March 21, 2026",
+    readTime: "8 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/mcp-servers-for-web-scraping",
     title: "Best MCP Servers for Web Scraping & Browser Automation in 2026",
     description:

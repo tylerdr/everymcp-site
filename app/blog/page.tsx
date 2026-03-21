@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   }
 };
 
-const posts = [
+const posts: { href: "/blog/how-to-choose-an-mcp-server" | "/blog/top-mcp-servers-for-developers"; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
-    slug: "how-to-choose-an-mcp-server",
+    href: "/blog/how-to-choose-an-mcp-server",
     title: "How to Choose the Right MCP Server for Your AI Application",
     description:
       "A practical framework for evaluating MCP servers before you commit — covering authentication, latency, tool surface area, and maintenance status.",
@@ -21,7 +21,7 @@ const posts = [
     tag: "MCP Guide"
   },
   {
-    slug: "top-mcp-servers-for-developers",
+    href: "/blog/top-mcp-servers-for-developers",
     title: "Top MCP Servers for Developers in 2025",
     description:
       "A curated guide to the best Model Context Protocol servers for production AI applications — databases, search, code execution, and more.",
@@ -49,8 +49,8 @@ export default function BlogIndex() {
       <div className="space-y-6">
         {posts.map((post) => (
           <Link
-            key={post.slug}
-            href={`/blog/${post.slug}`}
+            key={post.href}
+            href={post.href}
             className="block rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:border-sky/30 hover:shadow-md"
           >
             <p className="inline-flex rounded-full bg-sky/10 px-3 py-0.5 text-xs font-bold uppercase tracking-[0.12em] text-sky">

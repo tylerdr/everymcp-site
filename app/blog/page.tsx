@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-web-scraping",
+    title: "Best MCP Servers for Web Scraping & Browser Automation in 2026",
+    description:
+      "Discover the top MCP servers for web scraping and browser automation. From Playwright to Puppeteer integrations, give your AI agent real-time web access.",
+    date: "March 21, 2026",
+    readTime: "8 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/best-mcp-servers-2026",
     title: "Best MCP Servers in 2026: Top Model Context Protocol Tools Ranked",
     description:

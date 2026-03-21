@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    slug: "how-to-choose-an-mcp-server",
+    title: "How to Choose the Right MCP Server for Your AI Application",
+    description:
+      "A practical framework for evaluating MCP servers before you commit — covering authentication, latency, tool surface area, and maintenance status.",
+    date: "March 21, 2026",
+    readTime: "7 min read",
+    tag: "MCP Guide"
+  },
+  {
     slug: "top-mcp-servers-for-developers",
     title: "Top MCP Servers for Developers in 2025",
     description:

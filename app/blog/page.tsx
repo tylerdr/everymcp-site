@@ -10,7 +10,16 @@ export const metadata: Metadata = {
   }
 };
 
-const posts: { href: "/blog/how-to-choose-an-mcp-server" | "/blog/top-mcp-servers-for-developers"; title: string; description: string; date: string; readTime: string; tag: string }[] = [
+const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
+  {
+    href: "/blog/best-mcp-servers-2026",
+    title: "Best MCP Servers in 2026: Top Model Context Protocol Tools Ranked",
+    description:
+      "The definitive guide to the best MCP servers in 2026 — ranked by developer adoption and capability across databases, search, file systems, and SaaS integrations.",
+    date: "March 21, 2026",
+    readTime: "9 min read",
+    tag: "MCP Guide"
+  },
   {
     href: "/blog/how-to-choose-an-mcp-server",
     title: "How to Choose the Right MCP Server for Your AI Application",

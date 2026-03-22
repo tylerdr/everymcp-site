@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/how-to-build-an-mcp-server",
+    title: "How to Build an MCP Server: Step-by-Step Guide for Developers",
+    description:
+      "Learn how to build an MCP server from scratch with TypeScript or Python. Covers tools, resources, prompts, error handling, and deployment — with working code examples.",
+    date: "March 22, 2026",
+    readTime: "10 min read",
+    tag: "Tutorial"
+  },
+  {
     href: "/blog/mcp-servers-for-productivity-automation",
     title: "MCP Servers for Productivity & Automation: Top Tools in 2026",
     description:

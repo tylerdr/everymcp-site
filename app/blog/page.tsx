@@ -21,6 +21,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "Tutorial"
   },
   {
+    href: "/blog/mcp-servers-for-github",
+    title: "Best MCP Servers for GitHub in 2026 — Code, PRs & Issues with AI",
+    description:
+      "Discover the top MCP servers for GitHub integration. Let your AI agent read code, open pull requests, manage issues, and automate workflows directly from Claude or any LLM.",
+    date: "March 22, 2026",
+    readTime: "8 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/mcp-servers-for-productivity-automation",
     title: "MCP Servers for Productivity & Automation: Top Tools in 2026",
     description:

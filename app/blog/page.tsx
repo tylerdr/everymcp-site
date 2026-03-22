@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-ai-agents",
+    title: "Best MCP Servers for AI Agents in 2026",
+    description:
+      "Power your AI agents with the best MCP servers. Give autonomous agents access to web browsing, databases, code execution, email, and memory using Model Context Protocol.",
+    date: "March 22, 2026",
+    readTime: "9 min read",
+    tag: "AI Agents"
+  },
+  {
     href: "/blog/mcp-servers-for-github-copilot",
     title: "Best MCP Servers for GitHub Copilot & VS Code in 2026",
     description:

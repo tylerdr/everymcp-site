@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-productivity-automation",
+    title: "MCP Servers for Productivity & Automation: Top Tools in 2026",
+    description:
+      "Discover the best MCP servers for productivity and automation — calendar management, email, task tracking, file automation, and workflow orchestration.",
+    date: "March 22, 2026",
+    readTime: "9 min read",
+    tag: "Productivity"
+  },
+  {
     href: "/blog/mcp-servers-for-cursor-and-vscode",
     title: "Best MCP Servers for Cursor and VS Code in 2026",
     description:

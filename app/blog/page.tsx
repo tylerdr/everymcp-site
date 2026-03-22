@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-github-copilot",
+    title: "Best MCP Servers for GitHub Copilot & VS Code in 2026",
+    description:
+      "Extend GitHub Copilot and VS Code with the best MCP servers — connecting your coding assistant to databases, search, APIs, and infrastructure tools.",
+    date: "March 22, 2026",
+    readTime: "9 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/mcp-servers-for-claude-ai",
     title: "Best MCP Servers for Claude AI: Supercharge Your Claude Setup",
     description:

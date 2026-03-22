@@ -21,6 +21,42 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "MCP Guide"
   },
   {
+    href: "/blog/mcp-servers-for-productivity-automation",
+    title: "MCP Servers for Productivity & Automation: Top Tools in 2026",
+    description:
+      "Discover the best MCP servers for productivity and automation — calendar management, email, task tracking, file automation, and workflow orchestration.",
+    date: "March 22, 2026",
+    readTime: "9 min read",
+    tag: "Productivity"
+  },
+  {
+    href: "/blog/mcp-servers-for-cursor-and-vscode",
+    title: "Best MCP Servers for Cursor and VS Code in 2026",
+    description:
+      "Discover the best MCP servers for Cursor AI and VS Code. Supercharge your IDE with GitHub, database, web search, memory, and browser automation tools.",
+    date: "March 22, 2026",
+    readTime: "8 min read",
+    tag: "IDE Integrations"
+  },
+  {
+    href: "/blog/mcp-servers-for-ai-agents",
+    title: "Best MCP Servers for AI Agents in 2026",
+    description:
+      "Power your AI agents with the best MCP servers. Give autonomous agents access to web browsing, databases, code execution, email, and memory using Model Context Protocol.",
+    date: "March 22, 2026",
+    readTime: "9 min read",
+    tag: "AI Agents"
+  },
+  {
+    href: "/blog/mcp-servers-for-github-copilot",
+    title: "Best MCP Servers for GitHub Copilot & VS Code in 2026",
+    description:
+      "Extend GitHub Copilot and VS Code with the best MCP servers — connecting your coding assistant to databases, search, APIs, and infrastructure tools.",
+    date: "March 22, 2026",
+    readTime: "9 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/mcp-servers-for-claude-ai",
     title: "Best MCP Servers for Claude AI: Supercharge Your Claude Setup",
     description:

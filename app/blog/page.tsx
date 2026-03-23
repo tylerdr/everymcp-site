@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-security-and-authentication",
+    title: "Best MCP Servers for Security & Authentication in 2026",
+    description:
+      "Discover MCP servers for secrets management, vulnerability scanning, IAM auditing, and identity providers. Let your AI manage credentials, scan for CVEs, and audit access controls.",
+    date: "March 23, 2026",
+    readTime: "8 min read",
+    tag: "Security"
+  },
+  {
     href: "/blog/mcp-servers-for-monitoring-and-observability",
     title: "Best MCP Servers for Monitoring & Observability in 2026",
     description:

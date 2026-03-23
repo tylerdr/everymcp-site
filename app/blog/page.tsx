@@ -21,6 +21,24 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "DevOps"
   },
   {
+    href: "/blog/mcp-servers-for-file-management",
+    title: "Best MCP Servers for File Management & Local Filesystem Access (2026)",
+    description:
+      "Give Claude, Cursor, or any MCP-compatible AI direct read/write access to your local files. The top filesystem MCP servers reviewed and compared.",
+    date: "March 23, 2026",
+    readTime: "8 min read",
+    tag: "MCP Guide"
+  },
+  {
+    href: "/blog/how-to-build-an-mcp-server",
+    title: "How to Build an MCP Server: Step-by-Step Guide for Developers",
+    description:
+      "Learn how to build an MCP server from scratch with TypeScript or Python. Covers tools, resources, prompts, error handling, and deployment — with working code examples.",
+    date: "March 22, 2026",
+    readTime: "10 min read",
+    tag: "Tutorial"
+  },
+  {
     href: "/blog/mcp-servers-for-github",
     title: "Best MCP Servers for GitHub in 2026 — Code, PRs & Issues with AI",
     description:

@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-notion",
+    title: "Best MCP Servers for Notion in 2026 — AI-Powered Knowledge Base Access",
+    description:
+      "Discover the top MCP servers for Notion integration. Let your AI agent read pages, create docs, search your workspace, and manage databases directly from Claude or any LLM.",
+    date: "March 23, 2026",
+    readTime: "8 min read",
+    tag: "Productivity"
+  },
+  {
     href: "/blog/mcp-servers-for-docker-and-kubernetes",
     title: "Best MCP Servers for Docker & Kubernetes in 2026 — AI-Powered Container Management",
     description:

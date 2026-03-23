@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-docker-and-kubernetes",
+    title: "Best MCP Servers for Docker & Kubernetes in 2026 — AI-Powered Container Management",
+    description:
+      "Discover the top MCP servers for Docker and Kubernetes. Let your AI agent inspect containers, manage pods, tail logs, and automate deployments directly from Claude or any LLM.",
+    date: "March 23, 2026",
+    readTime: "8 min read",
+    tag: "DevOps"
+  },
+  {
     href: "/blog/mcp-servers-for-security-and-authentication",
     title: "Best MCP Servers for Security & Authentication in 2026",
     description:

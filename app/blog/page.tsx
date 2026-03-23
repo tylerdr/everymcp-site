@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-file-management",
+    title: "Best MCP Servers for File Management & Local Filesystem Access (2026)",
+    description:
+      "Give Claude, Cursor, or any MCP-compatible AI direct read/write access to your local files. The top filesystem MCP servers reviewed and compared.",
+    date: "March 23, 2026",
+    readTime: "8 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/how-to-build-an-mcp-server",
     title: "How to Build an MCP Server: Step-by-Step Guide for Developers",
     description:

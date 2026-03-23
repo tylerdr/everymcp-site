@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-databases",
+    title: "Best MCP Servers for Databases in 2026 — SQL, Postgres & NoSQL with AI",
+    description:
+      "Discover the top MCP servers for database integration. Let your AI agent query PostgreSQL, MySQL, SQLite, MongoDB, and more — directly from Claude, GPT-4, or any LLM.",
+    date: "March 23, 2026",
+    readTime: "9 min read",
+    tag: "Databases"
+  },
+  {
     href: "/blog/mcp-servers-for-notion",
     title: "Best MCP Servers for Notion in 2026 — AI-Powered Knowledge Base Access",
     description:

@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-browser-automation",
+    title: "Best MCP Servers for Browser Automation in 2026",
+    description:
+      "Discover the best MCP servers for browser automation, web scraping, and UI testing. Control browsers with Playwright, Puppeteer, and Selenium through Model Context Protocol.",
+    date: "March 24, 2026",
+    readTime: "8 min read",
+    tag: "Browser Automation"
+  },
+  {
     href: "/blog/mcp-servers-for-kubernetes",
     title: "Best MCP Servers for Kubernetes in 2026 — Manage Clusters with AI",
     description:

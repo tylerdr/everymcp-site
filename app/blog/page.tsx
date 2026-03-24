@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-windsurf",
+    title: "Best MCP Servers for Windsurf IDE (2026)",
+    description:
+      "Supercharge Windsurf's Cascade AI with MCP servers. Connect to GitHub, PostgreSQL, Slack, Linear, web search, and more — directly inside your IDE.",
+    date: "March 24, 2026",
+    readTime: "8 min read",
+    tag: "IDE Integration"
+  },
+  {
     href: "/blog/mcp-servers-for-email",
     title: "Best MCP Servers for Email in 2026 — Gmail, Outlook & AI Automation",
     description:

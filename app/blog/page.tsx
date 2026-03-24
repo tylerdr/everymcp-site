@@ -84,6 +84,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "Tutorial"
   },
   {
+    href: "/blog/mcp-servers-for-data-analysis",
+    title: "Best MCP Servers for Data Analysis in 2026 — Pandas, SQL & Spreadsheets with AI",
+    description:
+      "Discover the top MCP servers for data analysis. Let your AI agent query databases, run Python/pandas, analyze CSVs, and generate charts — all from Claude or any LLM.",
+    date: "March 24, 2026",
+    readTime: "9 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/mcp-servers-for-github",
     title: "Best MCP Servers for GitHub in 2026 — Code, PRs & Issues with AI",
     description:

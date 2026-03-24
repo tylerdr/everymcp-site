@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-kubernetes",
+    title: "Best MCP Servers for Kubernetes in 2026 — Manage Clusters with AI",
+    description:
+      "Discover the top MCP servers for Kubernetes. Let your AI agent inspect pods, apply manifests, debug deployments, and manage cluster resources directly from Claude or any LLM.",
+    date: "March 24, 2026",
+    readTime: "9 min read",
+    tag: "DevOps"
+  },
+  {
     href: "/blog/mcp-servers-for-windsurf",
     title: "Best MCP Servers for Windsurf IDE (2026)",
     description:

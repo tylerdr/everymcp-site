@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { Route } from "next";
 
 export const metadata: Metadata = {
   title: "How to Build an MCP Server: Step-by-Step Guide for Developers",
@@ -358,19 +359,19 @@ server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
           <p>Popular categories include:</p>
           <ul>
             <li>
-              <Link href="/servers?category=database" className="text-blue-600 hover:underline">
+              <Link href={"/servers?category=database" as Route} className="text-blue-600 hover:underline">
                 Database MCP servers
               </Link>{" "}
               (PostgreSQL, MySQL, SQLite, MongoDB)
             </li>
             <li>
-              <Link href="/servers?category=developer-tools" className="text-blue-600 hover:underline">
+              <Link href={"/servers?category=developer-tools" as Route} className="text-blue-600 hover:underline">
                 Developer tools
               </Link>{" "}
               (GitHub, GitLab, Jira, Linear)
             </li>
             <li>
-              <Link href="/servers?category=productivity" className="text-blue-600 hover:underline">
+              <Link href={"/servers?category=productivity" as Route} className="text-blue-600 hover:underline">
                 Productivity
               </Link>{" "}
               (Notion, Google Drive, Slack)

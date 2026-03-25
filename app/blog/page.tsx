@@ -66,6 +66,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "Productivity"
   },
   {
+    href: "/blog/mcp-servers-for-postgres",
+    title: "Best MCP Servers for PostgreSQL in 2026 — Query Databases with AI",
+    description:
+      "Discover the top MCP servers for PostgreSQL. Let your AI agent run SQL queries, explore schemas, and analyze data directly from Claude, GPT-4, or any LLM — no SQL expertise required.",
+    date: "March 25, 2026",
+    readTime: "9 min read",
+    tag: "Databases"
+  },
+  {
     href: "/blog/mcp-servers-for-databases",
     title: "Best MCP Servers for Databases in 2026 — SQL, Postgres & NoSQL with AI",
     description:

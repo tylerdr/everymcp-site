@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-aws-and-cloud",
+    title: "Best MCP Servers for AWS & Cloud in 2026 — Manage Infrastructure with AI",
+    description:
+      "Discover the top MCP servers for AWS, GCP, and Azure. Let your AI agent provision resources, query S3 buckets, manage Lambda functions, and automate cloud operations directly from Claude or any LLM.",
+    date: "March 25, 2026",
+    readTime: "9 min read",
+    tag: "Cloud Infrastructure"
+  },
+  {
     href: "/blog/mcp-servers-for-browser-automation",
     title: "Best MCP Servers for Browser Automation in 2026",
     description:

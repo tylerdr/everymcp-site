@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-google-workspace",
+    title: "Best MCP Servers for Google Workspace in 2026 — Docs, Sheets, Gmail & Calendar",
+    description:
+      "Connect your AI agent to Gmail, Google Docs, Sheets, Calendar, and Drive using MCP servers. Automate email triage, spreadsheet updates, document creation, and calendar management through natural language.",
+    date: "March 25, 2026",
+    readTime: "9 min read",
+    tag: "Productivity"
+  },
+  {
     href: "/blog/mcp-servers-for-aws-and-cloud",
     title: "Best MCP Servers for AWS & Cloud in 2026 — Manage Infrastructure with AI",
     description:

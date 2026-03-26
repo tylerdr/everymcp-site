@@ -138,6 +138,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "Tutorial"
   },
   {
+    href: "/blog/mcp-servers-for-financial-data",
+    title: "Best MCP Servers for Financial Data & Trading in 2026",
+    description:
+      "Discover the top MCP servers for financial data, stock prices, market analysis, and trading automation. Connect your AI agent to real-time market data and financial APIs.",
+    date: "March 26, 2026",
+    readTime: "9 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/mcp-servers-for-data-analysis",
     title: "Best MCP Servers for Data Analysis in 2026 — Pandas, SQL & Spreadsheets with AI",
     description:

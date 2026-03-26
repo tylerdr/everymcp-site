@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-linear-and-project-management",
+    title: "Best MCP Servers for Linear & Project Management in 2026",
+    description:
+      "Discover the top MCP servers for Linear, Jira, Asana, and project management. Let your AI agent create issues, update sprints, and automate workflows directly from Claude or any LLM.",
+    date: "March 26, 2026",
+    readTime: "8 min read",
+    tag: "Productivity"
+  },
+  {
     href: "/blog/mcp-servers-for-google-workspace",
     title: "Best MCP Servers for Google Workspace in 2026 — Docs, Sheets, Gmail & Calendar",
     description:

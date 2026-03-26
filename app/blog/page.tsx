@@ -147,6 +147,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "Tutorial"
   },
   {
+    href: "/blog/mcp-servers-for-stripe-and-payments",
+    title: "Best MCP Servers for Stripe & Payments in 2026 — AI Billing Automation",
+    description:
+      "Discover the top MCP servers for Stripe and payment integration. Let your AI agent query customers, create invoices, handle subscriptions, and automate billing workflows.",
+    date: "March 26, 2026",
+    readTime: "7 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/mcp-servers-for-financial-data",
     title: "Best MCP Servers for Financial Data & Trading in 2026",
     description:

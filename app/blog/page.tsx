@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-shopify",
+    title: "Best MCP Servers for Shopify in 2026 — AI-Powered eCommerce Automation",
+    description:
+      "Discover the top MCP servers for Shopify. Let your AI agent browse products, manage orders, update inventory, and automate eCommerce workflows directly from Claude or any LLM.",
+    date: "March 26, 2026",
+    readTime: "8 min read",
+    tag: "eCommerce"
+  },
+  {
     href: "/blog/mcp-servers-for-linear-and-project-management",
     title: "Best MCP Servers for Linear & Project Management in 2026",
     description:

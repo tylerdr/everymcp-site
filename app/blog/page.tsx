@@ -192,6 +192,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "MCP Guide"
   },
   {
+    href: "/blog/mcp-servers-for-zapier-and-n8n",
+    title: "Best MCP Servers for Zapier and n8n Automation (2026)",
+    description:
+      "Discover the top MCP servers for integrating AI agents with Zapier, n8n, and workflow automation tools. Connect Claude and other LLMs to thousands of apps via Model Context Protocol.",
+    date: "March 26, 2026",
+    readTime: "7 min read",
+    tag: "Workflow Automation"
+  },
+  {
     href: "/blog/mcp-servers-for-productivity-automation",
     title: "MCP Servers for Productivity & Automation: Top Tools in 2026",
     description:

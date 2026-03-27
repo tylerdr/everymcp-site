@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-vector-databases",
+    title: "Best MCP Servers for Vector Databases in 2026 — Pinecone, Weaviate & Qdrant",
+    description:
+      "Discover the top MCP servers for vector database integration. Let your AI agent query Pinecone, Weaviate, Qdrant, Chroma, and Milvus for RAG pipelines, semantic search, and embeddings.",
+    date: "March 27, 2026",
+    readTime: "9 min read",
+    tag: "AI & RAG"
+  },
+  {
     href: "/blog/mcp-servers-for-shopify",
     title: "Best MCP Servers for Shopify in 2026 — AI-Powered eCommerce Automation",
     description:

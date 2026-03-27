@@ -282,6 +282,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "MCP Guide"
   },
   {
+    href: "/blog/mcp-servers-for-python-development",
+    title: "Best MCP Servers for Python Development in 2026",
+    description:
+      "Run code, manage packages, debug automatically — discover the top MCP servers for Python developers using Claude and other AI coding assistants.",
+    date: "March 27, 2026",
+    readTime: "9 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/top-mcp-servers-for-developers",
     title: "Top MCP Servers for Developers in 2025",
     description:

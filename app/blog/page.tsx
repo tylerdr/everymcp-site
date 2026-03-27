@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-langchain-and-langgraph",
+    title: "Best MCP Servers for LangChain and LangGraph (2026)",
+    description:
+      "Discover the best MCP servers to use with LangChain and LangGraph. Connect your AI agents to databases, APIs, files, browsers, and more with the Model Context Protocol.",
+    date: "March 27, 2026",
+    readTime: "9 min read",
+    tag: "AI Agents"
+  },
+  {
     href: "/blog/mcp-servers-for-vector-databases",
     title: "Best MCP Servers for Vector Databases in 2026 — Pinecone, Weaviate & Qdrant",
     description:

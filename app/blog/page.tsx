@@ -291,6 +291,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "MCP Guide"
   },
   {
+    href: "/blog/mcp-servers-for-typescript-and-nodejs",
+    title: "Best MCP Servers for TypeScript & Node.js Development in 2026",
+    description:
+      "Run scripts, manage npm packages, debug TypeScript errors — discover the top MCP servers for Node.js developers using Claude and other AI coding assistants.",
+    date: "March 27, 2026",
+    readTime: "10 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/top-mcp-servers-for-developers",
     title: "Top MCP Servers for Developers in 2025",
     description:

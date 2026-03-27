@@ -21,6 +21,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "AI Agents"
   },
   {
+    href: "/blog/mcp-servers-for-ollama-and-local-llms",
+    title: "Best MCP Servers for Ollama & Local LLMs in 2026",
+    description:
+      "Connect Ollama, LM Studio, and other local LLMs to the MCP ecosystem. Run fully private AI workflows with no data leaving your machine — browse, code, search, and automate locally.",
+    date: "March 27, 2026",
+    readTime: "9 min read",
+    tag: "Local AI"
+  },
+  {
     href: "/blog/mcp-servers-for-vector-databases",
     title: "Best MCP Servers for Vector Databases in 2026 — Pinecone, Weaviate & Qdrant",
     description:

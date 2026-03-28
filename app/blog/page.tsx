@@ -219,6 +219,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "MCP Guide"
   },
   {
+    href: "/blog/mcp-servers-for-home-automation",
+    title: "Best MCP Servers for Home Automation in 2026 — Control Smart Homes with AI",
+    description:
+      "Discover the top MCP servers for home automation. Let your AI agent control smart home devices, automate routines, and integrate with Home Assistant, HomeKit, and more.",
+    date: "March 28, 2026",
+    readTime: "7 min read",
+    tag: "Smart Home"
+  },
+  {
     href: "/blog/mcp-servers-for-zapier-and-n8n",
     title: "Best MCP Servers for Zapier and n8n Automation (2026)",
     description:

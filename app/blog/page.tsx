@@ -129,6 +129,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "Databases"
   },
   {
+    href: "/blog/mcp-servers-for-airtable",
+    title: "Best MCP Servers for Airtable in 2026 — AI Agents for No-Code Databases",
+    description:
+      "Discover the top MCP servers for Airtable integration. Let your AI agent read bases, create records, run automations, and sync data across no-code workflows from Claude or any LLM.",
+    date: "March 28, 2026",
+    readTime: "8 min read",
+    tag: "No-Code"
+  },
+  {
     href: "/blog/mcp-servers-for-notion",
     title: "Best MCP Servers for Notion in 2026 — AI-Powered Knowledge Base Access",
     description:

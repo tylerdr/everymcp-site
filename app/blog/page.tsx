@@ -156,6 +156,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "DevOps"
   },
   {
+    href: "/blog/mcp-server-security-best-practices",
+    title: "MCP Server Security Best Practices in 2026",
+    description:
+      "Secure your MCP servers with authentication, least-privilege authorization, input validation, transport encryption, audit logging, and sandboxing. A practical security guide for MCP deployments.",
+    date: "March 28, 2026",
+    readTime: "10 min read",
+    tag: "Security"
+  },
+  {
     href: "/blog/mcp-servers-for-security-and-authentication",
     title: "Best MCP Servers for Security & Authentication in 2026",
     description:

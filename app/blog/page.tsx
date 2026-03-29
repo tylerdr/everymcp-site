@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-openai",
+    title: "Best MCP Servers for OpenAI & GPT-4 in 2026 — AI-to-AI Integrations",
+    description:
+      "Discover the top MCP servers for OpenAI integration. Connect GPT-4, DALL·E, Whisper, and OpenAI Assistants to Claude or any MCP-compatible client for powerful AI-to-AI workflows.",
+    date: "March 29, 2026",
+    readTime: "8 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/mcp-servers-for-langchain-and-langgraph",
     title: "Best MCP Servers for LangChain and LangGraph (2026)",
     description:

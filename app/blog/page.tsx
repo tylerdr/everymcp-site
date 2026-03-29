@@ -21,6 +21,33 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "MCP Guide"
   },
   {
+    href: "/blog/mcp-servers-for-web-search",
+    title: "Best MCP Servers for Web Search in 2026",
+    description:
+      "Give your AI agent real-time internet access. Discover the top MCP servers for web search — Brave, Tavily, Perplexity, SerpAPI, and Exa — so your LLM can research, fact-check, and stay current.",
+    date: "March 29, 2026",
+    readTime: "8 min read",
+    tag: "Web & Research"
+  },
+  {
+    href: "/blog/mcp-servers-for-openai-agents",
+    title: "Best MCP Servers for OpenAI Agents (2026)",
+    description:
+      "The top MCP servers to use with OpenAI agents and the Agents SDK. Discover Model Context Protocol tools for web search, code execution, databases, files, and more — optimized for OpenAI agent workflows.",
+    date: "March 29, 2026",
+    readTime: "8 min read",
+    tag: "AI Agents"
+  },
+  {
+    href: "/blog/mcp-servers-for-multi-agent-systems",
+    title: "Best MCP Servers for Multi-Agent Systems in 2026",
+    description:
+      "Discover the top MCP servers for building multi-agent AI pipelines. Connect orchestrators, sub-agents, shared memory, task queues, and observability layers with MCP.",
+    date: "March 28, 2026",
+    readTime: "9 min read",
+    tag: "AI Agents"
+  },
+  {
     href: "/blog/mcp-servers-for-langchain-and-langgraph",
     title: "Best MCP Servers for LangChain and LangGraph (2026)",
     description:

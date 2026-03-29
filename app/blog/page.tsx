@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-web-search",
+    title: "Best MCP Servers for Web Search in 2026",
+    description:
+      "Give your AI agent real-time internet access. Discover the top MCP servers for web search — Brave, Tavily, Perplexity, SerpAPI, and Exa — so your LLM can research, fact-check, and stay current.",
+    date: "March 29, 2026",
+    readTime: "8 min read",
+    tag: "Web & Research"
+  },
+  {
     href: "/blog/mcp-servers-for-openai-agents",
     title: "Best MCP Servers for OpenAI Agents (2026)",
     description:

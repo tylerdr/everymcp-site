@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-openai-agents",
+    title: "Best MCP Servers for OpenAI Agents (2026)",
+    description:
+      "The top MCP servers to use with OpenAI agents and the Agents SDK. Discover Model Context Protocol tools for web search, code execution, databases, files, and more — optimized for OpenAI agent workflows.",
+    date: "March 29, 2026",
+    readTime: "8 min read",
+    tag: "AI Agents"
+  },
+  {
     href: "/blog/mcp-servers-for-multi-agent-systems",
     title: "Best MCP Servers for Multi-Agent Systems in 2026",
     description:

@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-server-debugging-guide",
+    title: "How to Debug MCP Servers: A Complete Troubleshooting Guide",
+    description:
+      "Step-by-step guide to diagnosing and fixing common MCP server issues — connection errors, tool call failures, authentication problems, timeouts, and more.",
+    date: "March 29, 2026",
+    readTime: "9 min read",
+    tag: "Developer Guide"
+  },
+  {
     href: "/blog/mcp-servers-for-openai",
     title: "Best MCP Servers for OpenAI & GPT-4 in 2026 — AI-to-AI Integrations",
     description:

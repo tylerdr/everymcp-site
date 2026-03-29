@@ -183,6 +183,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "No-Code"
   },
   {
+    href: "/blog/mcp-servers-for-obsidian",
+    title: "Best MCP Servers for Obsidian in 2026 — AI-Powered Knowledge Management",
+    description:
+      "Discover the top MCP servers for Obsidian. Let your AI agent read notes, search your vault, create new entries, and traverse your knowledge graph from Claude or any LLM.",
+    date: "March 29, 2026",
+    readTime: "8 min read",
+    tag: "Productivity"
+  },
+  {
     href: "/blog/mcp-servers-for-notion",
     title: "Best MCP Servers for Notion in 2026 — AI-Powered Knowledge Base Access",
     description:

@@ -183,6 +183,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "No-Code"
   },
   {
+    href: "/blog/mcp-servers-for-confluence",
+    title: "Best MCP Servers for Confluence in 2026 — AI Access to Your Wiki",
+    description:
+      "Discover the top MCP servers for Confluence. Let your AI agent search pages, read documentation, create content, and navigate your team's knowledge base from Claude or any LLM.",
+    date: "March 29, 2026",
+    readTime: "8 min read",
+    tag: "Productivity"
+  },
+  {
     href: "/blog/mcp-servers-for-obsidian",
     title: "Best MCP Servers for Obsidian in 2026 — AI-Powered Knowledge Management",
     description:

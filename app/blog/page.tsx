@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-mongodb",
+    title: "Best MCP Servers for MongoDB in 2026 — Query, Aggregate & Manage with AI",
+    description:
+      "Let your AI agent query MongoDB collections, run aggregation pipelines, inspect schemas, and manage documents — without leaving your chat window.",
+    date: "March 30, 2026",
+    readTime: "7 min read",
+    tag: "Databases"
+  },
+  {
     href: "/blog/mcp-servers-for-figma-and-design",
     title: "Best MCP Servers for Figma & Design Tools in 2026",
     description:

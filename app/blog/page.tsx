@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-terraform-and-infrastructure",
+    title: "Best MCP Servers for Terraform & Infrastructure as Code in 2026",
+    description:
+      "Let your AI agent plan changes, inspect state, query provider docs, and manage cloud resources with Terraform MCP servers. Covers HashiCorp's official server, Terraform Cloud, infracost, and security scanning.",
+    date: "March 30, 2026",
+    readTime: "9 min read",
+    tag: "DevOps & Infra"
+  },
+  {
     href: "/blog/mcp-servers-for-mongodb",
     title: "Best MCP Servers for MongoDB in 2026 — Query, Aggregate & Manage with AI",
     description:

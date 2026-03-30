@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-obsidian",
+    title: "Best MCP Servers for Obsidian — Connect Your AI to Your Knowledge Base",
+    description:
+      "Connect Claude and other AI models to your Obsidian vault via MCP. Search notes, create new entries, answer questions from your knowledge base, and turn your second brain into an active AI collaborator.",
+    date: "March 30, 2026",
+    readTime: "9 min read",
+    tag: "Knowledge Management"
+  },
+  {
     href: "/blog/mcp-servers-for-web-search",
     title: "Best MCP Servers for Web Search in 2026",
     description:

@@ -21,6 +21,24 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "Security & Auth"
   },
   {
+    href: "/blog/mcp-servers-for-mongodb",
+    title: "Best MCP Servers for MongoDB in 2026 — Query, Aggregate & Manage with AI",
+    description:
+      "Let your AI agent query MongoDB collections, run aggregation pipelines, inspect schemas, and manage documents — without leaving your chat window.",
+    date: "March 30, 2026",
+    readTime: "7 min read",
+    tag: "Databases"
+  },
+  {
+    href: "/blog/mcp-servers-for-figma-and-design",
+    title: "Best MCP Servers for Figma & Design Tools in 2026",
+    description:
+      "Connect your AI agent to Figma and your design system. Extract tokens, generate code from components, automate handoffs, and close the gap between design and production.",
+    date: "March 30, 2026",
+    readTime: "7 min read",
+    tag: "Design & UI"
+  },
+  {
     href: "/blog/mcp-servers-for-obsidian",
     title: "Best MCP Servers for Obsidian — Connect Your AI to Your Knowledge Base",
     description:

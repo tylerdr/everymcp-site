@@ -21,6 +21,24 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "Knowledge Management"
   },
   {
+    href: "/blog/mcp-server-debugging-guide",
+    title: "How to Debug MCP Servers: A Complete Troubleshooting Guide",
+    description:
+      "Step-by-step guide to diagnosing and fixing common MCP server issues — connection errors, tool call failures, authentication problems, timeouts, and more.",
+    date: "March 29, 2026",
+    readTime: "9 min read",
+    tag: "Developer Guide"
+  },
+  {
+    href: "/blog/mcp-servers-for-openai",
+    title: "Best MCP Servers for OpenAI & GPT-4 in 2026 — AI-to-AI Integrations",
+    description:
+      "Discover the top MCP servers for OpenAI integration. Connect GPT-4, DALL·E, Whisper, and OpenAI Assistants to Claude or any MCP-compatible client for powerful AI-to-AI workflows.",
+    date: "March 29, 2026",
+    readTime: "8 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/mcp-servers-for-web-search",
     title: "Best MCP Servers for Web Search in 2026",
     description:
@@ -172,6 +190,24 @@ const posts: { href: string; title: string; description: string; date: string; r
     date: "March 28, 2026",
     readTime: "8 min read",
     tag: "No-Code"
+  },
+  {
+    href: "/blog/mcp-servers-for-confluence",
+    title: "Best MCP Servers for Confluence in 2026 — AI Access to Your Wiki",
+    description:
+      "Discover the top MCP servers for Confluence. Let your AI agent search pages, read documentation, create content, and navigate your team's knowledge base from Claude or any LLM.",
+    date: "March 29, 2026",
+    readTime: "8 min read",
+    tag: "Productivity"
+  },
+  {
+    href: "/blog/mcp-servers-for-obsidian",
+    title: "Best MCP Servers for Obsidian in 2026 — AI-Powered Knowledge Management",
+    description:
+      "Discover the top MCP servers for Obsidian. Let your AI agent read notes, search your vault, create new entries, and traverse your knowledge graph from Claude or any LLM.",
+    date: "March 29, 2026",
+    readTime: "8 min read",
+    tag: "Productivity"
   },
   {
     href: "/blog/mcp-servers-for-notion",

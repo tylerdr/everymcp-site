@@ -21,6 +21,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "DevOps & Infra"
   },
   {
+    href: "/blog/mcp-servers-for-authentication-and-oauth",
+    title: "Best MCP Servers for Authentication & OAuth in 2026",
+    description:
+      "Discover the top MCP servers for authentication, OAuth 2.0, JWT, and identity management. Let your AI agent handle login flows, token management, and access control in real-world apps.",
+    date: "March 30, 2026",
+    readTime: "9 min read",
+    tag: "Security & Auth"
+  },
+  {
     href: "/blog/mcp-servers-for-mongodb",
     title: "Best MCP Servers for MongoDB in 2026 — Query, Aggregate & Manage with AI",
     description:

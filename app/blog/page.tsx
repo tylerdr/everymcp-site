@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const posts: { href: string; title: string; description: string; date: string; readTime: string; tag: string }[] = [
   {
+    href: "/blog/mcp-servers-for-hubspot",
+    title: "Best MCP Servers for HubSpot in 2026 — CRM & Marketing Automation with AI",
+    description:
+      "Let your AI agent read contacts, update deals, enroll leads into workflows, and query CRM data — all without leaving a chat window. The top MCP servers for HubSpot in 2026.",
+    date: "March 31, 2026",
+    readTime: "8 min read",
+    tag: "CRM & Sales"
+  },
+  {
     href: "/blog/mcp-servers-for-terraform-and-infrastructure",
     title: "Best MCP Servers for Terraform & Infrastructure as Code in 2026",
     description:

@@ -4,14 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Best MCP Servers for Linear & Project Management in 2026",
   description:
-    "Discover the top MCP servers for Linear, Jira, Asana, and project management. Let your AI agent create issues, update sprints, and automate workflows directly from Claude or any LLM.",
+    "Discover the top MCP servers for Linear, Asana, Trello, and project management tools. Let your AI agent create issues, update tasks, query sprints, and manage projects directly from Claude or any LLM.",
   alternates: {
     canonical: "/blog/mcp-servers-for-linear-and-project-management"
   },
   openGraph: {
     title: "Best MCP Servers for Linear & Project Management in 2026",
     description:
-      "Top MCP servers for Linear, Jira, Asana — let your AI agent manage issues, sprints, and project workflows.",
+      "Top MCP servers for Linear, Asana, Trello, and project management — let your AI agent create issues, update tasks, and manage sprints.",
     url: "https://everymcp.com/blog/mcp-servers-for-linear-and-project-management",
     type: "article"
   }
@@ -22,10 +22,10 @@ const articleJsonLd = {
   "@type": "Article",
   headline: "Best MCP Servers for Linear & Project Management in 2026",
   description:
-    "Discover the top MCP servers for Linear, Jira, Asana, and project management. Let your AI agent create issues, update sprints, and automate workflows directly from Claude or any LLM.",
+    "Discover the top MCP servers for Linear, Asana, Trello, and project management tools. Let your AI agent create issues, update tasks, query sprints, and manage projects directly from Claude or any LLM.",
   url: "https://everymcp.com/blog/mcp-servers-for-linear-and-project-management",
-  datePublished: "2026-03-26",
-  dateModified: "2026-03-26",
+  datePublished: "2026-03-31",
+  dateModified: "2026-03-31",
   author: {
     "@type": "Organization",
     name: "EveryMCP",
@@ -38,7 +38,7 @@ const articleJsonLd = {
   }
 };
 
-export default function MCPServersForProjectManagement() {
+export default function MCPServersForLinear() {
   return (
     <>
       <script
@@ -54,265 +54,255 @@ export default function MCPServersForProjectManagement() {
 
         <article>
           <header className="mb-10">
-            <p className="text-sm text-muted-foreground mb-3">March 26, 2026 · 8 min read</p>
+            <p className="text-sm text-muted-foreground mb-3">March 31, 2026 · 9 min read</p>
             <h1 className="text-4xl font-bold tracking-tight mb-4">
-              Best MCP Servers for Linear &amp; Project Management in 2026
+              Best MCP Servers for Linear & Project Management in 2026
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              AI agents can now create issues, triage backlogs, update sprint status, and report
-              progress across Linear, Jira, and Asana — without you ever leaving your chat window.
+              Your AI agent can now create Linear issues, update Asana tasks, move Trello cards, and
+              query sprint status — without ever leaving your chat interface. Here are the best Model
+              Context Protocol servers for project management in 2026.
             </p>
           </header>
 
           <section className="prose prose-neutral dark:prose-invert max-w-none">
+            <h2>Why Project Management + MCP Is a Game Changer</h2>
             <p>
-              Project management is one of the highest-leverage areas for AI automation. Engineering
-              teams spend hours each week writing issue descriptions, updating statuses, and linking
-              related tickets. MCP servers for project management tools eliminate that overhead by
-              giving your AI agent direct read/write access to your backlog.
+              Engineering teams live in their project management tools — Linear, Asana, Jira, Trello.
+              These tools store the heartbeat of a company: what's being built, who's building it, and
+              what's blocked. But getting an AI to work with that live data has always required manual
+              copy-paste or expensive custom integrations.
             </p>
             <p>
-              This guide covers the best MCP servers for Linear, Jira, Asana, and adjacent planning
-              tools. Whether you want Claude to triage your inbox or have an agent auto-create
-              issues from a bug report, these integrations make it possible.
+              With a project management MCP server, your LLM gets <strong>direct, authenticated
+              access</strong> to your workspace. It can triage incoming issues, update task statuses,
+              generate sprint summaries, flag blockers, and even create new issues from a conversation
+              — all in real time. No context switching. No stale exports.
+            </p>
+            <p>
+              This is the missing link between natural language and your engineering workflow.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-10 mb-4">Why Connect Your AI to a Project Management Tool?</h2>
-            <p>
-              Traditional project management is a two-step process: someone discovers a problem,
-              then manually creates a ticket. With MCP, you collapse those steps. Your AI coding
-              assistant can detect a failing test, create the Linear issue, assign it to the right
-              team, and link the relevant PR — automatically.
-            </p>
-            <p>Use cases that teams are already shipping:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Auto-create issues from Slack messages, emails, or bug reports</li>
-              <li>Summarize sprint progress and blockers in natural language</li>
-              <li>Triage and prioritize backlogs based on business impact</li>
-              <li>Link issues to PRs, commits, and deploys automatically</li>
-              <li>Generate weekly status reports from issue data</li>
-            </ul>
+            <h2>Top MCP Servers for Linear</h2>
 
-            <h2 className="text-2xl font-semibold mt-10 mb-4">Top MCP Servers for Project Management</h2>
-
-            <h3 className="text-xl font-semibold mt-8 mb-3">1. Linear MCP Server</h3>
+            <h3>1. linear-mcp-server (Official Community)</h3>
             <p>
-              Linear is the project management tool of choice for fast-moving engineering teams.
-              The Linear MCP server gives your AI agent full read/write access to issues, cycles
-              (sprints), projects, and teams.
+              The most widely used Linear MCP server gives your LLM full read/write access to the
+              Linear API. You can create issues, assign them, update priorities, move them across
+              cycles, and query any team or project.
             </p>
-            <p><strong>Key capabilities:</strong></p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Create, update, and close issues with labels, assignees, and priorities</li>
-              <li>Query issues by status, team, cycle, or project</li>
-              <li>Add comments and link issues to each other</li>
-              <li>List active cycles and their velocity</li>
-              <li>Move issues between projects or teams</li>
+            <ul>
+              <li><strong>Key tools:</strong> <code>linear_create_issue</code>, <code>linear_update_issue</code>, <code>linear_list_issues</code>, <code>linear_get_cycles</code></li>
+              <li><strong>Auth:</strong> Linear personal API key or OAuth</li>
+              <li><strong>Best for:</strong> Engineering teams using Linear as their primary tracker</li>
             </ul>
             <p>
-              The official Linear MCP server uses the Linear GraphQL API and authenticates via a
-              personal API key. It works out of the box with Claude Desktop and any MCP-compatible
-              client.
-            </p>
-            <p>
-              <strong>Best for:</strong> Engineering teams on Linear who want AI-assisted sprint
-              planning, issue triage, and standup summaries.
+              <strong>Real-world use:</strong> "What are all open P1 bugs in the backend team assigned
+              to Alice?" — your agent queries Linear, returns a formatted list, and can immediately
+              update priorities or reassign issues.
             </p>
 
-            <h3 className="text-xl font-semibold mt-8 mb-3">2. Jira MCP Server</h3>
+            <h3>2. linear-server (by @tgillus)</h3>
             <p>
-              Jira remains the dominant project management platform in enterprise environments.
-              Several MCP servers expose Jira&apos;s REST API to AI agents, enabling issue creation,
-              JQL queries, sprint management, and board operations.
+              A lightweight alternative focused on issue creation and search. Great for AI coding
+              workflows where the agent needs to file bugs or feature requests without leaving the IDE.
             </p>
-            <p><strong>Key capabilities:</strong></p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Create and update Jira issues with full field support (epics, story points, sprints)</li>
-              <li>Execute JQL queries to filter and analyze issue sets</li>
-              <li>Transition issues through workflow states</li>
-              <li>Read sprint boards and backlog data</li>
-              <li>Add comments and attachments to existing issues</li>
+            <ul>
+              <li><strong>Key tools:</strong> <code>createIssue</code>, <code>searchIssues</code>, <code>getTeams</code></li>
+              <li><strong>Best for:</strong> Developers who want quick issue-filing from Claude Desktop or Cursor</li>
+            </ul>
+
+            <h2>Top MCP Servers for Asana</h2>
+
+            <h3>3. asana-mcp (Community)</h3>
+            <p>
+              Gives your LLM access to Asana workspaces, projects, tasks, and subtasks. Works with
+              both personal access tokens and OAuth. Supports task creation, updates, and comment
+              posting.
+            </p>
+            <ul>
+              <li><strong>Key tools:</strong> <code>asana_create_task</code>, <code>asana_update_task</code>, <code>asana_list_projects</code>, <code>asana_search_tasks</code></li>
+              <li><strong>Auth:</strong> Personal Access Token</li>
+              <li><strong>Best for:</strong> Marketing and ops teams who run their work in Asana</li>
             </ul>
             <p>
-              Most Jira MCP servers support both Jira Cloud and Jira Server/Data Center. Authentication
-              uses Atlassian API tokens for Cloud or basic auth for self-hosted deployments.
-            </p>
-            <p>
-              <strong>Best for:</strong> Enterprise teams using Jira who want AI agents to automate
-              issue management, reporting, and sprint ops.
+              <strong>Real-world use:</strong> "Create a task in the Q2 Launch project for writing the
+              press release, assign it to Sarah, due April 15" — handled in one sentence.
             </p>
 
-            <h3 className="text-xl font-semibold mt-8 mb-3">3. Asana MCP Server</h3>
+            <h3>4. Asana Official MCP (Beta)</h3>
             <p>
-              Asana is widely used by product and marketing teams for project tracking. The Asana
-              MCP server exposes tasks, projects, portfolios, and workspaces to your AI agent.
+              Asana has been developing an official MCP server with broader API coverage including
+              portfolios, goals, and team reporting. Currently in limited beta — worth watching as it
+              matures.
             </p>
-            <p><strong>Key capabilities:</strong></p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Create and assign tasks with due dates and custom fields</li>
-              <li>Query tasks by project, assignee, or due date range</li>
-              <li>Mark tasks complete and add followers</li>
-              <li>List project sections and move tasks between them</li>
-              <li>Create subtasks and link dependencies</li>
+
+            <h2>Top MCP Servers for Trello</h2>
+
+            <h3>5. trello-mcp-server</h3>
+            <p>
+              Full Trello board management via MCP. Your agent can read boards, list cards, create
+              cards, move them between lists, add labels, and post comments.
+            </p>
+            <ul>
+              <li><strong>Key tools:</strong> <code>getBoards</code>, <code>createCard</code>, <code>moveCard</code>, <code>addComment</code></li>
+              <li><strong>Auth:</strong> Trello API key + token</li>
+              <li><strong>Best for:</strong> Small teams and solo founders using Trello for lightweight project tracking</li>
             </ul>
+
+            <h2>Broader Project Management MCP Servers</h2>
+
+            <h3>6. monday-mcp</h3>
             <p>
-              <strong>Best for:</strong> Product and marketing teams who use Asana and want
-              AI-driven task creation from meeting notes, emails, or documents.
+              Monday.com integration for MCP. Supports reading boards, creating items, updating
+              statuses, and posting updates. Useful for ops-heavy teams who use Monday for work
+              management across departments.
             </p>
 
-            <h3 className="text-xl font-semibold mt-8 mb-3">4. GitHub Issues + Projects MCP</h3>
+            <h3>7. clickup-mcp</h3>
             <p>
-              For teams that track work directly in GitHub, the GitHub MCP server covers both
-              issues and GitHub Projects (v2). If your engineering workflow lives entirely in GitHub,
-              this is often the simplest integration — no third-party tool required.
+              ClickUp MCP server covering tasks, spaces, folders, and lists. ClickUp's rich
+              customization options translate well to agent interactions — your LLM can navigate
+              complex workspace hierarchies and apply custom field values.
             </p>
-            <p><strong>Key capabilities:</strong></p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Create, label, and close GitHub issues</li>
-              <li>Query issues and pull requests with filters</li>
-              <li>Manage GitHub Projects boards and item status</li>
-              <li>Add comments and link issues to PRs</li>
+            <ul>
+              <li><strong>Key tools:</strong> <code>create_task</code>, <code>update_task</code>, <code>get_tasks</code>, <code>create_folder</code></li>
+              <li><strong>Best for:</strong> Teams with complex ClickUp setups and many custom fields</li>
             </ul>
+
+            <h2>Key Use Cases for Project Management MCP Servers</h2>
+
+            <h3>AI-Assisted Sprint Planning</h3>
             <p>
-              <strong>Best for:</strong> Open-source projects or engineering teams that manage
-              all work inside GitHub and don&apos;t want a separate PM tool.
+              Connect your LLM to Linear or Jira and ask it to analyze your backlog, estimate cycle
+              capacity, and suggest which issues to pull into the next sprint. The agent reads existing
+              issues, checks team velocity data, and produces a prioritized plan — then creates the
+              cycle directly.
             </p>
 
-            <h3 className="text-xl font-semibold mt-8 mb-3">5. Notion MCP Server (for Task Tracking)</h3>
+            <h3>Automated Bug Triage</h3>
             <p>
-              Many teams use Notion as a lightweight project management tool with custom databases.
-              The Notion MCP server lets your AI agent read and write to Notion databases, making
-              it possible to use Notion as a task tracker with AI assistance.
-            </p>
-            <p><strong>Key capabilities:</strong></p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Query and filter database items (tasks, projects, roadmap entries)</li>
-              <li>Create new database entries with any property type</li>
-              <li>Update statuses, assignees, and custom fields</li>
-              <li>Read and write page content blocks</li>
-            </ul>
-            <p>
-              <strong>Best for:</strong> Teams using Notion as their single source of truth who
-              want AI to populate and update their task databases automatically.
+              Hook your error monitoring (via a Sentry or Datadog MCP) to your issue tracker. When an
+              error fires, your agent creates a Linear issue with the full stack trace, assigns it to
+              the right team, sets severity, and links the monitoring alert — automatically.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-10 mb-4">Example: Claude Triaging a Sprint Backlog</h2>
+            <h3>Standup Summaries</h3>
             <p>
-              Here&apos;s a real workflow you can run today with Claude and the Linear MCP server:
+              Ask your agent to pull everything completed yesterday, in progress today, and blocked
+              across your team. It queries Linear or Asana, formats a standup summary, and posts it
+              to Slack — all in one tool chain.
             </p>
-            <ol className="list-decimal pl-6 space-y-2">
-              <li>Tell Claude: &quot;List all unstarted issues in the current sprint.&quot;</li>
-              <li>Claude queries Linear and returns the full list with priorities and assignees.</li>
-              <li>Ask: &quot;Which of these are blockers based on their labels and descriptions?&quot;</li>
-              <li>Claude analyzes the issue content and surfaces the critical path.</li>
-              <li>Tell Claude: &quot;Move the two highest-priority unassigned issues to Alex.&quot;</li>
-              <li>Claude updates Linear directly — no UI required.</li>
+
+            <h3>Cross-Tool Sync</h3>
+            <p>
+              Customer reports a bug in your support tool (Intercom, Zendesk). Your agent reads the
+              ticket, creates a Linear issue with full context, links them, and notifies the engineer
+              on call via Slack. Three tools, one agent action.
+            </p>
+
+            <h2>What to Look For in a Project Management MCP Server</h2>
+
+            <h3>Write Access</h3>
+            <p>
+              Some MCP servers are read-only — great for summarization but useless for automation.
+              Make sure yours supports creating and updating records, not just listing them.
+            </p>
+
+            <h3>Scoped Permissions</h3>
+            <p>
+              Your LLM shouldn't have admin access to your entire organization. Look for MCP servers
+              that support scoped tokens — workspace-level or team-level access only.
+            </p>
+
+            <h3>Schema Awareness</h3>
+            <p>
+              The best project management MCP servers expose your custom fields, labels, and
+              workflows — not just the default schema. This matters for teams with mature setups where
+              the real data lives in custom fields.
+            </p>
+
+            <h3>Error Handling</h3>
+            <p>
+              Agents make mistakes. A good MCP server returns clear error messages when issue creation
+              fails, required fields are missing, or permissions are denied — so the LLM can retry
+              intelligently.
+            </p>
+
+            <h2>Setting Up Linear MCP with Claude Desktop</h2>
+            <p>
+              Here's a quick setup for the most popular combination:
+            </p>
+            <pre><code>{`// claude_desktop_config.json
+{
+  "mcpServers": {
+    "linear": {
+      "command": "npx",
+      "args": ["-y", "linear-mcp-server"],
+      "env": {
+        "LINEAR_API_KEY": "your_linear_api_key_here"
+      }
+    }
+  }
+}`}</code></pre>
+            <ol>
+              <li>Generate a Linear API key at <strong>Settings → API → Personal API Keys</strong></li>
+              <li>Add the config above to your Claude Desktop config file</li>
+              <li>Restart Claude Desktop</li>
+              <li>Test with: "List all open issues in my Linear workspace"</li>
             </ol>
+
+            <h2>The Future: AI Agents as Project Managers</h2>
             <p>
-              This kind of workflow compresses a 20-minute standup prep into a 2-minute conversation.
+              We're moving toward a world where your AI coding agent doesn't just write code — it
+              manages the ticket, writes the PR, runs the tests, and closes the issue. MCP servers for
+              project management are the connective tissue that makes this possible.
+            </p>
+            <p>
+              The teams building on these integrations today are shipping faster not because they have
+              smarter engineers, but because they've eliminated the manual coordination overhead that
+              kills velocity.
+            </p>
+            <p>
+              Browse the full directory of{" "}
+              <Link href="/directory?category=project-management" className="underline">
+                project management MCP servers
+              </Link>{" "}
+              on EveryMCP to find the right one for your stack.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-10 mb-4">Setup Tips</h2>
-
-            <h3 className="text-xl font-semibold mt-6 mb-2">Authentication</h3>
-            <p>
-              Most project management MCP servers authenticate via API keys or OAuth tokens. Keep
-              these in environment variables — never hardcode them in your MCP config file. Use a
-              read-only API key when you only need query access, and a full-access key when your
-              agent needs to write.
-            </p>
-
-            <h3 className="text-xl font-semibold mt-6 mb-2">Rate Limits</h3>
-            <p>
-              Project management APIs (especially Jira) have strict rate limits. If your agent is
-              running complex queries, add explicit caching at the MCP layer or instruct your agent
-              to batch requests. Linear is generally more permissive than Jira for API usage.
-            </p>
-
-            <h3 className="text-xl font-semibold mt-6 mb-2">Scoping Permissions</h3>
-            <p>
-              Give your MCP server access only to the workspace or projects it needs. Most tools
-              support scoped API tokens — use them. An agent with access to your entire Jira
-              instance can accidentally modify issues across unrelated projects.
-            </p>
-
-            <h2 className="text-2xl font-semibold mt-10 mb-4">Combining PM Tools with Other MCP Servers</h2>
-            <p>
-              The real power comes from combining project management MCP servers with others in
-              your stack:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
+            <h2>Summary</h2>
+            <ul>
+              <li><strong>Linear:</strong> linear-mcp-server is the go-to for engineering teams</li>
+              <li><strong>Asana:</strong> asana-mcp covers most project management workflows</li>
+              <li><strong>Trello:</strong> trello-mcp-server for lightweight kanban</li>
+              <li><strong>ClickUp / Monday:</strong> community servers with solid coverage</li>
               <li>
-                <strong>Linear + GitHub MCP:</strong> When a PR is merged, auto-close the linked
-                Linear issue and move it to Done.
-              </li>
-              <li>
-                <strong>Jira + Slack MCP:</strong> Summarize all P0 issues opened this week and
-                post the summary to the #incidents channel every Monday morning.
-              </li>
-              <li>
-                <strong>Asana + Google Calendar MCP:</strong> Create tasks in Asana from calendar
-                events with action items in the description.
-              </li>
-              <li>
-                <strong>Notion + Email MCP:</strong> Parse customer feedback emails and create
-                Notion database entries tagged by theme and product area.
+                Prioritize servers with <strong>write access</strong>,{" "}
+                <strong>scoped permissions</strong>, and <strong>custom field support</strong>
               </li>
             </ul>
 
-            <h2 className="text-2xl font-semibold mt-10 mb-4">Where to Find These Servers</h2>
-            <p>
-              You can browse and compare all of these MCP servers — and hundreds more — on{" "}
-              <Link href="/" className="text-primary hover:underline">
-                EveryMCP
-              </Link>
-              . Filter by category, compatibility (Claude, Cursor, Windsurf), and license to find
-              the right integration for your stack.
-            </p>
-            <p>
-              For project management specifically, check the{" "}
-              <Link href="/browse" className="text-primary hover:underline">
-                full MCP server directory
-              </Link>{" "}
-              and filter by the &quot;Productivity&quot; or &quot;Project Management&quot; categories.
-            </p>
-
-            <h2 className="text-2xl font-semibold mt-10 mb-4">Conclusion</h2>
-            <p>
-              MCP servers for project management tools are some of the highest-ROI integrations
-              you can add to your AI workflow. The ability to have Claude create, triage, and update
-              issues without context-switching eliminates a surprising amount of daily friction.
-            </p>
-            <p>
-              Start with whichever tool your team already uses — Linear, Jira, Asana, or GitHub
-              Issues — and expand from there. Once your agent can read and write to your backlog,
-              you&apos;ll wonder how you managed without it.
-            </p>
-
-            <div className="mt-12 pt-8 border-t">
-              <h3 className="text-lg font-semibold mb-4">Related Articles</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/blog/mcp-servers-for-github" className="text-primary hover:underline">
-                    Best MCP Servers for GitHub in 2026
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/mcp-servers-for-slack-and-communication" className="text-primary hover:underline">
-                    MCP Servers for Slack &amp; Communication
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/mcp-servers-for-notion" className="text-primary hover:underline">
-                    MCP Servers for Notion
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/mcp-servers-for-productivity-automation" className="text-primary hover:underline">
-                    MCP Servers for Productivity Automation
-                  </Link>
-                </li>
-              </ul>
+            <div className="mt-8 p-4 bg-muted rounded-lg">
+              <p className="text-sm text-muted-foreground">
+                <strong>Find more:</strong> Browse the complete{" "}
+                <Link href="/directory" className="underline">
+                  MCP server directory
+                </Link>{" "}
+                or explore related guides on{" "}
+                <Link href="/blog/mcp-servers-for-slack-and-communication" className="underline">
+                  MCP servers for Slack
+                </Link>
+                ,{" "}
+                <Link href="/blog/mcp-servers-for-github" className="underline">
+                  MCP servers for GitHub
+                </Link>
+                , and{" "}
+                <Link href="/blog/mcp-servers-for-notion" className="underline">
+                  MCP servers for Notion
+                </Link>
+                .
+              </p>
             </div>
           </section>
         </article>

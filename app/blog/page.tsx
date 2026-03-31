@@ -327,6 +327,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "MCP Guide"
   },
   {
+    href: "/blog/mcp-servers-for-jupyter-and-data-science",
+    title: "Best MCP Servers for Jupyter & Data Science in 2026",
+    description:
+      "Discover the top MCP servers for Jupyter notebooks, pandas, and data science workflows. Let your AI agent run code, analyze datasets, and generate visualizations.",
+    date: "March 31, 2026",
+    readTime: "9 min read",
+    tag: "MCP Guide"
+  },
+  {
     href: "/blog/mcp-servers-for-data-analysis",
     title: "Best MCP Servers for Data Analysis in 2026 — Pandas, SQL & Spreadsheets with AI",
     description:

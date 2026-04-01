@@ -478,6 +478,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     date: "March 20, 2026",
     readTime: "8 min read",
     tag: "MCP Guide"
+  },
+  {
+    href: "/blog/mcp-servers-for-snowflake-and-data-warehouses",
+    title: "Best MCP Servers for Snowflake & Data Warehouses",
+    description:
+      "Discover the best MCP servers for Snowflake, BigQuery, Redshift, and data warehouses. Let your AI agent query data, build reports, and analyze warehouse metrics with natural language.",
+    date: "April 1, 2026",
+    readTime: "8 min read",
+    tag: "Data & Analytics"
   }
 ];
 

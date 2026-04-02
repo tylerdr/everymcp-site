@@ -165,6 +165,15 @@ const posts: { href: string; title: string; description: string; date: string; r
     tag: "Productivity"
   },
   {
+    href: "/blog/mcp-servers-for-microsoft-azure",
+    title: "Best MCP Servers for Microsoft Azure in 2026 — AI-Native Cloud Ops",
+    description:
+      "Discover the top MCP servers for Microsoft Azure. Let your AI agent manage Azure resources, query Blob Storage, deploy to App Service, and automate Azure DevOps pipelines directly from Claude or any LLM.",
+    date: "April 2, 2026",
+    readTime: "9 min read",
+    tag: "Cloud Infrastructure"
+  },
+  {
     href: "/blog/mcp-servers-for-aws-and-cloud",
     title: "Best MCP Servers for AWS & Cloud in 2026 — Manage Infrastructure with AI",
     description:

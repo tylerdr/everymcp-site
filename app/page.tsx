@@ -6,6 +6,7 @@ import { HomeSearch } from "@/components/HomeSearch";
 import { LeadForm } from "@/components/LeadForm";
 import { McpCard } from "@/components/McpCard";
 import { categories } from "@/data/categories";
+import { catalogTrust } from "@/lib/catalog-trust";
 import { featuredMcps, mcps } from "@/lib/mcps";
 
 export const metadata: Metadata = {
@@ -22,22 +23,30 @@ export default function Home() {
           MCP Infrastructure Directory
         </p>
         <h1 className="mt-5 max-w-3xl text-4xl font-extrabold tracking-tight text-ink sm:text-6xl">
-          The Complete MCP Directory
+          Find MCP servers. Check the source. Choose deliberately.
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-          Discover verified Model Context Protocol servers, evaluate implementation fit, and ship faster with expert integration support.
+          Discover indexed Model Context Protocol servers, compare implementation fit, and follow the repository or registry source before you connect one to an agent.
         </p>
 
         <HomeSearch />
 
+        <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+          <strong>Catalog status:</strong> {catalogTrust.shortDisclosure}{" "}
+          <Link href={catalogTrust.methodologyPath} className="font-bold underline underline-offset-2">
+            Read the methodology
+          </Link>
+          .
+        </div>
+
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
             <p className="text-3xl font-extrabold text-ink">{mcps.length}</p>
-            <p className="mt-1 text-sm text-slate-600">Verified MCP servers</p>
+            <p className="mt-1 text-sm text-slate-600">Indexed MCP listings</p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
             <p className="text-3xl font-extrabold text-ink">{categories.length}</p>
-            <p className="mt-1 text-sm text-slate-600">Production categories</p>
+            <p className="mt-1 text-sm text-slate-600">Discovery categories</p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
             <p className="text-3xl font-extrabold text-ink">$2,000</p>
@@ -75,7 +84,7 @@ export default function Home() {
             <ul className="mt-6 space-y-2 text-sm text-slate-700">
               <li>• MCP setup and configuration</li>
               <li>• Integration with your agent stack</li>
-              <li>• Custom server extensions</li>
+              <li>• Auth, permissions, and tool-boundary review</li>
             </ul>
             <div className="mt-6">
               <CheckoutButton

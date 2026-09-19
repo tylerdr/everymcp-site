@@ -1,10 +1,17 @@
 # EveryMCP
 
-EveryMCP is a curated directory of Model Context Protocol (MCP) servers and tools, helping developers extend their AI agents with custom capabilities.
+EveryMCP is an MCP discovery directory and implementation service. It indexes Model Context Protocol server listings from public source lists so builders can compare possible integrations and follow the underlying repository or registry source.
+
+## Catalog status
+- Listings are indexed, not security-audited or publisher-verified by EveryMCP.
+- Inclusion is not an endorsement and does not establish current compatibility.
+- Review the linked repository, requested permissions, deployment model, and the official MCP Registry where applicable before connecting a server to an agent.
+- Catalog methodology: https://everymcp.com/methodology
+- Official MCP Registry: https://registry.modelcontextprotocol.io
 
 ## Features
-- Directory of verified MCP servers
-- Implementation guides and sponsorship opportunities
+- Searchable MCP listing directory with source provenance
+- Implementation guides and a fixed-fee implementation service
 - Resources for agentic AI development
 
 Learn more at https://everymcp.com

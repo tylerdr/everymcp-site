@@ -16,3 +16,5 @@
 **Spec impact:** [Did this update SPEC.md? Which section?]
 
 ---
+
+2026-09-20: User requests validation of all TaiDurden-listed sites, offers, revenue paths, email signups and forms; prioritize bounded fixes.

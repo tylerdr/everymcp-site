@@ -23,3 +23,5 @@
 
 ## Completed
 - [x] T000: [Task] — done YYYY-MM-DD
+
+2026-09-20: Replaced false-success lead capture with honest manual inquiry. Durable storage, operator notification and delivered-email proof remain open.

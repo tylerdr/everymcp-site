@@ -30,31 +30,36 @@ export function LeadForm({
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const response = await fetch("/api/lead", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: formData.get("name"),
-        email: formData.get("email"),
-        message: formData.get("message"),
-        intent,
-        consent: formData.get("consent") === "on"
-      })
-    });
-    const payload = (await response.json().catch(() => ({}))) as {
-      ok?: boolean;
-      error?: string;
-      confirmation?: { resourcePath?: string };
-    };
+    try {
+      const response = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+          intent,
+          consent: formData.get("consent") === "on"
+        })
+      });
+      const payload = (await response.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+        confirmation?: { resourcePath?: string };
+      };
 
-    if (!response.ok || !payload.ok) {
+      if (!response.ok || !payload.ok) {
+        setStatus("error");
+        setError(payload.error || "Lead capture is temporarily unavailable. Please try again later.");
+        return;
+      }
+
+      setConfirmationPath(payload.confirmation?.resourcePath || "/methodology");
+      setStatus("success");
+    } catch {
       setStatus("error");
-      setError(payload.error || "Lead capture is temporarily unavailable. Please try again later.");
-      return;
+      setError("Lead capture is temporarily unavailable. Please try again later.");
     }
-
-    setConfirmationPath(payload.confirmation?.resourcePath || "/methodology");
-    setStatus("success");
   }
 
   return (

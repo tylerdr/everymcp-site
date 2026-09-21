@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { SiteFooter } from "@/components/SiteFooter";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { SiteHeader } from "@/components/SiteHeader";
 import { organizationJsonLd, siteName, siteUrl, websiteJsonLd } from "@/lib/site";
 
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <GoogleAnalytics />
         <Analytics />
         <SpeedInsights />
       </body>

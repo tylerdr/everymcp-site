@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 
-type CheckoutPlan = "implementation" | "sponsor";
+type CheckoutPlan = "starter";
 
 type CheckoutButtonProps = {
   plan: CheckoutPlan;
@@ -27,6 +28,7 @@ export function CheckoutButton({
   async function handleCheckout() {
     setIsLoading(true);
     setError(null);
+    track("checkout_started", { plan });
 
     try {
       const response = await fetch("/api/checkout", {
@@ -51,9 +53,10 @@ export function CheckoutButton({
         throw new Error("Checkout URL missing");
       }
 
+      track("checkout_session_created", { plan });
       window.location.href = payload.url;
     } catch (caughtError) {
-      const message = caughtError instanceof Error ? caughtError.message : "Checkout is temporarily unavailable. Use the form and we will follow up.";
+      const message = caughtError instanceof Error ? caughtError.message : "Checkout is temporarily unavailable. No payment was taken.";
       setError(message);
       setIsLoading(false);
     }
@@ -70,7 +73,7 @@ export function CheckoutButton({
         {isLoading ? "Starting checkout..." : label}
       </button>
       {error && (
-        <div className="space-y-2">
+        <div className="space-y-2" aria-live="polite">
           <p className="text-sm font-medium text-red-700">{error}</p>
           {fallbackHref ? (
             <a href={fallbackHref} className="inline-flex text-sm font-semibold text-sky hover:text-ink">

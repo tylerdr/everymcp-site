@@ -4,7 +4,7 @@ import { mcps } from "@/lib/mcps";
 import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseEntries: MetadataRoute.Sitemap = ["", "/directory", "/services", "/sponsor"].map((path) => ({
+  const baseEntries: MetadataRoute.Sitemap = ["", "/directory", "/methodology", "/pricing", "/services", "/sponsor"].map((path) => ({
     url: `${siteUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly",

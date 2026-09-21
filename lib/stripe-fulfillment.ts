@@ -8,6 +8,7 @@ import {
   isTransientStripeError,
   verifyStripeAccount
 } from "@/lib/stripe-config";
+import { matchesStarterEntitlement } from "@/lib/stripe-entitlement";
 
 export type PaidSessionResult =
   | { status: "paid"; session: Stripe.Checkout.Session }
@@ -50,27 +51,34 @@ export async function verifyPaidSession(
     const product = price && typeof price.product === "object" ? price.product : null;
     const productMetadata = product && !("deleted" in product && product.deleted) ? product.metadata : null;
     const productName = product && !("deleted" in product && product.deleted) ? product.name : null;
-    const commonPaymentChecks =
-      session.mode === "payment" &&
-      session.status === "complete" &&
-      session.payment_status === "paid" &&
-      session.livemode === (stripeConfiguration.mode === "live") &&
-      session.metadata?.plan === expectedPlan &&
-      session.currency === expectedProduct.currency &&
-      session.amount_subtotal === expectedProduct.amount &&
-      lineItem?.quantity === expectedProduct.quantity &&
-      price?.unit_amount === expectedProduct.amount &&
-      price?.currency === expectedProduct.currency;
-    const currentProductChecks =
-      session.metadata?.product_key === expectedProduct.productKey &&
-      session.metadata?.product_version === expectedProduct.version &&
-      productMetadata?.everymcp_product === expectedProduct.productKey &&
-      productMetadata?.product_version === expectedProduct.version;
-    const legacyProductChecks =
-      session.metadata?.product_version === "2026-09-20" &&
-      productName === expectedProduct.name;
-
-    if (!commonPaymentChecks || (!currentProductChecks && !legacyProductChecks)) {
+    if (
+      !matchesStarterEntitlement({
+        mode: session.mode,
+        status: session.status,
+        paymentStatus: session.payment_status,
+        liveMode: session.livemode,
+        sessionPlan: session.metadata?.plan,
+        sessionProductKey: session.metadata?.product_key,
+        sessionProductVersion: session.metadata?.product_version,
+        currency: session.currency,
+        amountSubtotal: session.amount_subtotal,
+        quantity: lineItem?.quantity,
+        unitAmount: price?.unit_amount,
+        priceCurrency: price?.currency,
+        productKey: productMetadata?.everymcp_product,
+        productVersion: productMetadata?.product_version,
+        productName,
+        expectedPlan,
+        expectedProductKey: expectedProduct.productKey,
+        expectedProductVersion: expectedProduct.version,
+        expectedAmount: expectedProduct.amount,
+        expectedCurrency: expectedProduct.currency,
+        expectedQuantity: expectedProduct.quantity,
+        expectedProductName: expectedProduct.name,
+        legacyProductVersion: "2026-09-20",
+        expectedLiveMode: stripeConfiguration.mode === "live"
+      })
+    ) {
       return { status: "not_paid" };
     }
 

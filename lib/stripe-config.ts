@@ -1,4 +1,5 @@
 import Stripe from "stripe";
+import { isConfigurationStripeFailure, isTransientStripeFailure } from "@/lib/stripe-errors";
 
 export type StripeMode = "test" | "live";
 
@@ -16,7 +17,8 @@ export type StripeRecoveryConfiguration = {
 
 type AccountCheck = "valid" | "unavailable" | "mismatch";
 
-const accountChecks = new Map<string, Promise<AccountCheck>>();
+const ACCOUNT_CHECK_TTL_MS = 60_000;
+const accountChecks = new Map<string, { promise: Promise<AccountCheck>; expiresAt: number }>();
 
 function expectedKeyPrefix(mode: StripeMode) {
   return mode === "live" ? "sk_live_" : "sk_test_";
@@ -42,7 +44,7 @@ export function getStripeConfiguration(): StripeConfiguration | null {
   if (
     !secretKey ||
     (configuredMode !== "test" && configuredMode !== "live") ||
-    !accountId ||
+    !/^acct_[A-Za-z0-9]+$/.test(accountId) ||
     !secretKey.startsWith(expectedKeyPrefix(configuredMode))
   ) {
     return null;
@@ -68,7 +70,8 @@ export function getStripeRecoveryConfiguration(): StripeRecoveryConfiguration | 
   const configuredMode = process.env.STRIPE_MODE?.trim().toLowerCase();
   const inferredMode = inferModeFromKey(secretKey || "");
   const mode = configuredMode === "test" || configuredMode === "live" ? configuredMode : inferredMode;
-  const accountId = process.env.STRIPE_ACCOUNT_ID?.trim() || undefined;
+  const configuredAccountId = process.env.STRIPE_ACCOUNT_ID?.trim();
+  const accountId = configuredAccountId && /^acct_[A-Za-z0-9]+$/.test(configuredAccountId) ? configuredAccountId : undefined;
 
   if (!secretKey || !mode || !secretKey.startsWith(expectedKeyPrefix(mode))) {
     return null;
@@ -86,13 +89,7 @@ export function isTransientStripeError(error: unknown) {
     return false;
   }
 
-  return (
-    error.type === "StripeConnectionError" ||
-    error.type === "StripeAPIError" ||
-    error.type === "StripeRateLimitError" ||
-    error.statusCode === 429 ||
-    (typeof error.statusCode === "number" && error.statusCode >= 500)
-  );
+  return isTransientStripeFailure(error.type, error.statusCode);
 }
 
 export function isStripeNotFoundError(error: unknown) {
@@ -100,17 +97,17 @@ export function isStripeNotFoundError(error: unknown) {
 }
 
 export function isStripeConfigurationError(error: unknown) {
-  return (
-    error instanceof Stripe.errors.StripeError &&
-    (error.type === "StripeAuthenticationError" || error.type === "StripePermissionError")
-  );
+  return error instanceof Stripe.errors.StripeError && isConfigurationStripeFailure(error.type);
 }
 
 export async function verifyStripeAccount(configuration: StripeConfiguration): Promise<AccountCheck> {
   const cacheKey = `${configuration.mode}:${configuration.accountId}`;
   const cached = accountChecks.get(cacheKey);
+  if (cached && cached.expiresAt > Date.now()) {
+    return cached.promise;
+  }
   if (cached) {
-    return cached;
+    accountChecks.delete(cacheKey);
   }
 
   const check = configuration.client.accounts
@@ -118,6 +115,11 @@ export async function verifyStripeAccount(configuration: StripeConfiguration): P
     .then((account) => (account.id === configuration.accountId ? "valid" : "mismatch"))
     .catch((error: unknown) => (isTransientStripeError(error) ? "unavailable" : "mismatch"));
 
-  accountChecks.set(cacheKey, check);
+  accountChecks.set(cacheKey, { promise: check, expiresAt: Date.now() + ACCOUNT_CHECK_TTL_MS });
+  void check.then((result) => {
+    if (result !== "valid") {
+      accountChecks.delete(cacheKey);
+    }
+  });
   return check;
 }

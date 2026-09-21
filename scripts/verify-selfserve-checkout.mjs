@@ -14,7 +14,7 @@ const pricing = read("app/pricing/page.tsx");
 
 for (const [path, required] of [
   ["app/api/checkout/route.ts", ["fulfillment !== \"download\"", "CHECKOUT_SESSION_ID", "product_version", "Idempotency-Key", "idempotencyKey"]],
-  ["lib/stripe-fulfillment.ts", ["session.payment_status === \"paid\"", "session.metadata?.plan === expectedPlan", "amount_subtotal === expectedProduct.amount", "session.livemode", "legacyProductChecks"]],
+  ["lib/stripe-fulfillment.ts", ["matchesStarterEntitlement", "session.payment_status", "session.metadata?.plan", "expectedProduct.amount", "stripeConfiguration.mode"]],
   ["app/api/fulfillment/starter-kit/route.ts", ["Content-Disposition", "private, no-store"]],
   ["app/checkout/success/page.tsx", ["Payment verified", "/api/fulfillment/starter-kit"]],
   ["components/FulfillmentDownload.tsx", ["starter_kit_download_requested"]],

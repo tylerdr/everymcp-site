@@ -1,31 +1,17 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
+import { isPlan, products } from "@/lib/products";
 import { siteUrl } from "@/lib/site";
 
 export const runtime = "nodejs";
 
-type Plan = "implementation" | "sponsor";
-
-const planConfig: Record<Plan, { amount: number; name: string; description: string }> = {
-  implementation: {
-    amount: 200000,
-    name: "EveryMCP Implementation Package",
-    description: "Fixed-fee MCP implementation sprint"
-  },
-  sponsor: {
-    amount: 50000,
-    name: "EveryMCP Sponsor Placement",
-    description: "Featured sponsor slot on directory and newsletter"
-  }
-};
-
-function parseBody(value: unknown): { plan?: Plan; email?: string } {
+function parseBody(value: unknown): { plan?: keyof typeof products; email?: string } {
   if (!value || typeof value !== "object") {
     return {};
   }
 
   const payload = value as { plan?: string; email?: string };
-  const validPlan = payload.plan === "implementation" || payload.plan === "sponsor" ? payload.plan : undefined;
+  const validPlan = isPlan(payload.plan) ? payload.plan : undefined;
 
   return {
     plan: validPlan,
@@ -47,11 +33,17 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid plan" }, { status: 400 });
     }
 
-    const stripe = new Stripe(stripeSecretKey);
-    const selectedPlan = planConfig[plan];
+    const selectedPlan = products[plan];
+    if (selectedPlan.fulfillment !== "download") {
+      return NextResponse.json(
+        { error: "This offer requires manual scoping and is not available for self-serve checkout." },
+        { status: 409 }
+      );
+    }
 
-    // Always build the price inline so a stale shared STRIPE_*_PRICE_ID cannot route EveryMCP buyers
-    // into another venture's Stripe product.
+    const stripe = new Stripe(stripeSecretKey);
+
+    // Build the price inline so a stale shared Stripe price cannot route buyers into another product.
     const lineItem = {
       price_data: {
         currency: "usd",
@@ -68,11 +60,12 @@ export async function POST(request: Request) {
       mode: "payment",
       line_items: [lineItem],
       customer_email: email,
-      success_url: `${siteUrl}/checkout/success?plan=${plan}`,
-      cancel_url: `${siteUrl}/${plan === "sponsor" ? "sponsor" : "services"}?checkout=cancelled`,
+      success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${siteUrl}/pricing?checkout=cancelled#starter-kit`,
       allow_promotion_codes: true,
       metadata: {
-        plan
+        plan,
+        product_version: "2026-09-20"
       }
     });
 

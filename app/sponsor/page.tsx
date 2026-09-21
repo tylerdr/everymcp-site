@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CheckoutButton } from "@/components/CheckoutButton";
 import { LeadForm } from "@/components/LeadForm";
 
 export const metadata: Metadata = {
@@ -39,14 +38,11 @@ export default function SponsorPage() {
           <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
             <p className="text-xs font-bold uppercase tracking-wide text-slate-500">Starting at</p>
             <p className="mt-2 text-4xl font-extrabold text-ink">$500</p>
-            <p className="mt-2 text-sm text-slate-600">Launch sponsor slot (one-time placement package).</p>
+            <p className="mt-2 text-sm text-slate-600">Launch sponsor slot (human coordinated placement package).</p>
             <div className="mt-5">
-              <CheckoutButton
-                plan="sponsor"
-                label="Reserve Sponsor Slot"
-                fallbackHref="#sponsor-inquiry"
-                fallbackLabel="Open sponsor inquiry form"
-              />
+              <Link href="#sponsor-inquiry" className="inline-flex rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:bg-sky">
+                Open sponsor inquiry
+              </Link>
             </div>
             <p className="mt-3 text-sm text-slate-600">
               Prefer to confirm audience fit first? Use the sponsor inquiry form and we&apos;ll reply with placement details.

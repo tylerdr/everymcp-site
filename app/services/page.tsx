@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CheckoutButton } from "@/components/CheckoutButton";
 import { LeadForm } from "@/components/LeadForm";
 
 export const metadata: Metadata = {
@@ -41,14 +40,11 @@ export default function ServicesPage() {
           <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
             <p className="text-xs font-bold uppercase tracking-wide text-slate-500">Pricing</p>
             <p className="mt-2 text-4xl font-extrabold text-ink">$2,000</p>
-            <p className="mt-2 text-sm text-slate-600">Fixed setup package for MVP delivery and rollout.</p>
+            <p className="mt-2 text-sm text-slate-600">Fixed setup package for MVP delivery and rollout. Payment is opened after scope and fulfillment are confirmed.</p>
             <div className="mt-5">
-              <CheckoutButton
-                plan="implementation"
-                label="Buy implementation package"
-                fallbackHref="#implementation-inquiry"
-                fallbackLabel="Open implementation inquiry form"
-              />
+              <Link href="#implementation-inquiry" className="inline-flex rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:bg-sky">
+                Open implementation inquiry
+              </Link>
             </div>
           </div>
         </article>

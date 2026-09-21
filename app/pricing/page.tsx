@@ -4,7 +4,7 @@ import { CheckoutButton } from "@/components/CheckoutButton";
 
 export const metadata: Metadata = {
   title: "Pricing — EveryMCP",
-  description: "MCP implementation pricing and service packages. Fixed-rate setup for production teams.",
+  description: "A self-serve MCP integration starter kit plus implementation and sponsorship paths for production teams.",
   alternates: { canonical: "/pricing" }
 };
 
@@ -15,24 +15,36 @@ const tiers = [
     period: "",
     description: "Search and browse indexed MCP listings with source links.",
     features: ["Full directory access", "Category and tag filtering", "Repository + source provenance", "No account required"],
-    cta: { label: "Browse Directory", href: "/directory", primary: false }
+    cta: { label: "Browse Directory", href: "/directory", primary: false },
+    selfServe: false
+  },
+  {
+    name: "MCP Integration Starter Kit",
+    price: "$49",
+    period: "one time",
+    description: "A self-serve worksheet and rollout packet delivered immediately after payment.",
+    features: ["Workflow definition worksheet", "Source and permission review prompts", "Tool-boundary record", "Acceptance and rollback checklist"],
+    cta: { label: "Get the starter kit", href: "#starter-kit", primary: true },
+    selfServe: true
   },
   {
     name: "Implementation Package",
     price: "$2,000",
     period: "fixed",
-    description: "End-to-end MCP setup for production teams. Delivered in one sprint.",
+    description: "Human delivered MCP setup for production teams. Start with an implementation inquiry.",
     features: ["MCP architecture and server selection", "Client + server integration and environment setup", "Auth, permissions, and tool boundary hardening", "Custom MCP server development", "Production launch support"],
-    cta: { label: "Buy implementation package", href: "/services#implementation-inquiry", primary: true },
-    highlight: true
+    cta: { label: "Open implementation inquiry", href: "/services#implementation-inquiry", primary: true },
+    highlight: true,
+    selfServe: false
   },
   {
     name: "Sponsor",
     price: "Custom",
     period: "",
-    description: "Put your tool or service in front of MCP developers every day.",
+    description: "Human coordinated placement for tools and services that fit the directory.",
     features: ["Featured placement in directory", "Logo + link in header or footer", "Dedicated sponsor spotlight", "Monthly reach report"],
-    cta: { label: "View sponsor options", href: "/sponsor", primary: false }
+    cta: { label: "View sponsor options", href: "/sponsor", primary: false },
+    selfServe: false
   }
 ];
 
@@ -47,9 +59,9 @@ export default function PricingPage() {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-3">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {tiers.map((tier) => (
-          <article key={tier.name} className={`rounded-3xl border p-8 flex flex-col ${tier.highlight ? "border-sky bg-sky/5 shadow-soft" : "border-slate-200 bg-white"}`}>
+          <article id={tier.selfServe ? "starter-kit" : undefined} key={tier.name} className={`rounded-3xl border p-8 flex flex-col ${tier.highlight ? "border-sky bg-sky/5 shadow-soft" : "border-slate-200 bg-white"}`}>
             {tier.highlight && <p className="mb-3 text-xs font-bold uppercase tracking-wide text-sky">Most popular</p>}
             <h2 className="text-lg font-extrabold text-ink">{tier.name}</h2>
             <div className="mt-3 flex items-baseline gap-1">
@@ -61,8 +73,8 @@ export default function PricingPage() {
               {tier.features.map((feature) => <li key={feature}>• {feature}</li>)}
             </ul>
             <div className="mt-8">
-              {tier.highlight ? (
-                <CheckoutButton plan="implementation" label={tier.cta.label} fallbackHref="/services#implementation-inquiry" fallbackLabel="Open implementation inquiry form" />
+              {tier.selfServe ? (
+                <CheckoutButton plan="starter" label={tier.cta.label} fallbackHref="#starter-kit" fallbackLabel="Retry starter kit checkout" />
               ) : (
                 <Link href={tier.cta.href} className={`block w-full rounded-full py-3 text-center text-sm font-bold transition ${tier.cta.primary ? "bg-sky text-white hover:bg-sky/90" : "border border-slate-300 text-slate-700 hover:border-sky hover:text-sky"}`}>
                   {tier.cta.label}

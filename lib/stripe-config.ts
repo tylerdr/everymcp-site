@@ -44,9 +44,12 @@ export function getStripeConfiguration(): StripeConfiguration | null {
   if (
     !secretKey ||
     (configuredMode !== "test" && configuredMode !== "live") ||
-    !/^acct_[A-Za-z0-9]+$/.test(accountId) ||
-    !secretKey.startsWith(expectedKeyPrefix(configuredMode))
+    !accountId
   ) {
+    return null;
+  }
+
+  if (!/^acct_[A-Za-z0-9]+$/.test(accountId) || !secretKey.startsWith(expectedKeyPrefix(configuredMode))) {
     return null;
   }
 

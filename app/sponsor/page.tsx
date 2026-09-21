@@ -61,7 +61,7 @@ export default function SponsorPage() {
         <article id="sponsor-inquiry" className="rounded-3xl border border-slate-200 bg-white p-8 shadow-soft">
           <h2 className="text-2xl font-extrabold text-ink">Talk through sponsor fit</h2>
           <p className="mt-3 text-sm leading-7 text-slate-600">
-            Send your product, audience, and launch window. We&apos;ll confirm placement fit, inventory, and timing within one business day.
+            Share your product, audience, and launch window to receive the existing catalog methodology resource. Placement fit, inventory, and timing remain subject to a later scope review.
           </p>
           <LeadForm
             className="mt-6"

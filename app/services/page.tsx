@@ -52,7 +52,7 @@ export default function ServicesPage() {
         <article id="implementation-inquiry" className="rounded-3xl border border-slate-200 bg-white p-8 shadow-soft">
           <h2 className="text-2xl font-extrabold text-ink">Start Your Build</h2>
           <p className="mt-3 text-sm leading-7 text-slate-600">
-            Share your stack and use case. We will follow up with a scope, timeline, and implementation plan.
+            Share your stack and use case to receive the existing catalog methodology resource. Implementation scope, timing, and payment are discussed only after fit and fulfillment are confirmed.
           </p>
           <p className="mt-2 text-sm text-slate-600">
             Looking for distribution instead? Sponsor the directory on our{" "}

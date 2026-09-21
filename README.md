@@ -29,14 +29,16 @@ npm run dev
 ```
 
 ## Stripe Checkout Environment Variables
-The self-serve MCP Integration Starter Kit uses one inline-price Stripe Checkout Session and requires `STRIPE_SECRET_KEY`. Add it to `.env.local` and the Vercel project settings:
+The self-serve MCP Integration Starter Kit uses one inline-price Stripe Checkout Session. Checkout stays closed until the secret key, explicit mode, and account identity are all configured consistently. Add the values to `.env.local` and the Vercel project settings:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://everymcp.com
-STRIPE_SECRET_KEY=sk_live_or_test_key
+STRIPE_SECRET_KEY=sk_test_... # or sk_live_..., matching STRIPE_MODE
+STRIPE_MODE=test # or live
+STRIPE_ACCOUNT_ID=acct_... # the account returned by the configured key
 ```
 
-After Stripe redirects with `{CHECKOUT_SESSION_ID}`, the app verifies the completed paid session and unlocks the deterministic starter-kit download. Implementation and sponsor offers remain inquiry-only until their human fulfillment paths are configured.
+The app verifies the completed paid session, exact `$49` USD line item, quantity, product metadata, version, account, and live/test mode before unlocking the deterministic starter-kit download. Checkout uses a client-generated idempotency key so a retried request reuses the same Stripe session. The download is available after a successful return to the checkout page; durable recovery after a lost return requires a configured webhook and entitlement store, which are not part of this repository yet. Implementation and sponsor offers remain inquiry-only until their human fulfillment paths are configured.
 
 ## Deploy to Vercel
 ```bash

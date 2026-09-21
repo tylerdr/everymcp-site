@@ -31,7 +31,7 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
         </p>
         <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-ink">Your starter kit is ready.</h1>
         <p className="mt-4 text-base leading-7 text-slate-600">
-          Stripe confirmed your payment. Download the MCP Integration Starter Kit immediately; the link can be retried if your browser interrupts the download.
+          Stripe confirmed your payment. Download the MCP Integration Starter Kit before leaving this page; the link can be retried if your browser interrupts the download.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-3">

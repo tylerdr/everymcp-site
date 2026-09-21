@@ -9,14 +9,17 @@ const success = read("app/checkout/success/page.tsx");
 const download = read("components/FulfillmentDownload.tsx");
 const products = read("lib/products.ts");
 const lead = read("app/api/lead/route.ts");
+const starterKit = read("lib/starter-kit.ts");
+const pricing = read("app/pricing/page.tsx");
 
 for (const [path, required] of [
-  ["app/api/checkout/route.ts", ["fulfillment !== \"download\"", "CHECKOUT_SESSION_ID", "product_version"]],
-  ["lib/stripe-fulfillment.ts", ["payment_status !== \"paid\"", "metadata?.plan !== expectedPlan"]],
+  ["app/api/checkout/route.ts", ["fulfillment !== \"download\"", "CHECKOUT_SESSION_ID", "product_version", "Idempotency-Key", "idempotencyKey"]],
+  ["lib/stripe-fulfillment.ts", ["matchesStarterEntitlement", "session.payment_status", "session.metadata?.plan", "expectedProduct.amount", "stripeConfiguration.mode"]],
   ["app/api/fulfillment/starter-kit/route.ts", ["Content-Disposition", "private, no-store"]],
   ["app/checkout/success/page.tsx", ["Payment verified", "/api/fulfillment/starter-kit"]],
   ["components/FulfillmentDownload.tsx", ["starter_kit_download_requested"]],
-  ["lib/products.ts", ["MCP Integration Starter Kit", "fulfillment: \"manual\""]]
+  ["lib/products.ts", ["MCP Integration Starter Kit", "STARTER_KIT_AMOUNT = 4900", "STARTER_KIT_PRODUCT_VERSION", "fulfillment: \"manual\""]],
+  ["lib/stripe-config.ts", ["STRIPE_MODE", "STRIPE_ACCOUNT_ID", "sk_test_", "sk_live_"]]
 ]) {
   const content = read(path);
   for (const fragment of required) {
@@ -40,9 +43,23 @@ if (success.includes("We&apos;ll follow up via email")) {
   throw new Error("Checkout success cannot promise manual fulfillment");
 }
 
+for (const fragment of ["selection matrix", "@modelcontextprotocol/server-filesystem", "validation assets", "rollback"]) {
+  if (!starterKit.toLowerCase().includes(fragment.toLowerCase())) {
+    throw new Error(`Starter kit is missing grounded commercial asset: ${fragment}`);
+  }
+}
+
+if (!pricing.includes("isStripeCheckoutConfigured") || !pricing.includes("Checkout is temporarily closed")) {
+  throw new Error("Pricing must close the paid CTA until Stripe configuration is bound");
+}
+
 console.log("SELF_SERVE_CHECKOUT_CONTRACT", JSON.stringify({
   passed: true,
   paymentVerifiedServerSide: true,
   deterministicDownload: true,
-  manualPlansFailClosed: true
+  manualPlansFailClosed: true,
+  exactProductBoundary: true,
+  idempotentCheckout: true,
+  groundedArtifact: true,
+  closedUntilStripeBound: true
 }));

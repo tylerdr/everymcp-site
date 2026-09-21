@@ -24,8 +24,14 @@ export function CheckoutButton({
 }: CheckoutButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [idempotencyKey, setIdempotencyKey] = useState<string | null>(null);
 
   async function handleCheckout() {
+    const checkoutAttemptKey = idempotencyKey || crypto.randomUUID();
+    if (!idempotencyKey) {
+      setIdempotencyKey(checkoutAttemptKey);
+    }
+
     setIsLoading(true);
     setError(null);
     track("checkout_started", { plan });
@@ -34,7 +40,8 @@ export function CheckoutButton({
       const response = await fetch("/api/checkout", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Idempotency-Key": checkoutAttemptKey
         },
         body: JSON.stringify({ plan, email })
       });
@@ -42,11 +49,7 @@ export function CheckoutButton({
       const payload = (await response.json().catch(() => ({}))) as { url?: string; error?: string };
 
       if (!response.ok) {
-        if (payload.error === "Stripe is not configured") {
-          throw new Error("Checkout is not live yet. Use the inquiry form and we will follow up manually.");
-        }
-
-        throw new Error(payload.error || "Unable to start checkout");
+        throw new Error(payload.error || "Checkout is temporarily unavailable. No payment was taken.");
       }
 
       if (!payload.url) {

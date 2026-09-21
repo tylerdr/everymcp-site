@@ -7,6 +7,7 @@ import { McpCard } from "@/components/McpCard";
 import { categories } from "@/data/categories";
 import { catalogTrust } from "@/lib/catalog-trust";
 import { featuredMcps, mcps } from "@/lib/mcps";
+import { isStripeCheckoutConfigured } from "@/lib/stripe-config";
 
 export const metadata: Metadata = {
   alternates: {
@@ -15,6 +16,8 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const checkoutConfigured = isStripeCheckoutConfigured();
+
   return (
     <>
       <section className="mx-auto w-full max-w-6xl px-4 pb-12 pt-16 sm:px-6 sm:pt-20">
@@ -49,7 +52,7 @@ export default function Home() {
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
             <p className="text-3xl font-extrabold text-ink">$49</p>
-            <p className="mt-1 text-sm text-slate-600">Starter kit, delivered instantly</p>
+            <p className="mt-1 text-sm text-slate-600">Starter kit, downloaded after a successful checkout return</p>
           </div>
         </div>
       </section>
@@ -90,7 +93,7 @@ export default function Home() {
                 href="/pricing#starter-kit"
                 className="inline-flex rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-white transition hover:bg-sky"
               >
-                Get the $49 starter kit
+                {checkoutConfigured ? "Get the $49 starter kit" : "Review the $49 starter kit"}
               </Link>
               <Link
                 href="/services"

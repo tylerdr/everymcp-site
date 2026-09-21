@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckoutButton } from "@/components/CheckoutButton";
+import { isStripeCheckoutConfigured } from "@/lib/stripe-config";
 
 export const metadata: Metadata = {
   title: "Pricing — EveryMCP",
@@ -22,8 +23,8 @@ const tiers = [
     name: "MCP Integration Starter Kit",
     price: "$49",
     period: "one time",
-    description: "A self-serve worksheet and rollout packet delivered immediately after payment.",
-    features: ["Workflow definition worksheet", "Source and permission review prompts", "Tool-boundary record", "Acceptance and rollback checklist"],
+    description: "A self-serve selection, setup, and rollout packet downloaded after a successful checkout return.",
+    features: ["Grounded MCP selection matrix", "Worked client configuration example", "Source and permission review prompts", "Acceptance and rollback checklist"],
     cta: { label: "Get the starter kit", href: "#starter-kit", primary: true },
     selfServe: true
   },
@@ -49,6 +50,8 @@ const tiers = [
 ];
 
 export default function PricingPage() {
+  const checkoutConfigured = isStripeCheckoutConfigured();
+
   return (
     <section className="mx-auto w-full max-w-6xl px-4 pb-16 pt-12 sm:px-6">
       <div className="text-center">
@@ -74,7 +77,16 @@ export default function PricingPage() {
             </ul>
             <div className="mt-8">
               {tier.selfServe ? (
-                <CheckoutButton plan="starter" label={tier.cta.label} fallbackHref="#starter-kit" fallbackLabel="Retry starter kit checkout" />
+                checkoutConfigured ? (
+                  <CheckoutButton plan="starter" label={tier.cta.label} fallbackHref="#starter-kit" fallbackLabel="Retry starter kit checkout" />
+                ) : (
+                  <div className="space-y-3">
+                    <p className="text-sm font-medium text-amber-800">Checkout is temporarily closed while payment configuration is verified.</p>
+                    <Link href="#starter-kit" className="inline-flex rounded-full border border-slate-300 px-5 py-2.5 text-sm font-bold text-slate-700 hover:border-sky hover:text-sky">
+                      Review the starter kit
+                    </Link>
+                  </div>
+                )
               ) : (
                 <Link href={tier.cta.href} className={`block w-full rounded-full py-3 text-center text-sm font-bold transition ${tier.cta.primary ? "bg-sky text-white hover:bg-sky/90" : "border border-slate-300 text-slate-700 hover:border-sky hover:text-sky"}`}>
                   {tier.cta.label}

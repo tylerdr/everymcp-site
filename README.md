@@ -40,6 +40,16 @@ STRIPE_ACCOUNT_ID=acct_... # the account returned by the configured key
 
 The app verifies the completed paid session, exact `$49` USD line item, quantity, product metadata, version, account, and live/test mode before unlocking the deterministic starter-kit download. Checkout uses a client-generated idempotency key so a retried request reuses the same Stripe session. The download is available after a successful return to the checkout page; durable recovery after a lost return requires a configured webhook and entitlement store, which are not part of this repository yet. Implementation and sponsor offers remain inquiry-only until their human fulfillment paths are configured.
 
+## Lead capture environment variables
+The public form posts to `/api/lead` and remains fail-closed until an approved existing storage/confirmation adapter is bound. Configure both values only when the adapter implements the `everymcp.lead.v1` contract: atomically store the opt-in record under the supplied `Idempotency-Key`, enqueue/accept the transactional confirmation, and return JSON with `confirmation_status` set to `accepted`, `queued`, or `sent`. The app never reports success without that confirmation state.
+
+```bash
+EVERYMCP_LEAD_STORAGE_URL=https://existing-approved-adapter.example/lead
+EVERYMCP_LEAD_STORAGE_TOKEN=... # server-only; do not expose or log
+```
+
+The form sends name, email, request context, intent, consent, and the existing `/methodology` resource path to the adapter. Retries reuse a deterministic key derived from the normalized email and intent; no manual mailto fallback is presented. The current production environment does not contain these variables, so production lead capture remains explicitly unavailable until the owner supplies the existing provider binding.
+
 ## Deploy to Vercel
 ```bash
 vercel login

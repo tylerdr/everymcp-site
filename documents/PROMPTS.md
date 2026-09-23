@@ -4,6 +4,15 @@
 
 *Tyler's input is scarce and valuable. Exact words are preserved so scope never gets lost or misremembered.*
 
+## 2026-09-22 UTC — Unified SEO/AEO/GEO audit MCP
+
+**Tyler's exact words:**
+> Just like we've done for brandkit, ogfixer and everymcp we should ensure getfoundinchat has the audit skills created and available via mcp so we can also use the get found in chat SEO/AEO/GEO scan/audit/score/etc we can use to ensure every proejct we release is fully optimzied for SEO/AEO/GEO. And the everyMCP MCP can include a single MCP where we can bundle these to run them all togehter via the single everyMCP MCP. Once again, we should be building these to leverage the MCP capabilties from sprinter starter (aligned with sprinter platform as implemented in praxium, etc).
+
+**Context:** EveryMCP merged-main base `b63b88014ad734d7c407df664918988852b07756`; requested one bounded read-only composition endpoint over owned audit providers.
+**Action taken:** Implementing a versioned audit composition contract with explicit provider readiness and provenance; provider outputs remain separate and no unified score is invented.
+**Spec impact:** Adds the planned SEO/AEO/GEO audit MCP composition feature.
+
 ---
 
 ## YYYY-MM-DD HH:MM UTC — [brief topic]

@@ -16,6 +16,14 @@ Production-ready Next.js App Router project for the EveryMCP directory MVP.
 - Reusable lead form posting to `/api/lead`
 - SEO basics: metadata, `sitemap.xml`, and `robots.txt`
 
+## Read-only SEO/AEO/GEO audit MCP
+
+The versioned audit bundle is served at `/api/mcp` and exposes `audit_site` plus `get_audit_capabilities`. `audit_site` accepts one public HTTP(S) URL and a GetFoundInChat page limit from 1–5 (default 3). It preserves each provider's result and provenance separately; it does not create a blended score, persist reports, or apply fixes. `audit_portfolio` is not exposed because no safe caller identity or tenant scope is established.
+
+The hosted route is intentionally **setup-pending**. `/api/mcp/readiness` reports provider and activation status without scanning. BrandKit has no verified executable MCP tool schema; GetFoundInChat remains pending while its production endpoint reports rate-limit setup-pending; OGFixer's verified `audit_url` call is bounded to one page. Do not claim a completed multi-provider audit while any provider is pending or unavailable.
+
+Enable `/api/mcp` only after a durable production edge rate-limit rule specifically protects the route and its exact deployed behavior is independently verified. Both `EVERYMCP_AUDIT_MCP_EDGE_RATE_LIMIT_READY=true` and `EVERYMCP_AUDIT_MCP_ENABLED=true` are required; the first is an operator attestation and must not be set before that evidence exists. Set `GETFOUNDINCHAT_AUDIT_MCP_READY=true` only after the GetFoundInChat production firewall/readiness receipt is verified. No bearer credentials, caller-provided provider URLs, tenant IDs, or API keys are accepted.
+
 ## Data
 - MCP dataset in `data/mcps.json`
 - 50 real MCP servers sourced from:

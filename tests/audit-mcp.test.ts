@@ -113,6 +113,8 @@ describe("EveryMCP audit MCP", () => {
       ["ogfixer", "ready"],
       ["getfoundinchat", "pending"]
     ]);
+    expect(readiness.providers[0]).toMatchObject({ endpoint: null, tool: null, reportContract: null });
+    expect(readiness.providers[0].reason).toContain("BrandKit's hosted MCP is live under scoped auth");
     expect(readiness.availableTools).toEqual([]);
     expect(readiness.bounds.portfolioAudit).toContain("not exposed");
   });

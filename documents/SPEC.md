@@ -17,13 +17,14 @@ Technical founders, AI/product leads, and operator-builders who already have an 
 ## Core Features
 
 ### Free MCP Stack Planner
-- **Description:** A no-account planner that maps one concrete buyer outcome to three capability slots, fills each slot from the current EveryMCP catalog, explains each server's role, and gives the buyer an immediate integration sequence before handing qualified intent into the existing $49 starter kit.
+- **Description:** A no-account planner that maps one concrete buyer outcome to three capability slots, fills each slot from the current EveryMCP catalog, explains each server's role, gives the buyer an immediate integration sequence, and lets the buyer copy a portable implementation brief before handing qualified intent into the existing $49 starter kit.
 - **Acceptance criteria:**
   - [x] Support five concrete buyer outcomes spanning research, software delivery, operations, data analysis, and durable agent context.
   - [x] Return up to three real catalog entries with direct listing and repository/source inspection links; do not invent servers or proof.
   - [x] Give the buyer a useful three-step next action before asking for payment.
+  - [x] Produce a copyable brief from the same catalog-backed plan with selected servers, roles, source links, and first integration sequence.
   - [x] Preserve goal/source attribution into `/pricing#starter-kit`.
-  - [x] Track `stack_plan_generated` and `stack_plan_starter_kit_clicked` as the value and paid-intent events.
+  - [x] Track `stack_plan_generated`, `stack_plan_brief_copied`, and `stack_plan_starter_kit_clicked` as value, activation, and paid-intent events.
   - [x] Link the planner from the homepage and sitemap.
 - **Status:** `implemented on draft growth branch; exact-head hosted validation pending`
 
@@ -68,7 +69,7 @@ What we're explicitly NOT building in this phase:
 
 ## Technical Architecture
 - **Stack:** Next.js 14 App Router, TypeScript, Tailwind CSS, Vercel; the audit MCP uses `mcp-handler` 2.x, MCP server/client SDK 2.x, and Zod 4.
-- **Planner:** Server-rendered GET flow at `/plan`; typed goal profiles map to current catalog categories and select real entries from `sortedMcps`. A small client tracker records value and starter-kit handoff events.
+- **Planner:** Server-rendered GET flow at `/plan`; typed goal profiles map to current catalog categories and select real entries from `sortedMcps`. The same typed plan produces a portable text brief, while a small client tracker records generation, copy, and starter-kit handoff events.
 - **Auth:** The planner is public and read-only. The audit route has no caller auth contract yet and remains setup-pending. Public audit execution requires an externally verified durable Vercel edge rate limit plus an explicit server-side enable flag.
 - **Key patterns:** Fixed provider endpoints and tool allowlists for audits; current catalog ownership for planner recommendations; no new persistence for the planner. Requests to the audit MCP are stateless and results are not persisted.
 - **See:** `documents/DECISIONS.md` for architectural choices.
@@ -77,8 +78,9 @@ What we're explicitly NOT building in this phase:
 - **Hypothesis:** A buyer who receives a concrete three-server starting stack before seeing the paid offer will show more qualified starter-kit intent than a buyer sent directly from generic directory browsing.
 - **ICP:** Technical founder, AI/product lead, or operator-builder with a specific agent workflow and implementation authority.
 - **Value event:** `stack_plan_generated`.
+- **Activation signal:** `stack_plan_brief_copied` — the buyer carried the result into an implementation workflow; this is not a purchase.
 - **Baseline/denominator:** First 50 completed plans after approved release; there is no valid pre-feature planner baseline.
-- **Intervention:** Outcome-based planner plus direct, attributed starter-kit handoff.
+- **Intervention:** Outcome-based planner, portable implementation brief, and direct attributed starter-kit handoff.
 - **Primary metric:** `stack_plan_starter_kit_clicked / stack_plan_generated`.
 - **Observation window:** 50 completed plans or 14 days, whichever comes first.
 - **Budget/authority:** $0 incremental spend; no outbound or production activation in the implementation PR.
@@ -95,7 +97,7 @@ Unresolved product decisions. Agents should NOT unilaterally resolve these.
 
 | Date | Input | Status |
 |------|-------|--------|
-| 2026-09-23 | "GROWTH AND CUSTOMER VALUE FIRST... Each substantive normal run must complete or meaningfully advance a growth/product deliverable." | incorporated: free outcome-based Stack Planner → attributed starter-kit handoff |
+| 2026-09-23 | "GROWTH AND CUSTOMER VALUE FIRST... Each substantive normal run must complete or meaningfully advance a growth/product deliverable." | incorporated: free outcome-based Stack Planner → portable brief → attributed starter-kit handoff |
 | 2026-09-20 | "Primary offer, or at least initial revenue path and any lower-ticket offer, must require NO HUMAN INTERVENTION TO SELL OR DELIVER." | incorporated: self-serve starter kit |
 | 2026-09-22 | "Retain the MCP server directory and add a directory of relevant marketplaces/platforms plus official source-backed listing guides/checklists for ChatGPT, Claude, Meta Muse, Grok and longtail." | incorporated: marketplace directory and dated guide/checklist routes; external submissions remain closed |
 | 2026-09-22 | "...ensure getfoundinchat has the audit skills created and available via mcp... everyMCP MCP can include a single MCP where we can bundle these to run them all together... leverage the MCP capabilities from sprinter starter..." | incorporated: bounded EveryMCP audit MCP composition; GetFoundInChat and BrandKit activation remain readiness-gated |

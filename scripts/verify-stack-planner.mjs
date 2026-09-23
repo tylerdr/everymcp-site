@@ -8,6 +8,9 @@ const plannerPage = read("app/plan/page.tsx");
 const plannerModel = read("lib/stack-planner.ts");
 const tracking = read("components/StackPlanTracking.tsx");
 const homepage = read("app/page.tsx");
+const pricing = read("app/pricing/page.tsx");
+const checkoutButton = read("components/CheckoutButton.tsx");
+const checkoutRoute = read("app/api/checkout/route.ts");
 const sitemap = read("app/sitemap.ts");
 
 const requiredGoals = ["research", "ship-software", "automate-ops", "analyze-data", "agent-memory"];
@@ -40,6 +43,18 @@ if (!tracking.includes('track("stack_plan_generated"') || !tracking.includes('tr
 
 if (!tracking.includes("source=stack-planner") || !tracking.includes("#starter-kit")) {
   throw new Error("Planner must preserve attribution into the existing starter-kit offer");
+}
+
+if (!pricing.includes('requestedSource === "stack-planner"') || !pricing.includes("source={source}") || !pricing.includes("goal={goal}")) {
+  throw new Error("Pricing must preserve validated planner attribution into checkout");
+}
+
+if (!checkoutButton.includes("body: JSON.stringify({ plan, email, source, goal })") || !checkoutButton.includes('track("checkout_started", { plan, ...attribution })')) {
+  throw new Error("Checkout must carry planner attribution into the existing checkout request and event");
+}
+
+if (!checkoutRoute.includes("acquisition_source: source") || !checkoutRoute.includes("acquisition_goal: goal") || !checkoutRoute.includes("attributionValuePattern")) {
+  throw new Error("Stripe session metadata must retain bounded planner attribution");
 }
 
 if (!homepage.includes('href="/plan"') || !homepage.includes("Build my free stack")) {

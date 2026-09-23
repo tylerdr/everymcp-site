@@ -22,4 +22,13 @@
 **Consequences:** Tradeoffs accepted. What becomes harder or easier.
 **Alternatives considered:** What we explicitly rejected and why.
 
+## ADR-003: Compose owned read-only audit providers through a gated MCP
+
+**Date:** 2026-09-22
+**Status:** Accepted
+**Context:** EveryMCP needs one MCP entrypoint for owned SEO/AEO/GEO auditing while BrandKit and GetFoundInChat provider activation is incomplete and OGFixer's own rate limit is best-effort per runtime.
+**Decision:** Implement a stateless Streamable HTTP `/api/mcp` using a fixed local tool allowlist. `audit_site` accepts one public URL and bounded page scope, checks remote tool schemas and read-only annotations before calling fixed provider endpoints, and returns each provider result with its own provenance, contract version, readiness, evidence, and errors. `get_audit_capabilities` reports provider readiness without scanning. Do not compute a blended score or expose portfolio scans without safe caller identity and tenant scope. The route remains HTTP 503 until a durable edge rate-limit rule is independently verified and an explicit server-side activation flag is set.
+**Consequences:** Provider data is not persisted and no secret or arbitrary endpoint is accepted from callers. Reports can be partial while providers are pending or unavailable. BrandKit remains uncalled until its exact executable schema/auth contract is verified; GetFoundInChat remains uncalled until its production firewall readiness receipt is verified. A future operator must establish durable abuse controls before enabling anonymous target scans.
+**Alternatives considered:** Treating metadata or HTTP 200 as proof of an executable audit was rejected. A normalized combined score and unauthenticated portfolio scans were rejected because provider evidence and tenant authority are not equivalent.
+
 ---

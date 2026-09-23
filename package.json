@@ -4,18 +4,23 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "test": "node scripts/verify-brand-assets.mjs && node scripts/verify-catalog-claims.mjs && node scripts/verify-marketplace-guides.mjs && node scripts/verify-selfserve-checkout.mjs && node scripts/verify-stripe-entitlement.mjs && node scripts/verify-google-analytics.mjs && node scripts/verify-lead-lifecycle.mjs",
-    "build": "node scripts/verify-brand-assets.mjs && node scripts/verify-catalog-claims.mjs && node scripts/verify-marketplace-guides.mjs && node scripts/verify-selfserve-checkout.mjs && node scripts/verify-stripe-entitlement.mjs && node scripts/verify-google-analytics.mjs && node scripts/verify-lead-lifecycle.mjs && next build",
+    "test:audit-mcp": "vitest run tests/audit-mcp.test.ts",
+    "test": "npm run test:audit-mcp && node scripts/verify-brand-assets.mjs && node scripts/verify-catalog-claims.mjs && node scripts/verify-marketplace-guides.mjs && node scripts/verify-selfserve-checkout.mjs && node scripts/verify-stripe-entitlement.mjs && node scripts/verify-google-analytics.mjs && node scripts/verify-lead-lifecycle.mjs",
+    "build": "npm run test:audit-mcp && node scripts/verify-brand-assets.mjs && node scripts/verify-catalog-claims.mjs && node scripts/verify-marketplace-guides.mjs && node scripts/verify-selfserve-checkout.mjs && node scripts/verify-stripe-entitlement.mjs && node scripts/verify-google-analytics.mjs && node scripts/verify-lead-lifecycle.mjs && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@modelcontextprotocol/client": "^2.0.0",
+    "@modelcontextprotocol/server": "^2.0.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
+    "mcp-handler": "^2.1.1",
     "next": "14.2.35",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "stripe": "^20.4.0"
+    "stripe": "^20.4.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/node": "20.17.10",
@@ -26,6 +31,7 @@
     "eslint-config-next": "14.2.35",
     "postcss": "8.4.49",
     "tailwindcss": "3.4.16",
-    "typescript": "5.7.2"
+    "typescript": "5.7.2",
+    "vitest": "^3.2.1"
   }
 }

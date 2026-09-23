@@ -2,6 +2,20 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-09-22 — Add a gated multi-provider audit MCP (Codex session)
+
+**Branch:** `feat/seo-aeo-geo-audit-mcp` from `b63b88014ad734d7c407df664918988852b07756` → PR pending
+**Tyler's prompt:** Ensure GetFoundInChat audit capabilities are available via MCP and compose owned audit products through one EveryMCP MCP, aligned with Sprinter platform boundaries.
+
+**Shipped on branch:**
+- `app/api/mcp/route.ts`, `app/api/mcp/readiness/route.ts`, `lib/audit-mcp.ts` — stateless, setup-pending MCP with a fixed provider allowlist, bounded public single-site `audit_site`, and no-scan readiness tool.
+- `tests/audit-mcp.test.ts` — provider contracts, URL/input/response/time bounds, partial readiness, provenance preservation, and fail-closed activation coverage.
+- `README.md`, `documents/SPEC.md`, `documents/DECISIONS.md`, and this handoff pack — public contract, safety boundary, activation prerequisites, and follow-up.
+
+**Decisions:** No blended score, portfolio scan, saved report, or write tool. OGFixer `audit_url` is executable; BrandKit and GetFoundInChat remain pending until their exact production contracts/readiness are proven. EveryMCP execution remains HTTP 503 until a durable edge rate-limit rule is independently verified and an explicit enable flag is set.
+**Validation:** Focused audit MCP tests (8/8), repository `npm test`, `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass. This is local source/build evidence only; no provider scans or hosted activation were performed.
+**Follow-up / tech debt created:** Independently review the PR; obtain exact Vercel edge-rule proof before enabling the public endpoint; wait for the GetFoundInChat firewall receipt and BrandKit executable/auth contract.
+
 ## 2026-09-22 — Add official marketplace brand references and route visual (Codex session)
 
 **Branch:** `feature/marketplace-listing-guides-20260922` → PR #9 updated at `5f9ad49`

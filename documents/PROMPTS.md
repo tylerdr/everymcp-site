@@ -4,6 +4,19 @@
 
 *Tyler's input is scarce and valuable. Exact words are preserved so scope never gets lost or misremembered.*
 
+## 2026-09-23 UTC — Growth and customer value first
+
+**Tyler's exact words:**
+> Operate as Tai Durden, Tyler's AI operating alter ego and accountable operating lead for all eligible Tai-led ventures. ChatGPT Pro is the strategic research, product improvement, testing and implementation-PR layer. The controlling September 20, 2026 correction is GROWTH AND CUSTOMER VALUE FIRST. Build attractive offers, working products and repeatable acquisition toward $100,000 portfolio MRR as soon as possible. Do not turn these reviews into legal-exposure audits, disclaimer campaigns, safety-flag production or a queue of disabled offers. Success means qualified buying interest, useful activation, accepted paid delivery, repeat purchases, retained customers and net new MRR—not caveats added, claims weakened, risks catalogued, PR counts or green builds.
+>
+> Each substantive normal run must complete or meaningfully advance a growth/product deliverable: a stronger implemented funnel, working signup/onboarding/delivery path, useful output improvement, qualified acquisition packet tied to an actual channel, retention/expansion feature, or a measured experiment conclusion and next iteration. A plan, renamed offer, generic audit or repeated blocker by itself is not a completed growth outcome.
+
+**Context:** EveryMCP main `074e11b911d7201b2188a3fc4860d943374ec781`; current product already has a free directory and a $49 self-serve starter kit, but the journey jumps from generic search to purchase without an interactive first-value bridge.
+**Action taken:** Add a deterministic MCP Stack Planner that turns a concrete buyer goal into a useful three-server starting stack and rollout sequence, then hands qualified intent into the existing starter-kit path. No new provider, subscription, checkout system, or external activation is introduced.
+**Spec impact:** Adds a value-first acquisition feature and a measurable planner-to-starter-kit experiment; existing offers and payment boundaries remain unchanged.
+
+---
+
 ## 2026-09-22 UTC — Unified SEO/AEO/GEO audit MCP
 
 **Tyler's exact words:**
@@ -26,12 +39,14 @@
 
 ---
 
+2026-09-20: User requests validation of all TaiDurden-listed sites, offers, revenue paths, email signups and forms; prioritize bounded fixes.
+
 ## 2026-09-22 UTC — Bounded brand asset audit
 
 **Tyler's exact words:**
 > Own exclusive visual/metadata asset audit and bounded fixes for buildownsell, everymcp, getfoundinchat, hireagentbuilders, portcoaudit, potentialpools, roofingreels, winemakeros. Audit homepage + representative real offer page: favicon/manifest, logos/brand consistency, OG/Twitter served image decode/dimensions/render, title/description/canonical/robots/sitemap, broken assets, image alt/performance. Fix actual high-value deficiencies via focused commits/tests and normal PRs; do not merge until review.
 
-**Context:** Portfolio brand audit, EveryMCP lane, production source SHA `100a1296`.
+**Context:** Portfolio brand audit, EveryMCP lane, production source SHA `100a1296be8954a652fd6aa391dbffbfe351474f`.
 **Action taken:** Converted the existing EveryMCP OG artwork to a 1200x630 PNG, derived a 64x64 favicon from its existing accent mark, updated metadata/JSON-LD, and added a binary asset contract.
 **Spec impact:** No product scope change.
 

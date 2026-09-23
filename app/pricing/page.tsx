@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckoutButton } from "@/components/CheckoutButton";
+import { isStackGoalId } from "@/lib/stack-planner";
 import { isStripeCheckoutConfigured } from "@/lib/stripe-config";
 
 export const metadata: Metadata = {
@@ -49,8 +50,20 @@ const tiers = [
   }
 ];
 
-export default function PricingPage() {
+type PricingPageProps = {
+  searchParams?: Record<string, string | string[] | undefined>;
+};
+
+function firstParam(value: string | string[] | undefined) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+export default function PricingPage({ searchParams }: PricingPageProps) {
   const checkoutConfigured = isStripeCheckoutConfigured();
+  const requestedSource = firstParam(searchParams?.source);
+  const requestedGoal = firstParam(searchParams?.goal);
+  const source = requestedSource === "stack-planner" ? requestedSource : undefined;
+  const goal = source && isStackGoalId(requestedGoal) ? requestedGoal : undefined;
 
   return (
     <section className="mx-auto w-full max-w-6xl px-4 pb-16 pt-12 sm:px-6">
@@ -58,9 +71,15 @@ export default function PricingPage() {
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-sky">Pricing</p>
         <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink">Simple, honest pricing</h1>
         <p className="mt-4 text-sm text-slate-600 max-w-xl mx-auto">
-          Browse for free. Get help building with a fixed-rate implementation package. Reach developers with a sponsorship.
+          Browse for free. Turn a chosen stack into a rollout packet for $49. Use implementation help when the work needs a team.
         </p>
       </div>
+
+      {source === "stack-planner" ? (
+        <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-sky/20 bg-sky/5 p-4 text-center text-sm leading-6 text-slate-700">
+          <strong className="text-ink">Your stack is picked.</strong> The starter kit is the next step if you want to turn that shortlist into a reusable permission, acceptance, and rollback plan.
+        </div>
+      ) : null}
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {tiers.map((tier) => (
@@ -78,7 +97,14 @@ export default function PricingPage() {
             <div className="mt-8">
               {tier.selfServe ? (
                 checkoutConfigured ? (
-                  <CheckoutButton plan="starter" label={tier.cta.label} fallbackHref="#starter-kit" fallbackLabel="Retry starter kit checkout" />
+                  <CheckoutButton
+                    plan="starter"
+                    label={tier.cta.label}
+                    source={source}
+                    goal={goal}
+                    fallbackHref="#starter-kit"
+                    fallbackLabel="Retry starter kit checkout"
+                  />
                 ) : (
                   <div className="space-y-3">
                     <p className="text-sm font-medium text-amber-800">Checkout is temporarily closed while payment configuration is verified.</p>
@@ -99,10 +125,15 @@ export default function PricingPage() {
 
       <div className="mt-12 rounded-3xl border border-slate-200 bg-white p-8 text-center">
         <h2 className="text-xl font-extrabold text-ink">Not sure what you need?</h2>
-        <p className="mt-3 text-sm text-slate-600 max-w-lg mx-auto">Tell us your stack and use case. We will scope the right approach and come back with a plan.</p>
-        <Link href="/services#implementation-inquiry" className="mt-6 inline-block rounded-full border border-slate-300 px-6 py-3 text-sm font-bold text-slate-700 hover:border-sky hover:text-sky">
-          Open implementation inquiry
-        </Link>
+        <p className="mt-3 text-sm text-slate-600 max-w-lg mx-auto">Build a free starting stack first. If the workflow needs custom implementation, open a scoped inquiry after you know what outcome matters.</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Link href="/plan" className="inline-block rounded-full bg-sky px-6 py-3 text-sm font-bold text-white hover:bg-ink">
+            Build a free stack
+          </Link>
+          <Link href="/services#implementation-inquiry" className="inline-block rounded-full border border-slate-300 px-6 py-3 text-sm font-bold text-slate-700 hover:border-sky hover:text-sky">
+            Open implementation inquiry
+          </Link>
+        </div>
       </div>
     </section>
   );

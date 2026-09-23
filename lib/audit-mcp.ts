@@ -348,30 +348,51 @@ function assertProviderToolContract(
 ): void {
   const schema = jsonObject(inputSchema);
   const properties = schema ? jsonObject(schema.properties) : null;
-  const required = schema && Array.isArray(schema.required)
-    ? schema.required.filter((item): item is string => typeof item === "string")
-    : [];
+  const required = schema && Array.isArray(schema.required) ? schema.required : null;
   const urlProperty = properties ? jsonObject(properties.url) : null;
   const annotationObject = jsonObject(annotations);
 
-  if (!schema || schema.type !== "object" || !urlProperty || urlProperty.type !== "string" || !required.includes("url")) {
+  if (
+    !schema ||
+    schema.type !== "object" ||
+    !properties ||
+    !urlProperty ||
+    urlProperty.type !== "string" ||
+    !required ||
+    required.length !== 1 ||
+    required[0] !== "url"
+  ) {
     throw new ProviderCallFailure("provider_contract_mismatch");
   }
-  if (annotationObject?.readOnlyHint !== true) {
+  if (annotationObject?.readOnlyHint !== true || annotationObject.destructiveHint !== false) {
     throw new ProviderCallFailure("provider_contract_mismatch");
   }
 
   if (provider === "ogfixer") {
+    const propertyNames = Object.keys(properties).sort();
+    if (propertyNames.join(",") !== "brandContract,pageScope,url") {
+      throw new ProviderCallFailure("provider_contract_mismatch");
+    }
     const pageScope = properties ? jsonObject(properties.pageScope) : null;
     const choices = pageScope && Array.isArray(pageScope.enum)
       ? pageScope.enum.filter((item): item is string => typeof item === "string")
       : [];
-    if (pageScope?.type !== "string" || !choices.includes("homepage") || !choices.includes("page")) {
+    if (
+      pageScope?.type !== "string" ||
+      choices.length !== 3 ||
+      !choices.includes("homepage") ||
+      !choices.includes("page") ||
+      !choices.includes("template")
+    ) {
       throw new ProviderCallFailure("provider_contract_mismatch");
     }
     return;
   }
 
+  const propertyNames = Object.keys(properties).sort();
+  if (propertyNames.join(",") !== "pageLimit,url") {
+    throw new ProviderCallFailure("provider_contract_mismatch");
+  }
   const pageLimit = properties ? jsonObject(properties.pageLimit) : null;
   if (
     !pageLimit ||

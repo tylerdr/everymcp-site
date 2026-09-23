@@ -49,16 +49,21 @@ function toolResponse(report: Record<string, unknown>): CallToolResult {
 
 function remoteToolHandler(
   name: "audit_url" | "gfic.audit_site",
-  callback: (args: Record<string, unknown>) => Record<string, unknown>
+  callback: (args: Record<string, unknown>) => Record<string, unknown>,
+  annotations: { readOnlyHint: boolean; destructiveHint: boolean } = {
+    readOnlyHint: true,
+    destructiveHint: false
+  }
 ): Handler {
   return createMcpHandler((server) => {
     if (name === "audit_url") {
       server.registerTool("audit_url", {
         inputSchema: z.object({
           url: z.string(),
-          pageScope: z.enum(["homepage", "page", "template"]).optional()
+          pageScope: z.enum(["homepage", "page", "template"]).optional(),
+          brandContract: z.record(z.string(), z.unknown()).optional()
         }),
-        annotations: { readOnlyHint: true, destructiveHint: false }
+        annotations
       }, async (args) => toolResponse(callback(args)));
       return;
     }
@@ -68,7 +73,7 @@ function remoteToolHandler(
         url: z.string(),
         pageLimit: z.number().int().min(1).max(5).optional()
       }),
-      annotations: { readOnlyHint: true, destructiveHint: false }
+      annotations
     }, async (args) => toolResponse(callback(args)));
   }, { serverInfo: { name: `provider-${name}`, version: "1.0.0" }, maxSubscriptions: 0 });
 }
@@ -258,6 +263,42 @@ describe("EveryMCP audit MCP", () => {
       expect(report.status).toBe("unavailable");
       expect(providerResults[1]).toMatchObject({ status: "error", error: { code: "provider_contract_mismatch" } });
       expect(providerResults[1].providerResult).toBeUndefined();
+    } finally {
+      await client.close();
+    }
+  });
+
+  it("rejects a provider tool marked both read-only and destructive before calling it", async () => {
+    const invokeTool = vi.fn((args: Record<string, unknown>) => ({
+      schemaVersion: "ogfixer.mcp.audit.v1",
+      requested: args
+    }));
+    const ogHandler = remoteToolHandler("audit_url", invokeTool, {
+      readOnlyHint: true,
+      destructiveHint: true
+    });
+    vi.stubGlobal("fetch", async (input: RequestInfo | URL, init?: RequestInit) => {
+      const href = input instanceof Request ? input.url : input instanceof URL ? input.href : String(input);
+      if (href !== "https://ogfixer.com/api/mcp") throw new Error(`Unexpected provider endpoint: ${href}`);
+      const request = input instanceof Request ? input : new Request(input, init);
+      return ogHandler(request);
+    });
+
+    const handler = createAuditMcpHandler({ environment: {} });
+    const client = await connect(handler);
+    try {
+      const result = await client.callTool({
+        name: "audit_site",
+        arguments: { url: "https://owned.example.com/release" }
+      });
+      const report = getStructuredContent(result);
+      const providerResults = report.providerResults as Array<Record<string, unknown>>;
+      expect(report.status).toBe("unavailable");
+      expect(providerResults[1]).toMatchObject({
+        status: "error",
+        error: { code: "provider_contract_mismatch" }
+      });
+      expect(invokeTool).not.toHaveBeenCalled();
     } finally {
       await client.close();
     }

@@ -29,6 +29,10 @@ if (!plannerModel.includes("sortedMcps.find") || !plannerModel.includes("mcp.cat
   throw new Error("Stack planner recommendations must be selected from the current EveryMCP catalog");
 }
 
+if (!plannerModel.includes("buildStackBrief") || !plannerModel.includes("First integration sequence:")) {
+  throw new Error("Stack planner must produce a portable implementation brief from the same catalog-backed plan");
+}
+
 if (!plannerPage.includes('action="/plan"') || !plannerPage.includes('name="goal"')) {
   throw new Error("Planner must keep a shareable GET-based goal flow");
 }
@@ -37,8 +41,16 @@ if (!plannerPage.includes("getStackRecommendations") || !plannerPage.includes("I
   throw new Error("Planner must render real catalog recommendations with a listing handoff");
 }
 
+if (!plannerPage.includes("CopyStackBrief") || !plannerPage.includes("Take the shortlist with you")) {
+  throw new Error("Planner must let buyers carry the useful result into their implementation workflow");
+}
+
 if (!tracking.includes('track("stack_plan_generated"') || !tracking.includes('track("stack_plan_starter_kit_clicked"')) {
   throw new Error("Planner value and paid-intent events must remain measurable");
+}
+
+if (!tracking.includes('track("stack_plan_brief_copied"') || !tracking.includes("navigator.clipboard.writeText")) {
+  throw new Error("Portable plan activation must remain measurable and copy the actual generated brief");
 }
 
 if (!tracking.includes("source=stack-planner") || !tracking.includes("#starter-kit")) {

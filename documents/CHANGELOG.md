@@ -4,7 +4,7 @@
 
 ## 2026-09-22 — Add a gated multi-provider audit MCP (Codex session)
 
-**Branch:** `feat/seo-aeo-geo-audit-mcp` from `b63b88014ad734d7c407df664918988852b07756` → PR pending
+**Branch:** `feat/seo-aeo-geo-audit-mcp` from `b63b88014ad734d7c407df664918988852b07756` → draft PR #10
 **Tyler's prompt:** Ensure GetFoundInChat audit capabilities are available via MCP and compose owned audit products through one EveryMCP MCP, aligned with Sprinter platform boundaries.
 
 **Shipped on branch:**

@@ -4,7 +4,7 @@
 
 - Feature branch: `feat/seo-aeo-geo-audit-mcp`, based on merged marketplace-guide main SHA `b63b88014ad734d7c407df664918988852b07756`.
 - Adds a bounded, stateless Streamable HTTP audit bundle at `/api/mcp` with a setup-pending gate, plus `/api/mcp/readiness` for no-scan status.
-- Source implementation and focused tests are complete; PR and independent review are the next steps. This branch has not been merged, deployed, or activated.
+- Source implementation and focused tests are complete; draft PR #10 is open at `https://github.com/tylerdr/everymcp-site/pull/10` for independent review. The current exact branch head is reported separately by the coordinator. This branch has not been merged, deployed, or activated.
 
 ## Audit bundle contract
 
@@ -22,7 +22,6 @@
 
 ## Next steps
 
-1. Finish dependency-lockfile review and commit the feature branch.
-2. Open a PR for independent source/security review; do not merge or deploy from this lane.
-3. Keep activation blocked until the exact EveryMCP durable edge rate-limit rule and GetFoundInChat firewall receipt are independently verified. Wait for BrandKit's exact executable/auth contract before adding its call.
-4. Update this handoff after review/merge/production evidence. Do not make directory submissions or spend money.
+1. Complete independent source/security review on PR #10; fix any scoped findings.
+2. Keep activation blocked until the exact EveryMCP durable edge rate-limit rule and GetFoundInChat firewall receipt are independently verified. Wait for BrandKit's exact executable/auth contract before adding its call.
+3. Update this handoff after review/merge/production evidence. Do not make directory submissions or spend money.

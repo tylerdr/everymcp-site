@@ -2,6 +2,20 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-09-23 — Add a value-first MCP Stack Planner (Tai growth session)
+
+**Branch:** `feature/growth-stack-planner-20260923` from `074e11b911d7201b2188a3fc4860d943374ec781` → draft PR pending
+**Tyler's prompt:** Growth and customer value first; every substantive run must complete or meaningfully advance a measurable growth/product deliverable.
+
+**Shipped on branch:**
+- `app/plan/page.tsx`, `lib/stack-planner.ts` — no-account outcome picker that maps five buyer jobs to three real catalog-backed MCP capability slots, explains the role of each selected server, and gives the buyer a concrete three-step integration sequence.
+- `components/StackPlanTracking.tsx` — `stack_plan_generated` value event plus `stack_plan_starter_kit_clicked` paid-intent event with goal/source attribution into the existing $49 offer.
+- `app/page.tsx`, `app/sitemap.ts` — homepage acquisition links and indexation for the planner.
+- `scripts/verify-stack-planner.mjs`, `package.json` — release-gated contract covering the goal set, catalog-backed selection, value/intent events, paid handoff, homepage entry point, and sitemap.
+
+**Experiment:** First 50 completed plans or 14 days after approved release, $0 incremental spend. Primary metric is starter-kit handoff clicks / generated plans. Keep/expand at >=10%, improve handoff at 5–10%, and below 5% validate traffic/instrumentation then revisit ICP/value framing before building more.
+**Boundary:** Existing Stripe, starter-kit fulfillment, audit-MCP gating, services, and sponsorship economics are unchanged. No merge, production promotion, outbound, spend, payment activation, or customer contact is part of this branch.
+
 ## 2026-09-23 — Close audit MCP review and verify gated production release
 
 **Branch:** `feat/seo-aeo-geo-audit-mcp` → PR #10 merged as `5723963d71c9a5348dded256c92e25671109793a`; reviewed source head `96234988bd249023b3160e644d4be6bb45b9c126`

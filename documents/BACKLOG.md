@@ -23,6 +23,7 @@
 - [ ] OQ002: What provider and operator identity should back durable inquiry capture and notifications? — answer before restoring web submissions
 
 ## Completed
+- [x] T006: Source-backed marketplace directory and listing checklists — done 2026-09-22. External submissions and done-for-you fulfillment remain closed.
 - [x] T005: Raster social preview and favicon compatibility — done 2026-09-22.
 - [x] T000: Replace false-success lead capture with honest manual inquiry — done 2026-09-20.
 - [x] T004: Add server-verified $49 starter-kit checkout and deterministic download — done 2026-09-20.

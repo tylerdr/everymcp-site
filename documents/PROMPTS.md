@@ -29,3 +29,12 @@
 ---
 
 2026-09-20: User requests validation of all TaiDurden-listed sites, offers, revenue paths, email signups and forms; prioritize bounded fixes.
+
+## 2026-09-22 UTC — EveryMCP marketplace and listing guides
+
+**Coordinator instruction:**
+> Retain the MCP server directory and add a directory of relevant marketplaces/platforms plus official source-backed listing guides/checklists for ChatGPT, Claude, Meta Muse, Grok and longtail. Make any done-for-you listing service clearly future/closed with no orders or fulfillment claims. Use verified official sources, distinguish community directory vs first-party app store vs registry and local plugin vs hosted MCP, and do not perform external directory submissions, legal acceptance, or new spend.
+
+**Context:** Fresh `tylerdr/everymcp-site` main clone at `ed202c69200a288015fcb01f8ec670b11581456c`; feature lane `work/everymcp-marketplace-guides`.
+**Action taken:** Implementing a bounded, source-aware marketplace guide directory while preserving the existing MCP server directory and checkout boundary.
+**Spec impact:** Adds a planned marketplace and official listing-guide feature; fulfillment remains closed.

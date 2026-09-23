@@ -1,24 +1,28 @@
 # EveryMCP release handoff — 2026-09-22
 
-## Current audit handoff
+## Current session
 
-- EveryMCP source is based on production SHA `100a1296`; branch `fix/raster-og-favicon` carries the bounded social-asset fix.
-- The existing `public/og-default.svg` remains the source artwork. `public/og-default.png` is a 1200x630 raster render, and `public/favicon.png` is a 64x64 crop of its existing teal mark.
-- `app/layout.tsx` serves the PNG for Open Graph/Twitter and both favicon slots; Organization JSON-LD points to the same PNG.
-- `scripts/verify-brand-assets.mjs` runs from both `npm test` and `npm run build`.
-- `npm test`, `npm run lint`, and `npm run build` passed locally. The build used network access only to fetch the already configured Google Fonts.
-- PR review and production deployment remain pending; no merge or deploy was performed in this lane.
+- Fresh feature branch `feature/marketplace-listing-guides-20260922` starts at main SHA `ed202c69200a288015fcb01f8ec670b11581456c`.
+- Existing MCP server directory, self-serve starter kit, and implementation/sponsor payment boundaries remain in place.
+- The branch adds a source-aware `/marketplaces` directory and eight static guide routes for first-party directories, first-party connections, the official registry, and community destinations.
 
-## Shipped on the release branch
+## Marketplace guide feature
 
-- PR1 (`c77d92a`) corrected catalog provenance and added the methodology/install-risk boundary.
-- PR2 (`2c979b9`) removed visitor PII logging and false lead success; lead placements are an explicit manual `mailto:` fallback and the obsolete endpoint returns `503` without reading the body.
-- The follow-up self-serve branch adds a $49 MCP Integration Starter Kit. Stripe creates an inline-price Checkout Session with a product-version metadata binding and a `{CHECKOUT_SESSION_ID}` return URL. The success page and download route retrieve that session server side and unlock the deterministic Markdown kit only when `status=complete`, `payment_status=paid`, and `metadata.plan=starter` all match.
-- Implementation and sponsor payments are closed to self-serve checkout until their human fulfillment dependencies are configured. Their pages state the manual inquiry boundary.
+- `lib/marketplaces.ts` stores typed destination kind, integration mode, audience, official source URLs, eligibility, review path, cost statement, unknowns, and checklists. Sources were checked on 2026-09-22.
+- Core guides cover ChatGPT/OpenAI, Claude, Grok custom connectors, Grok Build's plugin marketplace, and Meta Muse. The longtail set covers the official MCP Registry, Smithery, and Glama.
+- `app/marketplaces/page.tsx` provides category and integration-mode URL filters, source and date boundaries, and a clear future/closed notice. `app/marketplaces/[slug]/page.tsx` renders each checklist and receipt boundary.
+- Header, footer, homepage, blog resources, and sitemap link to the new directory. No external directory submission, platform-term acceptance, paid service order, or fulfillment claim was performed.
 
-## Current proof and next step
+## Validation and browser evidence
 
-- Local claim and self-serve contract checks pass. Full local lint/typecheck/build attempts were stopped after sustained Next/TypeScript process stalls under concurrent workspace load; Vercel exact-head checks are the release gate for the new PR.
-- Production currently reflects merged PR1/PR2. The self-serve branch is not live until its PR is reviewed, merged, and deployed.
-- No storage record is created for the starter kit; delivery is a static deterministic artifact gated by a Stripe session. No paid or sandbox card transaction was run. Stripe test/live key configuration and a no-charge sandbox receipt remain external validation gates.
-- Vercel Analytics is loaded globally and checkout/download events are instrumented, but event receipt is not independently proven here. No GA4 measurement ID is configured in source. GSC property and sitemap submission remain root-owned.
+- `npm test` passed all existing contracts plus `MARKETPLACE_GUIDE_CONTRACT` (8 guides, 14 source URLs).
+- `npm run lint` passed with no warnings or errors.
+- `npx tsc --noEmit` passed.
+- `npm run build` passed with network access for the existing Google Fonts fetch and generated 752 static pages, including `/marketplaces` and all eight guide routes.
+- Local browser preview at `http://127.0.0.1:3001` visually checked the marketplace index, `?kind=first-party-connection` filter, Grok guide, and Meta Muse portal-gated guide. Screenshots are in `outputs/evidence/everymcp-marketplaces/` in the audit workspace.
+
+## Release boundary and next step
+
+- PR, independent review, normal merge, and production deployment are pending root review.
+- Root should verify the PR diff and Vercel preview, then run post-merge production QA for `/marketplaces`, representative guide routes, filters, title/canonical output, and the closed-service copy.
+- The Meta Muse portal remains login-gated and its protocol/auth requirements are explicitly open. Platform status is not represented as approval.

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { MarketplaceBrand } from "@/components/MarketplaceBrand";
 import {
   getMarketplaceGuide,
   marketplaceAudienceLabels,
@@ -34,13 +35,21 @@ export default function MarketplaceGuidePage({ params }: { params: { slug: strin
         ← All marketplace guides
       </Link>
 
-      <div className="mt-8 flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-sky">
-        <span>{marketplaceAudienceLabels[guide.audience]}</span>
-        <span className="text-slate-300">•</span>
-        <span>{guide.status === "portal-gated" ? "Portal gated" : "Path checked"}</span>
+      <div className="mt-8 flex flex-wrap items-start gap-5">
+        <MarketplaceBrand slug={guide.slug} />
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-center gap-2 pt-1 text-xs font-bold uppercase tracking-[0.14em] text-sky">
+            <span>{marketplaceAudienceLabels[guide.audience]}</span>
+            <span className="text-slate-300">•</span>
+            <span>{guide.status === "portal-gated" ? "Portal gated" : "Path checked"}</span>
+          </div>
+          <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">{guide.name}</h1>
+        </div>
       </div>
-      <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">{guide.name}</h1>
       <p className="mt-5 text-base leading-8 text-slate-600">{guide.summary}</p>
+      <p className="mt-3 text-xs leading-5 text-slate-500">
+        The brand reference above links to an official platform source. EveryMCP is an independent directory and is not endorsed by this platform.
+      </p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
         <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">

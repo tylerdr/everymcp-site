@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MarketplaceBrand } from "@/components/MarketplaceBrand";
 import {
   marketplaceAudienceLabels,
   marketplaceKindLabels,
@@ -9,16 +10,19 @@ import {
 export function MarketplaceCard({ guide }: { guide: MarketplaceGuide }) {
   return (
     <article className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:border-sky/40 hover:shadow-md">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="text-xs font-bold uppercase tracking-[0.14em] text-sky">
-          {marketplaceAudienceLabels[guide.audience]}
-        </p>
-        <span className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-slate-600">
-          {guide.status === "portal-gated" ? "Portal gated" : "Path checked"}
-        </span>
+      <div className="flex items-start justify-between gap-3">
+        <MarketplaceBrand slug={guide.slug} />
+        <div className="flex flex-wrap justify-end gap-2 text-right">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-sky">
+            {marketplaceAudienceLabels[guide.audience]}
+          </p>
+          <span className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-slate-600">
+            {guide.status === "portal-gated" ? "Portal gated" : "Path checked"}
+          </span>
+        </div>
       </div>
 
-      <h2 className="mt-3 text-xl font-extrabold tracking-tight text-ink">
+      <h2 className="mt-4 text-xl font-extrabold tracking-tight text-ink">
         <Link href={`/marketplaces/${guide.slug}`} className="hover:text-sky">
           {guide.name}
         </Link>

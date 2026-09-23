@@ -99,3 +99,27 @@ export function getStackRecommendations(goalId: StackGoalId): StackRecommendatio
     return [{ role, mcp: match }];
   });
 }
+
+export function buildStackBrief(goalId: StackGoalId): string {
+  const goal = getStackGoal(goalId);
+  const recommendations = getStackRecommendations(goalId);
+  const stack = recommendations
+    .map(({ role, mcp }, index) => [
+      `${index + 1}. ${mcp.name} — ${role}`,
+      `   EveryMCP: /mcp/${mcp.slug}`,
+      `   Source: ${mcp.repo}`,
+    ].join("\n"))
+    .join("\n\n");
+
+  return [
+    `MCP stack: ${goal.label}`,
+    goal.outcome,
+    "",
+    stack,
+    "",
+    "First integration sequence:",
+    "1. Verify the first server's source, auth model, and tools against the exact workflow.",
+    "2. Connect the smallest read-only capability that can complete one useful task.",
+    "3. Write the expected result and rollback step before adding the next server.",
+  ].join("\n");
+}

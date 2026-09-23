@@ -134,7 +134,7 @@ export function getProviderAvailability(environment: Environment = process.env):
       tool: null,
       reportContract: null,
       evidenceLevel: "none",
-      reason: "BrandKit production MCP is setup-pending; no executable tool schema or auth contract is verified."
+      reason: "BrandKit's hosted MCP is live under scoped auth, but EveryMCP lacks an approved production brandbook, credential/read permission, and exact tool/schema handoff."
     },
     {
       id: "ogfixer",

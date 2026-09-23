@@ -2,6 +2,19 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-09-22 — Add compatible EveryMCP social and favicon assets (Codex session)
+
+**Branch:** `fix/raster-og-favicon` → PR pending
+**Tyler's prompt:** Bounded visual/metadata audit with browser evidence and focused fixes.
+
+**Shipped:**
+- `public/og-default.png` — Raster 1200x630 version of the existing branded OG artwork for social crawlers that do not decode SVG.
+- `public/favicon.png` — 64x64 favicon derived from the existing EveryMCP accent mark.
+- `app/layout.tsx`, `lib/site.ts` — PNG Open Graph/Twitter, favicon/apple touch icon, and Organization JSON-LD references.
+- `scripts/verify-brand-assets.mjs` — PNG signature, dimensions, byte-size, and metadata reference contract.
+
+**Validation:** `npm test`, `npm run lint`, and `npm run build` pass. The build required network access for the existing `next/font` Google Fonts fetch.
+
 ## 2026-09-20 — Add self-serve starter kit with verified Stripe delivery (Codex session)
 
 **Branch:** `fix/selfserve-starter-kit-20260920` → PR pending

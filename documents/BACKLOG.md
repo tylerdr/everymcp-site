@@ -26,7 +26,7 @@
 - [ ] OQ002: What provider and operator identity should back durable inquiry capture and notifications? — answer before restoring web submissions
 
 ## Completed
-- [x] T008: Implement bounded single-site audit MCP contract, tests, readiness endpoint, and activation gate — source/build complete on `feat/seo-aeo-geo-audit-mcp`; PR/review and production activation are separate gates.
+- [x] T008: Implement bounded single-site audit MCP contract, tests, readiness endpoint, and activation gate — PR #10 merged and exact production behavior verified 2026-09-23; endpoint remains setup-pending.
 - [x] T006: Source-backed marketplace directory, listing checklists, and official brand visual pass — done 2026-09-22. External submissions and done-for-you fulfillment remain closed.
 - [x] T005: Raster social preview and favicon compatibility — done 2026-09-22.
 - [x] T000: Replace false-success lead capture with honest manual inquiry — done 2026-09-20.

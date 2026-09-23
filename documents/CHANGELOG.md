@@ -2,6 +2,15 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-09-23 — Close audit MCP review and verify gated production release
+
+**Branch:** `feat/seo-aeo-geo-audit-mcp` → PR #10 merged as `5723963d71c9a5348dded256c92e25671109793a`; reviewed source head `96234988bd249023b3160e644d4be6bb45b9c126`
+**Follow-up:** Independent review found that a remote provider could declare both `readOnlyHint:true` and `destructiveHint:true`. The adapter now rejects that contradiction, requires the exact provider input property/required-key sets, and validates the complete OG page-scope enum before calling a provider. A negative MCP round-trip test proves the contradictory tool is never invoked.
+
+**Validation:** Focused audit tests pass 9/9; repository `npm test`, `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass. The exact-head preview and the exact merge-SHA Vercel production deployment were READY. Readiness GET returned 200; MCP initialize returned HTTP 503 `MCP_SETUP_PENDING` before provider execution. No audit scan or activation was performed.
+**Current provider boundary:** OGFixer remains the only callable provider after EveryMCP's durable edge limit is verified. GetFoundInChat is pending its production firewall receipt. BrandKit's hosted MCP is live with seven tools, but approved production brandbook access and an authorized EveryMCP/OGFixer credential/read scope are not established; its adapter remains unimplemented and pending.
+**Follow-up / tech debt created:** Verify the durable EveryMCP edge rule, GetFoundInChat firewall receipt, and BrandKit approved production contract before activating any corresponding provider.
+
 ## 2026-09-22 — Add a gated multi-provider audit MCP (Codex session)
 
 **Branch:** `feat/seo-aeo-geo-audit-mcp` from `b63b88014ad734d7c407df664918988852b07756` → draft PR #10

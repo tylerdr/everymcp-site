@@ -1,27 +1,23 @@
-# EveryMCP release handoff — 2026-09-22
+# EveryMCP release handoff — 2026-09-23
 
-## Current session
+## Current release
 
-- Feature branch: `feat/seo-aeo-geo-audit-mcp`, based on merged marketplace-guide main SHA `b63b88014ad734d7c407df664918988852b07756`.
-- Adds a bounded, stateless Streamable HTTP audit bundle at `/api/mcp` with a setup-pending gate, plus `/api/mcp/readiness` for no-scan status.
-- Source implementation and focused tests are complete; draft PR #10 is open at `https://github.com/tylerdr/everymcp-site/pull/10` for independent review. The current exact branch head is reported separately by the coordinator. This branch has not been merged, deployed, or activated.
+- Audit bundle PR #10: https://github.com/tylerdr/everymcp-site/pull/10
+- Reviewed source head: `96234988bd249023b3160e644d4be6bb45b9c126`.
+- Merged main SHA: `5723963d71c9a5348dded256c92e25671109793a`; Vercel production deployment `A7P5U7MA553gzEMGCTzhCXeaFxt9` is READY.
+- Production smoke on `https://everymcp.com`: `GET /api/mcp/readiness` returned 200; JSON-RPC initialize to `POST /api/mcp` returned 503 `MCP_SETUP_PENDING` before tool execution. No provider audit tool was called and no activation flag was set.
 
-## Audit bundle contract
+## Audit bundle and provider readiness
 
-- `get_audit_capabilities` reports activation and provider readiness without scanning. `audit_site` takes one public HTTP(S) URL and an optional GetFoundInChat `pageLimit` from 1–5.
-- Provider endpoints/tool names are fixed in server code. The adapter checks remote schemas and read-only annotations, bounds request/response bytes and elapsed time, and returns per-provider readiness/errors with endpoint, tool, report version, timestamps, and unchanged provider results.
-- OGFixer `audit_url` is the only provider called by default. GetFoundInChat `gfic.audit_site` stays pending until its production firewall receipt is independently verified. BrandKit remains pending until an executable schema and auth contract are verified.
-- No blended score, persistence, writes/remediation, caller-supplied credentials or endpoint, or portfolio scan. Upstream URL fetching remains subject to each provider's own DNS/private-address/redirect guards.
-- The hosted handler returns 503 unless both `EVERYMCP_AUDIT_MCP_EDGE_RATE_LIMIT_READY=true` and `EVERYMCP_AUDIT_MCP_ENABLED=true`; setting the first is an operator attestation that requires exact durable edge-rule evidence.
+- `/api/mcp` exposes the stateless, versioned, read-only `audit_site` bundle and no-scan `get_audit_capabilities`. It keeps provider outputs, contracts, evidence, timing, and failures separate; no blended score, persistence, writes, or portfolio scan is exposed.
+- EveryMCP execution remains disabled until a durable edge rate-limit rule is independently verified and the explicit activation flags are deliberately set. OGFixer `audit_url` is the only provider callable when the bundle is activated; its own rate control is best-effort, so the durable EveryMCP gate remains required.
+- GetFoundInChat `gfic.audit_site` stays pending while its production endpoint reports firewall/rate-limit setup-pending. The provider's report contract is versioned; do not run scans until its production readiness receipt is verified.
+- BrandKit's hosted MCP is live with seven tools, but no approved production brandbook or authorized EveryMCP/OGFixer credential and read scope is established. Keep it pending; do not infer the tool/auth contract or call it until its owner supplies the exact approved production contract.
+- No OAuth issuer, tenant identity, or caller credential was fabricated. Sprinter Starter has no executable MCP implementation to reuse and its tenant isolation is a stub; Praxium's platform MCP authenticates bearer/API or OAuth tokens, resolves tenant/scopes, and gates tools. Any future portfolio audit needs an actual scoped identity and authorization contract.
 
-## Alignment and verification
+## Validation and remaining work
 
-- Sprinter Starter has no executable MCP pattern to reuse yet and marks its tenant isolation as unfinished. Praxium's platform MCP uses authenticated bearer API/OAuth credentials, resolves tenant and scopes, and permission-gates tools. This public-readiness-only bundle creates no tenant data or saved state, so it does not invent an issuer, token, tenant ID, or scope; any authenticated portfolio feature must adopt a real scoped identity contract first.
-- `npm run test:audit-mcp` passes 8/8 tests; `npm test`, `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
-- Local tests and build do not establish Vercel edge protection, provider activation, preview behavior, or production audit results. No upstream live scans were performed.
-
-## Next steps
-
-1. Complete independent source/security review on PR #10; fix any scoped findings.
-2. Keep activation blocked until the exact EveryMCP durable edge rate-limit rule and GetFoundInChat firewall receipt are independently verified. Wait for BrandKit's exact executable/auth contract before adding its call.
-3. Update this handoff after review/merge/production evidence. Do not make directory submissions or spend money.
+- The merged head passed `npm run test:audit-mcp` (9/9), `npm test`, `npm run lint`, `npx tsc --noEmit`, and `npm run build`.
+- Independent exact-head review passed after the provider adapter began requiring `readOnlyHint:true`, `destructiveHint:false`, exact accepted input keys, and a negative test proving contradictory annotations do not invoke a provider.
+- Next: obtain and independently verify durable EveryMCP edge-rate-limit proof; verify GetFoundInChat's production firewall receipt; obtain BrandKit's approved production brandbook/tool/auth contract. Keep activation closed until all applicable gates pass. Do not run scans while a provider endpoint reports pending.
+- No external marketplace submissions or spending were performed.

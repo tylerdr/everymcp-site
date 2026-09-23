@@ -52,7 +52,7 @@ EveryMCP is a source-aware MCP discovery directory with a self-serve $49 MCP Int
   - [x] Preserve source MCP results and expected report contracts verbatim; return per-provider errors/readiness without calculating a blended score.
   - [ ] Keep hosted tool execution disabled until EveryMCP's durable edge rate-limit rule is independently verified and the route is deliberately enabled.
   - [ ] Enable GetFoundInChat only after its production firewall/rate-limit receipt is verified; implement BrandKit only after its exact tool/auth schema is available.
-- **Status:** `implemented on feature branch; hosted route setup-pending`
+- **Status:** `merged and deployed; hosted route setup-pending`
 
 ### Feature 2: [Name]
 - **Description:**

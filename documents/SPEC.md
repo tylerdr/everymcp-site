@@ -39,6 +39,8 @@ EveryMCP is a source-aware MCP discovery directory with a self-serve $49 MCP Int
   - [x] Directory filters distinguish destination type and hosted/local integration mode.
   - [x] Done-for-you listing submissions are visibly future/closed with no active orders, submissions, or fulfillment claims.
   - [x] Existing MCP server directory remains discoverable and unchanged as the underlying catalog.
+  - [x] Marketplace cards and guide headers use official source assets where available or clean typographic wordmarks, with no generated pseudo-logos.
+  - [x] The directory hub uses an accessible route diagram that explains distribution paths without implying endorsement or a submission receipt.
 - **Status:** `implemented; PR and production verification pending`
 
 ### Feature 2: [Name]

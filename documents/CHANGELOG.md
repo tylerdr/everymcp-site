@@ -2,6 +2,18 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-09-22 — Add official marketplace brand references and route visual (Codex session)
+
+**Branch:** `feature/marketplace-listing-guides-20260922` → PR #9 updated at `5f9ad49`
+**Coordinator instruction:** Remove generated marketplace artwork and pseudo-logos; use official source assets where available, clean wordmarks otherwise, and keep the visual treatment bounded and non-endorsing.
+
+**Shipped:**
+- `components/MarketplaceBrand.tsx`, `public/marketplaces/brands/*` — source-linked official favicon assets for Claude, Grok, Muse, Smithery, and Glama; text wordmarks for destinations without a selected approved mark.
+- `components/MarketplaceHeroVisual.tsx` — accessible inline route diagram for first-party, client-connection, registry, and community paths.
+- `app/marketplaces/page.tsx`, `app/marketplaces/[slug]/page.tsx`, `components/MarketplaceCard.tsx` — responsive visual hierarchy, source references, and independent-directory boundary copy.
+
+**Validation:** `npm test`, `npm run lint`, and `npm run build` pass; the production build generated 752 static pages. Final headed captures cover desktop, cards, mobile, and a representative detail route. No generated image assets or external submissions were used.
+
 ## 2026-09-22 — Add source-backed marketplace and listing guides (Codex session)
 
 **Branch:** `feature/marketplace-listing-guides-20260922` → PR pending

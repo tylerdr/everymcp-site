@@ -8,7 +8,7 @@
 - [ ] T001: Stripe test-mode checkout and download receipt — run a labeled no-charge sandbox payment and retry the download.
 - [ ] T002: Analytics/GSC proof — verify Vercel event receipt and submit/confirm the canonical sitemap through the root-owned properties.
 - [ ] T007: Audit MCP activation — independently verify the exact durable Vercel edge rate-limit rule, then enable only after provider receipts are current.
-- [ ] T009: Stack Planner release experiment — after approved release, observe 50 completed plans or 14 days and evaluate planner → starter-kit intent against the documented continue/change/stop rule.
+- [ ] T009: Stack Planner release experiment — after approved release, observe 50 completed plans or 14 days and evaluate planner → copied brief → starter-kit intent against the documented continue/change/stop rule.
 
 ## Next Up
 - [ ] T003: [Task name]
@@ -27,6 +27,7 @@
 - [ ] OQ002: What provider and operator identity should back durable inquiry capture and notifications?
 
 ## Completed
+- [x] T011: Make each generated MCP plan portable — add a copyable implementation brief with the selected servers, roles, source links, integration sequence, and a `stack_plan_brief_copied` activation event on the existing growth branch.
 - [x] T010: Build a no-account, outcome-based MCP Stack Planner that returns a real three-server shortlist, immediate integration sequence, attributed $49 starter-kit handoff, and value/intent events — implemented 2026-09-23 on `feature/growth-stack-planner-20260923`; exact-head hosted validation still required before release.
 - [x] T008: Implement bounded single-site audit MCP contract, tests, readiness endpoint, and activation gate — PR #10 merged and exact production behavior verified 2026-09-23; endpoint remains setup-pending.
 - [x] T006: Source-backed marketplace directory, listing checklists, and official brand visual pass — done 2026-09-22. External submissions and done-for-you fulfillment remain closed.

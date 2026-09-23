@@ -512,6 +512,12 @@ export default function BlogIndex() {
         <p className="mt-4 text-lg text-slate-600">
           Practical guides for developers building with Model Context Protocol.
         </p>
+        <Link
+          href="/marketplaces"
+          className="mt-5 inline-flex rounded-full border border-slate-300 px-5 py-2.5 text-sm font-bold text-slate-700 transition hover:border-sky hover:text-sky"
+        >
+          Browse marketplace listing guides →
+        </Link>
       </header>
 
       <div className="space-y-6">

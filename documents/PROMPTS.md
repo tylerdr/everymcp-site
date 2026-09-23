@@ -29,3 +29,21 @@
 ---
 
 2026-09-20: User requests validation of all TaiDurden-listed sites, offers, revenue paths, email signups and forms; prioritize bounded fixes.
+
+## 2026-09-22 UTC — EveryMCP marketplace and listing guides
+
+**Coordinator instruction:**
+> Retain the MCP server directory and add a directory of relevant marketplaces/platforms plus official source-backed listing guides/checklists for ChatGPT, Claude, Meta Muse, Grok and longtail. Make any done-for-you listing service clearly future/closed with no orders or fulfillment claims. Use verified official sources, distinguish community directory vs first-party app store vs registry and local plugin vs hosted MCP, and do not perform external directory submissions, legal acceptance, or new spend.
+
+**Context:** Fresh `tylerdr/everymcp-site` main clone at `ed202c69200a288015fcb01f8ec670b11581456c`; feature lane `work/everymcp-marketplace-guides`.
+**Action taken:** Implementing a bounded, source-aware marketplace guide directory while preserving the existing MCP server directory and checkout boundary.
+**Spec impact:** Adds a planned marketplace and official listing-guide feature; fulfillment remains closed.
+
+## 2026-09-22 UTC — EveryMCP marketplace visuals
+
+**Coordinator instruction:**
+> User explicitly changed image workflow: prepare 10 independent EveryMCP images at a time via ChatGPT web browser, using specific prompts. Pause use of the single built-in generated hero for the final PR until root supplies browser-generated image files or a clear fallback. Continue layout integration scaffolding and visual treatments, but wait for approved selected image paths before the final PR.
+
+**Context:** Marketplace guide PR #9 is in review; the responsive visual pass must remain bounded to the EveryMCP guide pages.
+**Action taken:** Replaced the generated-image plan with official source favicons or clean typographic wordmarks for marketplace listings, plus a restrained inline route diagram for the educational hub. No generated image assets or pseudo-logos ship.
+**Spec impact:** Listing brand references stay source-linked and explicitly independent; conceptual art is optional and is not used as a platform mark.

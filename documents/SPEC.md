@@ -1,7 +1,7 @@
 # everymcp — Product Spec
 
-**Last updated:** 2026-09-20 (session: self-serve starter kit)
-**Version:** 0.1
+**Last updated:** 2026-09-22 (session: marketplace listing guides)
+**Version:** 0.2
 
 ---
 
@@ -31,6 +31,18 @@ EveryMCP is a source-aware MCP discovery directory with a self-serve $49 MCP Int
   - [x] Implementation and sponsorship plans remain closed to payment until fulfillment is configured.
 - **Status:** `implemented; sandbox receipt pending`
 
+### Marketplace and listing guide directory
+- **Description:** A source-aware directory of relevant MCP distribution destinations with platform-specific listing or connection checklists. Each entry separates first-party directories, first-party client connections, the official MCP Registry, and community marketplaces, and labels hosted remote MCP versus local packaging paths.
+- **Acceptance criteria:**
+  - [x] ChatGPT, Claude, Grok, Meta Muse, and longtail destinations have dated official or platform source links.
+  - [x] Each guide exposes eligibility, review/publication path, cost statement, open unknowns, and a preparation checklist.
+  - [x] Directory filters distinguish destination type and hosted/local integration mode.
+  - [x] Done-for-you listing submissions are visibly future/closed with no active orders, submissions, or fulfillment claims.
+  - [x] Existing MCP server directory remains discoverable and unchanged as the underlying catalog.
+  - [x] Marketplace cards and guide headers use official source assets where available or clean typographic wordmarks, with no generated pseudo-logos.
+  - [x] The directory hub uses an accessible route diagram that explains distribution paths without implying endorsement or a submission receipt.
+- **Status:** `implemented; PR and production verification pending`
+
 ### Feature 2: [Name]
 - **Description:**
 - **Acceptance criteria:**
@@ -41,6 +53,8 @@ EveryMCP is a source-aware MCP discovery directory with a self-serve $49 MCP Int
 What we're explicitly NOT building in this phase:
 - [Thing we won't do]
 - [Thing we won't do]
+- External marketplace submissions, platform-term acceptance, or publication claims.
+- An active done-for-you listing service or fulfillment workflow.
 
 ## Technical Architecture
 - **Stack:** [Next.js, TypeScript, Supabase, shadcn/ui, Tailwind v4, Vercel]
@@ -60,3 +74,4 @@ Unresolved product decisions. Agents should NOT unilaterally resolve these.
 | Date | Input | Status |
 |------|-------|--------|
 | 2026-09-20 | "Primary offer, or at least initial revenue path and any lower-ticket offer, must require NO HUMAN INTERVENTION TO SELL OR DELIVER." | incorporated: self-serve starter kit |
+| 2026-09-22 | "Retain the MCP server directory and add a directory of relevant marketplaces/platforms plus official source-backed listing guides/checklists for ChatGPT, Claude, Meta Muse, Grok and longtail." | incorporated: marketplace directory and dated guide/checklist routes; external submissions remain closed |

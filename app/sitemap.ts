@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
 import { categories } from "@/data/categories";
 import { mcps } from "@/lib/mcps";
+import { marketplaceGuides } from "@/lib/marketplaces";
 import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseEntries: MetadataRoute.Sitemap = ["", "/directory", "/methodology", "/pricing", "/services", "/sponsor"].map((path) => ({
+  const baseEntries: MetadataRoute.Sitemap = ["", "/directory", "/marketplaces", "/methodology", "/pricing", "/services", "/sponsor"].map((path) => ({
     url: `${siteUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly",
@@ -25,5 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7
   }));
 
-  return [...baseEntries, ...categoryEntries, ...mcpEntries];
+  const marketplaceEntries: MetadataRoute.Sitemap = marketplaceGuides.map((guide) => ({
+    url: `${siteUrl}/marketplaces/${guide.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.7
+  }));
+
+  return [...baseEntries, ...categoryEntries, ...mcpEntries, ...marketplaceEntries];
 }

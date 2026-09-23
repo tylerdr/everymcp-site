@@ -3,6 +3,7 @@ import Link from "next/link";
 
 const nav: Array<{ href: Route; label: string }> = [
   { href: "/directory", label: "Directory" },
+  { href: "/marketplaces", label: "Marketplaces" },
   { href: "/methodology", label: "Methodology" },
   { href: "/services", label: "Implementation" },
   { href: "/sponsor", label: "Sponsor" }

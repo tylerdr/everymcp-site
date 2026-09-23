@@ -61,6 +61,21 @@ export default function Home() {
         <CategoryGrid />
       </section>
 
+      <section className="mx-auto w-full max-w-6xl px-4 py-4 sm:px-6">
+        <div className="flex flex-col gap-4 rounded-3xl border border-sky/20 bg-sky/5 p-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-sky">Distribution paths</p>
+            <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-ink">Know where a server can actually go.</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">
+              Compare first-party directories, client connections, the official registry, and community marketplaces with source-backed preparation checklists.
+            </p>
+          </div>
+          <Link href="/marketplaces" className="inline-flex shrink-0 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-white transition hover:bg-sky">
+            View marketplace guides →
+          </Link>
+        </div>
+      </section>
+
       <section className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
         <div className="mb-6 flex items-end justify-between">
           <h2 className="text-2xl font-extrabold tracking-tight text-ink">Featured MCP Servers</h2>

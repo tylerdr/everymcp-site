@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   },
   description:
     "Discover indexed MCP servers across search, databases, cloud, communication, automation, and AI tooling, with source provenance kept visible.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png"
+  },
   openGraph: {
     title: siteName,
     description:
@@ -28,7 +32,7 @@ export const metadata: Metadata = {
     siteName,
     images: [
       {
-        url: "/og-default.svg",
+        url: "/og-default.png",
         width: 1200,
         height: 630,
         alt: "EveryMCP Directory"
@@ -40,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteName,
     description: "MCP discovery with visible provenance and implementation support.",
-    images: ["/og-default.svg"]
+    images: ["/og-default.png"]
   }
 };
 

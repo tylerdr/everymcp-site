@@ -9,7 +9,7 @@ export const organizationJsonLd = {
   "@type": "Organization",
   name: siteName,
   url: siteUrl,
-  logo: `${siteUrl}/og-default.svg`
+  logo: `${siteUrl}/og-default.png`
 };
 
 export const websiteJsonLd = {

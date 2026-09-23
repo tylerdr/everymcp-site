@@ -1,4 +1,13 @@
-# EveryMCP release handoff — 2026-09-20
+# EveryMCP release handoff — 2026-09-22
+
+## Current audit handoff
+
+- EveryMCP source is based on production SHA `100a1296`; branch `fix/raster-og-favicon` carries the bounded social-asset fix.
+- The existing `public/og-default.svg` remains the source artwork. `public/og-default.png` is a 1200x630 raster render, and `public/favicon.png` is a 64x64 crop of its existing teal mark.
+- `app/layout.tsx` serves the PNG for Open Graph/Twitter and both favicon slots; Organization JSON-LD points to the same PNG.
+- `scripts/verify-brand-assets.mjs` runs from both `npm test` and `npm run build`.
+- `npm test`, `npm run lint`, and `npm run build` passed locally. The build used network access only to fetch the already configured Google Fonts.
+- PR review and production deployment remain pending; no merge or deploy was performed in this lane.
 
 ## Shipped on the release branch
 

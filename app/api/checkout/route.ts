@@ -10,17 +10,32 @@ import {
 
 export const runtime = "nodejs";
 
-function parseBody(value: unknown): { plan?: keyof typeof products; email?: string } {
+const attributionValuePattern = /^[a-z0-9][a-z0-9_-]{0,63}$/;
+
+type CheckoutRequest = {
+  plan?: keyof typeof products;
+  email?: string;
+  source?: string;
+  goal?: string;
+};
+
+function boundedAttribution(value: unknown) {
+  return typeof value === "string" && attributionValuePattern.test(value) ? value : undefined;
+}
+
+function parseBody(value: unknown): CheckoutRequest {
   if (!value || typeof value !== "object") {
     return {};
   }
 
-  const payload = value as { plan?: string; email?: string };
+  const payload = value as { plan?: string; email?: string; source?: unknown; goal?: unknown };
   const validPlan = isPlan(payload.plan) ? payload.plan : undefined;
 
   return {
     plan: validPlan,
-    email: typeof payload.email === "string" && payload.email.length > 0 ? payload.email : undefined
+    email: typeof payload.email === "string" && payload.email.length > 0 ? payload.email : undefined,
+    source: boundedAttribution(payload.source),
+    goal: boundedAttribution(payload.goal)
   };
 }
 
@@ -33,7 +48,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid checkout request" }, { status: 400 });
     }
 
-    const { plan, email } = parseBody(body);
+    const { plan, email, source, goal } = parseBody(body);
 
     if (!plan) {
       return NextResponse.json({ error: "Invalid plan" }, { status: 400 });
@@ -96,7 +111,9 @@ export async function POST(request: Request) {
         metadata: {
           plan,
           product_key: selectedPlan.productKey,
-          product_version: selectedPlan.version
+          product_version: selectedPlan.version,
+          ...(source ? { acquisition_source: source } : {}),
+          ...(goal ? { acquisition_goal: goal } : {})
         }
       },
       { idempotencyKey }

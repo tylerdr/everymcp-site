@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { StackPlanResultTracker, StarterKitHandoff } from "@/components/StackPlanTracking";
-import { getStackGoal, getStackRecommendations, isStackGoalId, stackGoals } from "@/lib/stack-planner";
+import { CopyStackBrief, StackPlanResultTracker, StarterKitHandoff } from "@/components/StackPlanTracking";
+import { buildStackBrief, getStackGoal, getStackRecommendations, isStackGoalId, stackGoals } from "@/lib/stack-planner";
 
 export const metadata: Metadata = {
   title: "MCP Stack Planner — EveryMCP",
@@ -22,6 +22,7 @@ export default function PlannerPage({ searchParams }: PlannerPageProps) {
   const goalId = isStackGoalId(requestedGoal) ? requestedGoal : undefined;
   const goal = goalId ? getStackGoal(goalId) : undefined;
   const recommendations = goalId ? getStackRecommendations(goalId) : [];
+  const stackBrief = goalId ? buildStackBrief(goalId) : "";
 
   return (
     <main className="mx-auto w-full max-w-6xl px-4 pb-20 pt-12 sm:px-6">
@@ -87,7 +88,17 @@ export default function PlannerPage({ searchParams }: PlannerPageProps) {
             ))}
           </div>
 
-          <div className="mx-auto mt-10 grid max-w-4xl gap-6 rounded-3xl border border-sky/20 bg-sky/5 p-7 md:grid-cols-[1fr_auto] md:items-center">
+          <div className="mx-auto mt-8 flex max-w-4xl flex-col gap-3 rounded-3xl border border-slate-200 bg-white p-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-sm font-bold text-ink">Take the shortlist with you.</p>
+              <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-600">
+                Copy a portable brief with the selected servers, source links, role of each server, and the first integration sequence. Paste it into your coding agent, implementation ticket, or team notes.
+              </p>
+            </div>
+            <CopyStackBrief goal={goalId} brief={stackBrief} />
+          </div>
+
+          <div className="mx-auto mt-8 grid max-w-4xl gap-6 rounded-3xl border border-sky/20 bg-sky/5 p-7 md:grid-cols-[1fr_auto] md:items-center">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky">Next 30 minutes</p>
               <h2 className="mt-2 text-2xl font-extrabold text-ink">Prove one useful path before connecting everything.</h2>

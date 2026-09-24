@@ -1,4 +1,5 @@
 import { featuredMcps } from "@/lib/mcps";
+import { buildStackBrief, getStackGoal, isStackGoalId } from "@/lib/stack-planner";
 
 export const starterKitFilename = "everymcp-mcp-integration-starter-kit.md";
 
@@ -15,11 +16,26 @@ const catalogSelectionNotes = featuredMcps
   .map((mcp) => `- **${mcp.name}** — ${mcp.description} Use cases in the catalog: ${mcp.useCases.join(", ")}.`)
   .join("\n");
 
-export const starterKit = `# EveryMCP MCP Integration Starter Kit
+function personalizedStackSection(goal: string | undefined): string {
+  if (!isStackGoalId(goal)) return "";
+
+  const selectedGoal = getStackGoal(goal);
+  return [
+    "## Your selected outcome",
+    "",
+    `You started with **${selectedGoal.label}**. The paid packet carries that exact shortlist forward so you do not have to rebuild the decision after checkout.`,
+    "",
+    buildStackBrief(goal),
+    "",
+  ].join("\n");
+}
+
+export function buildStarterKit(goal?: string): string {
+  return `# EveryMCP MCP Integration Starter Kit
 
 This packet turns one MCP integration idea into a bounded selection, setup, and rollout decision. It uses the current EveryMCP catalog as a starting point; it does not replace source review or a provider's current installation instructions.
 
-## 1. Choose the first workflow
+${personalizedStackSection(goal)}## 1. Choose the first workflow
 
 Write one sentence that names the trigger, the MCP server, the data boundary, and the expected result.
 
@@ -171,3 +187,6 @@ The integration is ready for real data only when the owner can explain what it c
 
 This is a self-serve reference packet delivered as a download after a successful checkout return. It does not include managed implementation, third-party security verification, provider credentials, durable entitlement recovery after a lost checkout return, or a promise that any listed server remains current.
 `;
+}
+
+export const starterKit = buildStarterKit();

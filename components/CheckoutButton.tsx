@@ -9,6 +9,8 @@ type CheckoutButtonProps = {
   plan: CheckoutPlan;
   label: string;
   email?: string;
+  source?: string;
+  goal?: string;
   className?: string;
   fallbackHref?: string;
   fallbackLabel?: string;
@@ -18,6 +20,8 @@ export function CheckoutButton({
   plan,
   label,
   email,
+  source,
+  goal,
   className = "",
   fallbackHref,
   fallbackLabel = "Open inquiry form"
@@ -34,7 +38,13 @@ export function CheckoutButton({
 
     setIsLoading(true);
     setError(null);
-    track("checkout_started", { plan });
+
+    const attribution = {
+      ...(source ? { source } : {}),
+      ...(goal ? { goal } : {})
+    };
+
+    track("checkout_started", { plan, ...attribution });
 
     try {
       const response = await fetch("/api/checkout", {
@@ -43,7 +53,7 @@ export function CheckoutButton({
           "Content-Type": "application/json",
           "Idempotency-Key": checkoutAttemptKey
         },
-        body: JSON.stringify({ plan, email })
+        body: JSON.stringify({ plan, email, source, goal })
       });
 
       const payload = (await response.json().catch(() => ({}))) as { url?: string; error?: string };
@@ -56,7 +66,7 @@ export function CheckoutButton({
         throw new Error("Checkout URL missing");
       }
 
-      track("checkout_session_created", { plan });
+      track("checkout_session_created", { plan, ...attribution });
       window.location.href = payload.url;
     } catch (caughtError) {
       const message = caughtError instanceof Error ? caughtError.message : "Checkout is temporarily unavailable. No payment was taken.";

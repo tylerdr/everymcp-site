@@ -5,7 +5,7 @@ import { marketplaceGuides } from "@/lib/marketplaces";
 import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseEntries: MetadataRoute.Sitemap = ["", "/directory", "/marketplaces", "/methodology", "/pricing", "/services", "/sponsor"].map((path) => ({
+  const baseEntries: MetadataRoute.Sitemap = ["", "/directory", "/plan", "/marketplaces", "/methodology", "/pricing", "/services", "/sponsor"].map((path) => ({
     url: `${siteUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly",

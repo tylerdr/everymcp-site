@@ -1,80 +1,51 @@
 import fs from "node:fs";
 import path from "node:path";
+import assert from "node:assert/strict";
+import { runInNewContext } from "node:vm";
+import ts from "typescript";
 
-const root = process.cwd();
-const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
+const root=process.cwd();
+const read=file=>fs.readFileSync(path.join(root,file),"utf8");
+const plannerPage=read("app/plan/page.tsx"),plannerModel=read("lib/stack-planner.ts"),tracking=read("components/StackPlanTracking.tsx"),homepage=read("app/page.tsx"),pricing=read("app/pricing/page.tsx"),checkoutButton=read("components/CheckoutButton.tsx"),checkoutRoute=read("app/api/checkout/route.ts"),sitemap=read("app/sitemap.ts");
+const requiredGoals=["research","ship-software","automate-ops","analyze-data","agent-memory"];
+for(const goal of requiredGoals)assert.ok(plannerModel.includes(`id: "${goal}"`),`Missing goal ${goal}`);
+assert.ok((plannerModel.match(/slug: "/g)||[]).length>=requiredGoals.length*3);
+for(const value of ["sortedMcps.find","mcp.category === slug","buildStackBrief","First integration sequence:"])assert.ok(plannerModel.includes(value),value);
+for(const value of ['action="/plan"','name="goal"',"getStackRecommendations","Inspect listing","CopyStackBrief","Take the shortlist with you"])assert.ok(plannerPage.includes(value),value);
+for(const value of ['track("stack_plan_generated"','track("stack_plan_starter_kit_clicked"','track("stack_plan_brief_copied"',"navigator.clipboard.writeText","source=stack-planner","#starter-kit","Clipboard access is unavailable"])assert.ok(tracking.includes(value),value);
+for(const value of ['requestedSource === "stack-planner"',"source={source}","goal={goal}"])assert.ok(pricing.includes(value),value);
+for(const value of ['body: JSON.stringify({ plan, email, source, goal })','track("checkout_started", { plan, ...attribution })'])assert.ok(checkoutButton.includes(value),value);
+for(const value of ["acquisition_source: source","acquisition_goal: goal","attributionValuePattern"])assert.ok(checkoutRoute.includes(value),value);
+assert.ok(homepage.includes('href="/plan"')&&homepage.includes("Build my free stack"));
+assert.ok(sitemap.includes('"/plan"'));
 
-const plannerPage = read("app/plan/page.tsx");
-const plannerModel = read("lib/stack-planner.ts");
-const tracking = read("components/StackPlanTracking.tsx");
-const homepage = read("app/page.tsx");
-const pricing = read("app/pricing/page.tsx");
-const checkoutButton = read("components/CheckoutButton.tsx");
-const checkoutRoute = read("app/api/checkout/route.ts");
-const sitemap = read("app/sitemap.ts");
-
-const requiredGoals = ["research", "ship-software", "automate-ops", "analyze-data", "agent-memory"];
-for (const goal of requiredGoals) {
-  if (!plannerModel.includes(`id: "${goal}"`)) {
-    throw new Error(`Stack planner is missing goal: ${goal}`);
-  }
+function load(file,dependencies){
+ const compiled=ts.transpileModule(read(file),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+ const context={exports:{},require:name=>{assert.ok(name in dependencies,`Unexpected dependency ${name}`);return dependencies[name];},URL};
+ runInNewContext(compiled,context);return context.exports;
 }
-
-const categoryRoleCount = (plannerModel.match(/slug: "/g) || []).length;
-if (categoryRoleCount < requiredGoals.length * 3) {
-  throw new Error("Each stack-planner goal must define three catalog-backed capability slots");
+// Provider-isolated fixtures test behavior; production recommendations remain tied to the catalog above.
+const categories=[...new Set([...plannerModel.matchAll(/slug: "([^"]+)"/g)].map(match=>match[1]))];
+const mcps=categories.map((category,index)=>({id:`fixture-${index}`,slug:`fixture-${index}`,name:`Fixture ${category}`,category,repo:`https://example.test/source-${index}`,description:'Fixture capability',useCases:['A bounded fixture task']}));
+const model=load('lib/stack-planner.ts',{'@/lib/mcps':{sortedMcps:mcps}});
+const kit=load('lib/starter-kit.ts',{'@/lib/mcps':{featuredMcps:mcps.slice(0,3)},'@/lib/stack-planner':model});
+for(const goal of requiredGoals){
+ const selected=model.getStackRecommendations(goal);
+ assert.equal(selected.length,3);assert.equal(new Set(selected.map(value=>value.mcp.id)).size,3);
+ const brief=model.buildStackBrief(goal);
+ for(const marker of ['Task:','Success:','Stop:'])assert.ok(brief.includes(marker));
+ assert.ok(kit.buildStarterKit(goal).includes(brief));
 }
-
-if (!plannerModel.includes("sortedMcps.find") || !plannerModel.includes("mcp.category === slug")) {
-  throw new Error("Stack planner recommendations must be selected from the current EveryMCP catalog");
+assert.equal(kit.buildStarterKit('unknown-goal'),kit.starterKit);
+let verified={status:'paid',session:{metadata:{acquisition_goal:'ship-software'}}};
+class Result {constructor(body,options={}){this.body=body;this.options=options;}static json(body,options){return new Result(body,options);}}
+const handler=load('app/api/fulfillment/starter-kit/route.ts',{'next/server':{NextResponse:Result},'@/lib/starter-kit':kit,'@/lib/stripe-fulfillment':{verifyPaidSession:async()=>verified}});
+const delivered=await handler.GET({url:'https://everymcp.com/api/fulfillment/starter-kit?session_id=cs_fixture&goal=research'});
+assert.equal(delivered.body,kit.buildStarterKit('ship-software'),'Paid metadata, not the query, owns the delivered goal');
+assert.equal(delivered.options.headers['Cache-Control'],'private, no-store');
+verified={status:'paid',session:{metadata:{}}};
+assert.equal((await handler.GET({url:'https://everymcp.com/api/fulfillment/starter-kit?session_id=cs_fixture'})).body,kit.starterKit);
+for(const [status,code] of [['missing',400],['unavailable',503],['invalid',403],['not_paid',403]]){
+ verified={status};const result=await handler.GET({url:'https://everymcp.com/api/fulfillment/starter-kit'});assert.equal(result.options.status,code);assert.equal(typeof result.body,'object');
 }
-
-if (!plannerModel.includes("buildStackBrief") || !plannerModel.includes("First integration sequence:")) {
-  throw new Error("Stack planner must produce a portable implementation brief from the same catalog-backed plan");
-}
-
-if (!plannerPage.includes('action="/plan"') || !plannerPage.includes('name="goal"')) {
-  throw new Error("Planner must keep a shareable GET-based goal flow");
-}
-
-if (!plannerPage.includes("getStackRecommendations") || !plannerPage.includes("Inspect listing")) {
-  throw new Error("Planner must render real catalog recommendations with a listing handoff");
-}
-
-if (!plannerPage.includes("CopyStackBrief") || !plannerPage.includes("Take the shortlist with you")) {
-  throw new Error("Planner must let buyers carry the useful result into their implementation workflow");
-}
-
-if (!tracking.includes('track("stack_plan_generated"') || !tracking.includes('track("stack_plan_starter_kit_clicked"')) {
-  throw new Error("Planner value and paid-intent events must remain measurable");
-}
-
-if (!tracking.includes('track("stack_plan_brief_copied"') || !tracking.includes("navigator.clipboard.writeText")) {
-  throw new Error("Portable plan activation must remain measurable and copy the actual generated brief");
-}
-
-if (!tracking.includes("source=stack-planner") || !tracking.includes("#starter-kit")) {
-  throw new Error("Planner must preserve attribution into the existing starter-kit offer");
-}
-
-if (!pricing.includes('requestedSource === "stack-planner"') || !pricing.includes("source={source}") || !pricing.includes("goal={goal}")) {
-  throw new Error("Pricing must preserve validated planner attribution into checkout");
-}
-
-if (!checkoutButton.includes("body: JSON.stringify({ plan, email, source, goal })") || !checkoutButton.includes('track("checkout_started", { plan, ...attribution })')) {
-  throw new Error("Checkout must carry planner attribution into the existing checkout request and event");
-}
-
-if (!checkoutRoute.includes("acquisition_source: source") || !checkoutRoute.includes("acquisition_goal: goal") || !checkoutRoute.includes("attributionValuePattern")) {
-  throw new Error("Stripe session metadata must retain bounded planner attribution");
-}
-
-if (!homepage.includes('href="/plan"') || !homepage.includes("Build my free stack")) {
-  throw new Error("Homepage must expose the planner as a value-first acquisition path");
-}
-
-if (!sitemap.includes('"/plan"')) {
-  throw new Error("Stack planner must be included in the sitemap");
-}
-
-console.log("Stack planner contract verified");
+console.log('Stack planner contract and actual verified paid-goal fulfillment behavior passed');

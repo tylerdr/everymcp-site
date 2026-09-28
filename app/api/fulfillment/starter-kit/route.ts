@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { starterKit, starterKitFilename } from "@/lib/starter-kit";
+import { buildStarterKit, starterKitFilename } from "@/lib/starter-kit";
 import { verifyPaidSession } from "@/lib/stripe-fulfillment";
 
 export const runtime = "nodejs";
@@ -12,15 +12,16 @@ export async function GET(request: Request) {
   if (result.status === "missing") {
     return NextResponse.json({ error: "Checkout session is required" }, { status: 400 });
   }
-
   if (result.status === "unavailable") {
     return NextResponse.json({ error: "Delivery verification is temporarily unavailable" }, { status: 503 });
   }
-
   if (result.status !== "paid") {
     return NextResponse.json({ error: "A completed payment is required before delivery" }, { status: 403 });
   }
 
+  // Only the verified paid session may carry a goal into delivery. The kit builder
+  // validates the bounded goal again; legacy/no-goal purchases keep the generic kit.
+  const starterKit = buildStarterKit(result.session.metadata?.acquisition_goal);
   return new NextResponse(starterKit, {
     headers: {
       "Cache-Control": "private, no-store",

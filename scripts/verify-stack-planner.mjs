@@ -24,15 +24,45 @@ function load(file,dependencies){
  const context={exports:{},require:name=>{assert.ok(name in dependencies,`Unexpected dependency ${name}`);return dependencies[name];},URL};
  runInNewContext(compiled,context);return context.exports;
 }
-// Provider-isolated fixtures test behavior; production recommendations remain tied to the catalog above.
-const categories=[...new Set([...plannerModel.matchAll(/slug: "([^"]+)"/g)].map(match=>match[1]))];
-const mcps=categories.map((category,index)=>({id:`fixture-${index}`,slug:`fixture-${index}`,name:`Fixture ${category}`,category,repo:`https://example.test/source-${index}`,description:'Fixture capability',useCases:['A bounded fixture task']}));
-const model=load('lib/stack-planner.ts',{'@/lib/mcps':{sortedMcps:mcps}});
-const kit=load('lib/starter-kit.ts',{'@/lib/mcps':{featuredMcps:mcps.slice(0,3)},'@/lib/stack-planner':model});
+// Exercise the real catalog: category-shaped fixtures concealed dead source
+// links and irrelevant featured entries in the previous recommendations.
+const catalog=JSON.parse(read('data/mcps.json'));
+const categoryModule=load('data/categories.ts',{});
+const mcps=load('lib/mcps.ts',{'@/data/mcps.json':{default:catalog},'@/data/categories':categoryModule});
+const model=load('lib/stack-planner.ts',{'@/lib/mcps':mcps,'@/lib/site':{siteUrl:'https://everymcp.com'}});
+const kit=load('lib/starter-kit.ts',{'@/lib/mcps':mcps,'@/lib/stack-planner':model});
+const expectedStacks={
+ research:['brave-search','fetch','memory'],
+ 'ship-software':['github-official','filesystem','context7'],
+ 'automate-ops':['github-official','playwright-mcp-official','filesystem'],
+ 'analyze-data':['motherduck-mcp','grafana','filesystem'],
+ 'agent-memory':['memory','filesystem','chroma']
+};
+// Canonical publisher sources checked 2026-10-03. Availability is checked
+// separately during release review; no network request belongs in this test.
+const expectedSources={
+ 'brave-search':'https://github.com/brave/brave-search-mcp-server',
+ fetch:'https://github.com/modelcontextprotocol/servers/tree/main/src/fetch',
+ memory:'https://github.com/modelcontextprotocol/servers/tree/main/src/memory',
+ 'github-official':'https://github.com/github/github-mcp-server',
+ filesystem:'https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem',
+ context7:'https://github.com/upstash/context7',
+ 'playwright-mcp-official':'https://github.com/microsoft/playwright-mcp',
+ 'motherduck-mcp':'https://github.com/motherduckdb/mcp-server-motherduck',
+ grafana:'https://github.com/grafana/mcp-grafana',
+ chroma:'https://github.com/chroma-core/chroma-mcp'
+};
 for(const goal of requiredGoals){
  const selected=model.getStackRecommendations(goal);
  assert.equal(selected.length,3);assert.equal(new Set(selected.map(value=>value.mcp.id)).size,3);
+ assert.deepEqual(Array.from(selected,value=>value.mcp.id),expectedStacks[goal]);
+ assert.equal(new Set(selected.map(value=>value.mcp.repo)).size,3,'Each role must add a distinct server');
  const brief=model.buildStackBrief(goal);
+ for(const {mcp} of selected){
+  assert.equal(mcp.repo,expectedSources[mcp.id],`${goal}: use the reviewed publisher source for ${mcp.id}`);
+  assert.ok(brief.includes(`EveryMCP: https://everymcp.com/mcp/${mcp.slug}`),'Copied listing links must work outside this site');
+  assert.ok(brief.includes(`Source: ${mcp.repo}`));
+ }
  for(const marker of ['Task:','Success:','Stop:'])assert.ok(brief.includes(marker));
  assert.ok(kit.buildStarterKit(goal).includes(brief));
 }
@@ -48,4 +78,4 @@ assert.equal((await handler.GET({url:'https://everymcp.com/api/fulfillment/start
 for(const [status,code] of [['missing',400],['unavailable',503],['invalid',403],['not_paid',403]]){
  verified={status};const result=await handler.GET({url:'https://everymcp.com/api/fulfillment/starter-kit'});assert.equal(result.options.status,code);assert.equal(typeof result.body,'object');
 }
-console.log('Stack planner contract and actual verified paid-goal fulfillment behavior passed');
+console.log('Stack planner: all five real-catalog stacks, ten publisher sources, portable links, and verified paid-goal fulfillment behavior passed');

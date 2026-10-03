@@ -1,6 +1,6 @@
 # everymcp — Product Spec
 
-**Last updated:** 2026-09-23 (session: growth-first stack planner)
+**Last updated:** 2026-10-03 (session: actual-catalog planner correction)
 **Version:** 0.4
 
 ---
@@ -21,12 +21,16 @@ Technical founders, AI/product leads, and operator-builders who already have an 
 - **Acceptance criteria:**
   - [x] Support five concrete buyer outcomes spanning research, software delivery, operations, data analysis, and durable agent context.
   - [x] Return up to three real catalog entries with direct listing and repository/source inspection links; do not invent servers or proof.
+  - [x] Select an explicit reviewed catalog ID for each goal role and verify its category, so featured/alphabetic ordering cannot silently replace a useful capability.
+  - [x] Use absolute EveryMCP URLs in copied briefs and current publisher URLs for the selected sources.
   - [x] Give the buyer a useful three-step next action before asking for payment.
   - [x] Produce a copyable brief from the same catalog-backed plan with selected servers, roles, source links, and first integration sequence.
   - [x] Preserve goal/source attribution into `/pricing#starter-kit`.
   - [x] Track `stack_plan_generated`, `stack_plan_brief_copied`, and `stack_plan_starter_kit_clicked` as value, activation, and paid-intent events.
   - [x] Link the planner from the homepage and sitemap.
 - **Status:** `implemented on draft growth branch; exact-head hosted validation pending`
+
+The five starting stacks are deliberately concrete: Brave/Fetch/Memory for research; GitHub/Filesystem/Context7 for software; GitHub/Playwright/Filesystem for recurring engineering checks; MotherDuck/Grafana/Filesystem for data analysis; and Memory/Filesystem/Chroma for durable context. A plan is a starting point for the described systems, not a compatibility decision for an unknown buyer environment. The paid download rebuilds recommendations from the current catalog using the verified payment's selected goal; no frozen checkout-time catalog snapshot is stored.
 
 ### Self-serve MCP Integration Starter Kit
 - **Description:** A deterministic Markdown worksheet and rollout packet sold through Stripe Checkout and delivered after server-side payment verification.
@@ -69,7 +73,7 @@ What we're explicitly NOT building in this phase:
 
 ## Technical Architecture
 - **Stack:** Next.js 14 App Router, TypeScript, Tailwind CSS, Vercel; the audit MCP uses `mcp-handler` 2.x, MCP server/client SDK 2.x, and Zod 4.
-- **Planner:** Server-rendered GET flow at `/plan`; typed goal profiles map to current catalog categories and select real entries from `sortedMcps`. The same typed plan produces a portable text brief, while a small client tracker records generation, copy, and starter-kit handoff events.
+- **Planner:** Server-rendered GET flow at `/plan`; typed goal profiles name reviewed existing catalog IDs and cross-check their categories. The same typed plan produces a portable text brief with absolute links, while a small client tracker records generation, copy, and starter-kit handoff events. The build gate evaluates all five profiles against the real catalog.
 - **Auth:** The planner is public and read-only. The audit route has no caller auth contract yet and remains setup-pending. Public audit execution requires an externally verified durable Vercel edge rate limit plus an explicit server-side enable flag.
 - **Key patterns:** Fixed provider endpoints and tool allowlists for audits; current catalog ownership for planner recommendations; no new persistence for the planner. Requests to the audit MCP are stateless and results are not persisted.
 - **See:** `documents/DECISIONS.md` for architectural choices.

@@ -23,7 +23,7 @@ function personalizedStackSection(goal: string | undefined): string {
   return [
     "## Your selected outcome",
     "",
-    `You started with **${selectedGoal.label}**. The paid packet carries that exact shortlist forward so you do not have to rebuild the decision after checkout.`,
+    `You started with **${selectedGoal.label}**. This packet applies the current catalog to your selected outcome. Recommendations can change as the catalog is updated.`,
     "",
     buildStackBrief(goal),
     "",

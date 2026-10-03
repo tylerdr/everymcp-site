@@ -2,6 +2,16 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-10-03 — Make the existing planner's recommendations usable
+
+**Branch:** existing `feature/growth-stack-planner-20260923`, PR #13; correction based on reviewed head `0fe75917241907adbb3a89ede59ab863548b291c`.
+
+The exact-head preview rendered all five plans, but the prior category-first choices linked to four missing source pages and an archived Mem0 wrapper. This correction chooses existing catalog IDs for the actual task: search/read/remember; repository/files/docs; recurring engineering checks; DuckDB/Grafana/reference data; and memory/files/document retrieval. It updates the selected Brave, Context7 and MotherDuck source URLs and preserves the rest of the catalog.
+
+Copied briefs now use absolute EveryMCP listing links. Paid packets describe the selected goal applied to the current catalog; they do not claim a purchase-time snapshot. The existing verification script now executes the real catalog for every goal, protects the ten canonical selected publisher URLs and portable links, and retains the paid-session metadata/legacy/error behavior checks.
+
+No new checkout, price, payment activation, audit-MCP activation, external installation, customer message or spend is part of this correction. Merge remains root-owned after current-head review.
+
 ## 2026-09-23 — Make Stack Planner output portable (Tai growth continuation)
 
 **Branch:** `feature/growth-stack-planner-20260923` → draft PR #13

@@ -1,5 +1,6 @@
 import type { CategorySlug } from "@/data/categories";
 import { sortedMcps, type McpServer } from "@/lib/mcps";
+import { siteUrl } from "@/lib/site";
 
 export type StackGoalId =
   | "research"
@@ -18,6 +19,7 @@ type StackGoal = {
     stop: string;
   };
   categories: readonly {
+    mcpId: string;
     slug: CategorySlug;
     role: string;
   }[];
@@ -27,61 +29,61 @@ export const stackGoals: readonly StackGoal[] = [
   {
     id: "research",
     label: "Research and answer faster",
-    outcome: "Give an assistant fresh information, a place to reason over it, and a durable source of context.",
+    outcome: "Find current sources, read their content, and preserve the useful facts for a follow-up question.",
     proof: {
       task: "Answer one real research question using fresh source material and preserve the useful context for a second turn.",
       success: "The answer links back to the source material and the follow-up uses the saved context without asking you to restate it.",
       stop: "Stop if the assistant cannot show where the answer came from or the saved context changes the meaning of the source."
     },
     categories: [
-      { slug: "web-search-research", role: "Find current source material" },
-      { slug: "ai-ml-tools", role: "Add a specialized AI capability" },
-      { slug: "memory-context", role: "Keep useful context available between steps" }
+      { mcpId: "brave-search", slug: "web-search-research", role: "Find current source material with Brave Search" },
+      { mcpId: "fetch", slug: "web-search-research", role: "Read the content of the selected source URLs" },
+      { mcpId: "memory", slug: "memory-context", role: "Keep the approved facts and their relationships for follow-up" }
     ]
   },
   {
     id: "ship-software",
     label: "Ship software with an agent",
-    outcome: "Give a coding agent access to the development surface, files, and application data it needs to complete real work.",
+    outcome: "Read a GitHub issue, inspect the local project, and check current library documentation before proposing a change.",
     proof: {
       task: "Have the agent inspect one repository issue, read the relevant files, and propose the smallest code change without writing anything.",
       success: "The proposal cites the actual files and constraints needed for the issue and can be reviewed before any write-capable tool is enabled.",
       stop: "Stop if the agent cannot ground the proposal in the repository or asks for broader access than the first task requires."
     },
     categories: [
-      { slug: "development-tools", role: "Work with code and developer systems" },
-      { slug: "file-systems-storage", role: "Read and organize project files" },
-      { slug: "databases", role: "Reach structured application data" }
+      { mcpId: "github-official", slug: "development-tools", role: "Read the repository issue and pull-request context" },
+      { mcpId: "filesystem", slug: "file-systems-storage", role: "Inspect the approved local project files" },
+      { mcpId: "context7", slug: "development-tools", role: "Check the relevant library documentation and examples" }
     ]
   },
   {
     id: "automate-ops",
     label: "Automate recurring operations",
-    outcome: "Connect an agent to the conversations, browser steps, and cloud systems behind a repeatable operating workflow.",
+    outcome: "Prepare a recurring engineering or website check from a GitHub issue, observed browser results, and local runbook files.",
     proof: {
-      task: "Run one recurring workflow from its trigger through a read-only browser or cloud lookup and produce the exact handoff a teammate needs.",
+      task: "Read one recurring-check issue, inspect its approved website pages without changing them, and produce a handoff against the local runbook.",
       success: "The handoff contains the expected information with no manual copy-paste between the connected systems.",
       stop: "Stop if the workflow needs an unreviewed write, cannot recover from a missing input, or produces a handoff someone still has to reconstruct."
     },
     categories: [
-      { slug: "communication", role: "Receive or send operational context" },
-      { slug: "browser-automation", role: "Complete browser-based steps" },
-      { slug: "cloud-services", role: "Connect the infrastructure behind the workflow" }
+      { mcpId: "github-official", slug: "development-tools", role: "Read the recurring task and previous issue context" },
+      { mcpId: "playwright-mcp-official", slug: "browser-automation", role: "Inspect the approved website steps" },
+      { mcpId: "filesystem", slug: "file-systems-storage", role: "Read the runbook and expected handoff format" }
     ]
   },
   {
     id: "analyze-data",
     label: "Analyze business data",
-    outcome: "Let an assistant reach the data, analysis layer, and infrastructure needed to answer a concrete business question.",
+    outcome: "Query an approved DuckDB or MotherDuck data source, inspect Grafana metrics, and reconcile the answer with a local reference file.",
     proof: {
       task: "Ask one decision-relevant question with a known reference answer and have the assistant trace the result back to the source data.",
       success: "The result matches the reference answer and identifies the source records or query path used to produce it.",
       stop: "Stop if the answer cannot be reconciled to the source data or requires write access to complete the first analysis."
     },
     categories: [
-      { slug: "databases", role: "Reach the source data" },
-      { slug: "data-analysis", role: "Inspect metrics and reporting systems" },
-      { slug: "cloud-services", role: "Connect supporting data infrastructure" }
+      { mcpId: "motherduck-mcp", slug: "databases", role: "Query the authorized DuckDB or MotherDuck source data" },
+      { mcpId: "grafana", slug: "data-analysis", role: "Inspect the relevant Grafana metrics and dashboards" },
+      { mcpId: "filesystem", slug: "file-systems-storage", role: "Read the approved reference answer or exported data" }
     ]
   },
   {
@@ -94,9 +96,9 @@ export const stackGoals: readonly StackGoal[] = [
       stop: "Stop if it recalls data outside the approved context, loses provenance, or cannot distinguish current facts from prior notes."
     },
     categories: [
-      { slug: "memory-context", role: "Preserve useful working context" },
-      { slug: "file-systems-storage", role: "Keep source files available" },
-      { slug: "databases", role: "Store and retrieve structured facts" }
+      { mcpId: "memory", slug: "memory-context", role: "Preserve approved facts and relationships in a local knowledge graph" },
+      { mcpId: "filesystem", slug: "file-systems-storage", role: "Keep the original approved source files available" },
+      { mcpId: "chroma", slug: "databases", role: "Retrieve relevant documents from the chosen Chroma collection" }
     ]
   }
 ] as const;
@@ -118,8 +120,10 @@ export function getStackRecommendations(goalId: StackGoalId): StackRecommendatio
   const goal = getStackGoal(goalId);
   const selected = new Set<string>();
 
-  return goal.categories.flatMap(({ slug, role }) => {
-    const match = sortedMcps.find((mcp) => mcp.category === slug && !selected.has(mcp.id));
+  // Pick the reviewed capability for the task, not the first alphabetic/featured
+  // entry in a broad category. The build gate exercises these IDs in the real catalog.
+  return goal.categories.flatMap(({ mcpId, slug, role }) => {
+    const match = sortedMcps.find((mcp) => mcp.id === mcpId && mcp.category === slug && !selected.has(mcp.id));
 
     if (!match) {
       return [];
@@ -136,7 +140,7 @@ export function buildStackBrief(goalId: StackGoalId): string {
   const stack = recommendations
     .map(({ role, mcp }, index) => [
       `${index + 1}. ${mcp.name} — ${role}`,
-      `   EveryMCP: /mcp/${mcp.slug}`,
+      `   EveryMCP: ${siteUrl}/mcp/${mcp.slug}`,
       `   Source: ${mcp.repo}`,
     ].join("\n"))
     .join("\n\n");

@@ -2,6 +2,16 @@
 
 *Append-only. Never delete entries. To reverse a decision, add a new ADR that supersedes the old one.*
 
+## ADR-004: Name the catalog capabilities used by each starter plan
+
+**Date:** 2026-10-03
+**Status:** Accepted for the root-authorized correction on existing PR #13; release still requires review.
+**Context:** The category-first planner selected four unavailable source URLs and an archived wrapper despite a green fixture-based contract. Broad category membership did not establish a useful capability for the goal.
+**Decision:** Each role names an existing catalog ID and expected category. Keep source URLs on those catalog records, make copied listing links absolute, and test all five goals against the actual catalog. Verify the ten selected publisher sources separately during release review. Paid fulfillment continues to use the verified session goal with the current catalog, and its copy states that recommendations may change.
+**Consequences:** Updating a selected capability is an explicit reviewed change. Existing catalog browsing, prices and payment/MCP activation gates remain intact. This does not introduce a stored checkout-time snapshot, a provider execution claim or an automatic install.
+
+---
+
 ---
 
 ## ADR-002: Verify Stripe sessions before deterministic starter-kit delivery

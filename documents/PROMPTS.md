@@ -4,6 +4,14 @@
 
 *Tyler's input is scarce and valuable. Exact words are preserved so scope never gets lost or misremembered.*
 
+## 2026-10-03 — Correct the existing Stack Planner before release
+
+The portfolio launch task raises the target to $10,000 collected for each venture by October 11, 2026. Root authorized a focused correction on existing PR #13 after reviewing its actual catalog output: use current official source links and goal-specific catalog choices, make portable links absolute, and describe current-catalog delivery accurately without inventing a frozen purchase snapshot. Preserve the $49 price, existing payment and MCP activation gates, and all existing planner work. Run the full project gates and all five actual-catalog plans. Append the correction to this PR after re-reading its head; merge remains root-owned.
+
+The read-only review found four public source links returning 404 and an archived memory source in the category-first recommendations. This correction addresses that buyer-value failure; it does not activate payments, invoke an MCP, contact customers, or authorize spend.
+
+---
+
 ## 2026-09-23 UTC — Growth and customer value first
 
 **Tyler's exact words:**

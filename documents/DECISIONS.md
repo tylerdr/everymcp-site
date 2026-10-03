@@ -2,6 +2,16 @@
 
 *Append-only. Never delete entries. To reverse a decision, add a new ADR that supersedes the old one.*
 
+## ADR-006: Add only the shadcn primitives required by the planner
+
+**Date:** 2026-10-03
+**Status:** Root-requested release correction.
+**Context:** AGENTS.md prescribes shadcn and CSS variable theming, but the repository had no components/ui setup and the new planner added native controls directly.
+**Decision:** Use the official Button source at https://ui.shadcn.com/r/styles/new-york/button.json and NativeSelect at https://ui.shadcn.com/r/styles/new-york-v4/native-select.json. Adapt utility imports, shadows and focus classes to current React 18/Tailwind 3; retain native GET/required semantics and semantic links. Add the minimal utility dependencies and theme tokens without replacing existing global styles or package resolutions.
+**Consequences:** Planner controls meet the existing UI standard without a custom popover, new form state, site redesign or framework migration. Browser interaction remains a separate observed qualification; source and hosted HTML checks do not establish a clipboard or analytics receipt.
+
+---
+
 ## ADR-005: Use reviewed goal selections throughout paid delivery
 
 **Date:** 2026-10-03

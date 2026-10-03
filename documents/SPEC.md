@@ -23,6 +23,7 @@ Technical founders, AI/product leads, and operator-builders who already have an 
   - [x] Return up to three real catalog entries with direct listing and repository/source inspection links; do not invent servers or proof.
   - [x] Select an explicit reviewed catalog ID for each goal role and verify its category, so featured/alphabetic ordering cannot silently replace a useful capability.
   - [x] Use absolute EveryMCP URLs in copied briefs and current publisher URLs for the selected sources.
+  - [x] Use shadcn Button/NativeSelect controls and CSS theme tokens while preserving the native required GET form and keyboard behavior.
   - [x] Give the buyer a useful three-step next action before asking for payment.
   - [x] Produce a copyable brief from the same catalog-backed plan with selected servers, roles, source links, and first integration sequence.
   - [x] Preserve goal/source attribution into `/pricing#starter-kit`.

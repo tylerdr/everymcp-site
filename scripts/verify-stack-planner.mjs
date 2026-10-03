@@ -12,6 +12,9 @@ for(const goal of requiredGoals)assert.ok(plannerModel.includes(`id: "${goal}"`)
 assert.ok((plannerModel.match(/slug: "/g)||[]).length>=requiredGoals.length*3);
 for(const value of ["sortedMcps.find","mcp.category === slug","buildStackBrief","First integration sequence:"])assert.ok(plannerModel.includes(value),value);
 for(const value of ['action="/plan"','name="goal"',"getStackRecommendations","Inspect listing","CopyStackBrief","Take the shortlist with you"])assert.ok(plannerPage.includes(value),value);
+for(const value of ['<NativeSelect','<NativeSelectOption','<Button','type="submit"'])assert.ok(plannerPage.includes(value),value);
+assert.ok(!/<(?:select|button)\b/.test(plannerPage),'Planner controls use the prescribed shadcn primitives');
+assert.ok(!/<button\b/.test(tracking),'Copy and handoff actions use the prescribed Button primitive');
 for(const value of ['track("stack_plan_generated"','track("stack_plan_starter_kit_clicked"','track("stack_plan_brief_copied"',"navigator.clipboard.writeText","source=stack-planner","#starter-kit","Clipboard access is unavailable"])assert.ok(tracking.includes(value),value);
 for(const value of ['requestedSource === "stack-planner"',"source={source}","goal={goal}"])assert.ok(pricing.includes(value),value);
 for(const value of ['body: JSON.stringify({ plan, email, source, goal })','track("checkout_started", { plan, ...attribution })'])assert.ok(checkoutButton.includes(value),value);

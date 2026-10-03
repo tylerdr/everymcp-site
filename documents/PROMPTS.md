@@ -4,6 +4,15 @@
 
 *Tyler's input is scarce and valuable. Exact words are preserved so scope never gets lost or misremembered.*
 
+## 2026-10-03 — Root review: use prescribed UI primitives
+
+**Coordinator instruction:**
+> One additional concrete PR13 gate from root review: AGENTS.md requires shadcn UI for interactive controls, but app/plan/page.tsx currently adds raw select/button. Please use existing shadcn components (and theme variables where practical), preserve accessible keyboard behavior, then include this in the paid-matrix correction and full gates. No new feature expansion.
+
+The checked repository contains no shadcn components or utility/dependency setup. Add only the official Button and NativeSelect primitives needed by this planner, their small supporting utilities, and CSS theme tokens compatible with the current Tailwind 3 stack. Preserve native GET form semantics and the existing planner/checkout behavior. This does not authorize a site-wide redesign or framework upgrade.
+
+---
+
 ## 2026-10-03 — Independent review follow-up within the authorized correction
 
 The independent reviewer found that the paid packet's selection matrix still took six featured records, including the known missing AWS source and a duplicated Chroma server. Within the already authorized source and paid-delivery correction, derive personalized matrix rows and notes from the selected goal's reviewed recommendations; use deliberately reviewed, deduplicated defaults for legacy purchases without a goal. Validate every emitted matrix source and preserve paid-session ownership, price, checkout gates and the current-catalog contract. Root retains the release decision after this follow-up passes the full gate.

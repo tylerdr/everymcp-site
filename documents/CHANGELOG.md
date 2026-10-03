@@ -2,6 +2,12 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-10-03 — Apply the repository's shadcn UI requirement
+
+Root review required the planner controls to follow AGENTS.md. The repository had no shadcn components or utility setup, so this focused addition introduces the official new-york Button and NativeSelect source, a cn utility, components.json, and theme tokens compatible with the existing Tailwind 3 stack. The planner uses NativeSelect/NativeSelectOption, the submit and copy actions use Button, and the starter handoff uses Button asChild around its semantic link.
+
+The native GET form, required outcome, label association, option values, clipboard fallback, goal attribution and price are preserved. New planner surfaces use CSS variable colors. Five pinned direct dependencies add six resolved lock entries; all existing package resolutions are preserved. This does not initialize a new app, upgrade the framework, or change other site controls.
+
 ## 2026-10-03 — Carry reviewed selections through the whole paid packet
 
 Independent review of the appended correction found that the paid matrix still used generic featured entries, including the old missing AWS source and duplicate Chroma records. Goal-specific packets now build both matrix rows and notes from the same reviewed recommendations as their brief. Legacy purchases without a goal use the reviewed research and software starting points, deduplicated by server ID. Invalid goals retain the same generic fallback.

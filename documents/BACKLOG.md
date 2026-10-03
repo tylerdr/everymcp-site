@@ -27,6 +27,7 @@
 - [ ] OQ002: What provider and operator identity should back durable inquiry capture and notifications?
 
 ## Completed
+- [x] T014: Follow prescribed shadcn UI controls — minimal Button/NativeSelect setup and CSS theme tokens for the planner, retaining native GET/required/keyboard behavior and the same checkout handoff.
 - [x] T013: Align the whole paid packet with reviewed sources — goal-specific matrix rows and notes match the selected brief; legacy/no-goal packets use deduplicated research and software defaults. Actual kit-body checks reject duplicate and unreviewed emitted source links.
 - [x] T012: Correct Stack Planner source/goal fit — explicit existing catalog IDs for all five outcomes, current publisher URLs for Brave/Context7/MotherDuck, local reference Memory instead of the archived Mem0 wrapper, absolute brief links, and real-catalog release checks. Existing price and payment/MCP gates are preserved.
 - [x] T011: Make each generated MCP plan portable — add a copyable implementation brief with the selected servers, roles, source links, integration sequence, and a `stack_plan_brief_copied` activation event on the existing growth branch.

@@ -10,8 +10,8 @@
       "web",
       "research"
     ],
-    "author": "modelcontextprotocol",
-    "repo": "https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search",
+    "author": "brave",
+    "repo": "https://github.com/brave/brave-search-mcp-server",
     "featured": true,
     "useCase": "Research",
     "platform": "API",
@@ -112,7 +112,7 @@
     "useCase": "Knowledge Management",
     "platform": "Node.js",
     "source": "modelcontextprotocol/servers",
-    "installation": "Set persistence options and map memory namespaces in your MCP deployment.",
+    "installation": "Choose the memory file location and configure the official server in your MCP client.",
     "useCases": [
       "User preference recall",
       "Task continuity",
@@ -280,7 +280,7 @@
     "useCase": "Research",
     "platform": "Node.js",
     "source": "modelcontextprotocol/servers",
-    "installation": "Expose controlled HTTP methods and headers from your MCP server config.",
+    "installation": "Run the official Fetch server to retrieve approved public URLs as readable content.",
     "useCases": [
       "API fetches",
       "URL retrieval",
@@ -1307,7 +1307,7 @@
       "context"
     ],
     "author": "upstash",
-    "repo": "https://github.com/upstash/context7-mcp",
+    "repo": "https://github.com/upstash/context7",
     "featured": true,
     "useCase": "Developer Productivity",
     "platform": "Node.js",
@@ -4434,7 +4434,7 @@
     "id": "motherduck-mcp",
     "name": "MotherDuck MCP",
     "slug": "motherduck-mcp",
-    "description": "Cloud-native DuckDB with MotherDuck: run hybrid local/cloud analytical queries.",
+    "description": "Query local DuckDB files or a MotherDuck workspace using analytical SQL.",
     "category": "databases",
     "tags": [
       "duckdb",
@@ -4443,12 +4443,12 @@
       "sql"
     ],
     "author": "MotherDuck",
-    "repo": "https://github.com/MotherDuck-Open-Source/mcp-server-motherduck",
+    "repo": "https://github.com/motherduckdb/mcp-server-motherduck",
     "featured": false,
     "useCase": "Analytics",
     "platform": "Cloud",
     "source": "MotherDuck",
-    "installation": "Set MOTHERDUCK_TOKEN; connects to your MotherDuck workspace.",
+    "installation": "Choose a local DuckDB path or an authorized MotherDuck connection and follow the official client setup.",
     "useCases": [
       "Hybrid analytics",
       "Shared DuckDB databases",

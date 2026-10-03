@@ -2,6 +2,36 @@
 
 *Append-only. Never delete entries. To reverse a decision, add a new ADR that supersedes the old one.*
 
+## ADR-006: Add only the shadcn primitives required by the planner
+
+**Date:** 2026-10-03
+**Status:** Root-requested release correction.
+**Context:** AGENTS.md prescribes shadcn and CSS variable theming, but the repository had no components/ui setup and the new planner added native controls directly.
+**Decision:** Use the official Button source at https://ui.shadcn.com/r/styles/new-york/button.json and NativeSelect at https://ui.shadcn.com/r/styles/new-york-v4/native-select.json. Adapt utility imports, shadows and focus classes to current React 18/Tailwind 3; retain native GET/required semantics and semantic links. Add the minimal utility dependencies and theme tokens without replacing existing global styles or package resolutions.
+**Consequences:** Planner controls meet the existing UI standard without a custom popover, new form state, site redesign or framework migration. Browser interaction remains a separate observed qualification; source and hosted HTML checks do not establish a clipboard or analytics receipt.
+
+---
+
+## ADR-005: Use reviewed goal selections throughout paid delivery
+
+**Date:** 2026-10-03
+**Status:** Authorized correction on existing PR #13; final release remains root-owned.
+**Context:** The personalized brief used reviewed sources, but the generic matrix still emitted featured records with a missing source and duplicate server.
+**Decision:** Derive paid matrix rows and notes from the selected goal's recommendations. For legacy/no-goal delivery, combine the reviewed research and software defaults and deduplicate by server ID. Test the actual emitted rows, notes and all GitHub source links in every packet.
+**Consequences:** The paid brief and matrix stay consistent as the current catalog changes. No stored purchase snapshot, payment contract, price or new fulfillment dependency is introduced.
+
+---
+
+## ADR-004: Name the catalog capabilities used by each starter plan
+
+**Date:** 2026-10-03
+**Status:** Accepted for the root-authorized correction on existing PR #13; release still requires review.
+**Context:** The category-first planner selected four unavailable source URLs and an archived wrapper despite a green fixture-based contract. Broad category membership did not establish a useful capability for the goal.
+**Decision:** Each role names an existing catalog ID and expected category. Keep source URLs on those catalog records, make copied listing links absolute, and test all five goals against the actual catalog. Verify the ten selected publisher sources separately during release review. Paid fulfillment continues to use the verified session goal with the current catalog, and its copy states that recommendations may change.
+**Consequences:** Updating a selected capability is an explicit reviewed change. Existing catalog browsing, prices and payment/MCP activation gates remain intact. This does not introduce a stored checkout-time snapshot, a provider execution claim or an automatic install.
+
+---
+
 ---
 
 ## ADR-002: Verify Stripe sessions before deterministic starter-kit delivery

@@ -2,6 +2,55 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-10-03 — Apply the repository's shadcn UI requirement
+
+Root review required the planner controls to follow AGENTS.md. The repository had no shadcn components or utility setup, so this focused addition introduces the official new-york Button and NativeSelect source, a cn utility, components.json, and theme tokens compatible with the existing Tailwind 3 stack. The planner uses NativeSelect/NativeSelectOption, the submit and copy actions use Button, and the starter handoff uses Button asChild around its semantic link.
+
+The native GET form, required outcome, label association, option values, clipboard fallback, goal attribution and price are preserved. New planner surfaces use CSS variable colors. Five pinned direct dependencies add six resolved lock entries; all existing package resolutions are preserved. This does not initialize a new app, upgrade the framework, or change other site controls.
+
+## 2026-10-03 — Carry reviewed selections through the whole paid packet
+
+Independent review of the appended correction found that the paid matrix still used generic featured entries, including the old missing AWS source and duplicate Chroma records. Goal-specific packets now build both matrix rows and notes from the same reviewed recommendations as their brief. Legacy purchases without a goal use the reviewed research and software starting points, deduplicated by server ID. Invalid goals retain the same generic fallback.
+
+The actual-catalog test now parses every paid matrix and its notes, checks the exact intended distinct sources, and rejects any other GitHub source emitted anywhere in each goal packet or the legacy packet. All emitted sources are drawn from the ten publisher URLs already checked during this release review. Price, paid-session metadata ownership, checkout and provider gates are unchanged.
+
+## 2026-10-03 — Make the existing planner's recommendations usable
+
+**Branch:** existing `feature/growth-stack-planner-20260923`, PR #13; correction based on reviewed head `0fe75917241907adbb3a89ede59ab863548b291c`.
+
+The exact-head preview rendered all five plans, but the prior category-first choices linked to four missing source pages and an archived Mem0 wrapper. This correction chooses existing catalog IDs for the actual task: search/read/remember; repository/files/docs; recurring engineering checks; DuckDB/Grafana/reference data; and memory/files/document retrieval. It updates the selected Brave, Context7 and MotherDuck source URLs and preserves the rest of the catalog.
+
+Copied briefs now use absolute EveryMCP listing links. Paid packets describe the selected goal applied to the current catalog; they do not claim a purchase-time snapshot. The existing verification script now executes the real catalog for every goal, protects the ten canonical selected publisher URLs and portable links, and retains the paid-session metadata/legacy/error behavior checks.
+
+No new checkout, price, payment activation, audit-MCP activation, external installation, customer message or spend is part of this correction. Merge remains root-owned after current-head review.
+
+## 2026-09-23 — Make Stack Planner output portable (Tai growth continuation)
+
+**Branch:** `feature/growth-stack-planner-20260923` → draft PR #13
+
+**Shipped on branch:**
+- `lib/stack-planner.ts` — one catalog-backed `buildStackBrief()` output with the selected servers, roles, EveryMCP listing paths, source repositories, and the same three-step integration sequence shown on the page.
+- `components/StackPlanTracking.tsx` — copy-to-clipboard activation plus `stack_plan_brief_copied` analytics event.
+- `app/plan/page.tsx` — portable-brief handoff so the buyer can carry the useful result into a coding agent, implementation ticket, or team notes before the paid ask.
+- `scripts/verify-stack-planner.mjs` — build-gated contract now protects portable brief generation, clipboard handoff, and activation instrumentation in addition to the existing paid-intent path.
+
+**Commercial purpose:** increase real activation between `stack_plan_generated` and the existing $49 Starter Kit by making the free result useful outside the site instead of forcing the buyer to keep the browser tab open. Copied briefs are an activation signal, not revenue.
+**Boundary:** no new checkout, subscription, outbound, payment activation, customer contact, spend, or production promotion.
+
+## 2026-09-23 — Add a value-first MCP Stack Planner (Tai growth session)
+
+**Branch:** `feature/growth-stack-planner-20260923` from `074e11b911d7201b2188a3fc4860d943374ec781` → draft PR pending
+**Tyler's prompt:** Growth and customer value first; every substantive run must complete or meaningfully advance a measurable growth/product deliverable.
+
+**Shipped on branch:**
+- `app/plan/page.tsx`, `lib/stack-planner.ts` — no-account outcome picker that maps five buyer jobs to three real catalog-backed MCP capability slots, explains the role of each selected server, and gives the buyer a concrete three-step integration sequence.
+- `components/StackPlanTracking.tsx` — `stack_plan_generated` value event plus `stack_plan_starter_kit_clicked` paid-intent event with goal/source attribution into the existing $49 offer.
+- `app/page.tsx`, `app/sitemap.ts` — homepage acquisition links and indexation for the planner.
+- `scripts/verify-stack-planner.mjs`, `package.json` — release-gated contract covering the goal set, catalog-backed selection, value/intent events, paid handoff, homepage entry point, and sitemap.
+
+**Experiment:** First 50 completed plans or 14 days after approved release, $0 incremental spend. Primary metric is starter-kit handoff clicks / generated plans. Keep/expand at >=10%, improve handoff at 5–10%, and below 5% validate traffic/instrumentation then revisit ICP/value framing before building more.
+**Boundary:** Existing Stripe, starter-kit fulfillment, audit-MCP gating, services, and sponsorship economics are unchanged. No merge, production promotion, outbound, spend, payment activation, or customer contact is part of this branch.
+
 ## 2026-09-23 — Close audit MCP review and verify gated production release
 
 **Branch:** `feat/seo-aeo-geo-audit-mcp` → PR #10 merged as `5723963d71c9a5348dded256c92e25671109793a`; reviewed source head `96234988bd249023b3160e644d4be6bb45b9c126`
@@ -69,7 +118,7 @@
 **Branch:** `fix/selfserve-starter-kit-20260920` → PR pending
 **Tyler's prompt:** Implement a primary or initial lower-ticket revenue path that sells and delivers without human intervention; manual email is only a fallback.
 
-**Shipped:**
+**Shipped on branch:**
 - `lib/products.ts`, `app/api/checkout/route.ts` — shared product catalog, $49 starter-kit session, product-version binding, and fail-closed manual plans.
 - `lib/stripe-fulfillment.ts`, `app/checkout/success/page.tsx`, `app/api/fulfillment/starter-kit/route.ts` — server-side paid-session verification, explicit failure states, and retryable deterministic download.
 - `lib/starter-kit.ts`, `components/FulfillmentDownload.tsx`, `components/CheckoutButton.tsx` — immediate Markdown deliverable and Vercel Analytics funnel events.

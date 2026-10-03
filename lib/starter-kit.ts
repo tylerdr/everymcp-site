@@ -1,25 +1,43 @@
-import { featuredMcps } from "@/lib/mcps";
+import { buildStackBrief, getStackGoal, getStackRecommendations, isStackGoalId } from "@/lib/stack-planner";
 
 export const starterKitFilename = "everymcp-mcp-integration-starter-kit.md";
 
-const catalogSelectionRows = featuredMcps
-  .slice(0, 6)
-  .map(
-    (mcp) =>
-      `| ${mcp.name} | ${mcp.useCase} | ${mcp.source} | ${mcp.repo} | ${mcp.installation} |`
-  )
-  .join("\n");
+function personalizedStackSection(goal: string | undefined): string {
+  if (!isStackGoalId(goal)) return "";
 
-const catalogSelectionNotes = featuredMcps
-  .slice(0, 6)
-  .map((mcp) => `- **${mcp.name}** — ${mcp.description} Use cases in the catalog: ${mcp.useCases.join(", ")}.`)
-  .join("\n");
+  const selectedGoal = getStackGoal(goal);
+  return [
+    "## Your selected outcome",
+    "",
+    `You started with **${selectedGoal.label}**. This packet applies the current catalog to your selected outcome. Recommendations can change as the catalog is updated.`,
+    "",
+    buildStackBrief(goal),
+    "",
+  ].join("\n");
+}
 
-export const starterKit = `# EveryMCP MCP Integration Starter Kit
+export function buildStarterKit(goal?: string): string {
+  // Legacy purchases have no goal. Cover the reviewed research and software
+  // starting points instead of emitting whichever catalog records are featured.
+  const recommendations = isStackGoalId(goal)
+    ? getStackRecommendations(goal)
+    : (["research", "ship-software"] as const).flatMap(getStackRecommendations);
+  const selection = [...new Map(recommendations.map(({ mcp }) => [mcp.id, mcp])).values()];
+  const catalogSelectionRows = selection
+    .map((mcp) => `| ${mcp.name} | ${mcp.useCase} | ${mcp.source} | ${mcp.repo} | ${mcp.installation} |`)
+    .join("\n");
+  const catalogSelectionNotes = selection
+    .map((mcp) => `- **${mcp.name}** — ${mcp.description} Use cases in the catalog: ${mcp.useCases.join(", ")}.`)
+    .join("\n");
+  const selectionDescription = isStackGoalId(goal)
+    ? "These rows use the same current catalog records as your selected outcome above."
+    : "These rows cover the reviewed research and software starting points in the current catalog. Choose the records that fit your first workflow.";
+
+  return `# EveryMCP MCP Integration Starter Kit
 
 This packet turns one MCP integration idea into a bounded selection, setup, and rollout decision. It uses the current EveryMCP catalog as a starting point; it does not replace source review or a provider's current installation instructions.
 
-## 1. Choose the first workflow
+${personalizedStackSection(goal)}## 1. Choose the first workflow
 
 Write one sentence that names the trigger, the MCP server, the data boundary, and the expected result.
 
@@ -42,7 +60,7 @@ Use the decision rule below before opening a credentialed connection:
 
 ## 2. Current catalog selection matrix
 
-These rows are generated from the featured MCP records in EveryMCP's committed catalog. Follow each linked repository or registry source before installation; catalog inclusion is an indexed reference, not a security audit or endorsement.
+${selectionDescription} Follow each linked repository or registry source before installation; catalog inclusion is an indexed reference, not a security audit or endorsement.
 
 | Listing | Primary use case | Catalog source | Repository | Installation note |
 | --- | --- | --- | --- | --- |
@@ -171,3 +189,6 @@ The integration is ready for real data only when the owner can explain what it c
 
 This is a self-serve reference packet delivered as a download after a successful checkout return. It does not include managed implementation, third-party security verification, provider credentials, durable entitlement recovery after a lost checkout return, or a promise that any listed server remains current.
 `;
+}
+
+export const starterKit = buildStarterKit();

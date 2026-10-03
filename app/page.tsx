@@ -32,6 +32,11 @@ export default function Home() {
         </p>
 
         <HomeSearch />
+        <div className="mt-4 text-center">
+          <Link href="/plan" className="text-sm font-bold text-sky transition hover:text-ink">
+            Not sure which MCPs fit? Build a free three-server starting stack →
+          </Link>
+        </div>
 
         <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
           <strong>Catalog status:</strong> {catalogTrust.shortDisclosure}{" "}
@@ -96,7 +101,7 @@ export default function Home() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-sky">Self-serve starter kit</p>
             <h2 className="mt-3 text-3xl font-extrabold text-ink">Start with an MCP integration plan</h2>
             <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600">
-              Get a practical workflow, permission, and rollout packet immediately after payment. If you need a team to build it, use the separate implementation service.
+              Get a practical workflow, permission, and rollout packet immediately after payment. If you need help choosing a stack first, use the free planner before you buy.
             </p>
             <ul className="mt-6 space-y-2 text-sm text-slate-700">
               <li>• Workflow definition worksheet</li>
@@ -104,6 +109,12 @@ export default function Home() {
               <li>• Acceptance and rollback checklist</li>
             </ul>
             <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href="/plan"
+                className="inline-flex rounded-full bg-sky px-5 py-2.5 text-sm font-bold text-white transition hover:bg-ink"
+              >
+                Build my free stack
+              </Link>
               <Link
                 href="/pricing#starter-kit"
                 className="inline-flex rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-white transition hover:bg-sky"

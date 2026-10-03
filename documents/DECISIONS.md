@@ -2,6 +2,16 @@
 
 *Append-only. Never delete entries. To reverse a decision, add a new ADR that supersedes the old one.*
 
+## ADR-005: Use reviewed goal selections throughout paid delivery
+
+**Date:** 2026-10-03
+**Status:** Authorized correction on existing PR #13; final release remains root-owned.
+**Context:** The personalized brief used reviewed sources, but the generic matrix still emitted featured records with a missing source and duplicate server.
+**Decision:** Derive paid matrix rows and notes from the selected goal's recommendations. For legacy/no-goal delivery, combine the reviewed research and software defaults and deduplicate by server ID. Test the actual emitted rows, notes and all GitHub source links in every packet.
+**Consequences:** The paid brief and matrix stay consistent as the current catalog changes. No stored purchase snapshot, payment contract, price or new fulfillment dependency is introduced.
+
+---
+
 ## ADR-004: Name the catalog capabilities used by each starter plan
 
 **Date:** 2026-10-03

@@ -37,6 +37,7 @@ The five starting stacks are deliberately concrete: Brave/Fetch/Memory for resea
 - **Acceptance criteria:**
   - [x] Checkout session is bound to the starter plan and product version.
   - [x] Delivery requires a completed paid Stripe session and supports retry.
+  - [x] Goal-specific matrix rows and notes use the same reviewed current-catalog selections as the brief. Legacy/no-goal packets use deduplicated research and software defaults; every emitted matrix source is covered by actual kit-body release checks.
   - [x] Implementation and sponsorship plans remain closed to payment until fulfillment is configured.
 - **Status:** `implemented; sandbox receipt pending`
 

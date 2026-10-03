@@ -27,6 +27,7 @@
 - [ ] OQ002: What provider and operator identity should back durable inquiry capture and notifications?
 
 ## Completed
+- [x] T013: Align the whole paid packet with reviewed sources — goal-specific matrix rows and notes match the selected brief; legacy/no-goal packets use deduplicated research and software defaults. Actual kit-body checks reject duplicate and unreviewed emitted source links.
 - [x] T012: Correct Stack Planner source/goal fit — explicit existing catalog IDs for all five outcomes, current publisher URLs for Brave/Context7/MotherDuck, local reference Memory instead of the archived Mem0 wrapper, absolute brief links, and real-catalog release checks. Existing price and payment/MCP gates are preserved.
 - [x] T011: Make each generated MCP plan portable — add a copyable implementation brief with the selected servers, roles, source links, integration sequence, and a `stack_plan_brief_copied` activation event on the existing growth branch.
 - [x] T010: Build a no-account, outcome-based MCP Stack Planner that returns a real three-server shortlist, immediate integration sequence, attributed $49 starter-kit handoff, and value/intent events — implemented 2026-09-23 on `feature/growth-stack-planner-20260923`; exact-head hosted validation still required before release.

@@ -4,6 +4,12 @@
 
 *Tyler's input is scarce and valuable. Exact words are preserved so scope never gets lost or misremembered.*
 
+## 2026-10-03 — Independent review follow-up within the authorized correction
+
+The independent reviewer found that the paid packet's selection matrix still took six featured records, including the known missing AWS source and a duplicated Chroma server. Within the already authorized source and paid-delivery correction, derive personalized matrix rows and notes from the selected goal's reviewed recommendations; use deliberately reviewed, deduplicated defaults for legacy purchases without a goal. Validate every emitted matrix source and preserve paid-session ownership, price, checkout gates and the current-catalog contract. Root retains the release decision after this follow-up passes the full gate.
+
+---
+
 ## 2026-10-03 — Correct the existing Stack Planner before release
 
 The portfolio launch task raises the target to $10,000 collected for each venture by October 11, 2026. Root authorized a focused correction on existing PR #13 after reviewing its actual catalog output: use current official source links and goal-specific catalog choices, make portable links absolute, and describe current-catalog delivery accurately without inventing a frozen purchase snapshot. Preserve the $49 price, existing payment and MCP activation gates, and all existing planner work. Run the full project gates and all five actual-catalog plans. Append the correction to this PR after re-reading its head; merge remains root-owned.

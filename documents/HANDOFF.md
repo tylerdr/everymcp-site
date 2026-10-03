@@ -7,14 +7,15 @@
 - Five goal profiles now name existing catalog IDs and their expected categories instead of taking the first featured/alphabetic result. Research uses Brave/Fetch/Memory; software uses GitHub/Filesystem/Context7; recurring engineering checks use GitHub/Playwright/Filesystem; analysis uses MotherDuck/Grafana/Filesystem; memory uses Memory/Filesystem/Chroma.
 - Selected Brave, Context7 and MotherDuck records now point to current publisher sources. The archived Mem0 wrapper and dead Contentful/AWS/Grafana duplicates are not selected by these profiles. Other catalog entries retain their indexed status; this is not a full catalog audit.
 - Copied EveryMCP listing URLs are absolute. The paid packet uses the verified session's goal with the current catalog and states that recommendations may change. No checkout-time snapshot is stored or claimed.
+- Independent review caught a remaining paid-artifact defect after the first append: its matrix still emitted generic featured records, including the missing AWS source and duplicate Chroma records. Matrix rows and notes now use the same reviewed goal recommendations. Legacy/no-goal packets use reviewed research and software selections, deduplicated by server ID; invalid goals preserve this fallback.
 
 ## Validation and source evidence
 
 - `npm ci --no-audit --no-fund` succeeded under Node 24.19.0 with the existing lockfile. Existing dependency warnings were observed; no dependencies or lockfile were changed.
 - `npm test`, `npm run lint`, `npx tsc --noEmit`, and `npm run build` passed locally for the correction. The build includes all nine audit-MCP tests, the real-catalog Stack Planner test, existing release contracts, and the Next production compile/type/lint checks.
-- The planner test now runs against all 616 actual catalog entries. It verifies five exact task stacks, three distinct source servers per stack, ten current publisher URLs, absolute copied links, paid-session goal ownership, generic legacy delivery and missing/unavailable/unpaid failure responses. Network requests remain outside the deterministic build gate.
+- The planner test now runs against all 616 actual catalog entries. It verifies five exact task stacks, three distinct source servers per stack, ten current publisher URLs, absolute copied links, paid-session goal ownership, generic legacy delivery and missing/unavailable/unpaid failure responses. It also parses all goal and legacy paid matrices/notes and rejects duplicate or unreviewed emitted sources anywhere in those packets. Network requests remain outside the deterministic build gate.
 - Ordinary unauthenticated HTTP on 2026-10-03 returned 200 for all ten selected publisher sources below; none displayed GitHub's archived-repository banner. These checks establish current source availability, not that a buyer's installation or workflow has executed.
-- The old exact-head preview was READY and all six planner/goal HTTP routes returned 200. Obtain the new append-commit preview status after publication. Real-browser form, clipboard and analytics receipt checks remain unverified; no browser workaround was used.
+- The first append at `69d2b8389a7f27742a2678af168a4901ee5dcce5` was READY, and all six hosted planner/goal routes returned HTTP 200 with the expected card names, listing links and source URLs. Obtain the final paid-matrix follow-up's exact-head preview status after publication. Real-browser form, clipboard and analytics receipt checks remain unverified; no browser workaround was used.
 
 | Capability | Publisher source checked |
 |---|---|

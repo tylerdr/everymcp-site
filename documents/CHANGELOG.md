@@ -2,6 +2,12 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-10-03 — Carry reviewed selections through the whole paid packet
+
+Independent review of the appended correction found that the paid matrix still used generic featured entries, including the old missing AWS source and duplicate Chroma records. Goal-specific packets now build both matrix rows and notes from the same reviewed recommendations as their brief. Legacy purchases without a goal use the reviewed research and software starting points, deduplicated by server ID. Invalid goals retain the same generic fallback.
+
+The actual-catalog test now parses every paid matrix and its notes, checks the exact intended distinct sources, and rejects any other GitHub source emitted anywhere in each goal packet or the legacy packet. All emitted sources are drawn from the ten publisher URLs already checked during this release review. Price, paid-session metadata ownership, checkout and provider gates are unchanged.
+
 ## 2026-10-03 — Make the existing planner's recommendations usable
 
 **Branch:** existing `feature/growth-stack-planner-20260923`, PR #13; correction based on reviewed head `0fe75917241907adbb3a89ede59ab863548b291c`.

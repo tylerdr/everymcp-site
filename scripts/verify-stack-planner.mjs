@@ -30,7 +30,7 @@ const catalog=JSON.parse(read('data/mcps.json'));
 const categoryModule=load('data/categories.ts',{});
 const mcps=load('lib/mcps.ts',{'@/data/mcps.json':{default:catalog},'@/data/categories':categoryModule});
 const model=load('lib/stack-planner.ts',{'@/lib/mcps':mcps,'@/lib/site':{siteUrl:'https://everymcp.com'}});
-const kit=load('lib/starter-kit.ts',{'@/lib/mcps':mcps,'@/lib/stack-planner':model});
+const kit=load('lib/starter-kit.ts',{'@/lib/stack-planner':model});
 const expectedStacks={
  research:['brave-search','fetch','memory'],
  'ship-software':['github-official','filesystem','context7'],
@@ -52,6 +52,23 @@ const expectedSources={
  grafana:'https://github.com/grafana/mcp-grafana',
  chroma:'https://github.com/chroma-core/chroma-mcp'
 };
+function verifyKitSelection(body,expectedIds){
+ const matrix=body.split('## 2. Current catalog selection matrix\n')[1].split('## 3. Source and permission review')[0];
+ const rows=matrix.split('\n').filter(line=>line.startsWith('| ')&&line.includes('https://github.com/'));
+ const matrixSources=rows.map(line=>line.split('|')[4].trim());
+ const expected=expectedIds.map(id=>expectedSources[id]);
+ assert.deepEqual(matrixSources,expected,'The paid matrix must match the reviewed selected records');
+ assert.equal(new Set(matrixSources).size,matrixSources.length,'Paid selection rows must not duplicate a server');
+ const notes=matrix.split('\n').filter(line=>line.startsWith('- **'));
+ assert.equal(notes.length,expectedIds.length,'Each selected record has one matching catalog note');
+ for(const id of expectedIds){
+  const mcp=mcps.sortedMcps.find(record=>record.id===id);
+  assert.ok(notes.some(note=>note.startsWith(`- **${mcp.name}**`)),`Missing selected note for ${id}`);
+ }
+ const emittedSources=Array.from(body.matchAll(/https:\/\/github\.com\/[^\s|)]+/g),match=>match[0]);
+ assert.ok(emittedSources.length>=expected.length);
+ for(const source of emittedSources)assert.ok(expected.includes(source),`Unreviewed source in paid packet: ${source}`);
+}
 for(const goal of requiredGoals){
  const selected=model.getStackRecommendations(goal);
  assert.equal(selected.length,3);assert.equal(new Set(selected.map(value=>value.mcp.id)).size,3);
@@ -64,9 +81,12 @@ for(const goal of requiredGoals){
   assert.ok(brief.includes(`Source: ${mcp.repo}`));
  }
  for(const marker of ['Task:','Success:','Stop:'])assert.ok(brief.includes(marker));
- assert.ok(kit.buildStarterKit(goal).includes(brief));
+ const paidKit=kit.buildStarterKit(goal);
+ assert.ok(paidKit.includes(brief));
+ verifyKitSelection(paidKit,expectedStacks[goal]);
 }
 assert.equal(kit.buildStarterKit('unknown-goal'),kit.starterKit);
+verifyKitSelection(kit.starterKit,[...expectedStacks.research,...expectedStacks['ship-software']]);
 let verified={status:'paid',session:{metadata:{acquisition_goal:'ship-software'}}};
 class Result {constructor(body,options={}){this.body=body;this.options=options;}static json(body,options){return new Result(body,options);}}
 const handler=load('app/api/fulfillment/starter-kit/route.ts',{'next/server':{NextResponse:Result},'@/lib/starter-kit':kit,'@/lib/stripe-fulfillment':{verifyPaidSession:async()=>verified}});
@@ -78,4 +98,4 @@ assert.equal((await handler.GET({url:'https://everymcp.com/api/fulfillment/start
 for(const [status,code] of [['missing',400],['unavailable',503],['invalid',403],['not_paid',403]]){
  verified={status};const result=await handler.GET({url:'https://everymcp.com/api/fulfillment/starter-kit'});assert.equal(result.options.status,code);assert.equal(typeof result.body,'object');
 }
-console.log('Stack planner: all five real-catalog stacks, ten publisher sources, portable links, and verified paid-goal fulfillment behavior passed');
+console.log('Stack planner: all five real-catalog stacks, ten publisher sources, goal-matched paid matrices, deduplicated legacy matrix, portable links, and verified paid-goal fulfillment behavior passed');

@@ -5,7 +5,7 @@
 ---
 
 ## Active Sprint
-- [ ] T016: Release the implemented free source-monitoring foundation — 616 listings / 585 sources, bounded robots-aware public observations, validated immutable receipts, null grades and review-controlled publication. Independent review and 17 fixtures pass; exact-head hosted CI and first scheduled receipt remain pending.
+- [ ] T016: Release the implemented free source-monitoring foundation — 616 listings / 585 sources, bounded robots-aware public observations, validated immutable receipts, null grades and review-controlled publication. Independent review, 17 fixtures, exact-head hosted CI/build, production readback and a real runner execution pass; first scheduled receipt remains pending.
 - [ ] T017: Research-driven Jev evaluation and capability profiles — retain provenance, abstention, version applicability and optional-feature semantics; grading/badges remain unimplemented until contract review.
 - [ ] T001: Stripe test-mode checkout and download receipt — run a labeled no-charge sandbox payment and retry the download.
 - [ ] T002: Analytics/GSC proof — verify Vercel event receipt and submit/confirm the canonical sitemap through the root-owned properties.

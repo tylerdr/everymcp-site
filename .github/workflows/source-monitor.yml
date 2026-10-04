@@ -4,9 +4,12 @@ on:
   pull_request:
     paths:
       - scripts/monitor_sources.py
+      - scripts/import_source_receipt.py
       - scripts/requirements-source-monitor.txt
       - tests/test_source_monitor.py
+      - tests/test_source_receipt_import.py
       - documents/source-monitor-report.schema.json
+      - documents/source-monitor-reviews/**
       - data/mcps.json
       - data/listing-evidence.json
       - .github/workflows/source-monitor.yml
@@ -37,6 +40,7 @@ jobs:
       - name: Verify policy, fixtures and whole-catalog dry run
         run: |
           tmp/source-monitor/venv/bin/python -m unittest discover -s tests -p 'test_source_monitor.py' -v
+          tmp/source-monitor/venv/bin/python -m unittest discover -s tests -p 'test_source_receipt_import.py' -v
           tmp/source-monitor/venv/bin/python scripts/monitor_sources.py --dry-run
 
   observe:

@@ -46,3 +46,29 @@ All legacy indexed sources start with unknown identity evidence. Only curated re
 The reviewed research bundle `2026-10-04-r2` is verified locally (archive and eight per-file SHA-256 entries) and intentionally has `readyForExecutableUse=false`. It is input for later rule validation, not an executable scorer. Bounded version-specific discovery, optional-feature applicability, client/server actor boundaries, tenant/private evidence handling, model abstention/provenance and any gateway integration remain separate work. No advertised tools, resources or prompts are executed in this slice.
 
 Release gates: independent review, Python fixture and dry-run/schema validation, unchanged catalog/application checks, exact-head hosted build, then a real workflow execution and first scheduled due-run receipt. Do not call automated monitoring live or claim automatic publication until those respective receipts exist.
+
+## Offline receipt import and priority review, policy v1
+
+`scripts/import_source_receipt.py` accepts a saved report or a single observe-job log marker pair. It makes no network requests and does not collect, restore a production cache, call a model, or update public data. Obtain the expected canonical SHA-256, exact trusted-main commit and run/job metadata through an authorized GitHub read before importing. The hash establishes content integrity; it does not authenticate the claimed origin by itself. Check the actual canonical run and observe job independently, including their event, branch, head, timestamps and successful conclusion. The importer checks those supplied fields and citation URLs, but does not replace that provenance verification.
+
+The committed [manual-run review bundle](source-monitor-reviews/2026-10-04-manual/queue.md) preserves the complete body-free JSON receipt, minimal execution metadata and five-entry JSON/Markdown queue for run [37240814694](https://github.com/tylerdr/everymcp-site/actions/runs/37240814694), observe job [111549047496](https://github.com/tylerdr/everymcp-site/actions/runs/37240814694/job/111549047496), at `a3f2affc5a8e354428ecc66ed11c33ea1ec4dca8`. It is manual-run evidence, not a scheduled-run receipt. All 12 priority sources were attempted: five historical indexed repositories returned 404, and seven distinct curated references returned 200. The full receipt still covers only 120 source attempts: 38 reachable, 77 missing at check, five unknown, 465 not checked.
+
+Replay this fixed snapshot without network access:
+
+```sh
+tmp/source-monitor/venv/bin/python -m unittest discover -s tests -p 'test_source*.py' -v
+tmp/source-monitor/venv/bin/python scripts/import_source_receipt.py \
+  --receipt documents/source-monitor-reviews/2026-10-04-manual/receipt.json \
+  --sha256 2196cc1d41678e4ac23cda41751bfb5eceb6a2c114dc6a6a53ebda070c87d347 \
+  --execution documents/source-monitor-reviews/2026-10-04-manual/execution.json \
+  --head-sha a3f2affc5a8e354428ecc66ed11c33ea1ec4dca8 \
+  --as-of 2026-10-04T23:15:00Z
+```
+
+Use `--job-log path/to/observe.log` instead of `--receipt` to extract the logged `SOURCE_RUN_SHA256` and `SOURCE_RUN_JSON` output. Echoed workflow source lines are ignored; absent, multiple, truncated or mismatched markers fail closed. The canonical hash is computed from compact sorted JSON plus one newline. Duplicate JSON keys and non-finite values are rejected. Both paths validate the committed report schema, policy/null assessments, exact current catalog URL-to-listing relationships, actual cohort counters, chronological last attempts/successes/findings and the trusted workflow's 120-source/six-policy request limits. An inventory mismatch needs explicit historical mapping review; the importer never silently reassigns a URL or drops a preserved slug.
+
+`--as-of` is required, making freshness deterministic rather than dependent on the reviewer's wall clock. Queue rows keep receipt freshness separately from freshness at that review date. They distinguish reachable, missing at check, unknown and not checked, plus stale/current/unchecked, the collection disposition, precise failure reason, previous successful observation and unresolved findings. A newer unknown/failed read remains inconclusive and keeps its previous success. Recovery and expiry leave unresolved findings visible. Aggregate request duration excludes host pacing, while observation duration includes it; these measurements are retained separately.
+
+The queue joins by stable slug and the exact normalized source URL, preserving each original citation URL, indexed versus separate-reference role, documented publisher/community attribution, curated evidence date/note, all URL relationships and a JSON pointer back to the receipt. Curated iCloud archive status and Heap ingestion/deletion/localhost cautions remain review inputs; an HTTP 200 cannot resolve them. Public-note availability comparisons do not infer changed capabilities or publisher identity. The duplicate Neon ID and both slugs remain intact; the full inventory is 616 routes, 615 legacy IDs, 578 indexed URLs plus seven separate references, 585 unique URLs.
+
+Import outputs are content-addressed immutable bundles under `tmp/source-monitor/imports` by default. Re-importing identical inputs is idempotent; changed existing bundle content is rejected. Outputs within the repository are restricted to `tmp/source-monitor`, including resolved symlinks; source inputs cannot sit inside the destination. A reviewed snapshot may be copied into `documents/source-monitor-reviews` in a PR for durable review. Neither the import command nor CI publishes `data/mcps.json` or `data/listing-evidence.json`. Later public refreshes require a separate reviewed change and exact production readback. This slice adds no workflow collection, scheduler claim, evaluator, grade, badge, provider call or commerce activation.

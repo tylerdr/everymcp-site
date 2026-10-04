@@ -94,3 +94,16 @@ The read-only review found four public source links returning 404 and an archive
 **Context:** Marketplace guide PR #9 is in review; the responsive visual pass must remain bounded to the EveryMCP guide pages.
 **Action taken:** Replaced the generated-image plan with official source favicons or clean typographic wordmarks for marketplace listings, plus a restrained inline route diagram for the educational hub. No generated image assets or pseudo-logos ship.
 **Spec impact:** Listing brand references stay source-linked and explicitly independent; conceptual art is optional and is not used as a platform mark.
+
+## 2026-10-04 — Traffic-page evidence and autonomous revenue direction
+
+**Tyler's exact words, supplied by the coordinating task:**
+> Remember, you are the owner and operator of these tied Durden sites, so don't wait for my approval to merge in EveryMCP, but make sure that we're building in a way that is additive to what's already working there, since we're starting to get some traction.
+
+**Coordinator instruction:**
+> Proceed now with the independently useful five-page source-evidence/correction slice; it does not need to wait for full gateway strategy. Current confirmed brokenlinks and unsupportedclaims justify repair. Preserve IDs/slugs/canonicals, but do NOT preserve false factual capability orpublisherclaims merely for traffic. Use dated statuses, primarysources, clearly separatecommunityalternatives, no silentidentity reassignment and no 'official' without evidence. RevenueCat currentpublisherdocs can replace stalekey-onlyinstructions; Heap mustnotpromiseanalyticsqueries contradictedbyactualrepo. Unknownsource isunknown, notcertifiedunavailableforever. Add existingfreeplannerCTA honestly.
+>
+> User's new direction also resolves the specific commercialcopyconflict: remove unsupported 'Most popular' and stop promoting a fixed $2000 human implementation tier; replace with a small tasteful unpriced complex-enterprise consultingcontact path, preservingexistingformdestination and no newpromise. Keep $49kit/payment gate truthful until automatedofferstrategy ready; don'tinventnewprices or enablecheckout. This can be separatecommit/PR ifbetterreviewability. Validate metadata, links, sourceattribution, responsive/accessibility and regressionpreservation; independentreview then normallymerge/release ifchecks permit. Revalidateexactproductionhead and5pages. No security/provider/config/spend changes.
+
+**Context:** Main `d60fbeafa21685d9c170324e076ad78dc1bf8caf`, no open PRs. PR #13 is already merged. Direct public GETs returned 200 for the five traffic pages and 404 for all five previously indexed GitHub sources. Public pricing closes checkout pending payment configuration verification.
+**Action:** Repair these five records, add timestamped source evidence and distinct alternatives, route discovery into the existing free planner, and replace the fixed human-service promotion with an unpriced enterprise contact path. Broader tools/schema discovery, evaluations, paid monitoring and gateway design await research. No credentials, providers, payment gates, security configuration or spend changes.

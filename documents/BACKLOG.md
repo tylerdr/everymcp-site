@@ -5,6 +5,9 @@
 ---
 
 ## Active Sprint
+- [ ] T015: Release five traffic-page source corrections and unpriced enterprise contact — implemented on `feature/traffic-page-source-evidence`; independent review and exact production readback pending.
+- [ ] T016: Free deterministic source monitoring — normalize/dedupe all 616 catalog source URLs, classify claimed versus evidenced identity, collect bounded cacheable public observations and publish only under a validated evidence policy. No tool invocation, private-network fetch, paid model or credential activation.
+- [ ] T017: Research-driven Jev evaluation and capability profiles — retain provenance, abstention, version applicability and optional-feature semantics; grading/badges remain unimplemented until contract review.
 - [ ] T001: Stripe test-mode checkout and download receipt — run a labeled no-charge sandbox payment and retry the download.
 - [ ] T002: Analytics/GSC proof — verify Vercel event receipt and submit/confirm the canonical sitemap through the root-owned properties.
 - [ ] T007: Audit MCP activation — independently verify the exact durable Vercel edge rate-limit rule, then enable only after provider receipts are current.

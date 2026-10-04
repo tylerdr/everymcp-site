@@ -1,42 +1,33 @@
-# EveryMCP release handoff — 2026-10-03
+# EveryMCP release handoff — 2026-10-04
 
-## Current growth branch
+## Owner and baseline
+- This task owns bounded EveryMCP implementation. Repo `tylerdr/everymcp-site`, main `d60fbeafa21685d9c170324e076ad78dc1bf8caf`; no open PRs at the ownership check. PR #13 is already merged and must not be duplicated.
+- Isolated checkout: `/Users/tyler/Documents/Codex/2026-10-04/task-9/everymcp-evidence`, branch `feature/traffic-page-source-evidence`.
+- Tai Durden PR #15 remains unchanged at `c1bba1d`; Praxium and other ventures are excluded from edits.
 
-- Existing branch: `feature/growth-stack-planner-20260923`, PR #13. The reviewed pre-correction head was `0fe75917241907adbb3a89ede59ab863548b291c`; it included main `2690e148e8d5136649d210f66201cfba31cad890` with no commits behind.
-- Preserve the existing no-account `/plan` flow, homepage/sitemap entry points, portable brief, goal attribution and $49 Starter Kit handoff. The correction does not create another planner or checkout.
-- Five goal profiles now name existing catalog IDs and their expected categories instead of taking the first featured/alphabetic result. Research uses Brave/Fetch/Memory; software uses GitHub/Filesystem/Context7; recurring engineering checks use GitHub/Playwright/Filesystem; analysis uses MotherDuck/Grafana/Filesystem; memory uses Memory/Filesystem/Chroma.
-- Selected Brave, Context7 and MotherDuck records now point to current publisher sources. The archived Mem0 wrapper and dead Contentful/AWS/Grafana duplicates are not selected by these profiles. Other catalog entries retain their indexed status; this is not a full catalog audit.
-- Copied EveryMCP listing URLs are absolute. The paid packet uses the verified session's goal with the current catalog and states that recommendations may change. No checkout-time snapshot is stored or claimed.
-- Independent review caught a remaining paid-artifact defect after the first append: its matrix still emitted generic featured records, including the missing AWS source and duplicate Chroma records. Matrix rows and notes now use the same reviewed goal recommendations. Legacy/no-goal packets use reviewed research and software selections, deduplicated by server ID; invalid goals preserve this fallback.
-- Root review also required shadcn controls. Added the previously absent Button/NativeSelect primitives and cn utility from the official registry, adapted for the existing React 18/Tailwind 3 stack. The planner's selector, submit/copy actions and semantic starter link now use those primitives; new planner surfaces use CSS theme tokens. The native required GET form and keyboard semantics remain intact.
+## Current slice
+- Five stable listing IDs/names/slugs/canonicals are preserved. Only their supported metadata is corrected; other 611 records stay unchanged.
+- `data/listing-evidence.json`, `lib/listing-evidence.ts` and `components/ListingSourceEvidence.tsx` expose curated dated public GET observations, source uncertainty and distinct alternatives. No runtime/build network discovery is added.
+- RevenueCat uses current publisher MCP documentation and OAuth/API v2 instructions. Redash/iCloud/Heap alternatives remain clearly separate community candidates. iCloud's candidate is archived; Heap's documented write/deletion and unauthenticated HTTP scope is explicit. Hotjar's transition does not establish legacy-account compatibility.
+- Existing detail pages now offer the free planner without promising that the viewed listing will be selected. No automatic installation or feature conformance is claimed.
+- Removed the fixed $2,000 implementation promotion and unsupported popularity marker. `/services#implementation-inquiry` remains an unpriced enterprise contact path, with the same `/api/lead` destination and existing methodology resource. The $49 starter kit and payment/provider/security gates are unchanged.
 
-## Validation and source evidence
+## Evidence and validation
+- Direct unauthenticated GETs at 2026-10-04T21:25:50–51Z returned 404 for all five previously indexed GitHub URLs and 200 for seven reference URLs. Documentation availability is separate from tool execution; no MCP tools ran.
+- `npm test` passes 15 Vitest tests plus all existing planner, brand, catalog, marketplace, checkout, entitlement, analytics and lead contracts. Final lint, standalone TypeScript and production build pass (753 generated pages). Independent review has no unresolved blocking findings. Local HTTP readback passes all five source pages plus pricing/services/plan/filesystem, metadata/source links and all 616 sitemap paths. Chrome desktop and 390px checks pass with no overflow and keyboard focus/labels. Exact-head hosted preview and production checks remain release gates.
+- Catalog preservation comparison confirms exactly five changed records, 616 stable IDs/slugs/names and 611 unchanged records.
+- GSC supplied by root: Sep 21–Oct 3 observation (Oct 3 may be provisional), 53 clicks/2,945 impressions site-wide. Redash exact query→page join: 126/0, position 9.1; page aggregate 154/0. Revenue Cat exact query→page join: 94/0, position 7.45; page aggregate 166/0. Different denominators; no conversion/CTR improvement claim.
 
-- `npm ci --no-audit --no-fund` succeeded under Node 24.19.0. The source/matrix corrections left dependencies unchanged; the later root-required UI correction adds five pinned direct dependencies and six resolved lock entries. All previous package resolutions are preserved. Existing peer warnings remain recorded in the install log.
-- `npm test`, `npm run lint`, `npx tsc --noEmit`, and `npm run build` passed locally for the correction. The build includes all nine audit-MCP tests, the real-catalog Stack Planner test, existing release contracts, and the Next production compile/type/lint checks.
-- The planner test now runs against all 616 actual catalog entries. It verifies five exact task stacks, three distinct source servers per stack, ten current publisher URLs, absolute copied links, paid-session goal ownership, generic legacy delivery and missing/unavailable/unpaid failure responses. It also parses all goal and legacy paid matrices/notes and rejects duplicate or unreviewed emitted sources anywhere in those packets. Network requests remain outside the deterministic build gate.
-- Ordinary unauthenticated HTTP on 2026-10-03 returned 200 for all ten selected publisher sources below; none displayed GitHub's archived-repository banner. These checks establish current source availability, not that a buyer's installation or workflow has executed.
-- The first append at `69d2b8389a7f27742a2678af168a4901ee5dcce5` was READY, and all six hosted planner/goal routes returned HTTP 200 with the expected card names, listing links and source URLs. Independent review cleared the paid-matrix follow-up at `4ad575eb19fde58c647cf106f59c0d6f05433542`. Obtain the final UI correction's exact-head preview status after publication. Real-browser form, clipboard and analytics receipt checks remain unverified; no browser workaround was used.
+## Next work
+1. Create draft PR for the validated slice, verify the exact source head and hosted preview, then merge under explicit user authority and verify the exact production deployment plus five pages.
+2. Implement the authorized free deterministic monitoring foundation: all-catalog normalized/deduplicated source inventory, bounded public reads, caching, explicit unknown/failure/change states and review-controlled publication. 403/429/timeouts must not become “dead” sources; no private targets or advertised tool invocation.
+3. Await product/technical research and shared gateway audit before capability execution, Jev semantic grading, fixed badge/aggregate formula or paid monitoring. July 2026 protocol discovery differs from legacy initialization; conformance must be version-specific with optional-feature applicability.
 
-| Capability | Publisher source checked |
-|---|---|
-| Brave Search | https://github.com/brave/brave-search-mcp-server |
-| Fetch | https://github.com/modelcontextprotocol/servers/tree/main/src/fetch |
-| Memory | https://github.com/modelcontextprotocol/servers/tree/main/src/memory |
-| GitHub | https://github.com/github/github-mcp-server |
-| Filesystem | https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem |
-| Context7 | https://github.com/upstash/context7 |
-| Playwright | https://github.com/microsoft/playwright-mcp |
-| MotherDuck | https://github.com/motherduckdb/mcp-server-motherduck |
-| Grafana | https://github.com/grafana/mcp-grafana |
-| Chroma | https://github.com/chroma-core/chroma-mcp |
+## Retained boundaries
+- Live pricing currently closes checkout pending Stripe configuration verification. No payment activation, purchase or paid delivery receipt was performed.
+- Lead storage/operator fulfillment remains its existing separate gap. No form or outbound notification was submitted.
+- `/api/mcp` stays disabled pending its existing durable edge gate and provider readiness. No credentials, provider, database security, rate-limit configuration, new API spend, or Praxium edits are part of this slice.
 
-## Existing commerce and audit boundaries
-
-- The initial self-serve product remains $49. Paid-session verification, product binding, checkout configuration and delivery gates are intact. A live purchase/download receipt remains separate work; no payment was activated or made in this correction.
-- Implementation and sponsorship remain inquiry-only until their fulfillment is configured. Do not make an unassigned person the promised delivery path.
-- Audit MCP work from PR #10 and later readiness clarification PR #12 remains on main. `/api/mcp` stays disabled until its durable edge limit and explicit activation flags are independently verified. GetFoundInChat and BrandKit remain pending their own production contracts/readiness. No MCP was invoked.
-
-## Next action
-
-Root reviews the appended diff and its exact-head hosted deployment before deciding whether to merge. Then observe completed plan → copied brief → Starter Kit intent using the existing events. The experiment is the first 50 completed plans or 14 days at $0 incremental spend: keep/expand at 10% or more intent, improve the handoff at 5–10%, and below 5% validate traffic/instrumentation before changing the offer. These are activation signals, not sales. No external customer messaging, marketplace submission, spend or production promotion is part of this correction.
+## Research guardrails received
+- Shared gateway code is a private unlicensed preview; the default Jev path can call a paid provider. No adoption, credentials or unbudgeted calls in this release.
+- Publish plain dated discovery facts first. Unknown/truncated catalogs and unknown applicability have no full denominator or aggregate score; zero assessed criteria means a null score. Declarations and Jev proposals are not runtime/security passes, and historical unresolved failures must not expire into better rankings. No Agent Native badge until authorized observed workflows and reviewed actor/version/transport criteria exist.

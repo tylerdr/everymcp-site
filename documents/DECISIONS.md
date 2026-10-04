@@ -62,3 +62,18 @@
 **Alternatives considered:** Treating metadata or HTTP 200 as proof of an executable audit was rejected. A normalized combined score and unauthenticated portfolio scans were rejected because provider evidence and tenant authority are not equivalent.
 
 ---
+
+## ADR-007: Separate indexed identity, source receipts and community alternatives
+
+**Date:** 2026-10-04
+**Status:** Authorized correction; independent review and release gates required.
+**Context:** Five traffic listings returned 200 but their indexed repository links returned 404. Catalog copy claimed capabilities and publishers that those sources could not support.
+**Decision:** Preserve listing identity and canonical URLs. Store curated timestamped GET receipts separately in `data/listing-evidence.json`; expose source status and independently attributed alternatives in a server-rendered component. Correct descriptions/installation/use cases without silently substituting a community publisher. A HTTP 200 documents availability only, while HTTP 404 is a dated observation, not permanent unavailability. Add the existing free planner rather than promising automatic inclusion of the viewed server.
+**Consequences:** The first five pages become useful source-comparison entry points. No runtime discovery, tool execution, protocol judgment, certification, aggregate score, credential or security configuration is added. Future refreshes must preserve this distinction and send identity/capability changes to review.
+
+## ADR-008: Use an unpriced enterprise contact path rather than a fixed human package
+
+**Date:** 2026-10-04
+**Status:** User direction supersedes the public fixed implementation tier in ADR-002.
+**Decision:** Remove the $2,000 implementation promotion and unsupported popularity claim. Retain `/services` and `#implementation-inquiry` as a modest enterprise consulting contact path with availability/scope/terms requiring separate confirmation. The form still calls `/api/lead` for the existing methodology resource and does not book or promise delivery.
+**Consequences:** The $49 starter kit and all payment/provider gates remain intact. Dormant manual product definitions are retained to avoid changing the payment contract; they remain rejected by self-serve checkout. No new price, engagement, provider or outbound notification is created.

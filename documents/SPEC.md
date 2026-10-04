@@ -1,12 +1,12 @@
 # everymcp — Product Spec
 
-**Last updated:** 2026-10-03 (session: actual-catalog planner correction)
-**Version:** 0.4
+**Last updated:** 2026-10-04 (session: traffic-page source evidence)
+**Version:** 0.5
 
 ---
 
 ## Overview
-EveryMCP is a source-aware MCP discovery directory with a free outcome-based Stack Planner, a self-serve $49 MCP Integration Starter Kit, and separately scoped implementation and sponsorship services.
+EveryMCP is a source-aware MCP discovery directory with a free outcome-based Stack Planner, a self-serve $49 MCP Integration Starter Kit, and separate enterprise consulting and sponsorship inquiries. Consulting is unpriced and requires confirmation of availability and scope; it is not a self-serve implementation product.
 
 ## Problem
 Teams can find hundreds of MCP servers but still struggle to turn a business outcome into a small, sensible starting stack. Generic browsing creates choice overload; buying an implementation packet before the buyer has a concrete shortlist asks for commitment before value.
@@ -29,9 +29,21 @@ Technical founders, AI/product leads, and operator-builders who already have an 
   - [x] Preserve goal/source attribution into `/pricing#starter-kit`.
   - [x] Track `stack_plan_generated`, `stack_plan_brief_copied`, and `stack_plan_starter_kit_clicked` as value, activation, and paid-intent events.
   - [x] Link the planner from the homepage and sitemap.
-- **Status:** `implemented on draft growth branch; exact-head hosted validation pending`
+- **Status:** `implemented; PR #13 merged October 3, 2026`
 
 The five starting stacks are deliberately concrete: Brave/Fetch/Memory for research; GitHub/Filesystem/Context7 for software; GitHub/Playwright/Filesystem for recurring engineering checks; MotherDuck/Grafana/Filesystem for data analysis; and Memory/Filesystem/Chroma for durable context. A plan is a starting point for the described systems, not a compatibility decision for an unknown buyer environment. The paid download rebuilds recommendations from the current catalog using the verified payment's selected goal; no frozen checkout-time catalog snapshot is stored.
+
+### Dated source evidence on existing traffic pages
+- **Description:** Preserve the Redash, RevenueCat, iCloud, Heap and Hotjar listing IDs, names, slugs and canonicals while correcting unsupported metadata and adding timestamped public-source observations.
+- **Acceptance criteria:**
+  - [x] Keep unavailable indexed repositories identifiable as historical sources, not reassigned to a different community creator.
+  - [x] Separate publisher documentation, community candidates, dated HTTP observations and untested behavior.
+  - [x] Document RevenueCat's cloud MCP and current OAuth/API v2 setup from publisher sources.
+  - [x] Remove unsupported Heap analytics-query and iCloud photo/sync claims; expose iCloud candidate archive status and Heap maintainer auth/deletion warnings.
+  - [x] Explain the Hotjar/Contentsquare transition without establishing legacy-account compatibility.
+  - [x] Add the existing free planner path without promising inclusion of the viewed listing.
+  - [x] Remove unsupported popularity and the fixed human implementation promotion; retain the existing consulting inquiry destination and truthful $49 payment gate.
+- **Status:** `implemented on feature/traffic-page-source-evidence; release verification pending`
 
 ### Self-serve MCP Integration Starter Kit
 - **Description:** A deterministic Markdown worksheet and rollout packet sold through Stripe Checkout and delivered after server-side payment verification.
@@ -107,3 +119,6 @@ Unresolved product decisions. Agents should NOT unilaterally resolve these.
 | 2026-09-20 | "Primary offer, or at least initial revenue path and any lower-ticket offer, must require NO HUMAN INTERVENTION TO SELL OR DELIVER." | incorporated: self-serve starter kit |
 | 2026-09-22 | "Retain the MCP server directory and add a directory of relevant marketplaces/platforms plus official source-backed listing guides/checklists for ChatGPT, Claude, Meta Muse, Grok and longtail." | incorporated: marketplace directory and dated guide/checklist routes; external submissions remain closed |
 | 2026-09-22 | "...ensure getfoundinchat has the audit skills created and available via mcp... everyMCP MCP can include a single MCP where we can bundle these to run them all together... leverage the MCP capabilities from sprinter starter..." | incorporated: bounded EveryMCP audit MCP composition; GetFoundInChat and BrandKit activation remain readiness-gated |
+
+## 2026-10-04 continuation boundary
+User authorized tested EveryMCP merges and requested accuracy/trust before paid monitoring. The next slice is bounded deterministic public-source monitoring: deduplicated URLs, explicit observation/failure/unknown states, caching and review-controlled publication. Capability discovery must use version-specific conformance profiles and respect optional features. Jev judgment, aggregate grading, badges, gateway design, and paid-provider execution await the research contract and an approved cost limit; no model confidence becomes a published fact.

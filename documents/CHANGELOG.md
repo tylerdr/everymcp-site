@@ -145,3 +145,13 @@ No new checkout, price, payment activation, audit-MCP activation, external insta
 ---
 
 2026-09-20: Replaced false-success lead capture with honest manual inquiry. Durable storage, operator notification and delivered-email proof remain open.
+
+## 2026-10-04 — Dated source evidence and enterprise inquiry correction
+
+**Branch:** `feature/traffic-page-source-evidence` from main `d60fbeafa21685d9c170324e076ad78dc1bf8caf`.
+
+Corrected only the Redash, RevenueCat, iCloud, Heap and Hotjar catalog records; all 616 IDs, names and slugs remain stable and the other 611 records are unchanged. Added dated public GET observations and distinct publisher/community reference links. Metadata no longer claims unsupported source capabilities or community publisher identity. iCloud's alternative is explicitly archived/read-only; Heap's alternative documents write/destructive tools and unauthenticated HTTP transport.
+
+Detail pages link to the existing free planner with an explicit inclusion/compatibility boundary. Pricing removes the fixed human implementation tier and unsupported “Most popular” marker; services and associated promotions now offer an unpriced enterprise consulting inquiry through the existing form destination. The $49 kit, checkout gates, provider configuration and dormant manual-product guards are unchanged.
+
+**Validation:** Source GETs on October 4 returned 404 for five indexed repositories and 200 for seven distinct reference URLs. Local tests and lint passed; typecheck/build, independent review, responsive browser checks and exact-head release verification are being completed before merge. No MCP tool, checkout, lead form, credential/configuration or paid model was invoked or changed.

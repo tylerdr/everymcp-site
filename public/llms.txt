@@ -1,6 +1,6 @@
 # EveryMCP
 
-EveryMCP is an MCP discovery directory and implementation service. It indexes Model Context Protocol server listings from public source lists so builders can compare possible integrations and follow the underlying repository or registry source.
+EveryMCP is an MCP discovery directory with a free Stack Planner. It indexes Model Context Protocol server listings from public source lists so builders can compare possible integrations and follow the underlying repository or registry source.
 
 ## Catalog status
 - Listings are indexed, not security-audited or publisher-verified by EveryMCP.
@@ -11,7 +11,8 @@ EveryMCP is an MCP discovery directory and implementation service. It indexes Mo
 
 ## Features
 - Searchable MCP listing directory with source provenance
-- Implementation guides and a fixed-fee implementation service
+- Source-aware discovery, dated evidence on selected listings, and a free starting-stack planner
+- Separate unpriced enterprise consulting inquiries: https://everymcp.com/services
 - Resources for agentic AI development
 
 Learn more at https://everymcp.com

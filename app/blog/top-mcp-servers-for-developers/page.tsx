@@ -194,18 +194,18 @@ export default function BlogPost() {
           <p>
             Most developers can get a single MCP server running in an afternoon. Production
             deployments — with auth, error handling, rate limiting, and monitoring — take longer.
-            For teams that need MCP integrated into existing infrastructure quickly,{" "}
+            For complex enterprise requirements, use{" "}
             <Link href="/services" className="text-sky hover:text-ink font-semibold">
-              EveryMCP&apos;s implementation service
+              EveryMCP&apos;s consulting inquiry
             </Link>{" "}
-            covers the full stack: server selection, configuration, deployment, and handoff docs.
+            to share context. Availability, scope, and engagement terms require separate confirmation.
           </p>
         </div>
 
         <div className="mt-12 rounded-2xl border border-sky/20 bg-sky/5 p-6">
           <h3 className="text-lg font-bold text-ink">Browse All MCP Servers</h3>
           <p className="mt-2 text-slate-600">
-            EveryMCP indexes 50+ verified MCP servers across databases, search, communication,
+            EveryMCP indexes MCP listings across databases, search, communication,
             cloud, and AI tooling categories.
           </p>
           <div className="mt-4 flex gap-3">
@@ -219,7 +219,7 @@ export default function BlogPost() {
               href="/services"
               className="rounded-lg border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-slate-50"
             >
-              Get Implementation Help
+              Discuss Enterprise Consulting
             </Link>
           </div>
         </div>

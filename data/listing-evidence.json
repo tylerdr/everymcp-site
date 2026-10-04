@@ -1,0 +1,118 @@
+[
+  {
+    "slug": "redash-mcp",
+    "summary": "The previously indexed repository could not be read at this check. Its publisher and capabilities remain unconfirmed. The implementation below is a separate community option, not a replacement identity.",
+    "references": [
+      {
+        "kind": "community",
+        "label": "suthio/redash-mcp — community option",
+        "url": "https://github.com/suthio/redash-mcp",
+        "httpStatus": 200,
+        "checkedAt": "2026-10-04T21:25:50Z",
+        "note": "The creator documents query execution and dashboard access through the Redash API, with REDASH_URL and REDASH_API_KEY configuration. EveryMCP has not run these tools."
+      }
+    ],
+    "indexedRepository": {
+      "url": "https://github.com/redash/redash-mcp",
+      "httpStatus": 404,
+      "checkedAt": "2026-10-04T21:25:50Z"
+    },
+    "checkMethod": "Unauthenticated public HTTP GET; no MCP tools invoked."
+  },
+  {
+    "slug": "revenuecat-mcp",
+    "summary": "RevenueCat documents a cloud-hosted MCP server. Use its current publisher documentation rather than the previously indexed GitHub link.",
+    "references": [
+      {
+        "kind": "publisher",
+        "label": "RevenueCat MCP documentation",
+        "url": "https://www.revenuecat.com/docs/tools/mcp",
+        "httpStatus": 200,
+        "checkedAt": "2026-10-04T21:25:50Z",
+        "note": "Documents https://mcp.revenuecat.ai/mcp, subscription configuration, charts, and experiments. This is documentation evidence, not a connection or tool-execution test."
+      },
+      {
+        "kind": "publisher",
+        "label": "RevenueCat MCP setup",
+        "url": "https://www.revenuecat.com/docs/tools/mcp/setup",
+        "httpStatus": 200,
+        "checkedAt": "2026-10-04T21:25:50Z",
+        "note": "Documents OAuth where supported and API v2 secret-key authentication. Permissions depend on the account or key."
+      }
+    ],
+    "indexedRepository": {
+      "url": "https://github.com/RevenueCat/revenuecat-mcp",
+      "httpStatus": 404,
+      "checkedAt": "2026-10-04T21:25:50Z"
+    },
+    "checkMethod": "Unauthenticated public HTTP GET; no MCP tools invoked."
+  },
+  {
+    "slug": "icloud-mcp",
+    "summary": "The previously indexed repository could not be read at this check. Its publisher and claimed iCloud API, photo-library, and document-sync capabilities remain unconfirmed.",
+    "references": [
+      {
+        "kind": "community",
+        "label": "robworks-code/icloud-drive-mcp — community option",
+        "url": "https://github.com/robworks-code/icloud-drive-mcp",
+        "httpStatus": 200,
+        "checkedAt": "2026-10-04T21:25:51Z",
+        "note": "Archived by its owner on October 2, 2026 and read-only at this check. This separate implementation uses the local iCloud Drive sync folder on macOS or Windows and documents file read, write, move, and delete tools. It is not an Apple-published server or evidence for the old listing; assess its maintenance status before use."
+      }
+    ],
+    "indexedRepository": {
+      "url": "https://github.com/picklepilot/icloud-mcp",
+      "httpStatus": 404,
+      "checkedAt": "2026-10-04T21:25:50Z"
+    },
+    "checkMethod": "Unauthenticated public HTTP GET; no MCP tools invoked."
+  },
+  {
+    "slug": "heap-mcp",
+    "summary": "The previously indexed repository could not be read at this check. Its publisher and analytics-query claims remain unconfirmed. The separate community option below has a different, write-oriented scope.",
+    "references": [
+      {
+        "kind": "community",
+        "label": "rivit-studio/heap-mcp-server — community option",
+        "url": "https://github.com/rivit-studio/heap-mcp-server",
+        "httpStatus": 200,
+        "checkedAt": "2026-10-04T21:25:50Z",
+        "note": "The creator documents events, profile/identity updates, and destructive user deletion. It explicitly excludes event/session queries, funnels, and retention reports. The maintainer says HTTP transport has no built-in authentication and must stay on localhost unless protected by additional controls; this is a community candidate, not a validated deployment."
+      }
+    ],
+    "indexedRepository": {
+      "url": "https://github.com/community/heap-mcp",
+      "httpStatus": 404,
+      "checkedAt": "2026-10-04T21:25:50Z"
+    },
+    "checkMethod": "Unauthenticated public HTTP GET; no MCP tools invoked."
+  },
+  {
+    "slug": "hotjar-mcp",
+    "summary": "The previously indexed community repository could not be read at this check. Contentsquare documents the Hotjar transition and its own MCP integration; this does not establish compatibility with a legacy Hotjar account or verify the old community listing.",
+    "references": [
+      {
+        "kind": "publisher",
+        "label": "Hotjar transition — Contentsquare",
+        "url": "https://contentsquare.com/hotjar/",
+        "httpStatus": 200,
+        "checkedAt": "2026-10-04T21:25:50Z",
+        "note": "Contentsquare explains that Hotjar is now Contentsquare and directs new users to Contentsquare."
+      },
+      {
+        "kind": "publisher",
+        "label": "Contentsquare MCP documentation",
+        "url": "https://contentsquare.com/platform/capabilities/mcp-server/",
+        "httpStatus": 200,
+        "checkedAt": "2026-10-04T21:25:51Z",
+        "note": "Documents access to Contentsquare insights from MCP-compatible AI tools. Account access, exact tool schemas, and legacy-account compatibility have not been tested here."
+      }
+    ],
+    "indexedRepository": {
+      "url": "https://github.com/community/hotjar-mcp",
+      "httpStatus": 404,
+      "checkedAt": "2026-10-04T21:25:50Z"
+    },
+    "checkMethod": "Unauthenticated public HTTP GET; no MCP tools invoked."
+  }
+]

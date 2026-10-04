@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteName,
     description:
-      "Search indexed MCP listings, inspect their source, and get implementation support for production deployments.",
+      "Search indexed MCP listings, inspect their source, and build a free starting stack for your workflow.",
     url: siteUrl,
     siteName,
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: siteName,
-    description: "MCP discovery with visible provenance and implementation support.",
+    description: "MCP discovery with visible provenance and a free starting-stack planner.",
     images: ["/og-default.png"]
   }
 };

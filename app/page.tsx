@@ -125,7 +125,7 @@ export default function Home() {
                 href="/services"
                 className="inline-flex rounded-full border border-slate-300 px-5 py-2.5 text-sm font-bold text-slate-700 transition hover:border-sky hover:text-sky"
               >
-                View service details
+                Enterprise consulting inquiry
               </Link>
               <Link
                 href="/sponsor"

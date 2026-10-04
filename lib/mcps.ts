@@ -10,10 +10,11 @@ export type McpServer = {
   tags: string[];
   author: string;
   repo: string;
+  documentationUrl?: string;
   featured: boolean;
   useCase: string;
   platform: string;
-  source: "modelcontextprotocol/servers" | "punkpeye/awesome-mcp-servers";
+  source: string;
   installation: string;
   useCases: string[];
 };

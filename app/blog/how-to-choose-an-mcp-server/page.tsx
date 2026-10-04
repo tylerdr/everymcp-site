@@ -305,7 +305,7 @@ export default function BlogPost() {
               href="/services"
               className="rounded-full border border-slate-300 px-6 py-2.5 text-sm font-bold text-slate-700 hover:border-sky hover:text-sky"
             >
-              Get Implementation Help
+              Discuss Enterprise Consulting
             </Link>
           </div>
         </section>

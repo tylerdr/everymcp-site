@@ -349,14 +349,14 @@ export default function MCPServersForAPIIntegration() {
                 Need Help Integrating an API via MCP?
               </h3>
               <p className="text-blue-800 mb-4">
-                EveryMCP offers implementation services for teams that need custom MCP server
-                development or managed API integration setup.
+                For complex enterprise requirements, share consulting context. Availability, scope,
+                and engagement terms require separate confirmation.
               </p>
               <Link
                 href="/services"
                 className="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
               >
-                Explore Implementation Services →
+                Share Enterprise Consulting Context →
               </Link>
             </div>
           </section>

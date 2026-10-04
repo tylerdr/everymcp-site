@@ -5,7 +5,7 @@ const nav: Array<{ href: Route; label: string }> = [
   { href: "/directory", label: "Directory" },
   { href: "/marketplaces", label: "Marketplaces" },
   { href: "/methodology", label: "Methodology" },
-  { href: "/services", label: "Implementation" },
+  { href: "/services", label: "Consulting" },
   { href: "/sponsor", label: "Sponsor" }
 ];
 

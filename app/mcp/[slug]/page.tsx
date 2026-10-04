@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ListingSourceEvidence } from "@/components/ListingSourceEvidence";
+import { Button } from "@/components/ui/button";
 import { categories } from "@/data/categories";
+import { getListingEvidence } from "@/lib/listing-evidence";
 import { mcps } from "@/lib/mcps";
 
 export function generateStaticParams() {
@@ -18,6 +21,8 @@ export default function McpDetailPage({ params }: { params: { slug: string } }) 
   const mcp = mcps.find((item) => item.slug === params.slug);
   if (!mcp) notFound();
   const category = categories.find((item) => item.slug === mcp.category);
+  const evidence = getListingEvidence(mcp.slug);
+  const sourceUrl = mcp.documentationUrl || mcp.repo;
 
   return (
     <section className="mx-auto w-full max-w-4xl px-4 pb-16 pt-12 sm:px-6">
@@ -33,6 +38,8 @@ export default function McpDetailPage({ params }: { params: { slug: string } }) 
           <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">Indexed source: {mcp.source}</span>
         </div>
 
+        {evidence ? <ListingSourceEvidence evidence={evidence} /> : null}
+
         <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
           <strong>Before you install:</strong> EveryMCP has not security-audited this listing or independently verified its publisher. Review the linked repository, requested permissions, deployment model, and official-registry record where applicable. <Link href="/methodology" className="font-bold underline underline-offset-2">How the catalog works →</Link>
         </div>
@@ -43,9 +50,9 @@ export default function McpDetailPage({ params }: { params: { slug: string } }) 
             <dd className="mt-1 text-sm font-semibold text-slate-800">{mcp.author}</dd>
           </div>
           <div>
-            <dt className="text-xs font-bold uppercase tracking-wide text-slate-500">Repository</dt>
+            <dt className="text-xs font-bold uppercase tracking-wide text-slate-500">{mcp.documentationUrl ? "Publisher documentation" : evidence ? "Previously indexed repository" : "Repository"}</dt>
             <dd className="mt-1 break-all text-sm font-semibold text-sky">
-              <a href={mcp.repo} target="_blank" rel="noreferrer" className="hover:text-ink">{mcp.repo}</a>
+              <a href={sourceUrl} target="_blank" rel="noreferrer" className="hover:text-ink">{sourceUrl}</a>
             </dd>
           </div>
         </dl>
@@ -54,7 +61,7 @@ export default function McpDetailPage({ params }: { params: { slug: string } }) 
           <article>
             <h2 className="text-xl font-extrabold text-ink">Installation reference</h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">{mcp.installation}</p>
-            <p className="mt-2 text-xs leading-6 text-slate-500">Treat this as catalog metadata, not an audited command. Confirm current instructions in the linked repository before running it.</p>
+            <p className="mt-2 text-xs leading-6 text-slate-500">Treat this as catalog metadata, not an audited command. Confirm current instructions in the linked sources before running it.</p>
           </article>
 
           <article>
@@ -69,10 +76,11 @@ export default function McpDetailPage({ params }: { params: { slug: string } }) 
         </div>
       </div>
 
-      <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-soft">
-        <h2 className="text-2xl font-extrabold text-ink">Need Implementation Help?</h2>
-        <p className="mt-3 text-sm leading-7 text-slate-600">We can help evaluate {mcp.name}, review its permissions and deployment model, and integrate an appropriate MCP server into your production stack.</p>
-        <Link href="/services" className="mt-5 inline-flex rounded-full bg-ink px-5 py-3 text-sm font-bold text-white hover:bg-sky">View implementation service</Link>
+      <section className="mt-8 rounded-3xl border border-border bg-background p-8 shadow-soft text-foreground">
+        <h2 className="text-2xl font-extrabold">Choose a starting stack</h2>
+        <p className="mt-3 text-sm leading-7 text-muted-foreground">The free planner offers three-server shortlists for five common goals. It does not automatically include {mcp.name} or confirm compatibility with your environment.</p>
+        <Button asChild className="mt-5 h-auto whitespace-normal py-3"><Link href="/plan">Build a free starting stack</Link></Button>
+        <p className="mt-5 text-sm text-muted-foreground">For complex enterprise requirements, <Link href="/services#implementation-inquiry" className="text-primary underline underline-offset-4">share consulting context</Link>.</p>
       </section>
     </section>
   );

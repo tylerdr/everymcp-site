@@ -8059,8 +8059,8 @@
     "id": "revenuecat-mcp",
     "name": "RevenueCat MCP",
     "slug": "revenuecat-mcp",
-    "description": "Manage in-app subscriptions, customer entitlements, and revenue analytics via RevenueCat.",
-    "category": "communication",
+    "description": "Connect AI assistants to RevenueCat's cloud MCP server for subscription configuration, charts, and experiments using OAuth or an API v2 key.",
+    "category": "data-analysis",
     "tags": [
       "subscriptions",
       "mobile",
@@ -8072,13 +8072,14 @@
     "featured": false,
     "useCase": "Subscription",
     "platform": "Cloud",
-    "source": "RevenueCat",
-    "installation": "Set REVENUECAT_SECRET_API_KEY; configure app IDs for iOS/Android.",
+    "source": "RevenueCat MCP documentation",
+    "installation": "Follow RevenueCat's publisher setup documentation. Connect to https://mcp.revenuecat.ai/mcp using OAuth where supported or a RevenueCat API v2 secret key with appropriate account/key permissions.",
     "useCases": [
-      "Subscription status",
-      "Entitlement management",
-      "Revenue reporting"
-    ]
+      "Project and app configuration",
+      "Product and Offering management",
+      "Charts and experiment analysis"
+    ],
+    "documentationUrl": "https://www.revenuecat.com/docs/tools/mcp"
   },
   {
     "id": "anki-mcp",
@@ -8684,7 +8685,7 @@
     "id": "icloud-mcp",
     "name": "iCloud MCP",
     "slug": "icloud-mcp",
-    "description": "Access iCloud Drive files and documents via the iCloud API for Apple ecosystem workflows.",
+    "description": "Explore a community iCloud Drive MCP option for files in a locally synced folder, with a dated check of the previously indexed source.",
     "category": "file-systems-storage",
     "tags": [
       "icloud",
@@ -8692,17 +8693,17 @@
       "cloud-storage",
       "macos"
     ],
-    "author": "community",
+    "author": "Publisher unconfirmed",
     "repo": "https://github.com/picklepilot/icloud-mcp",
     "featured": false,
     "useCase": "Storage",
-    "platform": "Cloud",
-    "source": "picklepilot",
-    "installation": "Configure iCloud credentials; requires Apple ID with 2FA app-specific password.",
+    "platform": "Local synced files (community option)",
+    "source": "Legacy catalog; publisher unconfirmed",
+    "installation": "The previously indexed repository returned 404 at the dated source check. The separate community Drive option uses an installed, signed-in iCloud Drive sync folder on macOS or Windows; follow its repository instructions.",
     "useCases": [
-      "File access",
-      "Photo library",
-      "Document sync"
+      "Compare a local Drive implementation",
+      "Review file read and write tools",
+      "Check sync-folder requirements"
     ]
   },
   {
@@ -9534,7 +9535,7 @@
     "id": "redash-mcp",
     "name": "Redash MCP",
     "slug": "redash-mcp",
-    "description": "Run Redash queries and access dashboards via the Redash REST API.",
+    "description": "Explore a community Redash MCP option for queries and dashboards, with a dated source check and setup references.",
     "category": "data-analysis",
     "tags": [
       "bi",
@@ -9542,17 +9543,17 @@
       "sql",
       "dashboards"
     ],
-    "author": "redash",
+    "author": "Publisher unconfirmed",
     "repo": "https://github.com/redash/redash-mcp",
     "featured": false,
     "useCase": "BI",
-    "platform": "Self-hosted",
-    "source": "redash",
-    "installation": "Set REDASH_URL and REDASH_API_KEY from user profile settings.",
+    "platform": "See source evidence",
+    "source": "Legacy catalog; publisher unconfirmed",
+    "installation": "The previously indexed repository returned 404 at the dated source check. Review the separately attributed community implementation and its current setup instructions before choosing a server.",
     "useCases": [
-      "Query execution",
-      "Dashboard data",
-      "Visualization access"
+      "Compare a community implementation",
+      "Review query and dashboard tools",
+      "Check deployment requirements"
     ]
   },
   {
@@ -11310,25 +11311,25 @@
     "id": "heap-mcp",
     "name": "Heap Analytics MCP Server",
     "slug": "heap-mcp",
-    "description": "Query Heap user behavioral analytics \u2014 sessions, events, funnels, and retention data from your AI assistant.",
+    "description": "Explore a community Heap MCP option for event ingestion and profile updates. It does not provide event, funnel, or retention queries.",
     "category": "data-analysis",
     "tags": [
       "heap",
       "analytics",
-      "user-behavior",
-      "funnels"
+      "event-ingestion",
+      "profiles"
     ],
-    "author": "community",
+    "author": "Publisher unconfirmed",
     "repo": "https://github.com/community/heap-mcp",
     "featured": false,
-    "useCase": "Product Analytics",
-    "platform": "API",
-    "source": "community/heap-mcp",
-    "installation": "Configure Heap API key and app ID.",
+    "useCase": "Event ingestion",
+    "platform": "See source evidence",
+    "source": "Legacy catalog; publisher unconfirmed",
+    "installation": "The previously indexed repository returned 404 at the dated source check. The separate community option documents Heap app IDs for ingestion and an API key for user deletion; review its tool permissions and setup instructions.",
     "useCases": [
-      "Event queries",
-      "Funnel analysis",
-      "Retention data"
+      "Compare event ingestion tools",
+      "Review profile and identity updates",
+      "Review user deletion permissions"
     ]
   },
   {
@@ -11385,7 +11386,7 @@
     "id": "hotjar-mcp",
     "name": "Hotjar MCP Server",
     "slug": "hotjar-mcp",
-    "description": "Access Hotjar heatmap data, recording metadata, survey responses, and funnel reports via MCP.",
+    "description": "Find Contentsquare's current MCP documentation following Hotjar's transition, with a dated check of the previously indexed community source.",
     "category": "data-analysis",
     "tags": [
       "hotjar",
@@ -11393,17 +11394,17 @@
       "surveys",
       "ux"
     ],
-    "author": "community",
+    "author": "Publisher unconfirmed",
     "repo": "https://github.com/community/hotjar-mcp",
     "featured": false,
     "useCase": "UX Analytics",
-    "platform": "API",
-    "source": "community/hotjar-mcp",
-    "installation": "Configure Hotjar API credentials and site ID.",
+    "platform": "See source evidence",
+    "source": "Legacy catalog; publisher unconfirmed",
+    "installation": "The previously indexed community repository returned 404 at the dated source check. Review Contentsquare's current MCP documentation and your account requirements; compatibility with a legacy Hotjar account has not been established here.",
     "useCases": [
-      "Heatmap data",
-      "Survey responses",
-      "Funnel reports"
+      "Understand the Hotjar transition",
+      "Review Contentsquare MCP documentation",
+      "Check account compatibility"
     ]
   },
   {

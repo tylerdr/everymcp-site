@@ -6,7 +6,7 @@ import { isStripeCheckoutConfigured } from "@/lib/stripe-config";
 
 export const metadata: Metadata = {
   title: "Pricing — EveryMCP",
-  description: "A self-serve MCP integration starter kit plus implementation and sponsorship paths for production teams.",
+  description: "A $49 self-serve MCP integration starter kit, free directory and planner, with separate enterprise consulting and sponsor inquiries.",
   alternates: { canonical: "/pricing" }
 };
 
@@ -28,16 +28,6 @@ const tiers = [
     features: ["Grounded MCP selection matrix", "Worked client configuration example", "Source and permission review prompts", "Acceptance and rollback checklist"],
     cta: { label: "Get the starter kit", href: "#starter-kit", primary: true },
     selfServe: true
-  },
-  {
-    name: "Implementation Package",
-    price: "$2,000",
-    period: "fixed",
-    description: "Human delivered MCP setup for production teams. Start with an implementation inquiry.",
-    features: ["MCP architecture and server selection", "Client + server integration and environment setup", "Auth, permissions, and tool boundary hardening", "Custom MCP server development", "Production launch support"],
-    cta: { label: "Open implementation inquiry", href: "/services#implementation-inquiry", primary: true },
-    highlight: true,
-    selfServe: false
   },
   {
     name: "Sponsor",
@@ -71,7 +61,7 @@ export default function PricingPage({ searchParams }: PricingPageProps) {
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-sky">Pricing</p>
         <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink">Simple, honest pricing</h1>
         <p className="mt-4 text-sm text-slate-600 max-w-xl mx-auto">
-          Browse for free. Turn a chosen stack into a rollout packet for $49. Use implementation help when the work needs a team.
+          Browse for free. Turn a chosen stack into a rollout packet for $49. Use the free planner to choose a starting point.
         </p>
       </div>
 
@@ -81,10 +71,9 @@ export default function PricingPage({ searchParams }: PricingPageProps) {
         </div>
       ) : null}
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {tiers.map((tier) => (
-          <article id={tier.selfServe ? "starter-kit" : undefined} key={tier.name} className={`rounded-3xl border p-8 flex flex-col ${tier.highlight ? "border-sky bg-sky/5 shadow-soft" : "border-slate-200 bg-white"}`}>
-            {tier.highlight && <p className="mb-3 text-xs font-bold uppercase tracking-wide text-sky">Most popular</p>}
+          <article id={tier.selfServe ? "starter-kit" : undefined} key={tier.name} className="rounded-3xl border border-slate-200 bg-white p-8 flex flex-col">
             <h2 className="text-lg font-extrabold text-ink">{tier.name}</h2>
             <div className="mt-3 flex items-baseline gap-1">
               <span className="text-4xl font-extrabold text-ink">{tier.price}</span>
@@ -125,13 +114,13 @@ export default function PricingPage({ searchParams }: PricingPageProps) {
 
       <div className="mt-12 rounded-3xl border border-slate-200 bg-white p-8 text-center">
         <h2 className="text-xl font-extrabold text-ink">Not sure what you need?</h2>
-        <p className="mt-3 text-sm text-slate-600 max-w-lg mx-auto">Build a free starting stack first. If the workflow needs custom implementation, open a scoped inquiry after you know what outcome matters.</p>
+        <p className="mt-3 text-sm text-slate-600 max-w-lg mx-auto">Build a free starting stack first. For complex enterprise requirements, you can share consulting context.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Link href="/plan" className="inline-block rounded-full bg-sky px-6 py-3 text-sm font-bold text-white hover:bg-ink">
             Build a free stack
           </Link>
           <Link href="/services#implementation-inquiry" className="inline-block rounded-full border border-slate-300 px-6 py-3 text-sm font-bold text-slate-700 hover:border-sky hover:text-sky">
-            Open implementation inquiry
+            Share enterprise consulting context
           </Link>
         </div>
       </div>

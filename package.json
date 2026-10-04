@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "test:audit-mcp": "vitest run tests/audit-mcp.test.ts",
+    "test:audit-mcp": "vitest run tests/audit-mcp.test.ts tests/listing-evidence.test.ts",
     "test:stack-planner": "node scripts/verify-stack-planner.mjs",
     "test": "npm run test:audit-mcp && npm run test:stack-planner && node scripts/verify-brand-assets.mjs && node scripts/verify-catalog-claims.mjs && node scripts/verify-marketplace-guides.mjs && node scripts/verify-selfserve-checkout.mjs && node scripts/verify-stripe-entitlement.mjs && node scripts/verify-google-analytics.mjs && node scripts/verify-lead-lifecycle.mjs",
     "build": "npm run test:audit-mcp && npm run test:stack-planner && node scripts/verify-brand-assets.mjs && node scripts/verify-catalog-claims.mjs && node scripts/verify-marketplace-guides.mjs && node scripts/verify-selfserve-checkout.mjs && node scripts/verify-stripe-entitlement.mjs && node scripts/verify-google-analytics.mjs && node scripts/verify-lead-lifecycle.mjs && next build",

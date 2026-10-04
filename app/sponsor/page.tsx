@@ -50,9 +50,9 @@ export default function SponsorPage() {
           </div>
 
           <p className="mt-6 text-sm text-slate-600">
-            Need a combined sponsor + integration package?{" "}
+            Have complex enterprise MCP requirements?{" "}
             <Link href="/services" className="font-semibold text-sky hover:text-ink">
-              Book implementation support
+              Share enterprise consulting context
             </Link>
             .
           </p>

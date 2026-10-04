@@ -1,7 +1,7 @@
 # everymcp — Product Spec
 
 **Last updated:** 2026-10-04 (session: traffic-page source evidence)
-**Version:** 0.5
+**Version:** 0.6
 
 ---
 
@@ -122,3 +122,9 @@ Unresolved product decisions. Agents should NOT unilaterally resolve these.
 
 ## 2026-10-04 continuation boundary
 User authorized tested EveryMCP merges and requested accuracy/trust before paid monitoring. The next slice is bounded deterministic public-source monitoring: deduplicated URLs, explicit observation/failure/unknown states, caching and review-controlled publication. Capability discovery must use version-specific conformance profiles and respect optional features. Jev judgment, aggregate grading, badges, gateway design, and paid-provider execution await the research contract and an approved cost limit; no model confidence becomes a published fact.
+
+## Source monitoring foundation (implemented; hosted run pending)
+
+All 616 listing URLs are retained and related to 585 normalized/deduplicated source URLs. `scripts/monitor_sources.py` provides default dry-run inventory and explicit bounded public-only GETs, robots policy, conditional/content-hash caching, separate attempt/success observations, immutable run records, full JSON Schema and publication-policy validation. The proposed existing GitHub workflow prioritizes the five reviewed pages daily and rotates remaining eligible sources weekly. Every source has an explicit observed/unknown/not-checked state and actual cohort denominator; no complete-catalog claim follows a partial run. The duplicate legacy Neon ID is a finding, not an automatic edit.
+
+The collector never updates catalog prose, identity, links, offers or public evidence automatically. Review is required. Protocol/applicability denominator, score and badge stay null. No MCP tools/resources/prompts, stdio installs, credentials, model providers, gateway adoption or new prices. The verified `2026-10-04-r2` research bundle is intentionally not executable scoring policy; any later rule implementation needs pinned clauses and adversarial validation. See `SOURCE-MONITOR.md` for collection/publication gates and scheduling proof.

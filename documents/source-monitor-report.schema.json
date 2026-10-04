@@ -1,0 +1,580 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "policyVersion": {
+      "const": "public-source-v1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "mode": {
+      "enum": [
+        "dry_run",
+        "check"
+      ]
+    },
+    "method": {
+      "const": "Unauthenticated public HTTP GET; no MCP tools invoked"
+    },
+    "listings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "publisherAssessment": {
+            "const": "unknown"
+          }
+        },
+        "required": [
+          "id",
+          "slug",
+          "publisherAssessment"
+        ]
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "rejectedInputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "reason": {
+            "const": "url_policy_rejected"
+          },
+          "inputHash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "id",
+          "slug",
+          "reason",
+          "inputHash"
+        ]
+      }
+    },
+    "summary": {
+      "$ref": "#/$defs/summary"
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "const": "review_required"
+        },
+        "catalogWritten": {
+          "const": false
+        },
+        "automaticIdentityChanges": {
+          "const": false
+        }
+      },
+      "required": [
+        "mode",
+        "catalogWritten",
+        "automaticIdentityChanges"
+      ]
+    },
+    "assessment": {
+      "$ref": "#/$defs/assessment"
+    },
+    "inventoryFindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "const": "duplicate_listing_id"
+          },
+          "id": {
+            "type": "string"
+          },
+          "slugs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "resolution": {
+            "const": "review_required"
+          }
+        },
+        "required": [
+          "kind",
+          "id",
+          "slugs",
+          "resolution"
+        ]
+      }
+    },
+    "robotsPolicies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "host",
+          "checkedAt",
+          "httpStatus",
+          "state",
+          "contentHash",
+          "receivedBytes",
+          "durationMs"
+        ],
+        "properties": {
+          "host": {
+            "type": "string"
+          },
+          "checkedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "httpStatus": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "state": {
+            "enum": [
+              "available",
+              "absent",
+              "unknown"
+            ]
+          },
+          "contentHash": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "receivedBytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "durationMs": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "policyVersion",
+    "generatedAt",
+    "mode",
+    "method",
+    "listings",
+    "sources",
+    "rejectedInputs",
+    "summary",
+    "publication",
+    "assessment",
+    "inventoryFindings",
+    "robotsPolicies"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://everymcp.com/schemas/source-monitor-report-v1",
+  "title": "EveryMCP public source observation report v1",
+  "$defs": {
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "checkedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "httpStatus": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 100,
+          "maximum": 599
+        },
+        "state": {
+          "enum": [
+            "missing_at_check",
+            "reachable",
+            "unknown"
+          ]
+        },
+        "reason": {
+          "enum": [
+            "authentication_required",
+            "blocked",
+            "dns_failure",
+            "http_missing_at_check",
+            "http_success",
+            "http_unknown",
+            "network_or_policy_failure",
+            "not_modified",
+            "not_modified_without_prior_body",
+            "partial_or_oversized_body",
+            "rate_limited",
+            "redirect_not_followed",
+            "scanner_policy_refusal",
+            "server_error",
+            "timeout",
+            "tls_failure",
+            "transport_failure"
+          ]
+        },
+        "contentHash": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "etag": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lastModified": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bodyComplete": {
+          "type": "boolean"
+        },
+        "evidenceType": {
+          "const": "observed_http"
+        },
+        "retryAfterSeconds": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 60,
+          "maximum": 86400
+        },
+        "receivedBytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "checkedAt",
+        "httpStatus",
+        "state",
+        "reason",
+        "contentHash",
+        "etag",
+        "lastModified",
+        "bodyComplete",
+        "evidenceType",
+        "retryAfterSeconds",
+        "receivedBytes",
+        "durationMs"
+      ]
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "source_missing_at_check",
+            "source_body_changed"
+          ]
+        },
+        "firstObservedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastObservedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resolution": {
+          "const": "review_required"
+        }
+      },
+      "required": [
+        "kind",
+        "firstObservedAt",
+        "lastObservedAt",
+        "resolution"
+      ]
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "indexed_repository",
+            "separate_reference"
+          ]
+        },
+        "identityEvidence": {
+          "enum": [
+            "publisher",
+            "community",
+            "unknown"
+          ]
+        },
+        "curatedCheckedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "basis": {
+          "enum": [
+            "documented",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "slug",
+        "role",
+        "identityEvidence",
+        "curatedCheckedAt",
+        "basis"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationship"
+          }
+        },
+        "priority": {
+          "type": "boolean"
+        },
+        "observation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/observation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "lastSuccessfulObservation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/observation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "stale": {
+          "type": "boolean"
+        },
+        "runDisposition": {
+          "enum": [
+            "dry_run",
+            "checked_this_run",
+            "fresh_cache",
+            "host_backoff",
+            "run_budget",
+            "robots_unknown",
+            "robots_disallowed"
+          ]
+        },
+        "reviewFindings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/finding"
+          }
+        }
+      },
+      "required": [
+        "url",
+        "relationships",
+        "priority",
+        "observation",
+        "lastSuccessfulObservation",
+        "stale",
+        "runDisposition",
+        "reviewFindings"
+      ]
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listingCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "distinctListingIdCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "uniqueSourceCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "attemptsThisRun": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "stateCounts": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "reachable": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "missing_at_check": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "unknown": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "not_checked": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "staleOrUnchecked": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "receivedBytesThisRun": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "requestDurationMsThisRun": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "httpRequestsThisRun": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "robotsRequestsThisRun": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "listingCount",
+        "distinctListingIdCount",
+        "uniqueSourceCount",
+        "attemptsThisRun",
+        "stateCounts",
+        "staleOrUnchecked",
+        "receivedBytesThisRun",
+        "requestDurationMsThisRun",
+        "httpRequestsThisRun",
+        "robotsRequestsThisRun"
+      ]
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "protocolVersion": {
+          "type": "null"
+        },
+        "actor": {
+          "type": "null"
+        },
+        "transport": {
+          "type": "null"
+        },
+        "applicability": {
+          "const": "unknown"
+        },
+        "observedCriteria": {
+          "const": 0
+        },
+        "totalApplicableCriteria": {
+          "type": "null"
+        },
+        "score": {
+          "type": "null"
+        },
+        "badge": {
+          "type": "null"
+        },
+        "jevEnabled": {
+          "const": false
+        },
+        "paidProviderEnabled": {
+          "const": false
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "actor",
+        "transport",
+        "applicability",
+        "observedCriteria",
+        "totalApplicableCriteria",
+        "score",
+        "badge",
+        "jevEnabled",
+        "paidProviderEnabled"
+      ]
+    }
+  }
+}

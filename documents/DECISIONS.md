@@ -77,3 +77,11 @@
 **Status:** User direction supersedes the public fixed implementation tier in ADR-002.
 **Decision:** Remove the $2,000 implementation promotion and unsupported popularity claim. Retain `/services` and `#implementation-inquiry` as a modest enterprise consulting contact path with availability/scope/terms requiring separate confirmation. The form still calls `/api/lead` for the existing methodology resource and does not book or promise delivery.
 **Consequences:** The $49 starter kit and all payment/provider gates remain intact. Dormant manual product definitions are retained to avoid changing the payment contract; they remain rejected by self-serve checkout. No new price, engagement, provider or outbound notification is created.
+
+## ADR-009 — Free deterministic source observations before semantic grading (2026-10-04)
+
+**Decision:** Use a standalone bounded public source collector, pinned JSON Schema and robots parser, explicit evidence dates/unknowns, immutable receipts and a trusted-main GitHub workflow. Preserve all stable listing URLs and original identity relationships. Robots exclusions/unknown policy, blocked requests, partial responses and budget limits are scanner outcomes, not target-server quality failures. Use UTC calendar-day eligibility to tolerate scheduler jitter, private-address/multicast refusal, pinned TLS and complete-request deadlines.
+
+**Publication:** Generated facts remain review-required and no catalog file is written. Last attempt never replaces last known success with invented prose; unresolved findings survive expiry/recovery. Public source identity remains unknown unless a separate curated publisher/community reference supports a documented claim.
+
+**Rationale:** The reviewed research proposal is not an executable scoring policy, and shared gateway/Jev defaults have unresolved licensing/technical/cost boundaries. Source HTTP status cannot establish runtime/security passes. Null actor/version/transport/applicability denominator, score and badge make that boundary explicit. Paid/model providers remain disabled. A committed workflow is not proof of a scheduled due run.

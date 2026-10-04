@@ -5,8 +5,7 @@
 ---
 
 ## Active Sprint
-- [ ] T015: Release five traffic-page source corrections and unpriced enterprise contact — implemented on `feature/traffic-page-source-evidence`; independent review and exact production readback pending.
-- [ ] T016: Free deterministic source monitoring — normalize/dedupe all 616 catalog source URLs, classify claimed versus evidenced identity, collect bounded cacheable public observations and publish only under a validated evidence policy. No tool invocation, private-network fetch, paid model or credential activation.
+- [ ] T016: Release the implemented free source-monitoring foundation — 616 listings / 585 sources, bounded robots-aware public observations, validated immutable receipts, null grades and review-controlled publication. Independent review and 17 fixtures pass; exact-head hosted CI and first scheduled receipt remain pending.
 - [ ] T017: Research-driven Jev evaluation and capability profiles — retain provenance, abstention, version applicability and optional-feature semantics; grading/badges remain unimplemented until contract review.
 - [ ] T001: Stripe test-mode checkout and download receipt — run a labeled no-charge sandbox payment and retry the download.
 - [ ] T002: Analytics/GSC proof — verify Vercel event receipt and submit/confirm the canonical sitemap through the root-owned properties.
@@ -30,6 +29,7 @@
 - [ ] OQ002: What provider and operator identity should back durable inquiry capture and notifications?
 
 ## Completed
+- [x] T015: Five traffic-page source corrections and unpriced enterprise contact — PR #15 merged at `5028a91aac22e531c05476873f36cb8224ebf93f`; exact READY production deployment and nine-route readback verified 2026-10-04T21:56:45Z.
 - [x] T014: Follow prescribed shadcn UI controls — minimal Button/NativeSelect setup and CSS theme tokens for the planner, retaining native GET/required/keyboard behavior and the same checkout handoff.
 - [x] T013: Align the whole paid packet with reviewed sources — goal-specific matrix rows and notes match the selected brief; legacy/no-goal packets use deduplicated research and software defaults. Actual kit-body checks reject duplicate and unreviewed emitted source links.
 - [x] T012: Correct Stack Planner source/goal fit — explicit existing catalog IDs for all five outcomes, current publisher URLs for Brave/Context7/MotherDuck, local reference Memory instead of the archived Mem0 wrapper, absolute brief links, and real-catalog release checks. Existing price and payment/MCP gates are preserved.
@@ -42,3 +42,7 @@
 - [x] T004: Add server-verified $49 starter-kit checkout and deterministic download — done 2026-09-20.
 
 2026-09-20: Replaced false-success lead capture with honest inquiry handling. Durable operator notification proof remains open.
+
+- [ ] Verify Source observations first scheduled due run and persist its exact event/head/result receipt; no live-monitoring claim before it succeeds.
+- [ ] Review duplicate legacy `neon-mcp` ID across two stable slugs; preserve both routes pending an explicit identity decision.
+- [ ] Review source missing/body-change findings from the rolling cohort before any public evidence refresh.

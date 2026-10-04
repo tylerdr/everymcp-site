@@ -1,33 +1,29 @@
-# EveryMCP release handoff — 2026-10-04
+# EveryMCP handoff — 2026-10-04
 
-## Owner and baseline
-- This task owns bounded EveryMCP implementation. Repo `tylerdr/everymcp-site`, main `d60fbeafa21685d9c170324e076ad78dc1bf8caf`; no open PRs at the ownership check. PR #13 is already merged and must not be duplicated.
-- Isolated checkout: `/Users/tyler/Documents/Codex/2026-10-04/task-9/everymcp-evidence`, branch `feature/traffic-page-source-evidence`.
-- Tai Durden PR #15 remains unchanged at `c1bba1d`; Praxium and other ventures are excluded from edits.
+## Ownership and shipped correction
+- Canonical repo `tylerdr/everymcp-site`. This task owns the bounded EveryMCP source/evidence work; Tai Durden PR #15 remains unchanged at `c1bba1d` and Praxium is excluded.
+- EveryMCP correction PR #15 is merged: `5028a91aac22e531c05476873f36cb8224ebf93f`. Production deployment `dpl_129LVV11FEqXmATRvYfCpPBHDeEv` is READY for everymcp.com; public readback at 2026-10-04T21:56:45Z verifies five source pages, pricing/services/plan/filesystem and all 616 sitemap paths.
+- All 616 IDs/names/slugs/repository identities and canonicals are preserved. Only five records changed; RevenueCat follows current publisher docs, community candidates stay separate, iCloud's archive and Heap's ingestion/deletion/localhost cautions are explicit.
+- Free planner CTA states selection limits. The $2,000 promotion/popularity label is removed; consulting is a small unpriced contact at the same form destination. $49/Stripe/provider/security gates remain unchanged.
+- Correction validation: all existing npm tests including 15 evidence/audit tests, lint, TypeScript, 753-page production build, independent review, exact-head preview, desktop/390px layout, keyboard/form labels, local and production readbacks.
 
-## Current slice
-- Five stable listing IDs/names/slugs/canonicals are preserved. Only their supported metadata is corrected; other 611 records stay unchanged.
-- `data/listing-evidence.json`, `lib/listing-evidence.ts` and `components/ListingSourceEvidence.tsx` expose curated dated public GET observations, source uncertainty and distinct alternatives. No runtime/build network discovery is added.
-- RevenueCat uses current publisher MCP documentation and OAuth/API v2 instructions. Redash/iCloud/Heap alternatives remain clearly separate community candidates. iCloud's candidate is archived; Heap's documented write/deletion and unauthenticated HTTP scope is explicit. Hotjar's transition does not establish legacy-account compatibility.
-- Existing detail pages now offer the free planner without promising that the viewed listing will be selected. No automatic installation or feature conformance is claimed.
-- Removed the fixed $2,000 implementation promotion and unsupported popularity marker. `/services#implementation-inquiry` remains an unpriced enterprise contact path, with the same `/api/lead` destination and existing methodology resource. The $49 starter kit and payment/provider/security gates are unchanged.
+## Current monitoring foundation
+- Isolated checkout `/Users/tyler/Documents/Codex/2026-10-04/task-9/everymcp-evidence`; branch `feature/free-source-monitoring`, based on merged `5028a91`. No app/catalog changes in this slice.
+- `scripts/monitor_sources.py`, pinned Python requirements, `tests/test_source_monitor.py`, `documents/source-monitor-report.schema.json`, and `.github/workflows/source-monitor.yml` implement source observations. See `SOURCE-MONITOR.md`.
+- Full inventory: 616 stable listing URLs, 615 distinct legacy IDs, 585 deduplicated source URLs. Two Neon slugs share one legacy ID; the report preserves and flags that existing collision.
+- Default dry run; explicit public-only GET collection uses allowlisted hosts, checked public non-multicast DNS/pinned TLS, an eight-second complete-fetch deadline, bounded body/request/run limits, robots wildcard/cadence policy, host cooldown, conditional requests and hashes. No source bytes are executed or stored as catalog content.
+- Reports distinguish last attempt from last success, actual checked cohort from unchecked/stale/robots refusal, documented identity reference from unknown publisher, and unresolved review findings from fresh availability. Immutable receipts precede atomic operational snapshots after schema/policy validation.
+- Proposed workflow uses existing public standard Ubuntu runner with contents read-only, trusted main only, no provider secrets or billable artifacts. Daily 22:47 UTC priority for five reviewed pages and weekly rolling rest; UTC calendar-day eligibility tolerates jitter. A workflow commit is not a due-run receipt.
+- No catalog/evidence auto-publication: `review_required`. Scores/badges/applicability denominator null; Jev/paid providers disabled; no protocol, tool/resource/prompt or stdio execution.
 
-## Evidence and validation
-- Direct unauthenticated GETs at 2026-10-04T21:25:50–51Z returned 404 for all five previously indexed GitHub URLs and 200 for seven reference URLs. Documentation availability is separate from tool execution; no MCP tools ran.
-- `npm test` passes 15 Vitest tests plus all existing planner, brand, catalog, marketplace, checkout, entitlement, analytics and lead contracts. Final lint, standalone TypeScript and production build pass (753 generated pages). Independent review has no unresolved blocking findings. Local HTTP readback passes all five source pages plus pricing/services/plan/filesystem, metadata/source links and all 616 sitemap paths. Chrome desktop and 390px checks pass with no overflow and keyboard focus/labels. Exact-head hosted preview and production checks remain release gates.
-- Catalog preservation comparison confirms exactly five changed records, 616 stable IDs/slugs/names and 611 unchanged records.
-- GSC supplied by root: Sep 21–Oct 3 observation (Oct 3 may be provisional), 53 clicks/2,945 impressions site-wide. Redash exact query→page join: 126/0, position 9.1; page aggregate 154/0. Revenue Cat exact query→page join: 94/0, position 7.45; page aggregate 166/0. Different denominators; no conversion/CTR improvement claim.
+## Validation and remaining gates
+- Seventeen Python fixtures and full-catalog dry-run/schema validation pass. Final local smoke made 20 source attempts/five robots reads: ten reachable, eight missing at check, two unknown; 565 unchecked. This is not full-catalog coverage.
+- First review's output-path gap is fixed with a protected-file fixture. Robots exclusion and multicast/jitter findings are addressed; independent final re-review is pending. Application/catalog diff from the shipped correction is empty.
+- Next: exact-head draft PR/CI/hosted build, independent clearance, then merge under explicit user authority and verify a real scheduled workflow event, persisted immutable receipt and exact production head. Record the checked cohort, not an inferred full-catalog grade.
 
-## Next work
-1. Create draft PR for the validated slice, verify the exact source head and hosted preview, then merge under explicit user authority and verify the exact production deployment plus five pages.
-2. Implement the authorized free deterministic monitoring foundation: all-catalog normalized/deduplicated source inventory, bounded public reads, caching, explicit unknown/failure/change states and review-controlled publication. 403/429/timeouts must not become “dead” sources; no private targets or advertised tool invocation.
-3. Await product/technical research and shared gateway audit before capability execution, Jev semantic grading, fixed badge/aggregate formula or paid monitoring. July 2026 protocol discovery differs from legacy initialization; conformance must be version-specific with optional-feature applicability.
-
-## Retained boundaries
-- Live pricing currently closes checkout pending Stripe configuration verification. No payment activation, purchase or paid delivery receipt was performed.
-- Lead storage/operator fulfillment remains its existing separate gap. No form or outbound notification was submitted.
-- `/api/mcp` stays disabled pending its existing durable edge gate and provider readiness. No credentials, provider, database security, rate-limit configuration, new API spend, or Praxium edits are part of this slice.
-
-## Research guardrails received
-- Shared gateway code is a private unlicensed preview; the default Jev path can call a paid provider. No adoption, credentials or unbudgeted calls in this release.
-- Publish plain dated discovery facts first. Unknown/truncated catalogs and unknown applicability have no full denominator or aggregate score; zero assessed criteria means a null score. Declarations and Jev proposals are not runtime/security passes, and historical unresolved failures must not expire into better rankings. No Agent Native badge until authorized observed workflows and reviewed actor/version/transport criteria exist.
+## Research / product boundaries
+- Reviewed Library bundle `EveryMCP-implementation-proposal-2026-10-04-r2.zip` is materialized in this task's `research-bundle` directory. Archive SHA-256 `017d4ca4b784975bf5b8f926d908e6cf94ca2be86b1d705e73945231eeb1f25e`; all eight manifest entries verified. `readyForExecutableUse=false` is intentional.
+- Source refresh first; later bounded actor/version/transport discovery only after pinned-rule/adversarial validation. No aggregate rank/Agent Native from declarations or metadata. Unknown/truncated catalogs have null full denominators. Expired failures cannot improve rank; assessor publication controls are not server points.
+- The shared gateway is a private unlicensed preview with unresolved tenant/catalog/SDK issues; default Jev can invoke a paid provider. No gateway adoption or unbudgeted inference is authorized.
+- Keep no new credentials, security/provider/DB/rate-limit changes, payment activation, purchases, lead submits or outbound notifications. Current checkout is closed pending payment verification; existing lead fulfillment remains a separate gap.
+- GSC Sep21–Oct3 evidence is descriptive (latest day may be provisional), with verified Redash/Revenue Cat query→page joins; no conversion/growth claims.

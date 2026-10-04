@@ -22,3 +22,6 @@ tmp/
 *.log
 *.tsbuildinfo
 .vercel
+
+# standalone source-monitor Python tooling
+__pycache__/

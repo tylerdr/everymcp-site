@@ -1,0 +1,77 @@
+name: Source observations
+
+on:
+  pull_request:
+    paths:
+      - scripts/monitor_sources.py
+      - scripts/requirements-source-monitor.txt
+      - tests/test_source_monitor.py
+      - documents/source-monitor-report.schema.json
+      - data/mcps.json
+      - data/listing-evidence.json
+      - .github/workflows/source-monitor.yml
+  schedule:
+    - cron: '47 22 * * *'
+  workflow_dispatch:
+
+# Existing token, read-only repository access; no provider secrets or public refresh endpoint.
+permissions:
+  contents: read
+
+concurrency:
+  group: source-monitor-${{ github.event_name == 'pull_request' && github.ref || 'main' }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install pinned report validator in isolated environment
+        run: |
+          python3 -m venv tmp/source-monitor/venv
+          tmp/source-monitor/venv/bin/python -m pip install --disable-pip-version-check -r scripts/requirements-source-monitor.txt
+      - name: Verify policy, fixtures and whole-catalog dry run
+        run: |
+          tmp/source-monitor/venv/bin/python -m unittest discover -s tests -p 'test_source_monitor.py' -v
+          tmp/source-monitor/venv/bin/python scripts/monitor_sources.py --dry-run
+
+  observe:
+    needs: verify
+    if: >-
+      github.event_name != 'pull_request' && github.ref == 'refs/heads/main' &&
+      github.repository == 'tylerdr/everymcp-site' && !github.event.repository.private
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Restore only the last operational cache from trusted main runs
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: tmp/source-monitor/cache.json
+          key: public-source-v1-${{ github.run_id }}
+          restore-keys: public-source-v1-
+      - name: Install pinned report validator
+        run: |
+          python3 -m venv tmp/source-monitor/venv
+          tmp/source-monitor/venv/bin/python -m pip install --disable-pip-version-check -r scripts/requirements-source-monitor.txt
+      - name: Collect bounded source observations
+        run: >-
+          tmp/source-monitor/venv/bin/python scripts/monitor_sources.py --check
+          --max-checks 120 --max-seconds 1200 --max-age-days 7
+          --summary "$GITHUB_STEP_SUMMARY"
+      - name: Preserve sanitized immutable receipt in the run log
+        run: |
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          for path in sorted(Path('tmp/source-monitor/runs').glob('*.json')):
+              content = path.read_bytes()
+              print('SOURCE_RUN_SHA256', hashlib.sha256(content).hexdigest())
+              print('SOURCE_RUN_JSON', json.dumps(json.loads(content), separators=(',', ':')))
+          PY

@@ -4,6 +4,17 @@
 
 *Tyler's input is scarce and valuable. Exact words are preserved so scope never gets lost or misremembered.*
 
+## 2026-10-04 — Independent review and authorized PR18 release
+
+**Coordinator instruction (verbatim):**
+> Please obtain one additional independent exact-head review focused on receipt authenticity, relationship completeness, stale/failed source semantics, deterministic import and no accidental publication or score claims. If clear, release PR18 through normal merge using exact user authority below, preserving all holds and revalidating production exact SHA/domain/routes/sitemap plus reviewed queue receipt. No CI reruns needed and no protection bypass.
+>
+> User, Sentinel_055bec065c5c81918867518b528bd72c: "You have permission to merge yourself on EveryMCP and all other Tai Durden projects that are not run and controlled by me. Do not merge without my consent on Praxium, Amble, or Sprinter sites, but on any of the Tai Durden sites that are the 0 Human Company Venture Studio experiments. You have full authority to drive them to revenue readiness, including merging to production. Just make sure that you always revalidate prod after any release."
+>
+> If denied, report exact blocker rather than route around it. Do not infer scheduler execution from manual receipt.
+
+---
+
 ## 2026-10-04 — Cloud delegation: deterministic receipt import and evidence review
 
 **Coordinator instruction (verbatim):**

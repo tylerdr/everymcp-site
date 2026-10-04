@@ -5,7 +5,7 @@
 ---
 
 ## Active Sprint
-- [ ] T019: Review the five-listing receipt queue and propose any dated public-note refresh separately. Parent coordinates independent PR review, exact-head hosted acceptance, merge and production revalidation; scheduled due-run proof remains T016.
+- [ ] T019: Review the five-listing receipt queue and propose any dated public-note refresh separately. PR18 importer is released/revalidated; any public-note change remains separate. Scheduled due-run proof remains T016.
 - [ ] T016: Release the implemented free source-monitoring foundation — 616 listings / 585 sources, bounded robots-aware public observations, validated immutable receipts, null grades and review-controlled publication. Independent review, 17 fixtures, exact-head hosted CI/build, production readback and a real runner execution pass; first scheduled receipt remains pending.
 - [ ] T017: Research-driven Jev evaluation and capability profiles — retain provenance, abstention, version applicability and optional-feature semantics; grading/badges remain unimplemented until contract review.
 - [ ] T001: Stripe test-mode checkout and download receipt — run a labeled no-charge sandbox payment and retry the download.
@@ -30,7 +30,7 @@
 - [ ] OQ002: What provider and operator identity should back durable inquiry capture and notifications?
 
 ## Completed
-- [x] T018: Implement offline deterministic source-receipt import and a five-listing internal evidence-review queue. Actual manual run SHA/schema/provenance and 623 exact URL-to-listing relations validated; 31 Python fixtures, unchanged app/catalog/collector checks, app tests/lint/types and 753-page build pass. Draft-PR review and coordinated release remain pending; no public notes or grades published.
+- [x] T018: Implement offline deterministic source-receipt import and a five-listing internal evidence-review queue. Actual manual run SHA/schema/provenance and 623 exact URL-to-listing relations validated; 31 Python fixtures, unchanged app/catalog/collector checks, app tests/lint/types and 753-page build pass. PR18 merged normally at `df42cc3f0cf04e57fd24e7d6876a5421011c5aad` after additional independent exact-head review. Matching READY production/domain and nine-route/616-sitemap/queue/hold readback passed 2026-10-04T23:50:22Z; no public notes or grades published.
 - [x] T015: Five traffic-page source corrections and unpriced enterprise contact — PR #15 merged at `5028a91aac22e531c05476873f36cb8224ebf93f`; exact READY production deployment and nine-route readback verified 2026-10-04T21:56:45Z.
 - [x] T014: Follow prescribed shadcn UI controls — minimal Button/NativeSelect setup and CSS theme tokens for the planner, retaining native GET/required/keyboard behavior and the same checkout handoff.
 - [x] T013: Align the whole paid packet with reviewed sources — goal-specific matrix rows and notes match the selected brief; legacy/no-goal packets use deduplicated research and software defaults. Actual kit-body checks reject duplicate and unreviewed emitted source links.

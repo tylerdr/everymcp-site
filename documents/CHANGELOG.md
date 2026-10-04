@@ -165,3 +165,14 @@ Detail pages link to the existing free planner with an explicit inclusion/compat
 
 2026-10-04: Source-monitor foundation PR #16 merged at a3f2affc5a8e354428ecc66ed11c33ea1ec4dca8 after independent review, exact-head fixtures/CI, lint/types/tests and 753-page build. Matching production deployment dpl_5fCyoJisw9BeVNNmHnmzEp7UMgUc is READY; nine public routes and all 616 catalog sitemap paths read back at 22:39:09 UTC. Workflow registration is active; actual scheduled receipt remains pending.
 2026-10-04: Actual GitHub runner execution 37240814694 succeeded (workflow_dispatch, a3f2aff). Hashed/schema-validated immutable receipt covers 120 source attempts: 38 reachable, 77 missing at check, five unknown and 465 unchecked; no publication or scoring. SHA-256 2196cc1d41678e4ac23cda41751bfb5eceb6a2c114dc6a6a53ebda070c87d347. Scheduled due-run verification remains separate.
+
+## 2026-10-04 — Offline receipt import and five-page evidence review (implementation; release pending)
+
+**Branch:** `feature/source-receipt-review-queue`, based on main `80edfe403313ca17e63d9cf7a66b8cdd097d5b56`; parent coordinates draft review and release.
+
+- Added a deterministic offline importer for saved receipts or observe-log marker pairs. Requires an independent canonical hash/head and verified run/job metadata; validates pinned schema, exact inventory relations, chronology, summaries, trusted execution limits and immutable output protection.
+- Preserved the complete actual manual receipt/execution metadata and a five-listing, 12-source JSON/Markdown review snapshot with original citations, curated cautions, explicit as-of freshness, last attempt/success and unresolved findings.
+- Added 14 importer fixtures alongside the unchanged 17 collector fixtures, plus PR-only replay checks. Collection cadence, budgets and trusted-main cache behavior are unchanged.
+- Direct independent SHA/schema/623-relation cross-check and public/collector byte comparison passed. All 31 Python tests, whole-catalog dry run, app tests, lint, standalone typecheck and 753-page production build pass. Current production baseline at 2026-10-04T23:26:37Z verifies nine routes/canonicals, all 616 listing sitemap URLs, existing source dates/reference links, free planner and commerce holds. This is pre-release readback, not a deployment receipt for this feature.
+
+**Decision:** ADR-010. No public data, app, collector, report schema, price, payment/provider gate, credential, database or scoring change. Independent human/parent PR review and exact-head hosted/production acceptance remain required. First scheduled due-run proof remains separate. The Mac venture workspace is absent in cloud; the four-bullet status is preserved in `documents/VENTURE-STATUS.md` for the parent to synchronize.

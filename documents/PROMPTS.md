@@ -4,6 +4,13 @@
 
 *Tyler's input is scarce and valuable. Exact words are preserved so scope never gets lost or misremembered.*
 
+## 2026-10-04 — Cloud delegation: deterministic receipt import and evidence review
+
+**Coordinator instruction (verbatim):**
+> Own next bounded EveryMCP improvement in cloud. User explicitly wants authoritative evidence-rich directory, cheap/free accurate monitoring, eventual evaluated MCP capabilities, additive SEO value and revenue, and authorizes reviewed Tai venture merges with production revalidation. First verify authorized access/current origin/open PR ownership in tylerdr/everymcp-site; saved env starts with Praxium repos, do not edit those. Prior Mac owner completed15/16/17, main80edfe403313ca17e63d9cf7a66b8cdd097d5b56. Build deterministic receipt import and five priority listing evidence-review queue with precise URL→listing relationships, timestamps, stale/failed/unknown states and source citations; independently test and open draft PR before coordinated release. Five priority listings RevenueCat, Redash, iCloud, Heap, Hotjar have corrected source identity; inspect committed data, never assume missing source means failed MCP. Canonical scripts/monitor_sources.py, tests/test_source_monitor.py, documents/source-monitor-report.schema.json, SOURCE-MONITOR.md, HANDOFF.md; data/mcps.json and listing-evidence.json. 616routes→578distinctindexedURLs+7curatedreferences=585uniqueURLs;615legacyIDs because two preserved Neon slugs share ID, preserve routes and relations. Verified manual Actions run37240814694 head a3f2affc5a8e354428ecc66ed11c33ea1ec4dca8 job111549047496 has SOURCE_RUN_JSON and SOURCE_RUN_SHA256 log markers; compact sortedJSON+newline SHA2196cc1d41678e4ac23cda41751bfb5eceb6a2c114dc6a6a53ebda070c87d347.120checked:38reachable77missing5unknown,465unchecked. Validate schema/hash before use. Monitor limits120attempts+6robots,sequential1sec/host,8secdeadline,20mincollector25minjob,HTTPSallowlist/DNS/TLSpin/robots/no redirects/auth/toolcalls, bounded bodies/cache/immutable receipts. No paid modelcalls. Jev scoring, badges, automatic publication and applicability denominators stay disabled/null until executable versioned rules validated; do not use probability as factual confidence. Actual MCP2026-07-28 differs from legacy initialize/session protocol; discovery is later scope. Preserve URLs/canonicals/freeutility and existing commerceholds. Read AGENTS/relevant .agents/skills. No credentials,liveDB,securitysettings orpaidspend. Return early chosen scope, final exact PR/tests/prodacceptance recommendation; parent coordinates merge, scheduler proof separately.
+
+---
+
 ## 2026-10-03 — Root review: use prescribed UI primitives
 
 **Coordinator instruction:**

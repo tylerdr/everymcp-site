@@ -1,0 +1,54 @@
+{
+  "checkedAt": "2026-10-04T23:26:37Z",
+  "target": "current production baseline; feature not merged/deployed",
+  "routes": [
+    {
+      "path": "/mcp/redash-mcp",
+      "status": 200,
+      "canonical": "https://everymcp.com/mcp/redash-mcp"
+    },
+    {
+      "path": "/mcp/revenuecat-mcp",
+      "status": 200,
+      "canonical": "https://everymcp.com/mcp/revenuecat-mcp"
+    },
+    {
+      "path": "/mcp/icloud-mcp",
+      "status": 200,
+      "canonical": "https://everymcp.com/mcp/icloud-mcp"
+    },
+    {
+      "path": "/mcp/heap-mcp",
+      "status": 200,
+      "canonical": "https://everymcp.com/mcp/heap-mcp"
+    },
+    {
+      "path": "/mcp/hotjar-mcp",
+      "status": 200,
+      "canonical": "https://everymcp.com/mcp/hotjar-mcp"
+    },
+    {
+      "path": "/pricing",
+      "status": 200,
+      "canonical": "https://everymcp.com/pricing"
+    },
+    {
+      "path": "/services",
+      "status": 200,
+      "canonical": "https://everymcp.com/services"
+    },
+    {
+      "path": "/plan",
+      "status": 200,
+      "canonical": "https://everymcp.com/plan"
+    },
+    {
+      "path": "/mcp/filesystem",
+      "status": 200,
+      "canonical": "https://everymcp.com/mcp/filesystem"
+    }
+  ],
+  "sitemapListingCount": 616,
+  "publicEvidenceDatesUnchanged": true,
+  "commerceHoldsPreserved": true
+}

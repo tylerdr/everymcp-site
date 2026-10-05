@@ -26,7 +26,7 @@ The separately selected **2025-11-25** profile retains [initialize/initialized l
 
 ## Review the exact request plan
 
-`scripts/propose_public_discovery.py` prints canonical JSON with the exact request bodies, fixed headers, conditions, endpoint relationship, manifest SHA and hashes of every policy/normalization/transport source artifact. It accepts no URL, tool, credential or installation argument. Repeat its default run after any change; a plan hash changes with the source files.
+[Committed canonical unexecuted plan](public-discovery/endpoint-proposal.json) contains every exact request template and source hash; CI requires byte-for-byte regeneration. `scripts/propose_public_discovery.py` prints canonical JSON with the exact request bodies, fixed headers, conditions, endpoint relationship, manifest SHA and hashes of every policy/normalization/transport source artifact. It accepts no URL, tool, credential or installation argument. Repeat its default run after any change; a plan hash changes with the source files.
 
 1. Modern: `server/discover` ID 1; only after a valid selected-version response, `tools/list` ID 2 if tools are declared and `resources/list` ID 3 if resources are declared.
 2. Legacy: separate `initialize` ID 1; require exact 2025-11-25, then `notifications/initialized`; require empty 202 acknowledgment, then `tools/list` ID 3 and `resources/list` ID 4 only for declared capabilities. An assigned valid legacy session value exists only in process memory and is sent only to the same fixed endpoint; it is never retained in a receipt.

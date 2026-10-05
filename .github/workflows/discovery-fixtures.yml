@@ -42,4 +42,5 @@ jobs:
           tmp/discovery/venv/bin/python -m unittest discover -s tests -p 'test_source_receipt_import.py' -v
           tmp/discovery/venv/bin/python scripts/run_discovery_fixtures.py > tmp/discovery/local-receipt.json
           tmp/discovery/venv/bin/python scripts/propose_public_discovery.py > tmp/discovery/endpoint-proposal.json
+          cmp tmp/discovery/endpoint-proposal.json documents/public-discovery/endpoint-proposal.json
           tmp/discovery/venv/bin/python scripts/monitor_sources.py --dry-run

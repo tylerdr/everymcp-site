@@ -240,14 +240,45 @@ class DiscoveryAcceptance(unittest.TestCase):
                 contract.validate_evidence(changed)
         self.assertEqual(report["attribution"]["fixtureSha256"], contract.sha(contract.canonical(CASES["modern-json"])))
 
+        for name in ("modern-session-refused", "encoded-body"):
+            changed = run(name)
+            case = CASES[name]
+            value = case["replies"]["server/discover"][0]["message"]["result"]
+            raw = contract.fixture_response_bytes(case["replies"]["server/discover"][0], 1)
+            e = changed["exchanges"][0]
+            e.update(outcome="observed", reason=None, capturedBytes=len(raw), responseSha256=contract.sha(raw),
+                     cacheHint={"ttlMs": value["ttlMs"], "scope": value["cacheScope"], "reused": False})
+            changed["discovery"] = contract.declared(contract.discovery_value(value, "2026-07-28"), contract.citation(e, "/result"))
+            with self.assertRaises(ValueError):
+                contract.validate_evidence(changed)
+        changed = run("modern-sse-pages")
+        changed["tools"]["citations"] = changed["tools"]["citations"][1:]
+        changed["toolDeclarations"] = changed["toolDeclarations"][1:]
+        changed["tools"]["value"]["count"] = 1
+        with self.assertRaisesRegex(ValueError, "page_coverage"):
+            contract.validate_evidence(changed)
+
     def test_every_committed_case_validates_with_unknown_runtime_and_zero_publication(self):
+        reports = []
         for case in CASES.values():
             with self.subTest(case=case["id"]):
                 report = runner.run_case(case, CLOCK)
+                reports.append(report)
                 contract.validate_evidence(report)
                 self.assertEqual(report["assessments"]["runtime"], "unknown")
                 self.assertEqual(report["assessments"]["security"], "unknown")
                 self.assertEqual(report["publication"]["state"], "review_required")
+        receipt = {"reports": reports, "fixtureManifestSha256": contract.sha(runner.FIXTURES.read_bytes()),
+                   "liveProbes": 0, "toolCalls": 0, "modelCalls": 0, "costUsd": 0}
+        saved = json.loads((ROOT / "documents/public-discovery/fixture-acceptance.json").read_text())
+        self.assertEqual(contract.sha(contract.canonical(receipt)), saved["receiptSha256"])
+        self.assertEqual(receipt["fixtureManifestSha256"], saved["fixtureManifestSha256"])
+        self.assertEqual(saved["cases"], len(reports))
+        self.assertEqual(saved["requests"], sum(len(r["exchanges"]) for r in reports))
+        for path in (ROOT / "documents/public-discovery").glob("example-*.json"):
+            example = json.loads(path.read_text())
+            actual = next(r for r in reports if r["attribution"]["source"] == example["attribution"]["source"])
+            self.assertEqual(example, actual)
 
 
 if __name__ == "__main__":

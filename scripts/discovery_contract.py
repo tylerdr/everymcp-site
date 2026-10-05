@@ -194,6 +194,31 @@ def fixture_response_bytes(reply, request_id):
     return raw + b" " * reply.get("paddingBytes", 0)
 
 
+def fixture_header(reply, name, default=None):
+    headers = {"Content-Type": "text/event-stream" if reply.get("sse") else "application/json",
+               **reply.get("headers", {})}
+    values = [str(v) for k, v in headers.items() if k.lower() == name.lower()]
+    return ", ".join(values) if values else default
+
+
+def validate_observed_transport(reply, version, method, fixture_case, request_seconds):
+    if fixture_header(reply, "Content-Encoding", "identity").lower() != "identity":
+        raise ValueError("observed_encoded_response")
+    assigned = fixture_header(reply, "Mcp-Session-Id")
+    if method == "initialize" and fixture_case.get("session"):
+        assigned = "fixture-session-only"
+    if assigned is not None:
+        if version == VERSIONS[0]:
+            raise ValueError("observed_modern_session")
+        if method != "initialize" or not 0 < len(assigned) <= 256 or any(not 33 <= ord(c) <= 126 for c in assigned):
+            raise ValueError("observed_invalid_legacy_session")
+    if reply.get("delaySeconds", 0) >= request_seconds:
+        raise ValueError("observed_fixture_timeout")
+    if sum(len(str(k).encode()) + len(str(v).encode()) + 4 for k, v in reply.get("headers", {}).items()) >= 8192:
+        raise ValueError("observed_oversized_headers")
+    return assigned
+
+
 def pointer_value(document, pointer):
     node = document
     if not isinstance(pointer, str) or not pointer.startswith("/"):
@@ -344,21 +369,21 @@ def validate_evidence(report, fixture_case=None):
         raw = fixture_response_bytes(reply, i + 1)
         if e["httpStatus"] is not None and e["httpStatus"] != reply.get("status", 200):
             raise ValueError("invalid_http_attribution")
-        expected_challenge = auth_challenge(reply.get("headers", {}).get("WWW-Authenticate", "")) if e["httpStatus"] in (401, 403) else None
+        expected_challenge = auth_challenge(fixture_header(reply, "WWW-Authenticate", "")) if e["httpStatus"] in (401, 403) else None
         if e["authChallenge"] != expected_challenge:
             raise ValueError("invalid_auth_attribution")
         if e["responseSha256"] is not None and (len(raw) > MAX_BODY or sha(raw) != e["responseSha256"]):
             raise ValueError("invalid_response_attribution")
         if e["outcome"] == "observed":
+            assigned = validate_observed_transport(reply, version, method, fixture_case, report["limits"]["requestSeconds"])
             if e["reason"] is not None or e["httpStatus"] != reply.get("status", 200) or e["httpStatus"] != (202 if method == "notifications/initialized" else 200):
                 raise ValueError("invalid_observed_exchange")
             if e["capturedBytes"] != len(raw) or e["responseSha256"] != sha(raw):
                 raise ValueError("invalid_response_attribution")
-            assigned = (fixture_case.get("session") or "Mcp-Session-Id" in reply.get("headers", {})) if method == "initialize" else False
             if e["sessionAssigned"] != bool(assigned):
                 raise ValueError("invalid_session_attribution")
             if method != "notifications/initialized":
-                content_type = reply.get("headers", {}).get("Content-Type", "text/event-stream" if reply.get("sse") else "application/json")
+                content_type = fixture_header(reply, "Content-Type", "")
                 value = response_message(raw, content_type, i + 1)
                 root = {"server/discover": "DiscoverResult", "initialize": "InitializeResult", "tools/list": "ListToolsResult", "resources/list": "ListResourcesResult"}[method]
                 validate_declaration(version, root, value)
@@ -419,6 +444,10 @@ def validate_evidence(report, fixture_case=None):
         if fact["state"] == "declared" and fact["value"] != {"count": len(report[items_key]), "complete": True}:
             raise ValueError("invalid_catalogue_count")
         if fact["state"] == "declared":
+            all_observed = [citation(e, "/result/" + name) for e in report["exchanges"]
+                            if e["method"] == name + "/list" and e["outcome"] == "observed"]
+            if fact["citations"] != all_observed:
+                raise ValueError("invalid_catalogue_page_coverage")
             expected_count = sum(len(pointer_value(bodies[c["exchange"]], "/result/" + name)) for c in fact["citations"])
             last = bodies[fact["citations"][-1]["exchange"]]["result"]
             if last.get("nextCursor") is not None or expected_count != len(report[items_key]):

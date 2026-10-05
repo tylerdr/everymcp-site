@@ -1,0 +1,9 @@
+[
+  {
+    "slug": "revenuecat-mcp",
+    "sourceUrl": "https://www.revenuecat.com/docs/tools/mcp",
+    "observedAt": "2026-10-05T02:45:30Z",
+    "note": "Separate endpoint observation on October 5, 2026 at 02:45:30 UTC: one anonymous discovery request to https://mcp.revenuecat.ai/mcp returned HTTP 401 (authentication required). Authentication is expected under the publisher’s setup instructions. The check stopped at authentication; tool and resource capabilities were not inspected, and protocol compliance and security remain unassessed.",
+    "receiptUrl": "https://github.com/tylerdr/everymcp-site/blob/3e9440f922e794f4d377380dd52552506cccc1d2/documents/public-discovery/revenuecat-proof-once-2026-10-05.json"
+  }
+]

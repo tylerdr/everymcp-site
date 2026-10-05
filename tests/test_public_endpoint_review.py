@@ -233,6 +233,24 @@ class EndpointReviewTests(unittest.TestCase):
         self.assertEqual(receipt['reports'][1]['discovery'],contract.unknown('safety_skipped'))
         self.assertIsNone(receipt['reports'][0]['exchanges'][0]['completeBody'])
 
+    def test_escaped_lone_surrogates_in_keys_and_values_remain_unknown(self):
+        for location in ('key','value'):
+            clock=[0.0]
+            def post(body,headers,timeout,record):
+                message=contract.strict_json(body); method=message['method']
+                result=contract.strict_json(fixture_result('modern-json',method,network.METHODS[contract.VERSIONS[0]][method]))
+                if method=='tools/list':
+                    if location=='key': result['result']['tools'][0]['inputSchema']['properties']={'\ud800':{'type':'string'}}
+                    else: result['result']['tools'][0]['description']='\ud800'
+                payload=(json.dumps(result,ensure_ascii=True)+'\n').encode('utf-8')
+                response_headers={'content-type':'application/json','content-length':str(len(payload))}
+                record.update(trace(payload,response_headers)); return 200,response_headers,b'',payload
+            def advance(seconds): clock[0]+=seconds
+            with patch.object(adapter,'LIVE_EXECUTION_ENABLED',True), patch.object(network,'post',side_effect=post), patch.object(time,'sleep',side_effect=advance), patch.object(time,'monotonic',side_effect=lambda:clock[0]): receipt=adapter.collect_plan()
+            self.assertEqual(receipt['reports'][0]['tools'],contract.unknown('invalid_or_truncated_json'))
+            self.assertEqual(receipt['attempts'],2)
+            self.assertEqual(receipt['reports'][1]['discovery'],contract.unknown('safety_skipped'))
+
     def test_post_method_headers_and_body_are_allowlisted_before_dns(self):
         headers=network.request_headers(contract.VERSIONS[0],'server/discover')
         with patch.object(socket,'getaddrinfo',side_effect=AssertionError('no DNS')):

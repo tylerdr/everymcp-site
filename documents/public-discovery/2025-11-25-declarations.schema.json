@@ -1,0 +1,395 @@
+{
+  "$defs": {
+    "Annotations": {
+      "properties": {
+        "audience": {
+          "items": {
+            "$ref": "#/$defs/Role"
+          },
+          "type": "array"
+        },
+        "lastModified": {
+          "type": "string"
+        },
+        "priority": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Icon": {
+      "properties": {
+        "mimeType": {
+          "type": "string"
+        },
+        "sizes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "src": {
+          "format": "uri",
+          "type": "string"
+        },
+        "theme": {
+          "enum": [
+            "dark",
+            "light"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "src"
+      ],
+      "type": "object"
+    },
+    "Implementation": {
+      "properties": {
+        "icons": {
+          "items": {
+            "$ref": "#/$defs/Icon"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "websiteUrl": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version"
+      ],
+      "type": "object"
+    },
+    "InitializeResult": {
+      "properties": {
+        "_meta": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "capabilities": {
+          "$ref": "#/$defs/ServerCapabilities"
+        },
+        "instructions": {
+          "type": "string"
+        },
+        "protocolVersion": {
+          "type": "string"
+        },
+        "serverInfo": {
+          "$ref": "#/$defs/Implementation"
+        }
+      },
+      "required": [
+        "capabilities",
+        "protocolVersion",
+        "serverInfo"
+      ],
+      "type": "object"
+    },
+    "ListResourcesResult": {
+      "properties": {
+        "_meta": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "nextCursor": {
+          "type": "string"
+        },
+        "resources": {
+          "items": {
+            "$ref": "#/$defs/Resource"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "resources"
+      ],
+      "type": "object"
+    },
+    "ListToolsResult": {
+      "properties": {
+        "_meta": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "nextCursor": {
+          "type": "string"
+        },
+        "tools": {
+          "items": {
+            "$ref": "#/$defs/Tool"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "tools"
+      ],
+      "type": "object"
+    },
+    "Resource": {
+      "properties": {
+        "_meta": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "annotations": {
+          "$ref": "#/$defs/Annotations"
+        },
+        "icons": {
+          "items": {
+            "$ref": "#/$defs/Icon"
+          },
+          "type": "array"
+        },
+        "mimeType": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "uri": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "uri"
+      ],
+      "type": "object"
+    },
+    "Role": {
+      "enum": [
+        "assistant",
+        "user"
+      ],
+      "type": "string"
+    },
+    "ServerCapabilities": {
+      "properties": {
+        "completions": {
+          "additionalProperties": true,
+          "properties": {},
+          "type": "object"
+        },
+        "experimental": {
+          "additionalProperties": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "logging": {
+          "additionalProperties": true,
+          "properties": {},
+          "type": "object"
+        },
+        "prompts": {
+          "properties": {
+            "listChanged": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "resources": {
+          "properties": {
+            "listChanged": {
+              "type": "boolean"
+            },
+            "subscribe": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "tasks": {
+          "properties": {
+            "cancel": {
+              "additionalProperties": true,
+              "properties": {},
+              "type": "object"
+            },
+            "list": {
+              "additionalProperties": true,
+              "properties": {},
+              "type": "object"
+            },
+            "requests": {
+              "properties": {
+                "tools": {
+                  "properties": {
+                    "call": {
+                      "additionalProperties": true,
+                      "properties": {},
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "tools": {
+          "properties": {
+            "listChanged": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Tool": {
+      "properties": {
+        "_meta": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "annotations": {
+          "$ref": "#/$defs/ToolAnnotations"
+        },
+        "execution": {
+          "$ref": "#/$defs/ToolExecution"
+        },
+        "icons": {
+          "items": {
+            "$ref": "#/$defs/Icon"
+          },
+          "type": "array"
+        },
+        "inputSchema": {
+          "properties": {
+            "$schema": {
+              "type": "string"
+            },
+            "properties": {
+              "additionalProperties": {
+                "additionalProperties": true,
+                "properties": {},
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "required": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": {
+              "const": "object",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "outputSchema": {
+          "properties": {
+            "$schema": {
+              "type": "string"
+            },
+            "properties": {
+              "additionalProperties": {
+                "additionalProperties": true,
+                "properties": {},
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "required": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": {
+              "const": "object",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "inputSchema",
+        "name"
+      ],
+      "type": "object"
+    },
+    "ToolAnnotations": {
+      "properties": {
+        "destructiveHint": {
+          "type": "boolean"
+        },
+        "idempotentHint": {
+          "type": "boolean"
+        },
+        "openWorldHint": {
+          "type": "boolean"
+        },
+        "readOnlyHint": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ToolExecution": {
+      "properties": {
+        "taskSupport": {
+          "enum": [
+            "forbidden",
+            "optional",
+            "required"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

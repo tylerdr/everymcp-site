@@ -5,6 +5,8 @@
 ---
 
 ## Active Sprint
+- [x] T020: Implement draft version/transport-specific public discovery declaration contract and owned HTTP fixture runner; 2026-07-28 and 2025-11-25 profiles, pinned official shapes, adversarial unknowns, inert tool/schema/auth/Apps declarations and PR-only CI. Local acceptance complete; independent exact-head risk review and draft hosted acceptance required before release. Live endpoints, grading and publication stay disabled.
+- [ ] T021: Review T020 risks/acceptance at exact draft head; separately define attributable source→endpoint→listing relations and HTTPS/DNS/TLS/cache boundaries before authorizing any live public declaration probe. Research ZIP transfer unavailable in cloud; no packed shared artifact reused.
 - [ ] T019: Review the five-listing receipt queue and propose any dated public-note refresh separately. PR18 importer is released/revalidated; any public-note change remains separate. Scheduled due-run proof remains T016.
 - [ ] T016: Release the implemented free source-monitoring foundation — 616 listings / 585 sources, bounded robots-aware public observations, validated immutable receipts, null grades and review-controlled publication. Independent review, 17 fixtures, exact-head hosted CI/build, production readback and a real runner execution pass; first scheduled receipt remains pending.
 - [ ] T017: Research-driven Jev evaluation and capability profiles — retain provenance, abstention, version applicability and optional-feature semantics; grading/badges remain unimplemented until contract review.

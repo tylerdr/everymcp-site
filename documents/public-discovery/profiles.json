@@ -1,0 +1,156 @@
+{
+  "assessments": {
+    "applicableDenominator": null,
+    "badge": null,
+    "score": null
+  },
+  "commonClauses": [
+    {
+      "id": "declarations.tools",
+      "implementation": "List only when capability declared; preserve names, untrusted descriptions/annotations and input/output schema declarations. No tools/call or x-mcp-header execution validation.",
+      "source": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools"
+    },
+    {
+      "id": "declarations.schemas",
+      "implementation": "Bound syntax inspection only for 2020-12; unsupported dialect/oversized/unresolved external references remain unknown. No instance validation or remote reference resolution.",
+      "source": "https://modelcontextprotocol.io/specification/2026-07-28/basic#json-schema-usage"
+    },
+    {
+      "id": "declarations.pagination",
+      "implementation": "Bounded opaque cursors; retain observed partial declarations but no complete count on unknown or capped pages.",
+      "source": "https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/pagination"
+    },
+    {
+      "id": "declarations.auth",
+      "implementation": "Record only HTTP challenge hints. Do not follow metadata, discover/register clients, authenticate or inspect environment credentials.",
+      "source": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/authorization-server-discovery"
+    },
+    {
+      "id": "declarations.apps",
+      "implementation": "Record advertised ui extension settings and tool ui.resourceUri/visibility; optional resource-list URI/MIME declarations. No Apps negotiation, resource read, HTML rendering, CSP/security assertion or app/tool execution.",
+      "source": "https://github.com/modelcontextprotocol/ext-apps/blob/82221c0c8ce7661efa6771c9d461511b1650495f/specification/2026-01-26/apps.mdx"
+    }
+  ],
+  "contractVersion": "everymcp.public-discovery.v1",
+  "executionMode": "controlled_loopback_fixtures_only",
+  "futureListingJoin": {
+    "note": "A repository/source reference is not an MCP endpoint. Preserve all 616 routes and both Neon slugs. Live receipt attribution requires a new reviewed contract revision and explicit source-to-endpoint-to-listing relationship, never a name-only join.",
+    "requiredFields": [
+      "listingSlug (primary route identity)",
+      "legacyListingId (not unique)",
+      "endpointUrl (exact reviewed path)",
+      "sourceCitationUrl",
+      "relationshipRole",
+      "relationshipCheckedAt",
+      "publisherAssessment"
+    ],
+    "state": "design_only; no synthetic fixture may be assigned to a catalog listing"
+  },
+  "profiles": [
+    {
+      "actor": "declaration_observer",
+      "allowedMethods": [
+        "server/discover",
+        "tools/list",
+        "resources/list"
+      ],
+      "clauses": [
+        {
+          "id": "modern.request-meta",
+          "implementation": "request() includes version, empty relevant capabilities and client identity on every request.",
+          "source": "https://modelcontextprotocol.io/specification/2026-07-28/basic#meta"
+        },
+        {
+          "id": "modern.http-headers",
+          "implementation": "Mirror version and method in headers; accept JSON and SSE; POST only.",
+          "source": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http#standard-request-headers"
+        },
+        {
+          "id": "modern.discovery",
+          "implementation": "Pinned DiscoverResult declaration shape, requested version must be in supportedVersions, server identity remains self-reported.",
+          "source": "https://modelcontextprotocol.io/specification/2026-07-28/server/discover"
+        },
+        {
+          "id": "modern.cache",
+          "implementation": "Require current ttlMs/cacheScope in this profile; capture hints without storing/reusing any runtime cache.",
+          "source": "https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/caching"
+        },
+        {
+          "id": "modern.stateless",
+          "implementation": "No initialize, GET stream, session, DELETE or resumable stream. An unexpected session is an observer incompatibility, not a quality verdict.",
+          "source": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http#earlier-streamable-http-revisions"
+        }
+      ],
+      "era": "per_request",
+      "fallback": "disabled; record unknown and require an explicitly separate profile run",
+      "firstMethod": "server/discover",
+      "id": "mcp-2026-07-28-streamable-http-declarations-v1",
+      "protocolVersion": "2026-07-28",
+      "recommendedRequestMeta": [
+        "io.modelcontextprotocol/clientInfo"
+      ],
+      "requiredHeaders": [
+        "Content-Type",
+        "Accept",
+        "MCP-Protocol-Version",
+        "Mcp-Method"
+      ],
+      "requiredRequestMeta": [
+        "io.modelcontextprotocol/protocolVersion",
+        "io.modelcontextprotocol/clientCapabilities"
+      ],
+      "session": "disabled",
+      "transport": "streamable-http"
+    },
+    {
+      "actor": "declaration_observer",
+      "allowedMethods": [
+        "initialize",
+        "notifications/initialized",
+        "tools/list",
+        "resources/list"
+      ],
+      "clauses": [
+        {
+          "id": "legacy.lifecycle",
+          "implementation": "Initialize, require exact supported version, send initialized notification before lists.",
+          "source": "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle#initialization"
+        },
+        {
+          "id": "legacy.session",
+          "implementation": "Carry optional returned session only in the local fixture process, never persist value.",
+          "source": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#session-management"
+        },
+        {
+          "id": "legacy.version-header",
+          "implementation": "Send negotiated version on every subsequent request; no modern metadata assumptions.",
+          "source": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#protocol-version-header"
+        }
+      ],
+      "era": "initialize",
+      "fallback": "disabled; negotiated versions other than this exact profile remain unknown",
+      "firstMethod": "initialize",
+      "id": "mcp-2025-11-25-streamable-http-declarations-v1",
+      "protocolVersion": "2025-11-25",
+      "requiredHeadersAfterInitialize": [
+        "MCP-Protocol-Version",
+        "Mcp-Session-Id only if assigned"
+      ],
+      "requiredRequestMeta": [],
+      "session": "optional, transient fixture memory only; no receipt value",
+      "transport": "streamable-http"
+    }
+  ],
+  "purpose": "Capture self-declared discovery evidence; never conformance, runtime or security certification.",
+  "unsupported": [
+    "Other protocol versions",
+    "stdio process launch or installation",
+    "Deprecated HTTP+SSE transport",
+    "Arbitrary URL or live endpoint probing",
+    "Interactive/input_required/peer requests",
+    "Subscription/resumption",
+    "Remote schemas/icons/auth metadata/UI content",
+    "Prompt bodies/tool results",
+    "Schema instance validation or tool transport-header semantic conformance"
+  ]
+}

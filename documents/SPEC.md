@@ -1,12 +1,16 @@
 # everymcp — Product Spec
 
-**Last updated:** 2026-10-04 (session: offline receipt import and evidence review)
-**Version:** 0.7
+**Last updated:** 2026-10-05 (session: draft public discovery contract and local HTTP fixtures)
+**Version:** 0.8
 
 ---
 
 ## Overview
 EveryMCP is a source-aware MCP discovery directory with a free outcome-based Stack Planner, a self-serve $49 MCP Integration Starter Kit, and separate enterprise consulting and sponsorship inquiries. Consulting is unpriced and requires confirmation of availability and scope; it is not a self-serve implementation product.
+
+### Draft public MCP declaration evidence
+
+The deterministic evidence layer now has explicit MCP 2026-07-28 per-request Streamable HTTP and separate 2025-11-25 initialization/session profiles, proved only against owned local HTTP fixtures. It captures attributed self-declared identity/capabilities, tool names/schemas, public auth challenge hints and Apps references without tool execution, client registration, credentials, stdio install, model spend or live arbitrary probes. Incomplete/unsupported data remains unknown; publication is ineligible and all scores/badges/denominators remain null. Future listing display requires a reviewed exact source→endpoint→slug relationship and independent network/cache/acceptance review. See [PUBLIC-DISCOVERY.md](PUBLIC-DISCOVERY.md). This tooling remains draft/unreleased; public rankings/routes and source-monitor behavior are unchanged.
 
 ## Problem
 Teams can find hundreds of MCP servers but still struggle to turn a business outcome into a small, sensible starting stack. Generic browsing creates choice overload; buying an implementation packet before the buyer has a concrete shortlist asks for commitment before value.

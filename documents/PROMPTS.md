@@ -151,3 +151,7 @@ Parent authorizes normal reviewed documentation PR22 merge and exact production/
 ## 2026-10-05 — Explicit cloud commit identity
 
 User requires future author and committer email exactly tyler@sprinterconsulting.com with established owner name and existing Git credentials, verified GitHub tylerdr and normal Vercel attribution on the next meaningful reviewed commit. Preserve old history and other authors; no tai/noreply/Codex email substitution, credential creation/export or account security changes. Disclose Codex assistance truthfully. Medium effort applies.
+
+## 2026-10-05 — GitHub-generated merge identity clarification
+
+Parent clarifies exact author/committer settings apply to commits Codex authors, while GitHub’s own verified system-generated merge identity is permitted. Use authenticated tylerdr normal PR merge, preserve requested Tyler author identities, no direct main push or history rewrite. Verify resulting mapping/Vercel acceptance and exact production tree. Repository AGENTS does not independently prohibit platform merge identity; earlier literal handoff hold is resolved.

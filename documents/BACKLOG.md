@@ -52,4 +52,4 @@
 - [ ] Review duplicate legacy `neon-mcp` ID across two stable slugs; preserve both routes pending an explicit identity decision.
 - [ ] Review source missing/body-change findings from the rolling cohort before any public evidence refresh.
 
-- [ ] T023: Review smallest RevenueCat Source evidence append: dated anonymous401/expected authentication/uninspected capabilities and immutable reviewed receipt link; reuse existing UI, no scores or new probes. PR22 released/revalidated at3e9440f9; display release remains parent-coordinated.
+- [x] T023: Released the independently reviewed RevenueCat dated401/expected-auth/uninspected observation and immutable receipt link via normal PR23 merge d9f2629914847608f7d6641490cd024659fbba06. Exact READY production dpl_A7DGQYCDwU4miDkLwWVq6xbR2znU and nine-route/616-sitemap/date/link/unknown-null/commerce-provider regression passed2026-10-05T03:42:41Z. Historical evidence preserved; no new probes or scores. First scheduled refresh remains separate parent-owned T016.

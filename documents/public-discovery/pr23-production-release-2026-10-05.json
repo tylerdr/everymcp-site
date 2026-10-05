@@ -1,0 +1,150 @@
+{
+  "auditReadiness": {
+    "activation": {
+      "edgeRateLimitReady": false,
+      "enabled": false,
+      "reason": "The durable production edge rate-limit rule has not been independently verified.",
+      "status": "setup-pending"
+    },
+    "availability": "partial",
+    "availableTools": [],
+    "bounds": {
+      "getFoundPageLimit": {
+        "default": 3,
+        "maximum": 5,
+        "minimum": 1
+      },
+      "inboundRequestBytes": 32768,
+      "portfolioAudit": "not exposed; no safe caller identity or tenant scope is established",
+      "providerResponseBytes": 750000,
+      "providerTimeoutMs": 18000,
+      "sitesPerCall": 1
+    },
+    "endpoint": "/api/mcp",
+    "providers": [
+      {
+        "endpoint": null,
+        "evidenceLevel": "none",
+        "id": "brandkit",
+        "reason": "BrandKit's hosted MCP is live under scoped auth, but EveryMCP lacks an approved production brandbook, credential/read permission, and exact tool/schema handoff.",
+        "reportContract": null,
+        "status": "pending",
+        "tool": null
+      },
+      {
+        "endpoint": "https://ogfixer.com/api/mcp",
+        "evidenceLevel": "provider-reported metadata, asset checks, findings, and proof gaps",
+        "id": "ogfixer",
+        "reason": "The provider's own request limit is best-effort per runtime; EveryMCP's edge rate-limit gate is still required.",
+        "reportContract": "ogfixer.mcp.audit.v1",
+        "status": "ready",
+        "tool": "audit_url"
+      },
+      {
+        "endpoint": "https://www.getfoundinchat.com/api/mcp",
+        "evidenceLevel": "provider-reported page checks, coverage, confidence, evidence, and nested rubric reports",
+        "id": "getfoundinchat",
+        "reason": "The production MCP endpoint reports setup-pending until its firewall/rate-limit readiness receipt is verified.",
+        "reportContract": "gfic.site-audit.1",
+        "status": "pending",
+        "tool": "gfic.audit_site"
+      }
+    ],
+    "schemaVersion": "everymcp.audit-mcp-readiness.1"
+  },
+  "checkedAt": "2026-10-05T03:42:41Z",
+  "commerceHoldsPreserved": true,
+  "costUsd": 0,
+  "datedRevenueCatObservationRendered": true,
+  "deploymentCreator": "tylerdr",
+  "deploymentId": "dpl_A7DGQYCDwU4miDkLwWVq6xbR2znU",
+  "deploymentState": "READY",
+  "freePlannerPreserved": true,
+  "gitHubMergeCommitter": "web-flow",
+  "gitHubMerger": "tylerdr",
+  "identityClarification": "Codex-authored commits retain Tai Durden and tyler@sprinterconsulting.com for author and committer; parent explicitly permits GitHub verified system-generated merge identity.",
+  "immutableReceiptLinkRendered": true,
+  "liveMcpProbes": 0,
+  "mergedCommitSha": "d9f2629914847608f7d6641490cd024659fbba06",
+  "modelCalls": 0,
+  "productionDomain": "everymcp.com",
+  "productionTreeSha": "7317c3a6a46de9108775dfa9531264db639ee943",
+  "proposalSha256": "b2f2f1025779b5735cf7619e330d35c3cc39f75ba5c5323bb2f771c075cccb32",
+  "publicEvidenceDatesNotesAndReferencesUnchanged": true,
+  "receiptAndPlanIntegrityPreserved": true,
+  "receiptSha256": "02567fd969799ebdda03f9258f69c940cacdc85748a38a492164072f4e120a83",
+  "reviewedHeadSha": "5641516d8f4741ff0a1aeb091ea1b517279d5a0b",
+  "reviewedTreeSha": "7317c3a6a46de9108775dfa9531264db639ee943",
+  "routes": [
+    {
+      "bodySha256": "6158be7a1d982ea7095d9065aab0a45ef1d2906dc79455fb3ab8cf51070a2781",
+      "canonical": "https://everymcp.com/mcp/redash-mcp",
+      "path": "/mcp/redash-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "a9c0ed9d51f1672652e75dcf7552865b0ee6832b0fff58b2d5feda2ff946725a",
+      "canonical": "https://everymcp.com/mcp/revenuecat-mcp",
+      "path": "/mcp/revenuecat-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "0c875b4dbb2813f715510831be4f44bb945bdf045d0f1e2b69bccc8c6afdca55",
+      "canonical": "https://everymcp.com/mcp/icloud-mcp",
+      "path": "/mcp/icloud-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "fe059a93d0d5f6b75bd9f44fa3edb49170cd780987ba808961718529686923fd",
+      "canonical": "https://everymcp.com/mcp/heap-mcp",
+      "path": "/mcp/heap-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "58e2af0dac1211e803039ec75100cff1aadd4415dc0b6893a79898cce42d0b6e",
+      "canonical": "https://everymcp.com/mcp/hotjar-mcp",
+      "path": "/mcp/hotjar-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "4169f1989abfe0d0cb7cbd20b1d6c346ff6d315c4c1d0d4cce215e5aba476464",
+      "canonical": "https://everymcp.com/pricing",
+      "path": "/pricing",
+      "status": 200
+    },
+    {
+      "bodySha256": "143ed05bb5b6733bc1429b408cee0334b60a03c5ec93d2ddddaa971d8786bcc4",
+      "canonical": "https://everymcp.com/services",
+      "path": "/services",
+      "status": 200
+    },
+    {
+      "bodySha256": "1c3f5ed97f0cf0905bc56c63d35a4a9439dff6a848acc49b2030e130750ad1d7",
+      "canonical": "https://everymcp.com/plan",
+      "path": "/plan",
+      "status": 200
+    },
+    {
+      "bodySha256": "fc51eb5ac6a899c861d90de51c75794c8a6fa466731255aec8651c461c27a3ab",
+      "canonical": "https://everymcp.com/mcp/filesystem",
+      "path": "/mcp/filesystem",
+      "status": 200
+    }
+  ],
+  "scheduledRunProof": "not assessed; remains parent-owned",
+  "sitemapListingCount": 616,
+  "tests": {
+    "exactHeadHostedBuild": "READY",
+    "hostedAgentDocsRun": 37258663008,
+    "hostedFixtureRun": 37258663145,
+    "hostedPythonMethods": 85,
+    "importerMethods": 14,
+    "independentReview": "accepted exact head and tree; no blockers",
+    "lint": "passed",
+    "listingEvidenceMethods": 7,
+    "typecheck": "passed"
+  },
+  "toolCalls": 0,
+  "unknownNullAssessmentsPreserved": true,
+  "verificationScope": "Owned production-site GET regression and immutable receipt integrity only; consumed RevenueCat proof not repeated."
+}

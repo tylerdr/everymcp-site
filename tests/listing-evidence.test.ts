@@ -1,11 +1,29 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import catalog from "../data/mcps.json";
+import observations from "../data/listing-observation-notes.json";
+import receipt from "../documents/public-discovery/revenuecat-proof-once-2026-10-05.json";
 import { formatSourceCheckDate, getListingEvidence, listingEvidence } from "../lib/listing-evidence";
 
 const slugs = ["redash-mcp", "revenuecat-mcp", "icloud-mcp", "heap-mcp", "hotjar-mcp"];
 
 describe("curated listing source evidence", () => {
+  it("joins a reviewed public observation without changing historical source evidence", () => {
+    expect(observations).toHaveLength(1);
+    const observation = observations[0];
+    expect(observation.slug).toBe(receipt.listingSlug);
+    expect(observation.sourceUrl).toBe(receipt.sourceCitationUrl);
+    expect(observation.observedAt).toBe(receipt.startedAt);
+    expect(receipt.attempts).toBe(1);
+    expect(receipt.reports[0].exchanges[0].httpStatus).toBe(401);
+    expect(observation.note).toContain("capabilities were not inspected");
+    expect(observation.note).toContain("security remain unassessed");
+    const original = listingEvidence.find((item) => item.slug === observation.slug)!;
+    expect(original.references[0].note).not.toContain("Separate endpoint observation");
+    expect(getListingEvidence(observation.slug)?.references[0].observationReceiptUrl).toBe(observation.receiptUrl);
+    for (const slug of ["redash-mcp", "icloud-mcp", "heap-mcp", "hotjar-mcp"])
+      expect(getListingEvidence(slug)).toEqual(listingEvidence.find((entry) => entry.slug === slug));
+  });
   it("covers only the five reviewed stable listings and retains original repository attribution", () => {
     expect(listingEvidence.map((entry) => entry.slug).sort()).toEqual([...slugs].sort());
     expect(catalog).toHaveLength(616);

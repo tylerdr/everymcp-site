@@ -51,3 +51,5 @@
 - [ ] Verify Source observations first scheduled due run and persist its exact event/head/result receipt; no live-monitoring claim before it succeeds.
 - [ ] Review duplicate legacy `neon-mcp` ID across two stable slugs; preserve both routes pending an explicit identity decision.
 - [ ] Review source missing/body-change findings from the rolling cohort before any public evidence refresh.
+
+- [ ] T023: Review smallest RevenueCat Source evidence append: dated anonymous401/expected authentication/uninspected capabilities and immutable reviewed receipt link; reuse existing UI, no scores or new probes. PR22 released/revalidated at3e9440f9; display release remains parent-coordinated.

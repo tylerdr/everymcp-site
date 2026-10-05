@@ -1,0 +1,130 @@
+{
+  "approvedPlanSha256": "b2f2f1025779b5735cf7619e330d35c3cc39f75ba5c5323bb2f771c075cccb32",
+  "auditReadiness": {
+    "activation": {
+      "edgeRateLimitReady": false,
+      "enabled": false,
+      "reason": "The durable production edge rate-limit rule has not been independently verified.",
+      "status": "setup-pending"
+    },
+    "availability": "partial",
+    "availableTools": [],
+    "bounds": {
+      "getFoundPageLimit": {
+        "default": 3,
+        "maximum": 5,
+        "minimum": 1
+      },
+      "inboundRequestBytes": 32768,
+      "portfolioAudit": "not exposed; no safe caller identity or tenant scope is established",
+      "providerResponseBytes": 750000,
+      "providerTimeoutMs": 18000,
+      "sitesPerCall": 1
+    },
+    "endpoint": "/api/mcp",
+    "providers": [
+      {
+        "endpoint": null,
+        "evidenceLevel": "none",
+        "id": "brandkit",
+        "reason": "BrandKit's hosted MCP is live under scoped auth, but EveryMCP lacks an approved production brandbook, credential/read permission, and exact tool/schema handoff.",
+        "reportContract": null,
+        "status": "pending",
+        "tool": null
+      },
+      {
+        "endpoint": "https://ogfixer.com/api/mcp",
+        "evidenceLevel": "provider-reported metadata, asset checks, findings, and proof gaps",
+        "id": "ogfixer",
+        "reason": "The provider's own request limit is best-effort per runtime; EveryMCP's edge rate-limit gate is still required.",
+        "reportContract": "ogfixer.mcp.audit.v1",
+        "status": "ready",
+        "tool": "audit_url"
+      },
+      {
+        "endpoint": "https://www.getfoundinchat.com/api/mcp",
+        "evidenceLevel": "provider-reported page checks, coverage, confidence, evidence, and nested rubric reports",
+        "id": "getfoundinchat",
+        "reason": "The production MCP endpoint reports setup-pending until its firewall/rate-limit readiness receipt is verified.",
+        "reportContract": "gfic.site-audit.1",
+        "status": "pending",
+        "tool": "gfic.audit_site"
+      }
+    ],
+    "schemaVersion": "everymcp.audit-mcp-readiness.1"
+  },
+  "canonicalDomain": "everymcp.com",
+  "checkedAt": "2026-10-05T02:35:48Z",
+  "commerceHoldsPreserved": true,
+  "costUsd": 0,
+  "deploymentId": "dpl_FDeYhZhScJh4D3H9e8r4TWrQ35nP",
+  "deploymentState": "READY",
+  "freePlannerPreserved": true,
+  "liveExecutionEnabled": false,
+  "liveMcpProbes": 0,
+  "mergedCommitSha": "0d5aed17ceb9b491c27f4c46b7ed2426ad3d1f12",
+  "modelCalls": 0,
+  "publicEvidenceDatesNotesAndReferencesUnchanged": true,
+  "reviewedHeadSha": "5a99a2caa22787a7bd9f2e001353de2dfcac32c2",
+  "reviewedTreeSha": "9e089fbf9e6898b5763d45ec4997f9aad20efe71",
+  "routes": [
+    {
+      "bodySha256": "c5e4a788bf13b8f138fdddd7d1dade4adf16d58722b892446d8fef4673b069c7",
+      "canonical": "https://everymcp.com/mcp/redash-mcp",
+      "path": "/mcp/redash-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "5e29da21c8996ca939d9ac1f66301adee609ac427db1463d03b6d87ecb125849",
+      "canonical": "https://everymcp.com/mcp/revenuecat-mcp",
+      "path": "/mcp/revenuecat-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "9bc962a455e8ac4a28ddd87932ab946bd48cd0af190f142f6c1ec173a14d8975",
+      "canonical": "https://everymcp.com/mcp/icloud-mcp",
+      "path": "/mcp/icloud-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "249979bc58df28c50e634407f484a0861cf738b1f12dbae95c35947ddd4def31",
+      "canonical": "https://everymcp.com/mcp/heap-mcp",
+      "path": "/mcp/heap-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "5ffcd492237f3cd89edec7f76d744ea53bce81eccb7ae776832b540063b15aeb",
+      "canonical": "https://everymcp.com/mcp/hotjar-mcp",
+      "path": "/mcp/hotjar-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "b6f28d9c4a1e8862d65d33d586a1e4571013e363cc2e28b5d667bc6d046b06c6",
+      "canonical": "https://everymcp.com/pricing",
+      "path": "/pricing",
+      "status": 200
+    },
+    {
+      "bodySha256": "1a3e3fe42016ed63901912bc98cd4948f899063f3a0694c74d949ba18e74932d",
+      "canonical": "https://everymcp.com/services",
+      "path": "/services",
+      "status": 200
+    },
+    {
+      "bodySha256": "8f4ba7967ebe6cec985f0342c3feb22bde22336010a2fb50815bd19b7ef9de07",
+      "canonical": "https://everymcp.com/plan",
+      "path": "/plan",
+      "status": 200
+    },
+    {
+      "bodySha256": "2111e8c4516af6100815094c4dfad0f246b603246550d9dcef0158d19bdfb20d",
+      "canonical": "https://everymcp.com/mcp/filesystem",
+      "path": "/mcp/filesystem",
+      "status": 200
+    }
+  ],
+  "scheduledRunProof": "not assessed; remains parent-owned",
+  "sitemapListingCount": 616,
+  "toolCalls": 0,
+  "verifiedDeploymentCommitSha": "0d5aed17ceb9b491c27f4c46b7ed2426ad3d1f12"
+}

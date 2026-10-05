@@ -1,0 +1,44 @@
+name: One approved RevenueCat declaration proof
+
+on:
+  workflow_dispatch:
+    inputs:
+      approved_control_sha:
+        description: Exact reviewed control merge SHA (provenance only; no target or method input)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: revenuecat-approved-b2f2f102-one-time
+  cancel-in-progress: false
+
+jobs:
+  observe:
+    if: >-
+      github.repository == 'tylerdr/everymcp-site' && github.ref == 'refs/heads/main' &&
+      github.actor == 'tylerdr' && github.run_attempt == 1 &&
+      github.event.inputs.approved_control_sha == github.sha
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          path: observer-control
+          persist-credentials: false
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 5a99a2caa22787a7bd9f2e001353de2dfcac32c2
+          path: approved-observer
+          persist-credentials: false
+      - name: Network-free normal TLS preflight
+        run: python3 observer-control/scripts/run_revenuecat_proof_once.py
+      - name: Install the existing approved pinned validator only
+        run: |
+          python3 -m venv approved-observer/tmp/discovery/venv
+          approved-observer/tmp/discovery/venv/bin/python -m pip install --disable-pip-version-check -r approved-observer/scripts/requirements-source-monitor.txt
+      - name: One-time admission and exact approved anonymous observation
+        run: approved-observer/tmp/discovery/venv/bin/python observer-control/scripts/run_revenuecat_proof_once.py --observe-once

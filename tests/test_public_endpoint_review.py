@@ -300,7 +300,7 @@ class EndpointReviewTests(unittest.TestCase):
         self.assertFalse(report['publication']['eligible']); self.assertIsNone(report['assessments']['badge'])
         self.assertNotIn(b'fixture-session-secret',contract.canonical(report))
         safe_legacy=copy.deepcopy(report['reports'][1])
-        for mutation in ('profile','request-hash','response-hash','count','citation','tls','encoding','status','policy','budget','header-secret','header-mixed','header-hash','zero-wire','year','request-time','run-time','unknown-summary'):
+        for mutation in ('profile','request-hash','response-hash','count','citation','tls','encoding','status','policy','budget','header-secret','header-mixed','header-hash','zero-wire','year','request-time','run-time','unknown-summary','impossible-framing','length-digits','impossible-chunked'):
             bad=copy.deepcopy(report)
             if mutation=='profile': bad['reports'][0]['protocolVersion']='2025-11-25'
             if mutation=='request-hash': bad['reports'][0]['exchanges'][0]['requestSha256']='0'*64
@@ -322,6 +322,14 @@ class EndpointReviewTests(unittest.TestCase):
             if mutation=='request-time': bad['reports'][0]['exchanges'][0]['completedOffsetMs']=9000
             if mutation=='run-time': bad['durationMs']=61000
             if mutation=='unknown-summary': bad['reports'][0]['discovery']=contract.unknown('unrelated_reason')
+            if mutation=='impossible-framing':
+                bad['reports'][0]['exchanges'][0]['network']['responseFramingBytes']=1
+                bad['reports'][0]['exchanges'][0]['network']['receivedWireBytes']+=1
+                bad['receivedWireBytes']+=1
+            if mutation=='length-digits': bad['reports'][0]['exchanges'][0]['headers']['content-length']='0'*9+bad['reports'][0]['exchanges'][0]['headers']['content-length']
+            if mutation=='impossible-chunked':
+                bad['reports'][0]['exchanges'][0]['headers'].pop('content-length')
+                bad['reports'][0]['exchanges'][0]['headers']['transfer-encoding']='chunked'
             with self.subTest(mutation=mutation), self.assertRaises(ValueError): adapter.validate_receipt(bad)
         def auth(body,headers,timeout,record):
             record.update(trace(fields={'www-authenticate':'Bearer'},status=401))

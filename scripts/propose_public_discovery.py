@@ -108,6 +108,20 @@ def observation_base(version, method, trace):
             'network': copy.deepcopy(trace), 'headers': {}}
 
 
+def complete_frame(headers, size, trace):
+    """The same complete-frame invariants as Wire, also for suppressed public/privacy bodies."""
+    if headers.get('content-encoding','identity').lower() != 'identity': raise ValueError('encoded_body_refused')
+    if size > contract.MAX_BODY: raise ValueError('body_limit')
+    length, transfer = headers.get('content-length'), headers.get('transfer-encoding')
+    if length is not None and transfer is not None: raise ValueError('ambiguous_body_framing')
+    if length is not None and (not re.fullmatch(r'[0-9]{1,8}',length) or int(length) > contract.MAX_BODY): raise ValueError('body_limit')
+    if length is not None and int(length) != size: raise ValueError('truncated_body')
+    if transfer is not None and transfer.lower() != 'chunked': raise ValueError('unsupported_transfer_encoding')
+    framing = trace.get('responseFramingBytes',0)
+    if (transfer is None and framing != 0) or (transfer is not None and framing < (10 if size else 5)):
+        raise ValueError('invalid_framing_evidence')
+
+
 def normalize(version, method, status, headers, body, trace):
     """Pure interpretation of one bounded response; never follows a returned reference."""
     observed = observation_base(version, method, trace)
@@ -131,15 +145,11 @@ def normalize(version, method, status, headers, body, trace):
             raise ValueError('authentication_required' if status == 401 else 'access_refused')
         if status == 429: raise ValueError('rate_limited')
         if status not in (200, 202): raise ValueError('http_status_' + str(status))
+        if body is None: raise ValueError('body_limit')
+        complete_frame(headers,len(body),trace)
         if ('set-cookie' in headers or 'authentication-info' in headers or
                 any(x.split('=',1)[0].strip().lower() in ('private', 'no-store') for x in headers.get('cache-control', '').split(','))):
             raise ValueError('private_response_refused')
-        if headers.get('content-encoding', 'identity').lower() != 'identity': raise ValueError('encoded_body_refused')
-        if body is None or len(body) > contract.MAX_BODY: raise ValueError('body_limit')
-        length, transfer = headers.get('content-length'), headers.get('transfer-encoding')
-        if length is not None and transfer is not None: raise ValueError('ambiguous_body_framing')
-        if length is not None and (not length.isdigit() or int(length) != len(body)): raise ValueError('truncated_body')
-        if transfer is not None and transfer.lower() != 'chunked': raise ValueError('unsupported_transfer_encoding')
         if assigned is not None:
             if version == contract.VERSIONS[0]: raise ValueError('unexpected_modern_session')
             if method != 'initialize' or not 0 < len(assigned) <= 256 or any(not 33 <= ord(c) <= 126 for c in assigned):
@@ -422,6 +432,7 @@ def validate_receipt(receipt):
                             observation['sessionAssigned'] != rebuilt['sessionAssigned'] or wire != header+captured+framing):
                         raise ValueError('invalid_receipt_unknown_reason')
                 elif reason == 'private_cache_refused':
+                    complete_frame(headers,captured,trace)
                     if (status != 200 or version != contract.VERSIONS[0] or not signals['privateResult'] or
                             signals['privateState'] or signals['sessionPresent'] or observation['sessionAssigned'] or
                             wire != header+captured+framing or headers.get('content-encoding','identity').lower() != 'identity' or

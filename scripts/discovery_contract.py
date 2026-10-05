@@ -44,11 +44,17 @@ def bounded_tree(value):
         if depth > MAX_DEPTH or count > MAX_NODES:
             raise ValueError("structure_limit")
         if isinstance(node, dict):
+            for key in node:
+                if not isinstance(key, str):
+                    raise ValueError("invalid_object_key")
+                key.encode("utf-8")  # Reject escaped lone surrogates before projection/hashing.
             pending.extend((v, depth + 1) for v in node.values())
         elif isinstance(node, list):
             pending.extend((v, depth + 1) for v in node)
         elif isinstance(node, float) and not math.isfinite(node):
             raise ValueError("non_finite_number")
+        elif isinstance(node, str):
+            node.encode("utf-8")
 
 
 def strict_json(raw):
@@ -276,6 +282,8 @@ def schema_declaration(schema):
     try:
         bounded_tree(schema)
         Draft202012Validator.check_schema(schema)
+    except TimeoutError:
+        raise
     except Exception:
         out["reason"] = "invalid_or_bounded_schema"
         return out

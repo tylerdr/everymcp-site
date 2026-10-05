@@ -1,16 +1,18 @@
 # everymcp — Product Spec
 
-**Last updated:** 2026-10-05 (session: draft public discovery contract and local HTTP fixtures)
-**Version:** 0.8
+**Last updated:** 2026-10-05 (session: reviewed fixture release and exact publisher endpoint proposal)
+**Version:** 0.9
 
 ---
 
 ## Overview
 EveryMCP is a source-aware MCP discovery directory with a free outcome-based Stack Planner, a self-serve $49 MCP Integration Starter Kit, and separate enterprise consulting and sponsorship inquiries. Consulting is unpriced and requires confirmation of availability and scope; it is not a self-serve implementation product.
 
-### Draft public MCP declaration evidence
+### Public MCP declaration evidence and reviewed endpoint proposal
 
-The deterministic evidence layer now has explicit MCP 2026-07-28 per-request Streamable HTTP and separate 2025-11-25 initialization/session profiles, proved only against owned local HTTP fixtures. It captures attributed self-declared identity/capabilities, tool names/schemas, public auth challenge hints and Apps references without tool execution, client registration, credentials, stdio install, model spend or live arbitrary probes. Incomplete/unsupported data remains unknown; publication is ineligible and all scores/badges/denominators remain null. Future listing display requires a reviewed exact source→endpoint→slug relationship and independent network/cache/acceptance review. See [PUBLIC-DISCOVERY.md](PUBLIC-DISCOVERY.md). This tooling remains draft/unreleased; public rankings/routes and source-monitor behavior are unchanged.
+The deterministic evidence layer has explicit MCP 2026-07-28 per-request Streamable HTTP and separate 2025-11-25 initialization/session profiles, proved against owned local HTTP fixtures. PR19 released this bounded tooling normally at `a0320ef98efbc4df2478bb9180dab94da1f33024` after exact-head independent review; matching READY production/domain and public regression acceptance passed. It captures attributed self-declared identity/capabilities, tool names/schemas, public auth challenge hints and Apps references without executing tools, registration, credentials, stdio, models or live probes. See [PUBLIC-DISCOVERY.md](PUBLIC-DISCOVERY.md).
+
+The next draft proposes exactly the publisher-documented RevenueCat endpoint, with a source→endpoint→slug/legacy-ID relation; the other four priority endpoint identities remain unknown. A direct pinned HTTPS metadata-only adapter, separate profile request templates, first-page partial semantics, saved-receipt consistency and bounded network tests prepare a public declaration proof. Parent review of exact head/plan/endpoint/methods/bounds is required before enabling or running it; the live gate stays disabled and this cloud's custom TLS environment/direct-egress limitation is preserved. See [PUBLIC-ENDPOINT-REVIEW.md](PUBLIC-ENDPOINT-REVIEW.md). No public catalog/ranking/source-monitor changes, credential or tool calls, cache reuse, automatic publication, factual-confidence probability, score, badge or applicability denominator. Public display and genuine runtime/security evaluation require separate accepted evidence.
 
 ## Problem
 Teams can find hundreds of MCP servers but still struggle to turn a business outcome into a small, sensible starting stack. Generic browsing creates choice overload; buying an implementation packet before the buyer has a concrete shortlist asks for commitment before value.

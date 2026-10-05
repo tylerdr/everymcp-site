@@ -1,0 +1,131 @@
+{
+  "contractVersion": "everymcp.public-discovery.endpoint-review.v1",
+  "approvalState": "pending_parent_review",
+  "liveExecutionEnabled": false,
+  "sourceReviewedAt": "2026-10-05T01:04:00Z",
+  "endpointLimit": 5,
+  "reviewedEndpoints": [
+    {
+      "id": "revenuecat-publisher",
+      "endpointUrl": "https://mcp.revenuecat.ai/mcp",
+      "listingSlug": "revenuecat-mcp",
+      "legacyListingId": "revenuecat-mcp",
+      "sourceCitationUrl": "https://www.revenuecat.com/docs/tools/mcp",
+      "relationshipRole": "publisher_documented_endpoint",
+      "publisherAssessment": "documented_by_listing_publisher; not_identity_or_security_certification",
+      "documentedAuthentication": [
+        "RevenueCat API v2 Bearer key",
+        "RevenueCat account OAuth"
+      ],
+      "credentialsUsed": false,
+      "observationState": "not_attempted",
+      "profiles": [
+        "2026-07-28",
+        "2025-11-25"
+      ]
+    }
+  ],
+  "unknownListings": [
+    {
+      "listingSlug": "redash-mcp",
+      "legacyListingId": "redash-mcp",
+      "endpointUrl": null,
+      "state": "unknown",
+      "reason": "No publisher-hosted endpoint identified in reviewed sources; separate community implementation documents local/self-hosted transport.",
+      "sources": [
+        "https://redash.io/",
+        "https://github.com/suthio/redash-mcp"
+      ]
+    },
+    {
+      "listingSlug": "icloud-mcp",
+      "legacyListingId": "icloud-mcp",
+      "endpointUrl": null,
+      "state": "unknown",
+      "reason": "No Apple-published endpoint identified; reviewed community candidate is archived and uses a signed-in local sync folder.",
+      "sources": [
+        "https://github.com/robworks-code/icloud-drive-mcp"
+      ]
+    },
+    {
+      "listingSlug": "heap-mcp",
+      "legacyListingId": "heap-mcp",
+      "endpointUrl": null,
+      "state": "unknown",
+      "reason": "No publisher-hosted endpoint identified in reviewed sources; separate community candidate documents localhost HTTP and warns it lacks built-in authentication.",
+      "sources": [
+        "https://github.com/rivit-studio/heap-mcp-server"
+      ]
+    },
+    {
+      "listingSlug": "hotjar-mcp",
+      "legacyListingId": "hotjar-mcp",
+      "endpointUrl": null,
+      "state": "unknown",
+      "reason": "Contentsquare documents its MCP integration but the reviewed publisher page and technical index do not name an exact hosted endpoint. Legacy Hotjar compatibility remains unknown.",
+      "sources": [
+        "https://contentsquare.com/platform/capabilities/mcp-server/",
+        "https://docs.contentsquare.com/llms.txt"
+      ]
+    }
+  ],
+  "bounds": {
+    "hosts": 1,
+    "maxRequests": 7,
+    "requestSeconds": 8,
+    "runSeconds": 60,
+    "minimumHostIntervalSeconds": 1,
+    "bodyBytesPerResponse": 65536,
+    "headerBytesPerResponse": 8192,
+    "framingBytesPerResponse": 8192,
+    "aggregateWireBytes": 573447,
+    "requestBodyBytes": 4096,
+    "dnsAnswersPerRequest": 8,
+    "pagesPerList": 1,
+    "itemsPerList": 40,
+    "concurrency": 1,
+    "redirects": 0,
+    "retries": 0,
+    "cacheReuse": false,
+    "cancellationCleanupSeconds": 0.25
+  },
+  "requestPolicy": {
+    "httpMethod": "POST",
+    "origin": "https://everymcp.com",
+    "authentication": "anonymous only",
+    "modernMethods": [
+      "server/discover",
+      "tools/list",
+      "resources/list"
+    ],
+    "legacyMethods": [
+      "initialize",
+      "notifications/initialized",
+      "tools/list",
+      "resources/list"
+    ],
+    "lists": "Only after valid exact-version discovery/initialize, declared capability and legacy acknowledgment; one first page, no cursor follow-up.",
+    "profiles": "Two explicitly planned independent observations; no version negotiation/fallback. Legacy is safety-skipped after auth/access/rate/redirect/transport/privacy refusal.",
+    "inertReferences": "No auth metadata, icons, schemas, UI resources, resource content, prompts, subscriptions, peer requests or tool invocation."
+  },
+  "officialSources": [
+    "https://modelcontextprotocol.io/specification/2026-07-28",
+    "https://modelcontextprotocol.io/specification/2026-07-28/server/discover",
+    "https://modelcontextprotocol.io/specification/2026-07-28/basic#meta",
+    "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http",
+    "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+    "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports"
+  ],
+  "publication": {
+    "eligible": false,
+    "automatic": false,
+    "state": "review_required"
+  },
+  "assessments": {
+    "score": null,
+    "badge": null,
+    "applicableDenominator": null,
+    "runtime": "unknown",
+    "security": "unknown"
+  }
+}

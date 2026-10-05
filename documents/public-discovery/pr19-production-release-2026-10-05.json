@@ -1,0 +1,153 @@
+{
+  "auditReadiness": {
+    "activation": {
+      "edgeRateLimitReady": false,
+      "enabled": false,
+      "reason": "The durable production edge rate-limit rule has not been independently verified.",
+      "status": "setup-pending"
+    },
+    "availability": "partial",
+    "availableTools": [],
+    "bounds": {
+      "getFoundPageLimit": {
+        "default": 3,
+        "maximum": 5,
+        "minimum": 1
+      },
+      "inboundRequestBytes": 32768,
+      "portfolioAudit": "not exposed; no safe caller identity or tenant scope is established",
+      "providerResponseBytes": 750000,
+      "providerTimeoutMs": 18000,
+      "sitesPerCall": 1
+    },
+    "endpoint": "/api/mcp",
+    "providers": [
+      {
+        "endpoint": null,
+        "evidenceLevel": "none",
+        "id": "brandkit",
+        "reason": "BrandKit's hosted MCP is live under scoped auth, but EveryMCP lacks an approved production brandbook, credential/read permission, and exact tool/schema handoff.",
+        "reportContract": null,
+        "status": "pending",
+        "tool": null
+      },
+      {
+        "endpoint": "https://ogfixer.com/api/mcp",
+        "evidenceLevel": "provider-reported metadata, asset checks, findings, and proof gaps",
+        "id": "ogfixer",
+        "reason": "The provider's own request limit is best-effort per runtime; EveryMCP's edge rate-limit gate is still required.",
+        "reportContract": "ogfixer.mcp.audit.v1",
+        "status": "ready",
+        "tool": "audit_url"
+      },
+      {
+        "endpoint": "https://www.getfoundinchat.com/api/mcp",
+        "evidenceLevel": "provider-reported page checks, coverage, confidence, evidence, and nested rubric reports",
+        "id": "getfoundinchat",
+        "reason": "The production MCP endpoint reports setup-pending until its firewall/rate-limit readiness receipt is verified.",
+        "reportContract": "gfic.site-audit.1",
+        "status": "pending",
+        "tool": "gfic.audit_site"
+      }
+    ],
+    "schemaVersion": "everymcp.audit-mcp-readiness.1"
+  },
+  "checkedAt": "2026-10-05T00:59:37Z",
+  "commerceHoldsPreserved": true,
+  "costUsd": 0,
+  "freePlannerPreserved": true,
+  "liveMcpProbes": 0,
+  "mergedCommitSha": "a0320ef98efbc4df2478bb9180dab94da1f33024",
+  "modelCalls": 0,
+  "publicEvidenceDatesNotesAndReferencesUnchanged": true,
+  "reviewedHeadSha": "0f6680ca85735794e9b0dc460621b83c8796facd",
+  "routes": [
+    {
+      "bodySha256": "30558ad2c9dcea31d111bb65bb909172d94d3a0161e9aca626374e495044970b",
+      "canonical": "https://everymcp.com/mcp/redash-mcp",
+      "path": "/mcp/redash-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "0c1bd90d0081e9ea1140570f5ef6e633563ca5605f5a84c9455b397df01afdcb",
+      "canonical": "https://everymcp.com/mcp/revenuecat-mcp",
+      "path": "/mcp/revenuecat-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "769edd60e6c89742b88b8bfb95458702a3a655687f3313f13d28cc6e2a2817ac",
+      "canonical": "https://everymcp.com/mcp/icloud-mcp",
+      "path": "/mcp/icloud-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "478dd85099215c0800cfeb0d1d2cd8fe5357f12075cdbdb092dc2d402ecd5393",
+      "canonical": "https://everymcp.com/mcp/heap-mcp",
+      "path": "/mcp/heap-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "cca2abc36347c20da5b42c2a6ebf22891624480b5826a6f7628462abb4b22129",
+      "canonical": "https://everymcp.com/mcp/hotjar-mcp",
+      "path": "/mcp/hotjar-mcp",
+      "status": 200
+    },
+    {
+      "bodySha256": "751cb5f7b75018778fbf4a91da0c640532329b662a95ae2b497e9705f9bd27f6",
+      "canonical": "https://everymcp.com/pricing",
+      "path": "/pricing",
+      "status": 200
+    },
+    {
+      "bodySha256": "e8fcb753588477078b12f6331cbb24afbb558d8586ae0c4f16db9382c1c6ebc9",
+      "canonical": "https://everymcp.com/services",
+      "path": "/services",
+      "status": 200
+    },
+    {
+      "bodySha256": "5151f07e6bcfe79e8f54eaad159bd32511f63a89310d6b45c965c0ce8d4089b2",
+      "canonical": "https://everymcp.com/plan",
+      "path": "/plan",
+      "status": 200
+    },
+    {
+      "bodySha256": "001c0f7c744423cf5402d5b90d95fac40616717b168bfb7edf1d95509862b69f",
+      "canonical": "https://everymcp.com/mcp/filesystem",
+      "path": "/mcp/filesystem",
+      "status": 200
+    }
+  ],
+  "scheduledRunProof": "not assessed; remains parent-owned",
+  "sitemapListingCount": 616,
+  "toolCalls": 0,
+  "deployment": {
+    "id": "dpl_8FMUnPpVURsMGDLPAkr5NCfZ6XbX",
+    "url": "everymcp-mijo8xv6b-tai-durden-ai.vercel.app",
+    "domain": "everymcp.com",
+    "state": "READY",
+    "target": "production",
+    "alias": [
+      "everymcp.com",
+      "www.everymcp.com",
+      "everymcp-site.vercel.app",
+      "everymcp-tai-durden-ai.vercel.app",
+      "everymcp-git-main-tai-durden-ai.vercel.app"
+    ],
+    "commitSha": "a0320ef98efbc4df2478bb9180dab94da1f33024",
+    "readyAt": 1791161749158
+  },
+  "reviewedTreeSha": "aa7de34d00e5fe12ed4f842655191d99c6794224",
+  "mergeMethod": "normal GitHub merge, constrained to independently reviewed head; no protection bypass or CI reruns",
+  "mergeAuthority": "Coordinating parent explicitly authorized reviewed PR19 release under existing Tai venture authority; live gates remain disabled.",
+  "independentReview": {
+    "scope": "controlled fixture-only tooling",
+    "headSha": "0f6680ca85735794e9b0dc460621b83c8796facd",
+    "result": "No remaining acceptance blockers; six prior findings corrected; 19 discovery tests and 24-case/52-request replay independently passed."
+  },
+  "ciRuns": {
+    "discovery": 37248864279,
+    "sourceVerify": 37248864200,
+    "agentDocs": 37248864285
+  },
+  "receiptSha256": "63731378cf147883e1e535da4fa166136dd4e789944082bbfc4b0a724d7eafac"
+}

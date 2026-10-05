@@ -5,13 +5,17 @@ on:
     paths:
       - scripts/discovery_contract.py
       - scripts/run_discovery_fixtures.py
+      - scripts/public_discovery_transport.py
+      - scripts/propose_public_discovery.py
       - scripts/requirements-source-monitor.txt
       - tests/test_public_discovery.py
+      - tests/test_public_endpoint_review.py
       - tests/test_source_monitor.py
       - tests/test_source_receipt_import.py
       - tests/fixtures/public-discovery.json
       - documents/public-discovery/**
       - documents/PUBLIC-DISCOVERY.md
+      - documents/PUBLIC-ENDPOINT-REVIEW.md
       - .github/workflows/discovery-fixtures.yml
 
 permissions:
@@ -33,7 +37,10 @@ jobs:
         run: |
           mkdir -p tmp/source-monitor
           tmp/discovery/venv/bin/python -m unittest discover -s tests -p 'test_public_discovery.py' -v
+          tmp/discovery/venv/bin/python -m unittest discover -s tests -p 'test_public_endpoint_review.py' -v
           tmp/discovery/venv/bin/python -m unittest discover -s tests -p 'test_source_monitor.py' -v
           tmp/discovery/venv/bin/python -m unittest discover -s tests -p 'test_source_receipt_import.py' -v
           tmp/discovery/venv/bin/python scripts/run_discovery_fixtures.py > tmp/discovery/local-receipt.json
+          tmp/discovery/venv/bin/python scripts/propose_public_discovery.py > tmp/discovery/endpoint-proposal.json
+          cmp tmp/discovery/endpoint-proposal.json documents/public-discovery/endpoint-proposal.json
           tmp/discovery/venv/bin/python scripts/monitor_sources.py --dry-run

@@ -1,0 +1,2228 @@
+{
+  "cases": [
+    {
+      "id": "modern-json",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {
+                  "extensions": {
+                    "io.modelcontextprotocol/ui": {
+                      "mimeTypes": [
+                        "text/html;profile=mcp-app"
+                      ]
+                    }
+                  },
+                  "resources": {},
+                  "tools": {}
+                },
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "modern-sse-pages",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {
+                  "extensions": {
+                    "io.modelcontextprotocol/ui": {
+                      "mimeTypes": [
+                        "text/html;profile=mcp-app"
+                      ]
+                    }
+                  },
+                  "resources": {},
+                  "tools": {}
+                },
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            },
+            "sse": true
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "nextCursor": "page-1",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_one",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            },
+            "sse": true
+          },
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_two",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            },
+            "sse": true
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "legacy-session",
+      "replies": {
+        "initialize": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "capabilities": {
+                  "resources": {},
+                  "tools": {}
+                },
+                "protocolVersion": "2025-11-25",
+                "serverInfo": {
+                  "name": "SyntheticFixture",
+                  "version": "1"
+                }
+              }
+            }
+          }
+        ],
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "resources": []
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "properties": {
+                        "results": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "session": true,
+      "transport": "streamable-http",
+      "version": "2025-11-25"
+    },
+    {
+      "id": "legacy-stateless-sse",
+      "replies": {
+        "initialize": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "capabilities": {
+                  "resources": {},
+                  "tools": {}
+                },
+                "protocolVersion": "2025-11-25",
+                "serverInfo": {
+                  "name": "SyntheticFixture",
+                  "version": "1"
+                }
+              }
+            },
+            "sse": true
+          }
+        ],
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "resources": []
+              }
+            },
+            "sse": true
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "properties": {
+                        "results": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  }
+                ]
+              }
+            },
+            "sse": true
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2025-11-25"
+    },
+    {
+      "id": "auth-challenge",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "headers": {
+              "WWW-Authenticate": "Bearer resource_metadata=\"https://auth.example.test/.well-known/oauth-protected-resource\", scope=\"fixture.read\""
+            },
+            "status": 401
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "auth-tools-only",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {
+                  "extensions": {
+                    "io.modelcontextprotocol/ui": {
+                      "mimeTypes": [
+                        "text/html;profile=mcp-app"
+                      ]
+                    }
+                  },
+                  "resources": {},
+                  "tools": {}
+                },
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "headers": {
+              "WWW-Authenticate": "Bearer resource_metadata=\"https://auth.example.test/.well-known/oauth-protected-resource\""
+            },
+            "status": 401
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "redirect",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "headers": {
+              "Location": "http://169.254.169.254/latest/meta-data/"
+            },
+            "status": 302
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "unsupported-version",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "error": {
+                "code": -32022,
+                "data": {
+                  "requested": "2026-07-28",
+                  "supported": [
+                    "2099-01-01"
+                  ]
+                },
+                "message": "Unsupported protocol version"
+              },
+              "id": "$requestId",
+              "jsonrpc": "2.0"
+            },
+            "status": 400
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "missing-method",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "error": {
+                "code": -32601,
+                "message": "Method not found"
+              },
+              "id": "$requestId",
+              "jsonrpc": "2.0"
+            },
+            "status": 404
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "truncated-json",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "raw": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":"
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "truncated-sse",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {
+                  "extensions": {
+                    "io.modelcontextprotocol/ui": {
+                      "mimeTypes": [
+                        "text/html;profile=mcp-app"
+                      ]
+                    }
+                  },
+                  "resources": {},
+                  "tools": {}
+                },
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "headers": {
+              "Content-Type": "text/event-stream"
+            },
+            "raw": "data: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":"
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "oversized-body",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {
+                  "extensions": {
+                    "io.modelcontextprotocol/ui": {
+                      "mimeTypes": [
+                        "text/html;profile=mcp-app"
+                      ]
+                    }
+                  },
+                  "resources": {},
+                  "tools": {}
+                },
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            },
+            "paddingBytes": 65536
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "encoded-body",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "headers": {
+              "Content-Encoding": "gzip"
+            },
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {
+                  "extensions": {
+                    "io.modelcontextprotocol/ui": {
+                      "mimeTypes": [
+                        "text/html;profile=mcp-app"
+                      ]
+                    }
+                  },
+                  "resources": {},
+                  "tools": {}
+                },
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "repeated-cursor",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {
+                  "extensions": {
+                    "io.modelcontextprotocol/ui": {
+                      "mimeTypes": [
+                        "text/html;profile=mcp-app"
+                      ]
+                    }
+                  },
+                  "resources": {},
+                  "tools": {}
+                },
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "nextCursor": "page-1",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_one",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          },
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "nextCursor": "page-1",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_two",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "partial-pages",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {
+                  "extensions": {
+                    "io.modelcontextprotocol/ui": {
+                      "mimeTypes": [
+                        "text/html;profile=mcp-app"
+                      ]
+                    }
+                  },
+                  "resources": {},
+                  "tools": {}
+                },
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "nextCursor": "page-1",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_one",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          },
+          {
+            "raw": "{\"jsonrpc\":\"2.0\",\"id\":3,"
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "private-cache",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {
+                  "extensions": {
+                    "io.modelcontextprotocol/ui": {
+                      "mimeTypes": [
+                        "text/html;profile=mcp-app"
+                      ]
+                    }
+                  },
+                  "resources": {},
+                  "tools": {}
+                },
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "private",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "external-schema",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {
+                  "extensions": {
+                    "io.modelcontextprotocol/ui": {
+                      "mimeTypes": [
+                        "text/html;profile=mcp-app"
+                      ]
+                    }
+                  },
+                  "resources": {},
+                  "tools": {}
+                },
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "$ref": "https://169.254.169.254/schema"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "unsupported-schema-dialect",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {
+                  "extensions": {
+                    "io.modelcontextprotocol/ui": {
+                      "mimeTypes": [
+                        "text/html;profile=mcp-app"
+                      ]
+                    }
+                  },
+                  "resources": {},
+                  "tools": {}
+                },
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "$schema": "https://json-schema.org/draft-07/schema",
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "unsupported-legacy-version",
+      "replies": {
+        "initialize": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "capabilities": {
+                  "resources": {},
+                  "tools": {}
+                },
+                "protocolVersion": "2025-06-18",
+                "serverInfo": {
+                  "name": "SyntheticFixture",
+                  "version": "1"
+                }
+              }
+            }
+          }
+        ],
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "resources": []
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "properties": {
+                        "results": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2025-11-25"
+    },
+    {
+      "id": "optional-absent",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {},
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "modern-session-refused",
+      "replies": {
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resources": [
+                  {
+                    "mimeType": "text/html;profile=mcp-app",
+                    "name": "Fixture dashboard",
+                    "uri": "ui://fixture/dashboard"
+                  }
+                ],
+                "resultType": "complete",
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "server/discover": [
+          {
+            "headers": {
+              "Mcp-Session-Id": "fixture-session-only"
+            },
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "_meta": {
+                  "io.modelcontextprotocol/serverInfo": {
+                    "name": "SyntheticFixture",
+                    "version": "1"
+                  }
+                },
+                "cacheScope": "public",
+                "capabilities": {
+                  "extensions": {
+                    "io.modelcontextprotocol/ui": {
+                      "mimeTypes": [
+                        "text/html;profile=mcp-app"
+                      ]
+                    }
+                  },
+                  "resources": {},
+                  "tools": {}
+                },
+                "resultType": "complete",
+                "supportedVersions": [
+                  "2026-07-28",
+                  "2025-11-25"
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "cacheScope": "public",
+                "resultType": "complete",
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "ttlMs": 60000
+              }
+            }
+          }
+        ]
+      },
+      "transport": "streamable-http",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "stdio-disabled",
+      "replies": {},
+      "transport": "stdio",
+      "version": "2026-07-28"
+    },
+    {
+      "id": "http-sse-disabled",
+      "replies": {},
+      "transport": "http-sse",
+      "version": "2024-11-05"
+    },
+    {
+      "id": "legacy-modern-array-unknown",
+      "replies": {
+        "initialize": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "capabilities": {
+                  "resources": {},
+                  "tools": {}
+                },
+                "protocolVersion": "2025-11-25",
+                "serverInfo": {
+                  "name": "SyntheticFixture",
+                  "version": "1"
+                }
+              }
+            }
+          }
+        ],
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "resources": []
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "session": false,
+      "transport": "streamable-http",
+      "version": "2025-11-25"
+    }
+  ],
+  "kind": "synthetic_controlled_fixtures",
+  "version": 1
+}

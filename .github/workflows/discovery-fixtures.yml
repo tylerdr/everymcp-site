@@ -1,0 +1,39 @@
+name: Discovery declarations (fixtures only)
+
+on:
+  pull_request:
+    paths:
+      - scripts/discovery_contract.py
+      - scripts/run_discovery_fixtures.py
+      - scripts/requirements-source-monitor.txt
+      - tests/test_public_discovery.py
+      - tests/test_source_monitor.py
+      - tests/test_source_receipt_import.py
+      - tests/fixtures/public-discovery.json
+      - documents/public-discovery/**
+      - documents/PUBLIC-DISCOVERY.md
+      - .github/workflows/discovery-fixtures.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install existing pinned validator (no MCP SDK or model dependency)
+        run: |
+          python3 -m venv tmp/discovery/venv
+          tmp/discovery/venv/bin/python -m pip install --disable-pip-version-check -r scripts/requirements-source-monitor.txt
+      - name: Test separate profiles, adversarial boundaries and source-monitor regression
+        run: |
+          mkdir -p tmp/source-monitor
+          tmp/discovery/venv/bin/python -m unittest discover -s tests -p 'test_public_discovery.py' -v
+          tmp/discovery/venv/bin/python -m unittest discover -s tests -p 'test_source_monitor.py' -v
+          tmp/discovery/venv/bin/python -m unittest discover -s tests -p 'test_source_receipt_import.py' -v
+          tmp/discovery/venv/bin/python scripts/run_discovery_fixtures.py > tmp/discovery/local-receipt.json
+          tmp/discovery/venv/bin/python scripts/monitor_sources.py --dry-run

@@ -1,0 +1,646 @@
+{
+  "$defs": {
+    "citation": {
+      "additionalProperties": false,
+      "properties": {
+        "exchange": {
+          "maximum": 8,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "pointer": {
+          "pattern": "^/result(?:/.*)?$",
+          "type": "string"
+        },
+        "responseSha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "exchange",
+        "responseSha256",
+        "pointer"
+      ],
+      "type": "object"
+    },
+    "exchange": {
+      "additionalProperties": false,
+      "properties": {
+        "authChallenge": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "authenticationVerified": {
+                  "const": false
+                },
+                "followed": {
+                  "const": false
+                },
+                "resourceMetadataUri": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "scheme": {
+                  "enum": [
+                    "Bearer",
+                    "unknown"
+                  ]
+                }
+              },
+              "required": [
+                "scheme",
+                "resourceMetadataUri",
+                "followed",
+                "authenticationVerified"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "cacheHint": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "reused": {
+                  "const": false
+                },
+                "scope": {
+                  "enum": [
+                    "public",
+                    "private"
+                  ]
+                },
+                "ttlMs": {
+                  "minimum": 0,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "ttlMs",
+                "scope",
+                "reused"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "capturedBytes": {
+          "maximum": 65537,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "httpStatus": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "method": {
+          "enum": [
+            "server/discover",
+            "initialize",
+            "notifications/initialized",
+            "tools/list",
+            "resources/list"
+          ]
+        },
+        "outcome": {
+          "enum": [
+            "observed",
+            "unknown"
+          ]
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "requestSha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "responseSha256": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          ]
+        },
+        "sequence": {
+          "maximum": 8,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "sessionAssigned": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "sequence",
+        "method",
+        "requestSha256",
+        "responseSha256",
+        "capturedBytes",
+        "httpStatus",
+        "outcome",
+        "reason",
+        "cacheHint",
+        "sessionAssigned",
+        "authChallenge"
+      ],
+      "type": "object"
+    },
+    "fact": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "unknown"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "declared"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "citations": {
+                "minItems": 1
+              },
+              "reason": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/citation"
+          },
+          "maxItems": 3,
+          "type": "array"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "enum": [
+            "declared",
+            "unknown",
+            "not_declared"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "reason",
+        "value",
+        "citations"
+      ],
+      "type": "object"
+    },
+    "resource": {
+      "additionalProperties": false,
+      "properties": {
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/citation"
+          },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        },
+        "contentFetched": {
+          "const": false
+        },
+        "description": {
+          "type": "string"
+        },
+        "mimeType": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "trust": {
+          "const": "unverified_self_declaration"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "uri",
+        "name",
+        "citations",
+        "trust",
+        "contentFetched"
+      ],
+      "type": "object"
+    },
+    "schemaDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "dialect": {},
+        "externalReferences": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "instanceValidation": {
+          "const": "disabled"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "syntax_valid",
+            "unknown"
+          ]
+        },
+        "value": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "state",
+        "reason",
+        "dialect",
+        "sha256",
+        "value",
+        "externalReferences",
+        "instanceValidation"
+      ],
+      "type": "object"
+    },
+    "tool": {
+      "additionalProperties": false,
+      "properties": {
+        "annotations": {
+          "type": "object"
+        },
+        "apps": {
+          "$ref": "#/$defs/fact"
+        },
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/citation"
+          },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        },
+        "description": {
+          "type": "string"
+        },
+        "execution": {
+          "const": "disabled"
+        },
+        "inputSchema": {
+          "$ref": "#/$defs/schemaDeclaration"
+        },
+        "name": {
+          "type": "string"
+        },
+        "outputSchema": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/schemaDeclaration"
+            }
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "trust": {
+          "const": "unverified_self_declaration"
+        }
+      },
+      "required": [
+        "name",
+        "inputSchema",
+        "outputSchema",
+        "citations",
+        "trust",
+        "execution",
+        "apps"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://everymcp.com/contracts/public-discovery/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "apps": {
+      "$ref": "#/$defs/fact"
+    },
+    "assessments": {
+      "additionalProperties": false,
+      "properties": {
+        "applicableDenominator": {
+          "type": "null"
+        },
+        "badge": {
+          "type": "null"
+        },
+        "runtime": {
+          "const": "unknown"
+        },
+        "score": {
+          "type": "null"
+        },
+        "security": {
+          "const": "unknown"
+        }
+      },
+      "required": [
+        "score",
+        "badge",
+        "applicableDenominator",
+        "runtime",
+        "security"
+      ],
+      "type": "object"
+    },
+    "attribution": {
+      "additionalProperties": false,
+      "properties": {
+        "fixtureSha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "controlled_fixture"
+        },
+        "listingRelationship": {
+          "const": null
+        },
+        "source": {
+          "pattern": "^fixture://[a-z0-9-]+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "source",
+        "fixtureSha256",
+        "listingRelationship"
+      ],
+      "type": "object"
+    },
+    "auth": {
+      "additionalProperties": false,
+      "properties": {
+        "authenticationVerified": {
+          "const": false
+        },
+        "credentialsUsed": {
+          "const": false
+        },
+        "state": {
+          "enum": [
+            "unknown",
+            "challenge_observed",
+            "no_challenge_observed_for_these_requests"
+          ]
+        }
+      },
+      "required": [
+        "state",
+        "authenticationVerified",
+        "credentialsUsed"
+      ],
+      "type": "object"
+    },
+    "cache": {
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "const": false
+        },
+        "keyRequirementsBeforeLive": {
+          "const": [
+            "endpoint",
+            "profile",
+            "auth_context",
+            "request",
+            "page"
+          ]
+        },
+        "reused": {
+          "const": false
+        }
+      },
+      "required": [
+        "enabled",
+        "reused",
+        "keyRequirementsBeforeLive"
+      ],
+      "type": "object"
+    },
+    "contractVersion": {
+      "const": "everymcp.public-discovery.v1"
+    },
+    "discovery": {
+      "$ref": "#/$defs/fact"
+    },
+    "exchanges": {
+      "items": {
+        "$ref": "#/$defs/exchange"
+      },
+      "maxItems": 8,
+      "type": "array"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "bodyBytes": {
+          "const": 65536
+        },
+        "headerBytes": {
+          "const": 8192
+        },
+        "pagesPerList": {
+          "const": 3
+        },
+        "requestSeconds": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "type": "number"
+        },
+        "requests": {
+          "const": 8
+        },
+        "runSeconds": {
+          "const": 8
+        }
+      },
+      "required": [
+        "bodyBytes",
+        "headerBytes",
+        "requestSeconds",
+        "runSeconds",
+        "requests",
+        "pagesPerList"
+      ],
+      "type": "object"
+    },
+    "observedAt": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "observedAtBasis": {
+      "const": "fixture_clock"
+    },
+    "profile": {
+      "additionalProperties": false,
+      "properties": {
+        "actor": {
+          "const": "declaration_observer"
+        },
+        "id": {
+          "enum": [
+            "mcp-2026-07-28-streamable-http-declarations-v1",
+            "mcp-2025-11-25-streamable-http-declarations-v1",
+            "unsupported"
+          ]
+        },
+        "protocolVersion": {
+          "type": "string"
+        },
+        "transport": {
+          "enum": [
+            "streamable-http",
+            "stdio",
+            "http-sse"
+          ]
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "transport",
+        "actor",
+        "id"
+      ],
+      "type": "object"
+    },
+    "publication": {
+      "additionalProperties": false,
+      "properties": {
+        "eligible": {
+          "const": false
+        },
+        "state": {
+          "const": "review_required"
+        }
+      },
+      "required": [
+        "state",
+        "eligible"
+      ],
+      "type": "object"
+    },
+    "resourceDeclarations": {
+      "items": {
+        "$ref": "#/$defs/resource"
+      },
+      "maxItems": 40,
+      "type": "array"
+    },
+    "resources": {
+      "$ref": "#/$defs/fact"
+    },
+    "toolDeclarations": {
+      "items": {
+        "$ref": "#/$defs/tool"
+      },
+      "maxItems": 40,
+      "type": "array"
+    },
+    "tools": {
+      "$ref": "#/$defs/fact"
+    }
+  },
+  "required": [
+    "contractVersion",
+    "profile",
+    "observedAt",
+    "observedAtBasis",
+    "attribution",
+    "discovery",
+    "tools",
+    "resources",
+    "apps",
+    "toolDeclarations",
+    "resourceDeclarations",
+    "exchanges",
+    "auth",
+    "cache",
+    "assessments",
+    "publication",
+    "limits"
+  ],
+  "title": "Controlled-fixture public discovery declarations; no publication or operational assessment",
+  "type": "object"
+}

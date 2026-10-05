@@ -1,0 +1,246 @@
+{
+  "apps": {
+    "citations": [],
+    "reason": "extension_not_declared",
+    "state": "unknown",
+    "value": null
+  },
+  "assessments": {
+    "applicableDenominator": null,
+    "badge": null,
+    "runtime": "unknown",
+    "score": null,
+    "security": "unknown"
+  },
+  "attribution": {
+    "fixtureSha256": "5645afd40e81a10e51aaa6a2d2315ccc316374ea28f5c6b28615c49c931de8fa",
+    "kind": "controlled_fixture",
+    "listingRelationship": null,
+    "source": "fixture://legacy-session"
+  },
+  "auth": {
+    "authenticationVerified": false,
+    "credentialsUsed": false,
+    "state": "no_challenge_observed_for_these_requests"
+  },
+  "cache": {
+    "enabled": false,
+    "keyRequirementsBeforeLive": [
+      "endpoint",
+      "profile",
+      "auth_context",
+      "request",
+      "page"
+    ],
+    "reused": false
+  },
+  "contractVersion": "everymcp.public-discovery.v1",
+  "discovery": {
+    "citations": [
+      {
+        "exchange": 1,
+        "pointer": "/result",
+        "responseSha256": "e60be1e3fbe56131d150d08ea2bebafdbac7c32c2c7af1c5661f457c65e389ed"
+      }
+    ],
+    "reason": null,
+    "state": "declared",
+    "value": {
+      "capabilities": {
+        "resources": {},
+        "tools": {}
+      },
+      "identity": {
+        "name": "SyntheticFixture",
+        "version": "1"
+      },
+      "identityState": "declared",
+      "identityTrust": "unverified_self_declaration",
+      "selectedVersion": "2025-11-25",
+      "supportedVersions": [
+        "2025-11-25"
+      ]
+    }
+  },
+  "exchanges": [
+    {
+      "authChallenge": null,
+      "cacheHint": null,
+      "capturedBytes": 165,
+      "httpStatus": 200,
+      "method": "initialize",
+      "outcome": "observed",
+      "reason": null,
+      "requestSha256": "f522225e03fb002cf2e9e6302c32d4ddad35ebe30870ac069f0dd85e66703436",
+      "responseSha256": "e60be1e3fbe56131d150d08ea2bebafdbac7c32c2c7af1c5661f457c65e389ed",
+      "sequence": 1,
+      "sessionAssigned": true
+    },
+    {
+      "authChallenge": null,
+      "cacheHint": null,
+      "capturedBytes": 0,
+      "httpStatus": 202,
+      "method": "notifications/initialized",
+      "outcome": "observed",
+      "reason": null,
+      "requestSha256": "883a6cf5c9ef985204b1312c393b79d87e3efb378272bbbaca6d2cecf13b5bdd",
+      "responseSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sequence": 2,
+      "sessionAssigned": false
+    },
+    {
+      "authChallenge": null,
+      "cacheHint": null,
+      "capturedBytes": 469,
+      "httpStatus": 200,
+      "method": "tools/list",
+      "outcome": "observed",
+      "reason": null,
+      "requestSha256": "72ea79e9dbde3387ba3e11573abb2e6478cd2bc7f652bf76fb578c1eaa3621ad",
+      "responseSha256": "5db7e6d977fe0c9a896866952055769f7b0a36aa1eef579ef99d79be095df1a4",
+      "sequence": 3,
+      "sessionAssigned": false
+    },
+    {
+      "authChallenge": null,
+      "cacheHint": null,
+      "capturedBytes": 51,
+      "httpStatus": 200,
+      "method": "resources/list",
+      "outcome": "observed",
+      "reason": null,
+      "requestSha256": "04d509d7d0989569685b322ff042d3af970a87cf14dfb26d3df15b1a9364192c",
+      "responseSha256": "872657bc0ca581088e68a220e8c6571d1d1a884a70723ff323cb376d56e95799",
+      "sequence": 4,
+      "sessionAssigned": false
+    }
+  ],
+  "limits": {
+    "bodyBytes": 65536,
+    "headerBytes": 8192,
+    "pagesPerList": 3,
+    "requestSeconds": 1.0,
+    "requests": 8,
+    "runSeconds": 8.0
+  },
+  "observedAt": "2026-10-05T00:00:00Z",
+  "observedAtBasis": "fixture_clock",
+  "profile": {
+    "actor": "declaration_observer",
+    "id": "mcp-2025-11-25-streamable-http-declarations-v1",
+    "protocolVersion": "2025-11-25",
+    "transport": "streamable-http"
+  },
+  "publication": {
+    "eligible": false,
+    "state": "review_required"
+  },
+  "resourceDeclarations": [],
+  "resources": {
+    "citations": [
+      {
+        "exchange": 4,
+        "pointer": "/result/resources",
+        "responseSha256": "872657bc0ca581088e68a220e8c6571d1d1a884a70723ff323cb376d56e95799"
+      }
+    ],
+    "reason": null,
+    "state": "declared",
+    "value": {
+      "complete": true,
+      "count": 0
+    }
+  },
+  "toolDeclarations": [
+    {
+      "annotations": {
+        "readOnlyHint": true
+      },
+      "apps": {
+        "citations": [
+          {
+            "exchange": 3,
+            "pointer": "/result/tools/0",
+            "responseSha256": "5db7e6d977fe0c9a896866952055769f7b0a36aa1eef579ef99d79be095df1a4"
+          }
+        ],
+        "reason": null,
+        "state": "declared",
+        "value": {
+          "renderingVerified": false,
+          "resourceFetched": false,
+          "resourceUri": "ui://fixture/dashboard",
+          "visibility": [
+            "app",
+            "model"
+          ]
+        }
+      },
+      "citations": [
+        {
+          "exchange": 3,
+          "pointer": "/result/tools/0",
+          "responseSha256": "5db7e6d977fe0c9a896866952055769f7b0a36aa1eef579ef99d79be095df1a4"
+        }
+      ],
+      "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+      "execution": "disabled",
+      "inputSchema": {
+        "dialect": "https://json-schema.org/draft/2020-12/schema",
+        "externalReferences": [],
+        "instanceValidation": "disabled",
+        "reason": null,
+        "sha256": "b40380f3f1f475bd23cc9b1c663e86ffdfddb5791a708493f5b8d4d092a33cd5",
+        "state": "syntax_valid",
+        "value": {
+          "properties": {
+            "query": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "fixture_search",
+      "outputSchema": {
+        "dialect": "https://json-schema.org/draft/2020-12/schema",
+        "externalReferences": [],
+        "instanceValidation": "disabled",
+        "reason": null,
+        "sha256": "d4b33d012af3ef47678738bc375625e1f2d6ee70f9e8a9f6363c59474f530895",
+        "state": "syntax_valid",
+        "value": {
+          "properties": {
+            "results": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "trust": "unverified_self_declaration"
+    }
+  ],
+  "tools": {
+    "citations": [
+      {
+        "exchange": 3,
+        "pointer": "/result/tools",
+        "responseSha256": "5db7e6d977fe0c9a896866952055769f7b0a36aa1eef579ef99d79be095df1a4"
+      }
+    ],
+    "reason": null,
+    "state": "declared",
+    "value": {
+      "complete": true,
+      "count": 1
+    }
+  }
+}

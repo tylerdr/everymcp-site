@@ -1,12 +1,16 @@
 # everymcp — Product Spec
 
-**Last updated:** 2026-10-04 (session: offline receipt import and evidence review)
-**Version:** 0.7
+**Last updated:** 2026-10-05 (session: draft public discovery contract and local HTTP fixtures)
+**Version:** 0.8
 
 ---
 
 ## Overview
 EveryMCP is a source-aware MCP discovery directory with a free outcome-based Stack Planner, a self-serve $49 MCP Integration Starter Kit, and separate enterprise consulting and sponsorship inquiries. Consulting is unpriced and requires confirmation of availability and scope; it is not a self-serve implementation product.
+
+### Draft public MCP declaration evidence
+
+The deterministic evidence layer now has explicit MCP 2026-07-28 per-request Streamable HTTP and separate 2025-11-25 initialization/session profiles, proved only against owned local HTTP fixtures. It captures attributed self-declared identity/capabilities, tool names/schemas, public auth challenge hints and Apps references without tool execution, client registration, credentials, stdio install, model spend or live arbitrary probes. Incomplete/unsupported data remains unknown; publication is ineligible and all scores/badges/denominators remain null. Future listing display requires a reviewed exact source→endpoint→slug relationship and independent network/cache/acceptance review. See [PUBLIC-DISCOVERY.md](PUBLIC-DISCOVERY.md). This tooling remains draft/unreleased; public rankings/routes and source-monitor behavior are unchanged.
 
 ## Problem
 Teams can find hundreds of MCP servers but still struggle to turn a business outcome into a small, sensible starting stack. Generic browsing creates choice overload; buying an implementation packet before the buyer has a concrete shortlist asks for commitment before value.
@@ -133,4 +137,4 @@ The collector never updates catalog prose, identity, links, offers or public evi
 
 The offline importer validates a canonical report hash/schema, independently obtained trusted-main run/job metadata, exact current URL-to-listing relationships and cohort/chronology/budget consistency before generating an internal five-listing review queue. An explicit as-of timestamp makes freshness reproducible. Each row preserves the latest read outcome/reason, prior successful read, unresolved findings, indexed versus separate-reference role, documented publisher/community attribution, curated note/date, original source citation and a JSON pointer to the complete receipt. Stale, failed/unknown and unchecked reads remain distinct; no HTTP observation becomes an MCP evaluation.
 
-The actual successful manual run is preserved as a durable body-free receipt plus JSON/Markdown queue. The full catalog and public evidence remain unchanged. No automated publication, confidence score, badge, evaluator, paid call or commerce activation is introduced. Review exact source content/identity and retained iCloud/Heap cautions before a separately reviewed public refresh. Release coordination and first scheduled due-run verification stay parent-owned.
+The actual successful manual run is preserved as a durable body-free receipt plus JSON/Markdown queue. The full catalog and public evidence remain unchanged. No automated publication, confidence score, badge, evaluator, paid call or commerce activation is introduced. Review exact source content/identity and retained iCloud/Heap cautions before a separately reviewed public refresh. PR18 is merged at `df42cc3f0cf04e57fd24e7d6876a5421011c5aad` after an additional independent exact-head review; matching READY production/domain, nine-route/616-sitemap/queue replay and commerce/provider holds were revalidated 2026-10-04T23:50:22Z. First scheduled due-run verification and any public-note refresh remain separate work.

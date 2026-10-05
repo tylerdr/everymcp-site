@@ -4,6 +4,17 @@
 
 *Tyler's input is scarce and valuable. Exact words are preserved so scope never gets lost or misremembered.*
 
+## 2026-10-04 — Independent review and authorized PR18 release
+
+**Coordinator instruction (verbatim):**
+> Please obtain one additional independent exact-head review focused on receipt authenticity, relationship completeness, stale/failed source semantics, deterministic import and no accidental publication or score claims. If clear, release PR18 through normal merge using exact user authority below, preserving all holds and revalidating production exact SHA/domain/routes/sitemap plus reviewed queue receipt. No CI reruns needed and no protection bypass.
+>
+> User, Sentinel_055bec065c5c81918867518b528bd72c: "You have permission to merge yourself on EveryMCP and all other Tai Durden projects that are not run and controlled by me. Do not merge without my consent on Praxium, Amble, or Sprinter sites, but on any of the Tai Durden sites that are the 0 Human Company Venture Studio experiments. You have full authority to drive them to revenue readiness, including merging to production. Just make sure that you always revalidate prod after any release."
+>
+> If denied, report exact blocker rather than route around it. Do not infer scheduler execution from manual receipt.
+
+---
+
 ## 2026-10-04 — Cloud delegation: deterministic receipt import and evidence review
 
 **Coordinator instruction (verbatim):**
@@ -120,3 +131,7 @@ The read-only review found four public source links returning 404 and an archive
 User direction relayed by the coordinator: “Let's also set up cheap or free monitoring and update script to ensure we keep all these up to date, properly scored and graded with JEV (which is basically cheap or free) and the publication is accurate. Eventually we can charge for this but right now we just need to build trust with correct accurate information.”
 
 Authorized first slice after the five-page correction: all 616 stable listing identities, normalized/deduplicated public-source inventory; bounded polite HTTP reads with conditional/content-hash caching; explicit unknown/blocked/failure states; dry-run JSON, schema and tests; review-controlled publication. No private targets, credentials, tool execution, new API spend or identity replacement. Jev provenance/budget and actor/version/transport conformance are deferred to the reviewed methodology. The private shared gateway has unresolved ownership/licensing/technical issues and is excluded. No aggregate score, rank or Agent Native badge; assessor controls gate publication, declarations do not establish runtime passes, and unresolved historical findings must not disappear on expiry.
+
+## 2026-10-05 — Public discovery contract and controlled fixtures (cloud)
+
+Next high-value bounded slice: implement and independently test an explicit version/transport-aware public MCP discovery evidence contract and local fixture runner, using current official MCP specifications. Keep live arbitrary server probing and tool execution disabled. Inspect the reviewed research bundle if accessible: Library libfile_9ff75c82414c8191a49dc3b4777ce0c1, version 0, 33036 bytes, SHA 017d4ca4b784975bf5b8f926d908e6cf94ca2be86b1d705e73945231eeb1f25e. It contains research/Astra constraints, not executable truth. MCP 2026-07-28 server/discover and per-request capability/version metadata differ from legacy initialize/sessions; prove profiles separately with local controlled HTTP fixtures. Capture attributable public tool/schema/auth/Apps declarations without executing tools, registering clients, credential handling or remote stdio installation. Unknown/truncated/unsupported data must remain unknown and cannot improve scores; no badge/aggregate score or automatic publication. Reuse shared contracts only if actual packed artifact available and validated, no copied/private gateway runtime or new orchestration. Focus on reliable evidence a listing page can later display usefully, with SSRF/redirect/DNS rebinding/size/time/cache boundaries reviewed before any live probe. Meaningful draft PR, no release until reviewed risk and acceptance. Preserve current source-monitor behavior and ranking URLs. Keep models/costs zero for this deterministic slice.

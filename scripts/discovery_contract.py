@@ -276,6 +276,8 @@ def schema_declaration(schema):
     try:
         bounded_tree(schema)
         Draft202012Validator.check_schema(schema)
+    except TimeoutError:
+        raise
     except Exception:
         out["reason"] = "invalid_or_bounded_schema"
         return out

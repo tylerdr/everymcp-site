@@ -55,8 +55,29 @@ class DiscoveryAcceptance(unittest.TestCase):
             self.assertEqual([e["method"] for e in report["exchanges"]],
                              ["initialize", "notifications/initialized", "tools/list", "resources/list"])
             self.assertEqual(report["exchanges"][0]["sessionAssigned"], session)
+            self.assertEqual(report["tools"]["state"], "declared")
+            self.assertEqual(report["tools"]["value"], {"count": 1, "complete": True})
+            self.assertEqual(report["toolDeclarations"][0]["outputSchema"]["value"]["type"], "object")
             self.assertNotIn("fixture-session-only", contract.canonical(report).decode())
             self.assertTrue(all(e["cacheHint"] is None for e in report["exchanges"]))
+        wrong_era = run("legacy-modern-array-unknown")
+        self.assertEqual(wrong_era["tools"]["reason"], "declaration_schema_mismatch")
+
+    def test_opaque_cursor_is_inert_data_and_preserves_pagination(self):
+        case = copy.deepcopy(CASES["modern-sse-pages"])
+        case["replies"]["tools/list"][0]["message"]["result"]["nextCursor"] = "https://169.254.169.254/opaque?cursor=a"
+        with patch.object(socket, "getaddrinfo", side_effect=AssertionError("DNS prohibited")):
+            report = runner.run_case(case, CLOCK)
+        self.assertEqual(report["tools"]["value"], {"count": 2, "complete": True})
+
+    def test_malformed_prose_remains_unknown_instead_of_crashing(self):
+        for method, key, bad in (("tools/list", "tools", {"malicious": "description"}),
+                                 ("resources/list", "resources", 123)):
+            case = copy.deepcopy(CASES["modern-json"])
+            case["replies"][method][0]["message"]["result"][key][0]["description"] = bad
+            report = runner.run_case(case, CLOCK)
+            self.assertEqual(report[key]["reason"], "declaration_schema_mismatch")
+            self.assertEqual(report[key]["state"], "unknown")
 
     def test_unknowns_cannot_become_passes_or_badges(self):
         expected = {"auth-challenge": "authentication_required", "redirect": "redirect_refused",
@@ -82,6 +103,11 @@ class DiscoveryAcceptance(unittest.TestCase):
         self.assertEqual(challenge["resourceMetadataUri"], "https://auth.example.test/.well-known/oauth-protected-resource")
         self.assertFalse(challenge["followed"])
         self.assertFalse(report["auth"]["authenticationVerified"])
+        malformed = copy.deepcopy(CASES["auth-challenge"])
+        malformed["replies"]["server/discover"][0]["headers"]["WWW-Authenticate"] = 'Bearer resource_metadata="https://["'
+        malformed_report = runner.run_case(malformed, CLOCK)
+        self.assertIsNone(malformed_report["exchanges"][0]["authChallenge"]["resourceMetadataUri"])
+        self.assertEqual(malformed_report["discovery"]["reason"], "authentication_required")
         partial = run("auth-tools-only")
         self.assertEqual(partial["discovery"]["state"], "declared")
         self.assertEqual(partial["tools"]["state"], "unknown")
@@ -199,6 +225,14 @@ class DiscoveryAcceptance(unittest.TestCase):
                        lambda r: r["assessments"].update(score=100),
                        lambda r: r["attribution"].update(listingRelationship={"slug": "heap-mcp"}),
                        lambda r: r["tools"]["citations"][0].update(responseSha256="0" * 64),
+                       lambda r: r["tools"]["citations"][0].update(exchange=1, responseSha256=r["exchanges"][0]["responseSha256"], pointer="/result"),
+                       lambda r: r["toolDeclarations"][0]["citations"][0].update(pointer="/result/tools/999"),
+                       lambda r: r["toolDeclarations"][0]["inputSchema"].update(sha256="0" * 64),
+                       lambda r: r["discovery"]["value"].update(identity={"name": "Forged", "version": "1"}),
+                       lambda r: r["apps"]["value"].update(extension={"mimeTypes": ["forged"]}),
+                       lambda r: r["profile"].update(protocolVersion="2025-11-25", id="mcp-2025-11-25-streamable-http-declarations-v1"),
+                       lambda r: r["exchanges"][1].update(httpStatus=404),
+                       lambda r: r["exchanges"][1].update(requestSha256="0" * 64),
                        lambda r: r["tools"]["value"].update(count=100),
                        lambda r: r.update(observedAt="2026-02-30T00:00:00Z")):
             changed = copy.deepcopy(report); mutate(changed)

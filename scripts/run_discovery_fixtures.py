@@ -4,14 +4,12 @@ import argparse
 import copy
 import http.client
 import json
-import re
 import signal
 import socket
 import threading
 import time
 from contextlib import contextmanager
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from urllib.parse import urlsplit
 
 import discovery_contract as contract
 
@@ -88,6 +86,7 @@ class OwnedFixture:
         self.calls = []
         self.initialized = False
         self.ready = False
+        self.method_counts = {}
         fixture = self
 
         class Handler(BaseHTTPRequestHandler):
@@ -105,18 +104,7 @@ class OwnedFixture:
                     message = contract.strict_json(self.rfile.read(length))
                     fixture.calls.append({"message": message, "headers": dict(self.headers)})
                     reply = fixture.reply(message, self.headers)
-                    raw = reply.get("raw")
-                    if raw is None:
-                        payload = copy.deepcopy(reply.get("message", {}))
-                        if "id" in payload:
-                            payload["id"] = message.get("id") if payload["id"] == "$requestId" else payload["id"]
-                        raw = contract.canonical(payload) if payload else b""
-                        if reply.get("sse"):
-                            raw = b": fixture heartbeat\n\n" + b"event: message\ndata: " + raw.rstrip(b"\n") + b"\n\n"
-                    else:
-                        raw = raw.encode()
-                    if reply.get("paddingBytes"):
-                        raw += b" " * reply["paddingBytes"]
+                    raw = contract.fixture_response_bytes(reply, message.get("id"))
                     self.send_response(reply.get("status", 200))
                     headers = {"Content-Type": "text/event-stream" if reply.get("sse") else "application/json",
                                **reply.get("headers", {})}
@@ -179,8 +167,8 @@ class OwnedFixture:
                 return {"status": 202}
             assert self.ready and "_meta" not in message.get("params", {})
         replies = self.case["replies"].get(method, [])
-        cursor = message.get("params", {}).get("cursor")
-        index = 0 if cursor is None else int(cursor.removeprefix("page-"))
+        index = self.method_counts.get(method, 0)
+        self.method_counts[method] = index + 1
         reply = copy.deepcopy(replies[min(index, len(replies) - 1)])
         if method == "initialize" and self.case.get("session"):
             reply.setdefault("headers", {})["Mcp-Session-Id"] = "fixture-session-only"
@@ -216,14 +204,7 @@ def exchange(fixture, version, method, seq, session=None, cursor=None, timeout=R
             if response.status in (401, 403):
                 challenge = response.getheader("WWW-Authenticate", "")
                 # Fixed bounded public challenge hints only; no tokens, registration or follow-up.
-                value = {"scheme": "Bearer" if re.match(r"(?i)^Bearer(?:\s|$)", challenge) else "unknown",
-                         "resourceMetadataUri": None, "followed": False, "authenticationVerified": False}
-                match = re.search(r'(?:^|[, ])resource_metadata="([^"\s]+)"', challenge)
-                if match and len(match[1]) <= 2048:
-                    p = urlsplit(match[1])
-                    if p.scheme == "https" and p.hostname and not p.username and not p.password and not p.query and not p.fragment:
-                        value["resourceMetadataUri"] = match[1]
-                observation["authChallenge"] = value
+                observation["authChallenge"] = contract.auth_challenge(challenge)
                 raise ValueError("authentication_required" if response.status == 401 else "access_refused")
             if response.getheader("Content-Encoding", "identity").lower() != "identity":
                 raise ValueError("encoded_body_refused")
@@ -293,7 +274,7 @@ def run_case(case, fixture_clock, timeout=REQUEST_SECONDS):
                          "runSeconds": RUN_SECONDS, "requests": contract.MAX_REQUESTS, "pagesPerList": contract.MAX_PAGES}}
     if version not in contract.VERSIONS or report["profile"]["transport"] != "streamable-http":
         report["discovery"] = contract.unknown("unsupported_profile")
-        return contract.validate_evidence(report)
+        return contract.validate_evidence(report, case)
     started = time.monotonic()
     with OwnedFixture(case) as fixture:
         session = None
@@ -312,25 +293,20 @@ def run_case(case, fixture_clock, timeout=REQUEST_SECONDS):
         result, reason, obs = send(first_method)
         if result is None:
             report["discovery"] = contract.unknown(reason)
-            return contract.validate_evidence(report)
+            return contract.validate_evidence(report, case)
         if (version == contract.VERSIONS[0] and version not in result["supportedVersions"]) or (
                 version == contract.VERSIONS[1] and result["protocolVersion"] != version):
             report["discovery"] = contract.unknown("unsupported_negotiated_version")
-            return contract.validate_evidence(report)
+            return contract.validate_evidence(report, case)
         capabilities = result["capabilities"]
-        identity = result.get("serverInfo") if version == contract.VERSIONS[1] else result.get("_meta", {}).get(contract.META_PREFIX + "serverInfo")
-        identity_state = "declared" if isinstance(identity, dict) and all(
-            isinstance(identity.get(k), str) and 0 < len(identity[k]) <= 512 for k in ("name", "version")) else "unknown"
-        value = {"supportedVersions": result.get("supportedVersions", [result.get("protocolVersion")]),
-                 "capabilities": capabilities, "identity": identity if identity_state == "declared" else None,
-                 "identityState": identity_state, "identityTrust": "unverified_self_declaration", "selectedVersion": version}
+        value = contract.discovery_value(result, version)
         report["discovery"] = contract.declared(value, contract.citation(obs, "/result"))
         if version == contract.VERSIONS[1]:
             ack, reason, _ = send("notifications/initialized")
             if ack is None:
                 report["tools"] = contract.unknown(reason)
                 report["resources"] = contract.unknown(reason)
-                return contract.validate_evidence(report)
+                return contract.validate_evidence(report, case)
 
         for name in ("tools", "resources"):
             if name not in capabilities:
@@ -388,7 +364,7 @@ def run_case(case, fixture_clock, timeout=REQUEST_SECONDS):
             report["apps"] = contract.unknown("extension_not_declared")
         if report["auth"]["state"] == "unknown" and all(e["outcome"] == "observed" for e in report["exchanges"]):
             report["auth"]["state"] = "no_challenge_observed_for_these_requests"
-    return contract.validate_evidence(report)
+    return contract.validate_evidence(report, case)
 
 
 def main():

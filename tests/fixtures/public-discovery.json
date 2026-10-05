@@ -335,10 +335,15 @@
                     },
                     "name": "fixture_search",
                     "outputSchema": {
-                      "items": {
-                        "type": "string"
+                      "properties": {
+                        "results": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
                       },
-                      "type": "array"
+                      "type": "object"
                     }
                   }
                 ]
@@ -420,10 +425,15 @@
                     },
                     "name": "fixture_search",
                     "outputSchema": {
-                      "items": {
-                        "type": "string"
+                      "properties": {
+                        "results": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
                       },
-                      "type": "array"
+                      "type": "object"
                     }
                   }
                 ]
@@ -1886,10 +1896,15 @@
                     },
                     "name": "fixture_search",
                     "outputSchema": {
-                      "items": {
-                        "type": "string"
+                      "properties": {
+                        "results": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
                       },
-                      "type": "array"
+                      "type": "object"
                     }
                   }
                 ]
@@ -2123,6 +2138,89 @@
       "replies": {},
       "transport": "http-sse",
       "version": "2024-11-05"
+    },
+    {
+      "id": "legacy-modern-array-unknown",
+      "replies": {
+        "initialize": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "capabilities": {
+                  "resources": {},
+                  "tools": {}
+                },
+                "protocolVersion": "2025-11-25",
+                "serverInfo": {
+                  "name": "SyntheticFixture",
+                  "version": "1"
+                }
+              }
+            }
+          }
+        ],
+        "resources/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "resources": []
+              }
+            }
+          }
+        ],
+        "tools/list": [
+          {
+            "message": {
+              "id": "$requestId",
+              "jsonrpc": "2.0",
+              "result": {
+                "tools": [
+                  {
+                    "_meta": {
+                      "ui": {
+                        "resourceUri": "ui://fixture/dashboard",
+                        "visibility": [
+                          "app",
+                          "model"
+                        ]
+                      }
+                    },
+                    "annotations": {
+                      "readOnlyHint": true
+                    },
+                    "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+                    "inputSchema": {
+                      "properties": {
+                        "query": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "type": "object"
+                    },
+                    "name": "fixture_search",
+                    "outputSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "session": false,
+      "transport": "streamable-http",
+      "version": "2025-11-25"
     }
   ],
   "kind": "synthetic_controlled_fixtures",

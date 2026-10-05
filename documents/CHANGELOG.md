@@ -218,3 +218,9 @@ Detail pages link to the existing free planner with an explicit inclusion/compat
 - Explicit future commit identity applied to the active owned repository: established Tai Durden name, tyler@sprinterconsulting.com author/committer, no environment overrides and verified tylerdr connection. Prior history preserved; next meaningful remote attribution verification required. Prepared with OpenAI Codex assistance.
 
 - Preserved historical queue reproducibility after CI identified source-note drift: restored original listing-evidence bytes and moved the manually reviewed display append/link into a separate exact slug/publisher-URL overlay. Seven listing tests and14 importer methods pass; no receipt regeneration or observer/collector change.
+
+## 2026-10-05 — PR23 normal release and production acceptance
+
+- Independently accepted PR23 head5641516/tree7317c3a merged through tylerdr normally as d9f2629914847608f7d6641490cd024659fbba06. Parent explicitly permits GitHub system-generated verified merge identity; Codex-authored identities remain Tai Durden/tyler@sprinterconsulting.com. No direct main push or history rewrite.
+- READY production dpl_A7DGQYCDwU4miDkLwWVq6xbR2znU matches the reviewed tree and merge; owned-site regression passed03:42:41Z. RevenueCat dated401/expected-auth/uninspected wording and immutable receipt link render. Nine routes/canonicals,616 sitemap listings, free planner, historical evidence and commerce/provider holds preserved. Durable production release proof recorded.
+- Seven listing tests,14 importer methods, fresh lint/types, exact-head hosted build and85 hosted Python methods accepted; independent review and all comments reconciled. Receipt/proposal integrity and unknown/null assessments preserved. No repeat MCP probe, tool/model calls, paid spend, credentials or recurring expansion. First scheduled source refresh remains pending parent-owned T016. Prepared with OpenAI Codex assistance.

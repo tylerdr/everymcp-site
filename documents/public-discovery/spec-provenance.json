@@ -3,27 +3,27 @@
   "artifacts": [
     {
       "definitionCount": 15,
-      "derivation": "Transitive local $ref closure of roots; remove description, examples and $comment recursively; sort JSON keys, indent 2, newline.",
+      "derivation": "Transitive local $ref closure of roots; remove description, examples and $comment metadata only in schema objects, preserving every key inside properties/patternProperties/$defs/definitions name maps; sort JSON keys, indent 2, newline.",
       "path": "2026-07-28-declarations.schema.json",
       "roots": [
         "DiscoverResult",
         "ListToolsResult",
         "ListResourcesResult"
       ],
-      "sha256": "676d5151e44d86f2714db0bba1b8c034ab7d719f6b25faf881c6b8d3017282eb",
+      "sha256": "1af4ec74981ffb877ac862d5b8d427bc36e94cffe3c6390bb8b63cbad2b376aa",
       "sourceSha256": "ef70b61f99b6d2e5e3b46863822eab08dff6a45bedc7a08914e0e5b133f40203",
       "sourceUrl": "https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/75db1e987cbbba6d170315dc99d0dfc440754aef/schema/2026-07-28/schema.json"
     },
     {
       "definitionCount": 12,
-      "derivation": "Transitive local $ref closure of roots; remove description, examples and $comment recursively; sort JSON keys, indent 2, newline.",
+      "derivation": "Transitive local $ref closure of roots; remove description, examples and $comment metadata only in schema objects, preserving every key inside properties/patternProperties/$defs/definitions name maps; sort JSON keys, indent 2, newline.",
       "path": "2025-11-25-declarations.schema.json",
       "roots": [
         "InitializeResult",
         "ListToolsResult",
         "ListResourcesResult"
       ],
-      "sha256": "5d21e557db9736dd99f655dcd04e6dbb99a4be5118f7af6c4fc8f0040978512b",
+      "sha256": "cfcca418f265cadbd0b6a1cc02bff89e7873bea409b27b48f8cdc2fc19694198",
       "sourceSha256": "268a5f82ba70fd7e4b6dc4aa1e64f116f74b4d0edcb69dc046829c79dd4e97e7",
       "sourceUrl": "https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/75db1e987cbbba6d170315dc99d0dfc440754aef/schema/2025-11-25/schema.json"
     }
@@ -39,7 +39,7 @@
     "state": "unavailable",
     "version": 0
   },
-  "reviewedAt": "2026-10-05T00:14:22Z",
+  "reviewedAt": "2026-10-05T00:37:57Z",
   "sharedContractReuse": {
     "reason": "No validated packed shared artifact available; no gateway/Jev runtime copied.",
     "state": "disabled"

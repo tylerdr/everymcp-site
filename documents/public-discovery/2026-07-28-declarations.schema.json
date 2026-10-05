@@ -90,6 +90,9 @@
     },
     "Implementation": {
       "properties": {
+        "description": {
+          "type": "string"
+        },
         "icons": {
           "items": {
             "$ref": "#/$defs/Icon"
@@ -227,6 +230,9 @@
         "annotations": {
           "$ref": "#/$defs/Annotations"
         },
+        "description": {
+          "type": "string"
+        },
         "icons": {
           "items": {
             "$ref": "#/$defs/Icon"
@@ -328,6 +334,9 @@
         },
         "annotations": {
           "$ref": "#/$defs/ToolAnnotations"
+        },
+        "description": {
+          "type": "string"
         },
         "icons": {
           "items": {

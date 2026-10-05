@@ -1,13 +1,13 @@
 {
-  "cases": 23,
+  "cases": 24,
   "contractVersion": "everymcp.public-discovery.v1",
   "costUsd": 0,
   "fixtureClock": "2026-10-05T00:00:00Z",
-  "fixtureManifestSha256": "07b5f97675a4c631b091ce6431843385bb37f5f7f4db565552834e9d45c3f284",
+  "fixtureManifestSha256": "4f467aa6d6fa32260c23588b3bf89d05fef116a50e68ef3a35520fee5e9e434c",
   "kind": "synthetic_fixture_acceptance",
   "liveProbes": 0,
   "modelCalls": 0,
-  "receiptSha256": "0965e25945a8c8b53dd714b12dedc3189aa0e68f8d8e5fb0701f70fa9e5ddad2",
+  "receiptSha256": "63731378cf147883e1e535da4fa166136dd4e789944082bbfc4b0a724d7eafac",
   "reports": [
     {
       "case": "fixture://modern-json",
@@ -35,27 +35,27 @@
     },
     {
       "case": "fixture://legacy-session",
-      "caseSha256": "3fabd7086ea7baa2ddafcdb241a448417043563256942de8d20c7b8e3f819a05",
-      "completeToolCount": null,
+      "caseSha256": "5645afd40e81a10e51aaa6a2d2315ccc316374ea28f5c6b28615c49c931de8fa",
+      "completeToolCount": 1,
       "discoveryReason": null,
       "discoveryState": "declared",
-      "observedToolDeclarations": 0,
+      "observedToolDeclarations": 1,
       "profile": "mcp-2025-11-25-streamable-http-declarations-v1",
       "requests": 4,
-      "toolsReason": "declaration_schema_mismatch",
-      "toolsState": "unknown"
+      "toolsReason": null,
+      "toolsState": "declared"
     },
     {
       "case": "fixture://legacy-stateless-sse",
-      "caseSha256": "00f6909f67cab059bb3e24c9b34eaf2b6859ecd8fe18240f3bcb808d0ae1182f",
-      "completeToolCount": null,
+      "caseSha256": "f7689bcbf2b0c7127c65fde89e284c7e10e34d4fde5132546f6510b066f04fab",
+      "completeToolCount": 1,
       "discoveryReason": null,
       "discoveryState": "declared",
-      "observedToolDeclarations": 0,
+      "observedToolDeclarations": 1,
       "profile": "mcp-2025-11-25-streamable-http-declarations-v1",
       "requests": 4,
-      "toolsReason": "declaration_schema_mismatch",
-      "toolsState": "unknown"
+      "toolsReason": null,
+      "toolsState": "declared"
     },
     {
       "case": "fixture://auth-challenge",
@@ -227,7 +227,7 @@
     },
     {
       "case": "fixture://unsupported-legacy-version",
-      "caseSha256": "fd2c7e334152d0d052a2e5b69344e42f804ad5388e42ded1c0fc1b45f152b93e",
+      "caseSha256": "2a9873847321b0d343b7e3088ce3079036531a861765e44f7992880f60eabe03",
       "completeToolCount": null,
       "discoveryReason": "unsupported_negotiated_version",
       "discoveryState": "unknown",
@@ -284,8 +284,20 @@
       "requests": 0,
       "toolsReason": "not_attempted",
       "toolsState": "unknown"
+    },
+    {
+      "case": "fixture://legacy-modern-array-unknown",
+      "caseSha256": "2409d33b18d99af7c393b8fb52655858b4399ca314ba8fcf102f8058d122f53b",
+      "completeToolCount": null,
+      "discoveryReason": null,
+      "discoveryState": "declared",
+      "observedToolDeclarations": 0,
+      "profile": "mcp-2025-11-25-streamable-http-declarations-v1",
+      "requests": 4,
+      "toolsReason": "declaration_schema_mismatch",
+      "toolsState": "unknown"
     }
   ],
-  "requests": 48,
+  "requests": 52,
   "toolCalls": 0
 }

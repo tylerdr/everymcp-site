@@ -4,7 +4,7 @@
 
 - Canonical repository `tylerdr/everymcp-site`; active worktree `/workspace/everymcp-discovery`, branch `feature/public-discovery-contract`. Authorized GitHub `tylerdr`, push/admin permission and HTTPS origin were rechecked; no open PR existed when this slice began. No Praxium, Amble or Sprinter files were edited.
 - Main remains PR18 release `df42cc3f0cf04e57fd24e7d6876a5421011c5aad`. Its independent review, READY domain deployment `dpl_4wtx12GxUnUMCVSKraLqNvhxiPFK` and nine-route/616-sitemap/commerce/provider acceptance at `2026-10-04T23:50:22Z` are preserved in [release receipt](source-monitor-reviews/pr18-production-release-2026-10-04.json) and [review](independent-review-pr18.md). Historical release proof documents from branch `chore/source-receipt-release-handoff` (`8dd56f6`) are incorporated into this feature branch.
-- This discovery slice remains a draft, unreleased. User explicitly requires risk/acceptance review before release. Independent exact-head testing and hosted results belong in the draft PR review record; these handoff assertions are local acceptance only.
+- This discovery slice remains a draft, unreleased. User explicitly requires risk/acceptance review before release. Draft PR [#19](https://github.com/tylerdr/everymcp-site/pull/19) is open. Independent exact-head testing and hosted results belong in its review record; these handoff assertions are local acceptance only.
 
 ## Implemented bounded scope
 
@@ -16,10 +16,14 @@
 
 ## Evidence and validation
 
-- Seventeen new adversarial test methods pass across 23 committed synthetic scenarios (48 owned loopback requests): modern JSON/SSE/multiple pages, legacy assigned/no session, auth challenges, partial lists, duplicates/limits, unsupported versions/transports, redirects, schema references/dialects, finite/duplicate JSON and whole-operation trickle deadlines. Source regression tests also pass: 17 collector + 14 importer. Existing importer fixture needs ignored `tmp/source-monitor` created first; new CI includes this setup, with no old code change.
-- Full deterministic fixture receipt SHA `0965e25945a8c8b53dd714b12dedc3189aa0e68f8d8e5fb0701f70fa9e5ddad2`, fixture manifest SHA `07b5f97675a4c631b091ce6431843385bb37f5f7f4db565552834e9d45c3f284`. [Acceptance summary](public-discovery/fixture-acceptance.json) and four labeled example receipts are committed. Timestamp is simulated `2026-10-05T00:00:00Z`; it is not a live check date. Models/calls/spend are zero for this slice.
+- Nineteen new adversarial test methods pass across 24 committed synthetic scenarios (52 owned loopback requests): modern JSON/SSE/multiple pages, legacy assigned/no session, auth challenges, partial lists, duplicates/limits, unsupported versions/transports, redirects, schema references/dialects, finite/duplicate JSON and whole-operation trickle deadlines. Source regression tests also pass: 17 collector + 14 importer. Existing importer fixture needs ignored `tmp/source-monitor` created first; new CI includes this setup, with no old code change.
+- Full deterministic fixture receipt SHA `63731378cf147883e1e535da4fa166136dd4e789944082bbfc4b0a724d7eafac`, fixture manifest SHA `4f467aa6d6fa32260c23588b3bf89d05fef116a50e68ef3a35520fee5e9e434c`. [Acceptance summary](public-discovery/fixture-acceptance.json) and four labeled example receipts are committed. Timestamp is simulated `2026-10-05T00:00:00Z`; it is not a live check date. Models/calls/spend are zero for this slice.
 - `npm test`, lint, typecheck and 753-page build pass locally. Whole-catalog source dry run makes zero requests. App/lib/public/data, both existing collector/importer scripts and tests, source report schema/workflow, dependency manifests and commerce/provider gates have no diff from main. Preserve 616 routes, 615 distinct legacy IDs, 585 URLs and 623 exact source/listing relations.
 - New `.github/workflows/discovery-fixtures.yml` is PR-only/read-only, with the existing pinned validator. It runs local discovery fixtures and old regression/dry checks. It has no scheduled or live observation job, cache restore, secrets, public write, artifact upload or model calls.
+
+## Independent review corrections
+
+Initial independent review at `11e3ebd` reproduced four acceptance defects: schema metadata trimming removed real description property constraints; saved receipts allowed contradictory profiles/citations/schema hashes/status; legacy happy-path tools used modern array output schemas; and the fixture server parsed opaque cursors as integers. All were accepted and corrected before release. New regressions reject these mutations, both legacy happy paths now declare tools with object output schemas, a wrong-era array scenario remains unknown, malformed prose no longer crashes the run, and cursor tokens stay inert. Initial exact-head CI/preview succeeded but do not count as revised-head acceptance. Revised independent review/hosted acceptance is required on the final PR head.
 
 ## Research access limitation
 

@@ -13,7 +13,7 @@
     "security": "unknown"
   },
   "attribution": {
-    "fixtureSha256": "3fabd7086ea7baa2ddafcdb241a448417043563256942de8d20c7b8e3f819a05",
+    "fixtureSha256": "5645afd40e81a10e51aaa6a2d2315ccc316374ea28f5c6b28615c49c931de8fa",
     "kind": "controlled_fixture",
     "listingRelationship": null,
     "source": "fixture://legacy-session"
@@ -21,7 +21,7 @@
   "auth": {
     "authenticationVerified": false,
     "credentialsUsed": false,
-    "state": "unknown"
+    "state": "no_challenge_observed_for_these_requests"
   },
   "cache": {
     "enabled": false,
@@ -92,13 +92,13 @@
     {
       "authChallenge": null,
       "cacheHint": null,
-      "capturedBytes": 426,
+      "capturedBytes": 469,
       "httpStatus": 200,
       "method": "tools/list",
-      "outcome": "unknown",
-      "reason": "declaration_schema_mismatch",
+      "outcome": "observed",
+      "reason": null,
       "requestSha256": "72ea79e9dbde3387ba3e11573abb2e6478cd2bc7f652bf76fb578c1eaa3621ad",
-      "responseSha256": "61826cbb0b4f500439d5e63b53d24ad49a13f13e779eb38bb95c180e0134605c",
+      "responseSha256": "5db7e6d977fe0c9a896866952055769f7b0a36aa1eef579ef99d79be095df1a4",
       "sequence": 3,
       "sessionAssigned": false
     },
@@ -152,11 +152,95 @@
       "count": 0
     }
   },
-  "toolDeclarations": [],
+  "toolDeclarations": [
+    {
+      "annotations": {
+        "readOnlyHint": true
+      },
+      "apps": {
+        "citations": [
+          {
+            "exchange": 3,
+            "pointer": "/result/tools/0",
+            "responseSha256": "5db7e6d977fe0c9a896866952055769f7b0a36aa1eef579ef99d79be095df1a4"
+          }
+        ],
+        "reason": null,
+        "state": "declared",
+        "value": {
+          "renderingVerified": false,
+          "resourceFetched": false,
+          "resourceUri": "ui://fixture/dashboard",
+          "visibility": [
+            "app",
+            "model"
+          ]
+        }
+      },
+      "citations": [
+        {
+          "exchange": 3,
+          "pointer": "/result/tools/0",
+          "responseSha256": "5db7e6d977fe0c9a896866952055769f7b0a36aa1eef579ef99d79be095df1a4"
+        }
+      ],
+      "description": "Synthetic declaration; never execute. <script>untrusted</script>",
+      "execution": "disabled",
+      "inputSchema": {
+        "dialect": "https://json-schema.org/draft/2020-12/schema",
+        "externalReferences": [],
+        "instanceValidation": "disabled",
+        "reason": null,
+        "sha256": "b40380f3f1f475bd23cc9b1c663e86ffdfddb5791a708493f5b8d4d092a33cd5",
+        "state": "syntax_valid",
+        "value": {
+          "properties": {
+            "query": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "fixture_search",
+      "outputSchema": {
+        "dialect": "https://json-schema.org/draft/2020-12/schema",
+        "externalReferences": [],
+        "instanceValidation": "disabled",
+        "reason": null,
+        "sha256": "d4b33d012af3ef47678738bc375625e1f2d6ee70f9e8a9f6363c59474f530895",
+        "state": "syntax_valid",
+        "value": {
+          "properties": {
+            "results": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "trust": "unverified_self_declaration"
+    }
+  ],
   "tools": {
-    "citations": [],
-    "reason": "declaration_schema_mismatch",
-    "state": "unknown",
-    "value": null
+    "citations": [
+      {
+        "exchange": 3,
+        "pointer": "/result/tools",
+        "responseSha256": "5db7e6d977fe0c9a896866952055769f7b0a36aa1eef579ef99d79be095df1a4"
+      }
+    ],
+    "reason": null,
+    "state": "declared",
+    "value": {
+      "complete": true,
+      "count": 1
+    }
   }
 }

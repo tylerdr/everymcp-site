@@ -188,18 +188,19 @@ class Wire:
         while b'\r\n' not in self.buffer:
             maximum = min(4096, limit - len(self.buffer) + 1)
             if kind == 'headers': maximum = min(maximum, MAX_HEADERS - self.header_bytes - len(self.buffer) + 1)
+            else: maximum = min(maximum, MAX_FRAMING - self.framing_bytes - len(self.buffer) + 1)
             if maximum <= 0 or not self.receive(maximum):
                 raise ValueError('truncated_or_oversized_line')
         at = self.buffer.index(b'\r\n') + 2
         if at > limit:
             raise ValueError('line_limit')
-        line, self.buffer = self.buffer[:at], self.buffer[at:]
         if kind == 'headers':
+            if self.header_bytes + at > MAX_HEADERS: raise ValueError('header_limit')
             self.header_bytes += at
-            if self.header_bytes > MAX_HEADERS: raise ValueError('header_limit')
         else:
+            if self.framing_bytes + at > MAX_FRAMING: raise ValueError('framing_limit')
             self.framing_bytes += at
-            if self.framing_bytes > MAX_FRAMING: raise ValueError('framing_limit')
+        line, self.buffer = self.buffer[:at], self.buffer[at:]
         return line
 
     def exact(self, size, body=False):

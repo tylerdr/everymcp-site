@@ -176,7 +176,7 @@ def normalize(version, method, status, headers, body, trace):
         observed.update(outcome='observed', reason=None, bodyComplete=True,
                         responseSha256=contract.sha(body), completeBody=body.decode('utf-8'))
     except (ValueError, UnicodeError) as exc:
-        observed['reason'] = str(exc) if isinstance(exc, ValueError) else 'invalid_utf8'
+        observed['reason'] = 'invalid_utf8' if isinstance(exc, UnicodeError) else str(exc)
         result, session = None, None
     return observed, result, session
 
@@ -438,7 +438,14 @@ def validate_receipt(receipt):
                             wire != header+captured+framing or headers.get('content-encoding','identity').lower() != 'identity' or
                             any(x.split('=',1)[0].strip().lower() in ('private','no-store') for x in headers.get('cache-control','').split(','))):
                         raise ValueError('invalid_receipt_unknown_reason')
-                elif reason not in TRANSPORT_REASONS | {'invalid_utf8'}:
+                elif reason == 'invalid_utf8':
+                    complete_frame(headers,captured,trace)
+                    if (status not in (200,202) or signals['privateState'] or signals['privateResult'] or
+                            signals['sessionPresent'] and (version != contract.VERSIONS[1] or method != 'initialize' or signals['invalidSession']) or
+                            observation['sessionAssigned'] != signals['sessionPresent'] or wire != header+captured+framing or
+                            any(x.split('=',1)[0].strip().lower() in ('private','no-store') for x in headers.get('cache-control','').split(','))):
+                        raise ValueError('invalid_receipt_unknown_reason')
+                elif reason not in TRANSPORT_REASONS:
                     raise ValueError('invalid_receipt_unknown_reason')
                 elif any(signals.values()) or challenge is not None:
                     raise ValueError('invalid_receipt_unknown_evidence')

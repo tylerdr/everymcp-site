@@ -155,6 +155,19 @@ class EndpointReviewTests(unittest.TestCase):
         wire=network.Wire(FakeSocket(raw_response(body))); _,headers,_=wire.read_headers()
         self.assertEqual(len(wire.read_body(headers)),65536)
 
+    @patch.dict(os.environ, {}, clear=True)
+    def test_real_wire_framing_excess_becomes_bounded_unknown_receipt(self):
+        raw=raw_response(b'1\r\na\r\n'*2000+b'0\r\n\r\n',{'content-type':'application/json','transfer-encoding':'chunked'})
+        sock=FakeSocket(raw)
+        def connect(addresses,timeout,record):
+            record.update(resolvedAddresses=[IP],selectedAddress=IP,tlsHostnameVerified=True,peerPinned=True)
+            return sock
+        with patch.object(adapter,'LIVE_EXECUTION_ENABLED',True), patch.object(network,'resolve',return_value=[(socket.AF_INET,IP)]), patch.object(network,'connect',side_effect=connect):
+            receipt=adapter.collect_plan()
+        self.assertEqual(receipt['reports'][0]['discovery'],contract.unknown('framing_limit'))
+        self.assertLessEqual(receipt['reports'][0]['exchanges'][0]['network']['responseFramingBytes'],8192)
+        self.assertEqual(receipt['attempts'],1); self.assertTrue(sock.closed)
+
     def test_whole_operation_deadline_stops_trickle_and_restores_signal(self):
         class Trickle(FakeSocket):
             def recv(self,size): time.sleep(.02); return super().recv(size)
@@ -209,6 +222,16 @@ class EndpointReviewTests(unittest.TestCase):
         with self.assertRaises(ValueError): adapter.validate_receipt(bad)
         bad=copy.deepcopy(report); bad['reports'][0]['exchanges'][0]['completeBody']=None
         with self.assertRaises(ValueError): adapter.validate_receipt(bad)
+
+    def test_invalid_utf8_is_attributable_unknown_and_halts_without_retention(self):
+        def post(body,headers,timeout,record):
+            payload=b'\xff'; response_headers={'content-type':'application/json','content-length':'1'}
+            record.update(trace(payload,response_headers)); return 200,response_headers,b'',payload
+        with patch.object(adapter,'LIVE_EXECUTION_ENABLED',True), patch.object(network,'post',side_effect=post): receipt=adapter.collect_plan()
+        self.assertEqual(receipt['attempts'],1)
+        self.assertEqual(receipt['reports'][0]['discovery'],contract.unknown('invalid_utf8'))
+        self.assertEqual(receipt['reports'][1]['discovery'],contract.unknown('safety_skipped'))
+        self.assertIsNone(receipt['reports'][0]['exchanges'][0]['completeBody'])
 
     def test_post_method_headers_and_body_are_allowlisted_before_dns(self):
         headers=network.request_headers(contract.VERSIONS[0],'server/discover')

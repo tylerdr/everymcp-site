@@ -147,3 +147,7 @@ Parent explicitly reviewed PR20 code head `5a99a2caa22787a7bd9f2e001353de2dfcac3
 ## 2026-10-05 — Reviewed receipt release and smallest public evidence display
 
 Parent authorizes normal reviewed documentation PR22 merge and exact production/receipt/source integrity revalidation, without repeating the consumed live probe or unchanged broad tests. Inspect the existing listing evidence UI and add only a concrete reader benefit: a dated authentication-required observation, exact publisher source and explicitly uninspected capabilities, without authentication penalties or compliance/security claims. Reuse the current UI, retain scores/badges/model/further public probe holds, and keep effort medium with efficient proof reuse.
+
+## 2026-10-05 — Explicit cloud commit identity
+
+User requires future author and committer email exactly tyler@sprinterconsulting.com with established owner name and existing Git credentials, verified GitHub tylerdr and normal Vercel attribution on the next meaningful reviewed commit. Preserve old history and other authors; no tai/noreply/Codex email substitution, credential creation/export or account security changes. Disclose Codex assistance truthfully. Medium effort applies.

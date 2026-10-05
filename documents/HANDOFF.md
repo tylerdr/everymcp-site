@@ -18,3 +18,5 @@
 3. Original private full receipt is unexported/ephemeral; public summary cannot prove independently replayed declarations or origin authenticity by hash. Library ZIP unavailable and not executable policy. Local mandatory TLS configuration remains untouched.
 
 Cloud worktree `/workspace/everymcp-discovery`, branch `feature/revenuecat-observation-note`; only authorized tylerdr/everymcp-site. Mac venture STATUS path unavailable; four-bullet cloud copy in VENTURE-STATUS.md. No Praxium/Amble/Sprinter edits.
+
+Future identity: repository-local owner name Tai Durden retained and author/committer email tyler@sprinterconsulting.com set; no environment identity overrides. Connected GitHub user verified tylerdr. Next meaningful remote commit must resolve both identities to tylerdr and normal Vercel attribution; stop if linkage fails. Prior PR23 commits predate this instruction and are preserved. This work was prepared with OpenAI Codex assistance.

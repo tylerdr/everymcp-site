@@ -15,6 +15,7 @@ export type ListingEvidence = {
     kind: "publisher" | "community";
     label: string;
     note: string;
+    observationReceiptUrl?: string;
   }>;
 };
 

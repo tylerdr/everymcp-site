@@ -22,6 +22,11 @@ export function ListingSourceEvidence({ evidence }: { evidence: ListingEvidence 
               <time dateTime={reference.checkedAt}>{formatSourceCheckDate(reference.checkedAt)}</time>
             </p>
             <p className="mt-1 text-sm leading-6">{reference.note}</p>
+            {reference.observationReceiptUrl ? (
+              <a href={reference.observationReceiptUrl} target="_blank" rel="noreferrer" className="mt-1 inline-block text-sm text-primary underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                Read the observation record ↗
+              </a>
+            ) : null}
           </li>
         ))}
       </ul>

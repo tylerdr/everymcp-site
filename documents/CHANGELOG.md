@@ -218,3 +218,8 @@ Detail pages link to the existing free planner with an explicit inclusion/compat
 - Explicit future commit identity applied to the active owned repository: established Tai Durden name, tyler@sprinterconsulting.com author/committer, no environment overrides and verified tylerdr connection. Prior history preserved; next meaningful remote attribution verification required. Prepared with OpenAI Codex assistance.
 
 - Preserved historical queue reproducibility after CI identified source-note drift: restored original listing-evidence bytes and moved the manually reviewed display append/link into a separate exact slug/publisher-URL overlay. Seven listing tests and14 importer methods pass; no receipt regeneration or observer/collector change.
+
+## 2026-10-07 — Draft transactional checkout indexing correction
+
+- Added noindex/follow metadata only to /checkout/success, preserving canonical, payment verification and fulfillment behavior. Draft only; not a claimed correction for GSC sitemap exclusions, whose exact affected URLs remain unavailable.
+- Added real-page synthetic rendering regression for five verification states and gated download behavior to the existing checkout verifier. No live Stripe/payment/provider/MCP request; existing entitlement checks, lint/types and build validated before publication. Sitemap642 URLs/616 listings, both Neon routes and redirects unchanged. Prepared with OpenAI Codex assistance.

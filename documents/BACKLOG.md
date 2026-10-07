@@ -53,3 +53,6 @@
 - [ ] Review source missing/body-change findings from the rolling cohort before any public evidence refresh.
 
 - [ ] T023: Review smallest RevenueCat Source evidence append: dated anonymous401/expected authentication/uninspected capabilities and immutable reviewed receipt link; reuse existing UI, no scores or new probes. PR22 released/revalidated at3e9440f9; display release remains parent-coordinated.
+
+- [x] T024 implementation: Narrow /checkout/success noindex metadata and offline five-state real-page regression prepared on fix/checkout-success-noindex; draft review/release remains separate. Preserve fulfillment and all642 sitemap URLs/616 listings.
+- [ ] T025: Obtain authorized GSC affected-URL samples, counts, crawl dates and Google-selected canonicals for October7 alerts before attributing cause or correcting sitemap/ranked routes. Checkout draft is outside sitemap and attribution remains unknown.

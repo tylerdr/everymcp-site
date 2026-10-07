@@ -1,6 +1,6 @@
-# EveryMCP venture status — 2026-10-05
+# EveryMCP venture status — 2026-10-07
 
-- PR22 documentation normally merged as3e9440f9; matching READY production dpl_A5GiymiXVWNmyYEZ7j2NGqqxtoqk passed nine-route/616-sitemap/evidence/planner/commerce/provider readback02:59:20Z. Canonical receipt and source-plan integrity verified.
-- One approved401/Bearer observation remains consumed; no repeat request/auth/tool/model/spend or source/transport review. Capabilities/compliance/security remain unknown, scores/Jev/badges disabled; scheduled proof is separate parentT016.
-- Small additive display draft appends the actual dated observation under the existing RevenueCat publisher source, expected-auth and uninspected facts, and immutable receipt link. Existing UI reused; other records/URLs/source dates/collector targets untouched. A separate cloned display overlay preserves historical source data and receipt bytes. Seven scoped listing tests plus14 importer reproducibility methods/frozen-plan comparison pass; required lint/types/build acceptance being completed.
-- Independent exact-head display review/hosted preview precedes parent-coordinated release. Public summary is not full private-receipt replay or hash-based origin proof; unavailable research ZIP not adopted. Cloud mandatory TLS untouched; Mac STATUS copy awaits parent synchronization.
+- Fresh main/production remains PR23 d9f2629; documentation PR24 remains separate. Checkout noindex correction prepared as a new draft only, no merge/release.
+- Only result-page robots metadata changes. Canonical, missing/synthetic paid behavior, payment verification, fulfillment and offer preserved; all642 sitemap URLs/616 listing routes, Neon aliases and redirects unchanged.
+- Focused five-state real-page offline regression plus entitlement checks, lint/types/build validated before publication. No live payment, provider/MCP probe, credentials or spend.
+- GSC category alerts confirmed but affected samples/counts/crawl dates unavailable. Checkout is outside sitemap; alert attribution unknown. Earlier actual scheduled success remains separate from unobserved October5 slot. Prepared with OpenAI Codex assistance; parent review/coordination next.

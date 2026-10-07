@@ -151,3 +151,7 @@ Parent authorizes normal reviewed documentation PR22 merge and exact production/
 ## 2026-10-05 — Explicit cloud commit identity
 
 User requires future author and committer email exactly tyler@sprinterconsulting.com with established owner name and existing Git credentials, verified GitHub tylerdr and normal Vercel attribution on the next meaningful reviewed commit. Preserve old history and other authors; no tai/noreply/Codex email substitution, credential creation/export or account security changes. Disclose Codex assistance truthfully. Medium effort applies.
+
+## 2026-10-07 — Narrow checkout result indexing correction
+
+Parent authorizes noindex metadata on /checkout/success, focused no-session and synthetic-session regression, meaningful push and draft PR only. Preserve payment/fulfillment behavior, sitemap642 URLs/616 listing routes, Neon identities and redirects; no live payments, billing/product change or merge/release. Confirmed transactional indexing-policy gap; connection to GSC sitemap alerts remains unknown pending affected URLs. Use repo-local Tyler Dreher <tyler@sprinterconsulting.com> for author and committer.

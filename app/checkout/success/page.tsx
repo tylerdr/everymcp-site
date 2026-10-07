@@ -11,6 +11,7 @@ type FulfillmentState = "paid" | "missing" | "unavailable" | "invalid" | "not_pa
 
 export const metadata: Metadata = {
   title: "Checkout Complete",
+  robots: { index: false, follow: true },
   description: "Your EveryMCP checkout is complete.",
   alternates: {
     canonical: "/checkout/success"

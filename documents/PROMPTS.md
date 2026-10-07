@@ -155,3 +155,7 @@ User requires future author and committer email exactly tyler@sprinterconsulting
 ## 2026-10-07 — Narrow checkout result indexing correction
 
 Parent authorizes noindex metadata on /checkout/success, focused no-session and synthetic-session regression, meaningful push and draft PR only. Preserve payment/fulfillment behavior, sitemap642 URLs/616 listing routes, Neon identities and redirects; no live payments, billing/product change or merge/release. Confirmed transactional indexing-policy gap; connection to GSC sitemap alerts remains unknown pending affected URLs. Use repo-local Tyler Dreher <tyler@sprinterconsulting.com> for author and committer.
+
+## 2026-10-07 — Explicit reviewed merge and production revalidation authority
+
+User grants permission to review and merge fully reviewed PRs with full production revalidation after each merge. Parent applies this to PR25; unmet acceptance/security/payment safeguards remain. No spending, credentials, permission expansion or payment action authorized.

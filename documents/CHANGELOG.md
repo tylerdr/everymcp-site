@@ -223,3 +223,8 @@ Detail pages link to the existing free planner with an explicit inclusion/compat
 
 - Added noindex/follow metadata only to /checkout/success, preserving canonical, payment verification and fulfillment behavior. Draft only; not a claimed correction for GSC sitemap exclusions, whose exact affected URLs remain unavailable.
 - Added real-page synthetic rendering regression for five verification states and gated download behavior to the existing checkout verifier. No live Stripe/payment/provider/MCP request; existing entitlement checks, lint/types and build validated before publication. Sitemap642 URLs/616 listings, both Neon routes and redirects unchanged. Prepared with OpenAI Codex assistance.
+
+## 2026-10-07 — PR25 released and production revalidated
+
+- Reconciled exact head/diff/freshmain/all comments/checks, no blockers; normally merged PR25 as9d6266671c090ad7bef41c9e14c1b37c5434fff4 under explicit user authority. READY deployment dpl_7piTyETzZm48GDrFkeWgLwHsAwsR matches reviewed tree and creator tylerdr.
+- Production browser acceptance passed09:19:46Z via verified-TLS owned-site GET bridge using existing CA/proxy: noindex/follow/canonical, missing/invalid session locks, recovery navigation,400/403 fulfillment rejection and no runtime errors. Direct Chromium CA limitation disclosed; no TLS verification bypass. Sitemap642/616 intact; no live paid session/payment/provider call. Synthetic paid behavior remains offline evidence. GSC alert attribution unknown.

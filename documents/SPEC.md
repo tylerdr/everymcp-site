@@ -149,6 +149,6 @@ One-use proof completed 2026-10-05T02:45:30Z: one anonymous fixed RevenueCat mod
 
 Reviewed observation display: a source-reference note may show a dated anonymous endpoint observation and link its immutable reviewed public record, keeping documentation-read dates separate and authentication neutral. It explicitly preserves uninspected tool/resource and unassessed compliance/security states. This is manually reviewed publication of a limited fact, not automatic monitor output or a grade. Existing evidence UI and identities are reused.
 
-### Transactional checkout result indexing (2026-10-07 draft)
+### Transactional checkout result indexing (2026-10-07 released PR25)
 
 The checkout result route /checkout/success is excluded from search indexing with noindex/follow metadata while retaining its canonical and existing server-verified payment/fulfillment behavior. It remains outside the public sitemap. This policy correction does not establish the cause of GSC sitemap alerts; affected-URL evidence remains required. No offer, payment, delivery or catalog scope change.

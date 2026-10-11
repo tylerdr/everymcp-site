@@ -63,7 +63,7 @@ export function supabaseBuyerAuth(client: Pick<ReturnType<typeof createClient>, 
   },verifyCode:async(email,token)=>{
     const {data,error}=await client.auth.verifyOtp({email,token,type:"email"});
     if (error) {
-      if (error.status !== 429 && error.status < 500 && (error.code === "otp_expired" || error.code === "invalid_credentials")) return null;
+      if (typeof error.status === "number" && error.status !== 429 && error.status < 500 && (error.code === "otp_expired" || error.code === "invalid_credentials")) return null;
       throw new Error("Email verification unavailable");
     }
     if (!data.session) throw new Error("Email verification unavailable");

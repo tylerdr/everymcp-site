@@ -228,3 +228,7 @@ Detail pages link to the existing free planner with an explicit inclusion/compat
 
 - Added contextual listing→$49 offer, buyer-specific tangible packet preview and bounded attribution without changing working URLs/content/price/checkout gates. Improved paid download with validation, same-entitlement retry, no-JavaScript fallback and non-PII requested/failed/received events.
 -22 tests, existing contract/checkout/entitlement checks, lint/types and753-page build pass. Actual candidate navigation and synthetic actual-component failed-download/retry/file/events proven. Live pricing remains closed; no purchase or revenue claimed. Approved Stripe account/mode binding plus signed webhook/durable entitlement/lost-return recovery remain explicit blockers. No credentials, paid provider or payment action.
+
+## 2026-10-11 — Independent download review corrections
+
+PR27 review identified incomplete packet acceptance and unbounded requests/body buffering. Corrected full packet SHA-256/section validation, streamed1MB cutoff,10s total deadline/cancellation and same-entitlement retry.29 tests, lint/types,753-page build and actual component browser retry pass; no paid activation.

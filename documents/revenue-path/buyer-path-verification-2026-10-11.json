@@ -10,7 +10,7 @@
     "paymentActions": 0,
     "pricingCanonicalPreserved": true
   },
-  "implementationSha": "9ccb4613c2110d1a53055dbec7ea2707f8c1a0ac",
+  "implementationSha": "2e17692f883c8078c18d056331c17f0f6100e57b",
   "limits": [
     "No paid conversion or live purchase demonstrated.",
     "Client event calls verified with synthetic browser sink; no analytics backend receipt or sales count inferred.",
@@ -62,13 +62,15 @@
     "642 sitemap URLs",
     "approved49USD price",
     "Stripe account/mode/entitlement gates",
-    "existing checkout/fulfillment API",
     "Neon aliases",
-    "redirects"
+    "redirects",
+    "existing checkout and fulfillment payment gates; additive fulfillment integrity header"
   ],
   "syntheticDownloadBrowser": {
+    "synthetic": true,
     "actualComponent": true,
-    "analyticsProperties": "none: no session IDs, URLs or customer data",
+    "transientFailureRecovered": true,
+    "sameEntitlementRetried": true,
     "downloadFilename": "everymcp-mcp-integration-starter-kit.md",
     "events": [
       "starter_kit_download_requested",
@@ -76,17 +78,30 @@
       "starter_kit_download_requested",
       "starter_kit_download_received"
     ],
-    "paidProviderCalls": 0,
-    "sameEntitlementRetried": true,
-    "synthetic": true,
-    "transientFailureRecovered": true
+    "analyticsProperties": "none: no session IDs, URLs or customer data",
+    "paidProviderCalls": 0
   },
   "tests": {
     "build": "753 pages passed",
     "checkoutSyntheticStates": 5,
-    "downloadCases": 6,
+    "downloadCases": 13,
     "lint": "passed",
     "types": "passed",
-    "vitest": 22
+    "vitest": 29
+  },
+  "integrity": {
+    "server": "SHA-256 of entire verified paid packet",
+    "client": "full digest and ordered seven-section structure",
+    "streamBytesMaximum": 1000000,
+    "requestAndBodyDeadlineMs": 10000,
+    "adversarialTests": [
+      "title-only matching digest",
+      "truncated real packet",
+      "changed complete packet",
+      "oversized bounded stream",
+      "never-settling request",
+      "never-settling body",
+      "retry after timeout"
+    ]
   }
 }

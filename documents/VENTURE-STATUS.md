@@ -4,3 +4,8 @@
 -22 tests, existing contract checks, lint/types/build753 and candidate listing→pricing browser pass. Synthetic actual download UI proves transient failure→same-session retry→valid file and non-PII event order.
 - Live purchase path remains incomplete: production pricing closes checkout pending approved Stripe account/mode binding; no payment/session/paid artifact or revenue accepted.
 - Durable event-driven entitlement/lost-return recovery has no approved storage/webhook contract. Owner setup plus sandbox payment-event→persistent receipt→download/recovery proof required; no credentials/card charge/paid provider/tenant or billing changes. Reviewed draft only, preserve traffic/price/gates. Prepared with OpenAI Codex assistance.
+
+- Independent PR27 review found incomplete/stalled download issues; revised2e17692 fixes digest, bounded streaming and timeout retry.
+-29 Vitest methods, lint/types,753-page build, actual component browser retry passed.
+- Checkout remains closed; no payments/provider calls/credentials/spend.
+- Disabled durable recovery is a separate draft; activation requires account/storage/identity approvals.

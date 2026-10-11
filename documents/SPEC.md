@@ -156,3 +156,5 @@ The checkout result route /checkout/success is excluded from search indexing wit
 ### Starter-kit buyer path (2026-10-11 draft)
 
 Listing traffic can review the existing $49 packet directly; pricing names the first-workflow developer buyer and shows an excerpt from the real artifact. The free planner remains available. Verified-session download validates the packet, supports same-entitlement retry and tracks receipt/failure without customer or session data. This draft does not activate checkout or promise durable recovery. Approved Stripe binding, signed webhook/persistent fulfillment/recovery contract and sandbox end-to-end proof remain prerequisites for revenue completion.
+
+Paid browser delivery validates the full server packet SHA-256 and ordered sections, bounds streamed body at1MB and total request/body time at10s, and permits retry of the existing entitlement after refusal. It does not prove payment conversion or disk save.

@@ -152,3 +152,7 @@ Reviewed observation display: a source-reference note may show a dated anonymous
 ### Transactional checkout result indexing (2026-10-07 draft)
 
 The checkout result route /checkout/success is excluded from search indexing with noindex/follow metadata while retaining its canonical and existing server-verified payment/fulfillment behavior. It remains outside the public sitemap. This policy correction does not establish the cause of GSC sitemap alerts; affected-URL evidence remains required. No offer, payment, delivery or catalog scope change.
+
+### Starter-kit buyer path (2026-10-11 draft)
+
+Listing traffic can review the existing $49 packet directly; pricing names the first-workflow developer buyer and shows an excerpt from the real artifact. The free planner remains available. Verified-session download validates the packet, supports same-entitlement retry and tracks receipt/failure without customer or session data. This draft does not activate checkout or promise durable recovery. Approved Stripe binding, signed webhook/persistent fulfillment/recovery contract and sandbox end-to-end proof remain prerequisites for revenue completion.

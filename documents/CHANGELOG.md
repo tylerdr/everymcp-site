@@ -223,3 +223,8 @@ Detail pages link to the existing free planner with an explicit inclusion/compat
 
 - Added noindex/follow metadata only to /checkout/success, preserving canonical, payment verification and fulfillment behavior. Draft only; not a claimed correction for GSC sitemap exclusions, whose exact affected URLs remain unavailable.
 - Added real-page synthetic rendering regression for five verification states and gated download behavior to the existing checkout verifier. No live Stripe/payment/provider/MCP request; existing entitlement checks, lint/types and build validated before publication. Sitemap642 URLs/616 listings, both Neon routes and redirects unchanged. Prepared with OpenAI Codex assistance.
+
+## 2026-10-11 — Revenue buyer-path draft
+
+- Added contextual listing→$49 offer, buyer-specific tangible packet preview and bounded attribution without changing working URLs/content/price/checkout gates. Improved paid download with validation, same-entitlement retry, no-JavaScript fallback and non-PII requested/failed/received events.
+-22 tests, existing contract/checkout/entitlement checks, lint/types and753-page build pass. Actual candidate navigation and synthetic actual-component failed-download/retry/file/events proven. Live pricing remains closed; no purchase or revenue claimed. Approved Stripe account/mode binding plus signed webhook/durable entitlement/lost-return recovery remain explicit blockers. No credentials, paid provider or payment action.

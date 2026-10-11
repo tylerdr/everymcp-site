@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { recordPayment, recoverPacket, sameScope, type EntitlementStore, type PaymentNotice, type Scope, type VerifiedPurchase } from "./entitlements";
+import { assertLedger, recordPayment, recoverPacket, sameScope, type EntitlementStore, type PaymentNotice, type Scope, type VerifiedPurchase } from "./entitlements";
 
 // No production wiring. Identity/signature/purchase adapters must be independently
 // approved and server-bound; a caller-supplied owner is never an identity.
@@ -29,7 +29,7 @@ export function createRecoveryHandlers(adapters: RecoveryAdapters) {
           const { done, value } = await Promise.race([reader.read(), deadline]);
           if (done) break;
           size += value.byteLength;
-          if (size > 64_000) { void reader.cancel(); return json({ error: "Invalid webhook" }, 400); }
+          if (size > 64_000) { void reader.cancel().catch(() => {}); return json({ error: "Invalid webhook" }, 400); }
           chunks.push(value);
         }
       } catch { return json({ error: "Invalid webhook" }, 400); }
@@ -53,9 +53,12 @@ export function createRecoveryHandlers(adapters: RecoveryAdapters) {
         if (!principal || !principal.ownerKey || !sameScope(principal.scope, adapters.scope)) return json({ error: "Authentication required" }, 401);
         const id = new URL(request.url).searchParams.get("receipt");
         if (!id) {
-          const receipts = await adapters.store.transaction((ledger) => Object.values(ledger.receipts)
+          const receipts = await adapters.store.transaction((ledger) => {
+            assertLedger(ledger);
+            return Object.values(ledger.receipts)
             .filter((receipt) => sameScope(receipt.scope, adapters.scope) && receipt.ownerKey === principal.ownerKey)
-            .map((receipt) => ({ id: receipt.id, packetSha256: receipt.packetSha256 })));
+            .map((receipt) => ({ id: receipt.id, packetSha256: receipt.packetSha256 }));
+          });
           return json({ receipts });
         }
         const packet = await recoverPacket(adapters.store, adapters.scope, principal.ownerKey, id);

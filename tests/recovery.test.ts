@@ -77,6 +77,23 @@ describe("disabled durable entitlement proof", () => {
     await writeFile(join(dir, "ledger.json"), JSON.stringify(ledger));
     await expect(recoverPacket(store, scope, purchase().ownerKey, receiptId(scope, notice().sessionId))).rejects.toThrow("integrity");
   });
+  it.each([{ events: {}, receipts: [] }, { events: [], receipts: {} }, { events: { bad: "bad" }, receipts: {} }])("refuses malformed persisted ledger before acknowledgement", async (ledger) => {
+    const { store, dir } = await fixture();
+    await writeFile(join(dir, "ledger.json"), JSON.stringify(ledger));
+    await expect(recordPayment(store, scope, notice(), async () => purchase())).rejects.toThrow();
+    expect(JSON.parse(await readFile(join(dir, "ledger.json"), "utf8"))).toEqual(ledger);
+  });
+  it("refuses corrupt existing snapshots and changed owners even on duplicate notices", async () => {
+    const { store, dir } = await fixture();
+    await recordPayment(store, scope, notice(), async () => purchase());
+    await expect(recordPayment(store, scope, notice(), async () => ({ ...purchase(), ownerKey: "other" }))).rejects.toThrow("owner conflict");
+    const ledger = JSON.parse(await readFile(join(dir, "ledger.json"), "utf8"));
+    ledger.receipts[receiptId(scope, notice().sessionId)].packet += "tampered";
+    await writeFile(join(dir, "ledger.json"), JSON.stringify(ledger));
+    await expect(recordPayment(store, scope, notice("new-event"), async () => purchase())).rejects.toThrow("integrity");
+    await expect(recordPayment(store, scope, notice(), async () => purchase())).rejects.toThrow("integrity");
+    expect(JSON.parse(await readFile(join(dir, "ledger.json"), "utf8"))).toEqual(ledger);
+  });
   it("recovers a lost return through verified owner listing; ignores query owner spoofing", async () => {
     const { store, dir } = await fixture();
     await recordPayment(store, scope, notice(), async () => purchase());
@@ -101,6 +118,14 @@ describe("disabled durable entitlement proof", () => {
     expect((await handlers.webhook(request("synthetic-valid"))).status).toBe(200);
     expect((await handlers.webhook(request("synthetic-valid"))).status).toBe(200);
     expect((await handlers.recovery(new Request("https://synthetic.local/recovery"))).status).toBe(401);
+  });
+  it("refuses oversized raw bodies even when cancellation rejects", async () => {
+    const { store } = await fixture();
+    const handlers = createRecoveryHandlers({ store, scope, authenticate: async () => null, verifyNotice: () => { throw new Error("must not verify oversized body"); }, verifyPurchase: async () => purchase() });
+    const stream = new ReadableStream<Uint8Array>({ start(c) { c.enqueue(new Uint8Array(64_001)); }, cancel() { return Promise.reject(new Error("synthetic cancellation failure")); } });
+    const request = new Request("https://synthetic.local/webhook", { method: "POST", body: stream, duplex: "half", headers: { "stripe-signature": "synthetic" } } as RequestInit);
+    expect((await handlers.webhook(request)).status).toBe(400);
+    await new Promise((resolve) => setTimeout(resolve, 0));
   });
   it("uses real Stripe SDK signature verification with synthetic raw events only", async () => {
     const secret = "whsec_synthetic_local_fixture_only";

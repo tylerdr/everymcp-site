@@ -2,7 +2,7 @@
 import { mkdir, open, readFile, rename, rm } from "node:fs/promises";
 import { join } from "node:path";
 import { randomUUID } from "node:crypto";
-import type { EntitlementStore, Ledger } from "./entitlements";
+import { assertLedger, type EntitlementStore, type Ledger } from "./entitlements";
 
 export class LocalFileStore implements EntitlementStore {
   constructor(private readonly directory: string) {}
@@ -25,8 +25,10 @@ export class LocalFileStore implements EntitlementStore {
         if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
         ledger = { events: {}, receipts: {} };
       }
+      assertLedger(ledger);
       const result = change(ledger);
       if (result instanceof Promise) throw new Error("Transaction callback must be synchronous");
+      assertLedger(ledger);
       const file = await open(temporary, "wx", 0o600);
       try { await file.writeFile(JSON.stringify(ledger)); await file.sync(); }
       finally { await file.close(); }

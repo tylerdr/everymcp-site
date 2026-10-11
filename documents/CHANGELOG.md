@@ -232,3 +232,7 @@ Detail pages link to the existing free planner with an explicit inclusion/compat
 ## 2026-10-11 — Independent download review corrections
 
 PR27 review identified incomplete packet acceptance and unbounded requests/body buffering. Corrected full packet SHA-256/section validation, streamed1MB cutoff,10s total deadline/cancellation and same-entitlement retry.29 tests, lint/types,753-page build and actual component browser retry pass; no paid activation.
+
+## 2026-10-11 — PR27 production proof and fixture correction
+
+Reviewed PR27 is live at ebee82b, READY deployment dpl_4Uk6V5Wja93hb1wVcZSBNE7g1T6x. Actual browser buyer flow/closed checkout/noindex/denied fulfillment and642URL sitemap pass. Standalone tsc found a test-only header union error after Next build passed; follow-up types the fixture explicitly and corrects evidence. No runtime/payment activation.

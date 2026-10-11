@@ -63,3 +63,6 @@
 
 - [x] Reject truncated/title-only paid downloads and recover from stalled/oversized streams (PR27 reviewed corrections).
 - [ ] Complete exact revised-head independent review, normal release and production regression; checkout remains closed.
+
+- [x] Independent PR27 review, guarded normal merge and exact production behavior proof.
+- [ ] Review and release test-only HeadersInit correction with accurate standalone type evidence.

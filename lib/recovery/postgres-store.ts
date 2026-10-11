@@ -1,6 +1,7 @@
+import { createHash, randomBytes } from "node:crypto";
 export interface SqlClient {
   query<Row = Record<string, unknown>>(sql: string, values?: unknown[]): Promise<{ rows: Row[] }>;
-  release(): void;
+  release(error?: Error): void;
 }
 export interface SqlPool { connect(): Promise<SqlClient> }
 import { assertLedger, receiptId, type EntitlementStore, type Ledger, type Receipt, type Scope } from "./entitlements";
@@ -9,9 +10,26 @@ import { assertLedger, receiptId, type EntitlementStore, type Ledger, type Recei
 // credentials. The caller supplies an approved, dedicated scoped login/pool.
 export class PostgresStore implements EntitlementStore {
   constructor(private readonly pool: SqlPool, private readonly scope: Scope) {}
-  async transaction<T>(change: (ledger: Ledger) => T): Promise<T> {
+  transaction<T>(change: (ledger: Ledger) => T): Promise<T> { return this.run(change, false); }
+  async checkReadiness(): Promise<boolean> {
+    // Exercise BOTH scoped INSERT/RLS paths in the same rollback-only transaction.
+    // A grant/forced-RLS catalog check alone cannot prove policy applicability.
+    const nonce = randomBytes(32).toString("hex");
+    const sessionId = `cs_${this.scope.mode}_readiness_${nonce}`;
+    const packet = "# EveryMCP MCP Integration Starter Kit\n" + Array.from({ length: 7 }, (_, i) => `\n## ${i + 1}. Readiness probe\nNot a purchase.\n`).join("") + "\n## What this paid packet includes\nRollback-only probe; never committed.";
+    const id = receiptId(this.scope, sessionId);
+    try {
+      await this.run((ledger) => {
+        ledger.events[nonce] = createHash("sha256").update("rollback-only readiness").digest("hex");
+        ledger.receipts[id] = { id, sessionId, scope: { ...this.scope }, ownerKey: nonce, packet, packetSha256: createHash("sha256").update(packet).digest("hex") };
+      }, true);
+      return true;
+    } catch { return false; }
+  }
+  private async run<T>(change: (ledger: Ledger) => T, rollbackOnly: boolean): Promise<T> {
     for (let attempt = 0; ; attempt++) {
       const client = await this.pool.connect();
+      let discard: Error | undefined;
       try {
         await client.query("BEGIN ISOLATION LEVEL SERIALIZABLE");
         const permissions = await client.query<{ ready: boolean }>(`SELECT
@@ -47,20 +65,24 @@ export class PostgresStore implements EntitlementStore {
             await client.query("INSERT INTO everymcp_receipts.paid_receipts (account_id,mode,session_id,receipt_id,owner_key,packet,packet_sha256) VALUES ($1,$2,$3,$4,$5,$6,$7)", [this.scope.accountId, this.scope.mode, value.sessionId, value.id, value.ownerKey, value.packet, value.packetSha256]);
           }
         }
-        await client.query("COMMIT");
+        await client.query(rollbackOnly ? "ROLLBACK" : "COMMIT");
         return result;
       } catch (error) {
+        discard = error instanceof Error ? error : new Error("Store transaction failed");
         await client.query("ROLLBACK").catch(() => {});
         const code = (error as { code?: string }).code;
         if (attempt >= 2 || !["40001", "40P01", "23505"].includes(code || "")) throw error;
-      } finally { client.release(); }
+      } finally { client.release(discard); }
     }
   }
   private async read(client: SqlClient): Promise<Ledger> {
     const events = await client.query<{ event_id: string; payload_sha256: string }>("SELECT event_id,payload_sha256 FROM everymcp_receipts.payment_events WHERE account_id=$1 AND mode=$2", [this.scope.accountId, this.scope.mode]);
     const receipts = await client.query<{ session_id: string; receipt_id: string; owner_key: string; packet: string; packet_sha256: string }>("SELECT session_id,receipt_id,owner_key,packet,packet_sha256 FROM everymcp_receipts.paid_receipts WHERE account_id=$1 AND mode=$2", [this.scope.accountId, this.scope.mode]);
     const ledger: Ledger = { events: {}, receipts: {} };
-    for (const row of events.rows) ledger.events[row.event_id] = row.payload_sha256;
+    for (const row of events.rows) {
+      if (!/^[a-f0-9]{64}$/.test(row.event_id) || !/^[a-f0-9]{64}$/.test(row.payload_sha256) || Object.prototype.hasOwnProperty.call(ledger.events, row.event_id)) throw new Error("Store event integrity failure");
+      ledger.events[row.event_id] = row.payload_sha256;
+    }
     for (const row of receipts.rows) {
       const value: Receipt = { id: row.receipt_id, sessionId: row.session_id, scope: { ...this.scope }, ownerKey: row.owner_key, packet: row.packet, packetSha256: row.packet_sha256 };
       if (value.id !== receiptId(this.scope, value.sessionId)) throw new Error("Store receipt identity failure");

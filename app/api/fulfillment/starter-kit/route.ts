@@ -31,7 +31,12 @@ export async function GET(request: Request) {
       if (!stored) return NextResponse.json({ error: "A completed payment is required before delivery" }, { status: 403 });
       starterKit = stored;
     } else {
-      // Existing return-link paid rights continue while the new binding is gated.
+      // Only historical unbound rights may use the old delivery path. New
+      // owned-contract sessions must retry their immutable snapshot after rollback.
+      const metadata = result.session.metadata || {};
+      if (["fulfillment_owner", "fulfillment_auth_project", "pricing_policy"].some((key) => key in metadata)) {
+        return NextResponse.json({ error: "Paid snapshot temporarily unavailable; retry this link" }, { status: 503 });
+      }
       starterKit = buildStarterKit(result.session.metadata?.acquisition_goal);
     }
   } catch { return NextResponse.json({ error: "Paid snapshot temporarily unavailable; retry this link" }, { status: 503 }); }

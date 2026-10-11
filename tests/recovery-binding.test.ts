@@ -12,7 +12,7 @@ const principal = { scope, ownerKey: ownerKey(scope, project, "00000000-0000-000
 const packet = buildStarterKit();
 function memory() {
   let data: Ledger = { events: {}, receipts: {} };
-  const store: EntitlementStore = { async transaction<T>(change: (l: Ledger) => T) {
+  const store: EntitlementStore & { checkReadiness(): Promise<boolean> } = { checkReadiness: async () => true, async transaction<T>(change: (l: Ledger) => T) {
     const next = structuredClone(data); const result = change(next); data = next; return result;
   } };
   return store;
@@ -34,7 +34,7 @@ describe("canonical production binding, synthetic only", () => {
   it("account mismatch, unavailable store and unverified/wrong-scoped owner all deny charge readiness", async () => {
     const d = dependencies(); d.verifyAccount.mockResolvedValue(false);
     expect(await createStarterBinding(d).ready()).toBe(false);
-    d.verifyAccount.mockResolvedValue(true); d.store = { transaction: async () => { throw new Error("no INSERT privilege"); } };
+    d.verifyAccount.mockResolvedValue(true); d.store = { checkReadiness: async () => true, transaction: async () => { throw new Error("no INSERT privilege"); } };
     expect(await createStarterBinding(d).ready()).toBe(false);
     d.store = memory(); d.authenticate.mockResolvedValue({ ...principal, scope: { ...scope, mode: "live" } });
     expect(await createStarterBinding(d).checkoutPrincipal(new Request("https://example.invalid"))).toBeNull();
@@ -115,4 +115,20 @@ describe("durable PostgreSQL transaction adapter without a database", () => {
     expect(denied.calls.some((c) => c.sql.startsWith("INSERT"))).toBe(false);
     const f = fake("08006"); await expect(f.store.transaction(() => true)).rejects.toThrow("commit failure"); expect(f.connect).toHaveBeenCalledOnce();
   });
+  it("scoped readiness inserts both tables then rolls back without committing a probe", async () => {
+    const f = fake(); expect(await f.store.checkReadiness()).toBe(true);
+    expect(f.calls.filter((c) => c.sql.startsWith("INSERT"))).toHaveLength(2);
+    expect(f.calls.at(-1)?.sql).toBe("ROLLBACK");expect(f.calls.some((c) => c.sql === "COMMIT")).toBe(false);
+  });
+  it("rejects malformed persisted event keys before assignment, acknowledgement or readiness", async () => {
+    const calls: string[] = [];
+    const client: SqlClient = { async query<Row>(sql: string) {
+      calls.push(sql);
+      return { rows: (sql.includes("AS ready") ? [{ ready: true }] : sql.startsWith("SELECT event_id") ? [{ event_id: "__proto__", payload_sha256: "a".repeat(64) }] : []) as Row[] };
+    }, release() {} };
+    const store = new PostgresStore({connect: async () => client},scope);
+    await expect(store.transaction(() => true)).rejects.toThrow("event integrity");
+    expect(await store.checkReadiness()).toBe(false);expect(calls.includes("COMMIT")).toBe(false);expect(calls.some((c) => c.startsWith("INSERT"))).toBe(false);
+  });
+
 });

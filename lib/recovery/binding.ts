@@ -17,7 +17,7 @@ export type StarterBinding = ReturnType<typeof createStarterBinding>;
 type Dependencies = {
   scope: Scope;
   authProject: string;
-  store: EntitlementStore;
+  store: EntitlementStore & { checkReadiness(): Promise<boolean> };
   authenticate: (request: Request) => Promise<Principal | null>;
   verifyPurchase: (id: string, scope: Scope) => Promise<VerifiedPurchase>;
   verifyAccount: () => Promise<boolean>;
@@ -27,8 +27,8 @@ export function createStarterBinding(dependencies: Dependencies) {
   const { scope, authProject, store, authenticate, verifyPurchase, verifyAccount, verifyNotice } = dependencies;
   async function ready() {
     try {
-      if (!store || !authenticate || !verifyPurchase || !verifyAccount || !verifyNotice || !/^acct_[A-Za-z0-9]+$/.test(scope?.accountId || "") || !/^[a-z]{20}$/.test(authProject || "") || !["test", "live"].includes(scope.mode)) return false;
-      if (!await verifyAccount()) return false;
+      if (!store?.checkReadiness || !authenticate || !verifyPurchase || !verifyAccount || !verifyNotice || !/^acct_[A-Za-z0-9]+$/.test(scope?.accountId || "") || !/^[a-z]{20}$/.test(authProject || "") || !["test", "live"].includes(scope.mode)) return false;
+      if (!await verifyAccount() || !await store.checkReadiness()) return false;
       await store.transaction((ledger) => { assertLedger(ledger); });
       return true;
     } catch { return false; }
@@ -71,7 +71,7 @@ export function purchaseReader(scope: Scope, project: string, verify = verifyPai
     if (session.id !== id || session.livemode !== (scope.mode === "live")) throw new Error("Session identity mismatch");
     const metadata = session.metadata || {};
     const owner = metadata.fulfillment_owner;
-    if (owner && (metadata.fulfillment_auth_project !== project || !/^[a-f0-9]{64}$/.test(owner) || metadata.pricing_policy !== "usd4900-no-discount-v1")) throw new Error("Owner metadata mismatch");
+    if (["fulfillment_owner", "fulfillment_auth_project", "pricing_policy"].some((key) => key in metadata) && (metadata.fulfillment_auth_project !== project || !/^[a-f0-9]{64}$/.test(owner || "") || metadata.pricing_policy !== "usd4900-no-discount-v1")) throw new Error("Owner metadata mismatch");
     // Older paid rights retain session-bearer delivery. Never attach historical
     // ownerless sessions to an unverified new login or permit lost-return listing.
     const purchaseOwner = owner || "legacy:" + createHash("sha256").update(JSON.stringify([scope, id])).digest("hex");

@@ -31,7 +31,7 @@ describe("starter kit browser delivery", () => {
   it("rejects a changed complete packet against the original digest", async () => {
     await expect(fetchStarterKit(href, vi.fn<typeof fetch>().mockResolvedValue(new Response(packet + "changed", { headers: headers() })))).rejects.toThrow("incomplete");
   });
-  it.each([{}, { "content-type": "application/json", "x-everymcp-artifact-sha256": sha(packet) }])("rejects missing integrity or wrong content type", async (invalidHeaders) => {
+  it.each<HeadersInit>([{}, { "content-type": "application/json", "x-everymcp-artifact-sha256": sha(packet) }])("rejects missing integrity or wrong content type", async (invalidHeaders) => {
     await expect(fetchStarterKit(href, vi.fn<typeof fetch>().mockResolvedValue(new Response(packet, { headers: invalidHeaders })))).rejects.toThrow("incomplete");
   });
   it("stops an oversized stream before consuming the remaining body", async () => {

@@ -124,7 +124,7 @@ export default async function PricingPage({ searchParams }: PricingPageProps) {
         <p className="mt-3 text-sm leading-7 text-muted-foreground">Download a Markdown packet you can edit and share: selection matrix, worked client configuration, permission record, validation prompts, and acceptance/rollback checklist. Use the free planner first to tailor the packet to your goal. This is a reference packet, not a managed integration or security certification.</p>
         <h3 className="mt-6 text-lg font-bold">Sample from the paid packet: boundary and rollout record</h3>
         <pre className="mt-3 overflow-x-auto whitespace-pre-wrap rounded-xl border border-border p-4 text-xs leading-6">{packetPreview}</pre>
-        <p className="mt-4 text-sm text-muted-foreground">After verified payment, the checkout return page provides the download. Keep that link and save the file. Recovery after losing the return link is not currently available.</p>
+        <p className="mt-4 text-sm text-muted-foreground">After verified payment, the checkout return page provides the download. Keep that link and save the file. {checkoutConfigured ? "Purchases linked to your verified buyer account can also be recovered from your purchases page." : "Buyer account recovery is temporarily unavailable while setup is completed."}</p>
       </section>
 
       <div className="mt-12 rounded-3xl border border-slate-200 bg-white p-8 text-center">

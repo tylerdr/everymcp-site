@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-11T06:29:04.261Z",
+  "head": "8fcfd4214139bebce224c1ae660b810df6a27328",
+  "main": "2c8d7fbf69dbbe4b49900b4fd8c7bd7e282179f0",
+  "controls": [
+    "no key",
+    "historical live key only",
+    "historical test key only",
+    "mismatched mode",
+    "strict approved binding",
+    "legacy live paid key-only recovery retained",
+    "live missing/malformed/unpaid/mode/version refusal",
+    "legacy test paid key-only recovery retained",
+    "test missing/malformed/unpaid/mode/version refusal",
+    "new routes unconditionally503 despite fake enable flag"
+  ],
+  "syntheticStripeFixtureReads": 8,
+  "syntheticAccountReads": 0,
+  "actualProviderCalls": 0,
+  "credentialsRead": 0,
+  "existingFulfillmentFilesByteUnchanged": true,
+  "liveHistoricalEntitlementAccepted": "synthetic only; no historical customer session retrieved",
+  "productionDeploymentRequested": false,
+  "harnessSha256": "f5b5df194111bf9137777e5cc329ff1ef2331128bb16aaaba814e40707041ace",
+  "independentReview": "Same isolated harness independently rerun; byte-identical existing files and default503 confirmed; actual historical sessions unverified."
+}

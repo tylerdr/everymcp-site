@@ -69,3 +69,6 @@
 
 - [x] T028 disabled implementation/local proof: scoped signed-event receipts and server-owner recovery;16tests and independent review corrections.
 - [ ] T028 activation: exact approved account/test mode, named durable host/$0capacity, private schema/role, production SERIALIZABLE adapter and verified principal/customer binding, authorized sandbox fault/isolation/lost-return proof. Publicroutesremain503.
+
+- [x] Resolve available seller/store/host metadata and independently confirm synthetic historical continuity/default-disabled routes.
+- [ ] Owner confirm Sprinterseller/testcontext and candidateSprinterWebsite reuse; authorize metadata-only capacity/PUBLICACL preflight before any shared-role/SQL/providertrial. Productionmail/onboarding remains separate.

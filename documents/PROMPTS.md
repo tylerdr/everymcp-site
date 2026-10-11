@@ -171,3 +171,7 @@ During authorized PR27 production revalidation, standalone tsc exposed TS2322 in
 ## 2026-10-11 — Durable recovery draft
 
 Parent requests independently tested separate disabled signed webhook/durable entitlement/lost-return recovery slice and exact minimal account/mode/host/storage/cost/schema/role/security/offer/sandbox/rollback activation packet. No live DB/credentials/security/provider/payment activation; reviewed normal Tai releases only.
+
+## 2026-10-11 — Parent-readable activation resolution
+
+Parent requests inline exact activation packet, authorized nonsecret seller/project/store metadata, existing-store isolation check, exact owner/sandbox mechanism and PR27/28 receipts. No infrastructure/credentials/SQL/payment/mail operations or PR29 production release before continuity/default-disabled proof.

@@ -13,3 +13,7 @@ feature/durable-starter-recovery derives from both reviewed merges through ordin
 ## Activation blockers
 
 DURABLE-RECOVERY.md is the exact minimal packet: owner-named existing Stripe account and test mode; approved named durable PostgreSQL instance/region/capacity with incremental spend ceiling$0; private schema/dedicated server role and SERIALIZABLE adapter; verified server principal/Stripe customer mapping; unchanged$49starteroffer; specifically authorized sandbox endpoint/purchase/event/recovery/owner tests; rollback to503without deleting paid receipts. recovery-schema-proposal.sql is review-only, never applied. Production adapter, auth mapping, fault tests and sandbox proof must be completed before activation. No credential, DB, security setting, provider account/payment/session or paid model operation occurred. Parent decides activation/merge separately; scheduler proof and prior historicalPR24/26 remain separate.
+
+## Activation follow-up
+
+Nonsecret metadata resolves Sprinteracct_1Re4lnCrDNIXmbyx live-only connection and SprinterWebsiteSupabasemwxmownwmmvizbknnbpa/SprinterPro as an unapproved shared-store candidate. No EveryMCPstore found; actualquotaheadroom/PUBLICACL/testcontext unknown. Conditional$0preview-onlysandbox proposal added; noDBquery/write/provider/secret operation. Historical source continuity and always503 independently retested withsynthetic credentials; realcustomer sessions unverified. NoPR29productionrelease requested.

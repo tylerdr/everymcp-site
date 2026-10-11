@@ -20,3 +20,8 @@
 -16 recovery regressions plus existing29cases; three independent corruption/duplicate/cancellation defects corrected.
 - Activation packet and review-only SQL published with draft; no DB/credentials/security/provider/payment/paidspend changes.
 - Actual sandbox account/store/owner/event→receipt→recovery proof remains required for revenue acceptance.
+
+- Seller candidateSprinteracct_1Re4lnCrDNIXmbyx visibleliveonly; noaccount-specificpayment/mail calls.
+- ExistingstorecandidateSprinterWebsitemwxmownwmmvizbknnbpa isPro/healthy; noEveryMCPstore or verifiedshareapproval/headroom/ACL.
+- Conditional$0preview-onlytestpacket withprivate-role/RLS/no-crossproductgrants; proposalSQLunapplied.
+- Independenthistorical source/legacyfixture continuity/default503pass; realcustomerhistoryunverified; PR29productionstillheld.

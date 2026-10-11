@@ -25,3 +25,19 @@ Independent review identified malformed-ledger silent receipt loss, corrupt/chan
 ## References
 
 [Stripe fulfillment](https://docs.stripe.com/checkout/fulfillment) requires webhook-based fulfillment for buyers who do not reach the return page. [Stripe webhooks](https://docs.stripe.com/webhooks) documents signature verification using the raw body, duplicate/out-of-order deliveries and delivery retry behavior. This proposal applies those requirements without activating a live integration.
+
+## 2026-10-11 nonsecret metadata resolution
+
+Only connected seller candidate is **Sprinter**, Stripe account `acct_1Re4lnCrDNIXmbyx`, visible connection livemode=true. No test context is exposed; no account-specific Stripe API, mode switch or mail call ran. Owner must confirm this seller and authorize its test context separately.
+
+Host confirmed: Vercel everymcp project `prj_cIe9v9wLzCsZmPwBrGJ4QpRKVota`, Tai team `team_a6j754ztWo6nDnWjVfIGnPEm`. Vercel integration metadata lists Inngest only; no storage integration was established by that read. Supabase lists no EveryMCP project. Sprinter organization `hurt-ivory-jjolfvm` is Pro. Lowest-scope existing candidate is **Sprinter Website**, `mwxmownwmmvizbknnbpa`, ACTIVE_HEALTHY/us-west-1/Postgres17.4.1.069; metadata-only lookup of `everymcp_receipts` returns no tables. This is accessible inventory, not approval to share or verified remaining capacity/isolation. Other products remain outside the proposed grant.
+
+Public [Supabase pricing](https://supabase.com/pricing) lists8GBdisk/project and250GBegress on Pro; a new additional project starts at$10/month. Reuse proposes$0incremental only after capacity/usage and PUBLIC ACL preflight; no current headroom or spend-cap setting is verified. New infrastructure is not the default. No actual database query or SQL/role change ran; metadata list_tables only.
+
+Proposed sandbox owner binding avoids cross-product user lookup: authenticate two existing owner-controlled, confirmed-email Supabase users using each user's own token/current-user endpoint, then stamp opaque product/account/mode/project/user-ID ownership in NEW checkout metadata server-side. Ignore caller owner fields. No auth.users/service_role/admin-key access; historical ownerless purchases keep their existing verified return-link fulfillment and are not retroactively attached to an unproved principal. Production buyer onboarding and SMTP remain unresolved: Supabase default SMTP is team-only,2messages/hour, not production mail. Sandbox requests0emails.
+
+Review-only `recovery-sandbox-isolation-proposal.sql` proposes dedicated noninheriting/non-bypass login role, max2connections,5sstatement/idle deadlines, private schema, forced account/test RLS and SELECT/INSERTonly. It is not applied and is NOT ready to apply standalone without merging the two table proposals into one reviewed migration. Before role creation, read-only catalog preflight must prove no inherited PUBLIC table/privileged-routine access to another product; stop if unsafe, without changing other products' ACLs.
+
+Bounded proposed preview-only test: ≤5MiBadditionalstorage,≤50SQLtransactions,≤20StripeAPIattempts including retries,≤1testwebhookendpoint,≤1CheckoutSession and one owner-completed test-card payment,≤8accepted incoming event deliveries,≤20current-user Auth GETs,0emails. One-hour window; duplicate/out-of-order/storage failure/restart and buyer-B denial proven without another purchase. Account/mode, exact approved preview host, two test principals and verified quota/ACL capacity remain owner decisions. No trial has run.
+
+Continuity proof is synthetic only: source files unchanged versus production2c8d7fb, legacy2026-09-20 live/test key-only paid recovery passes; invalid/unpaid/wrongmode/version refuse; both new routes503even with fakeenableflag. Actual historical customer sessions were not retrieved. No PR29 production merge/deployment is authorized by this metadata exercise.

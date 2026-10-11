@@ -56,6 +56,19 @@ describe("disabled durable entitlement proof", () => {
     expect(await recoverPacket(store, { ...scope, accountId: "acct_other" }, purchase().ownerKey, id)).toBeNull();
     await expect(recordPayment(store, { ...scope, mode: "live" }, notice(), async () => purchase())).rejects.toThrow("scope");
   });
+  it("refuses owner conflicts and retries store failures without acknowledging payment", async () => {
+    const { store } = await fixture();
+    let fail = true;
+    const faulty = { transaction: async <T,>(change: Parameters<typeof store.transaction<T>>[0]) => {
+      if (fail) throw new Error("synthetic storage failure");
+      return store.transaction(change);
+    } };
+    await expect(recordPayment(faulty, scope, notice(), async () => purchase())).rejects.toThrow("storage");
+    expect(await store.transaction((l) => Object.keys(l.events).length)).toBe(0);
+    fail = false;
+    expect(await recordPayment(faulty, scope, notice(), async () => purchase())).toBe("recorded");
+    await expect(recordPayment(store, scope, notice("other-owner"), async () => ({ ...purchase(), ownerKey: "other" }))).rejects.toThrow("owner conflict");
+  });
   it("fails closed on corrupt immutable snapshot", async () => {
     const { store, dir } = await fixture();
     await recordPayment(store, scope, notice(), async () => purchase());

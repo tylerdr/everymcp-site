@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { buildStarterKit, starterKitFilename } from "@/lib/starter-kit";
 import { verifyPaidSession } from "@/lib/stripe-fulfillment";
@@ -26,7 +27,8 @@ export async function GET(request: Request) {
     headers: {
       "Cache-Control": "private, no-store",
       "Content-Disposition": `attachment; filename="${starterKitFilename}"`,
-      "Content-Type": "text/markdown; charset=utf-8"
+      "Content-Type": "text/markdown; charset=utf-8",
+      "X-EveryMCP-Artifact-SHA256": createHash("sha256").update(starterKit).digest("hex")
     }
   });
 }

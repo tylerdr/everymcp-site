@@ -15,7 +15,7 @@ async function body(request: Request) {
   if (!request.body) return null;
   const reader = request.body.getReader(), chunks: Uint8Array[] = [];
   let size = 0, timer: ReturnType<typeof setTimeout> | undefined;
-  const deadline = new Promise<never>((_, reject) => { timer=setTimeout(()=>{void reader.cancel().catch(()=>{});reject(new Error("Body timeout"));},3000); });
+  const deadline = new Promise<never>((_, reject) => { timer=setTimeout(()=>{reject(new Error("Body timeout"));void reader.cancel().catch(()=>{});},3000); });
   try {
     for (;;) { const {done,value}=await Promise.race([reader.read(),deadline]);if(done)break;size+=value.byteLength;if(size>2048)return null;chunks.push(value); }
   } catch { return null; } finally {clearTimeout(timer);void reader.cancel().catch(()=>{});}
@@ -55,13 +55,22 @@ export function getBuyerAuth(): ReturnType<typeof createBuyerAuth> | null {
   const project = process.env.EVERYMCP_AUTH_PROJECT, key = process.env.EVERYMCP_AUTH_PUBLISHABLE_KEY;
   if (!project || !/^[a-z]{20}$/.test(project) || !key?.startsWith("sb_publishable_")) return null;
   const client = createClient(`https://${project}.supabase.co`,key,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false},global:{fetch:(url,init)=>fetch(url,{...init,redirect:"error",signal:AbortSignal.timeout(5000)})}});
-  return createBuyerAuth({authenticate:binding.authenticate,requestCode:async(email)=>{
+  return supabaseBuyerAuth(client,binding.authenticate);
+}
+export function supabaseBuyerAuth(client: Pick<ReturnType<typeof createClient>, "auth">, authenticate: AuthAdapters["authenticate"]) {
+  return createBuyerAuth({authenticate,requestCode:async(email)=>{
     const {error}=await client.auth.signInWithOtp({email,options:{shouldCreateUser:true}});return !error;
   },verifyCode:async(email,token)=>{
     const {data,error}=await client.auth.verifyOtp({email,token,type:"email"});
-    return !error && data.session ? {accessToken:data.session.access_token,expiresIn:Math.min(data.session.expires_in, (data.session.expires_at || 0)-Math.floor(Date.now()/1000))} : null;
+    if (error) {
+      if (error.status !== 429 && error.status < 500 && (error.code === "otp_expired" || error.code === "invalid_credentials")) return null;
+      throw new Error("Email verification unavailable");
+    }
+    if (!data.session) throw new Error("Email verification unavailable");
+    return {accessToken:data.session.access_token,expiresIn:Math.min(data.session.expires_in, (data.session.expires_at || 0)-Math.floor(Date.now()/1000))};
   }});
 }
+
 export const buyerUnavailable = () => json({error:"Buyer sign-in setup is pending. No payment was taken."},503);
 export function signOutBuyer(request: Request) {
   if (!sameOriginMutation(request)) return json({error:"Invalid sign-out request."},400);

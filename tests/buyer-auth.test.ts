@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
-import { createBuyerAuth, getBuyerAuth, signOutBuyer } from "../lib/buyer/auth";
+import { createClient } from "@supabase/supabase-js";
+import { createBuyerAuth, getBuyerAuth, signOutBuyer, supabaseBuyerAuth } from "../lib/buyer/auth";
 import { buyerCookie, cookieToken, sessionCookie } from "../lib/buyer/session";
 import { buyerIntent, buyerSignIn, pricingIntent, safeBuyerReturn } from "../lib/buyer/context";
 import { supabaseOwner, ownerKey } from "../lib/recovery/owner";
@@ -28,3 +29,23 @@ describe("safe buyer intent",()=>{
 });
 
 it("provider outage is503 without expiring a still-valid browser cookie",async()=>{const d=adapters();d.authenticate.mockRejectedValue(new Error("network outage"));const response=await createBuyerAuth(d).session(new Request("https://everymcp.test"));expect(response.status).toBe(503);expect(response.headers.has("set-cookie")).toBe(false);const owner=supabaseOwner(scope,project,"sb_publishable_synthetic",async()=>new Response("outage",{status:503}));await expect(owner(new Request("https://everymcp.test",{headers:{Authorization:"Bearer "+token}}))).rejects.toThrow("unavailable");});
+
+
+describe("actual pinned SDK verification error classification, synthetic only",()=>{
+ it.each([[503,"unexpected_failure",503],[429,"over_request_rate_limit",503],[403,"otp_expired",401],[400,"invalid_credentials",401],[403,"otp_disabled",503],[400,undefined,503]])("provider %s/%s yields %s without installing or clearing cookies",async(status,code,expected)=>{
+  const fetcher=vi.fn<typeof fetch>(async()=>Response.json({error_code:code,message:"synthetic provider error"},{status}));
+  const client=createClient(`https://${project}.supabase.co`,"sb_publishable_synthetic",{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false},global:{fetch:fetcher}});
+  const authenticate=vi.fn(async()=>principal);
+  const response=await supabaseBuyerAuth(client,authenticate).verifyCode(request({email:principal.email,code:"123456"}));
+  expect(response.status).toBe(expected);expect(response.headers.has("set-cookie")).toBe(false);expect(authenticate).not.toHaveBeenCalled();expect(fetcher).toHaveBeenCalledOnce();
+ });
+ it.each(["requestCode","verifyCode"] as const)("stalled valid JSON prefix in %s cannot invoke adapters",async(action)=>{
+  vi.useFakeTimers();
+  try {
+   const d=adapters(),stream=new ReadableStream<Uint8Array>({start(controller){controller.enqueue(new TextEncoder().encode(JSON.stringify({email:principal.email,code:"123456"})));}});
+   const input=new Request("https://everymcp.test/api/buyer/verify-code",{method:"POST",headers:{Origin:"https://everymcp.test","Content-Type":"application/json"},body:stream,duplex:"half"} as RequestInit);
+   const pending=createBuyerAuth(d)[action](input);await vi.advanceTimersByTimeAsync(3001);
+   expect((await pending).status).toBe(400);expect(d.requestCode).not.toHaveBeenCalled();expect(d.verifyCode).not.toHaveBeenCalled();expect(d.authenticate).not.toHaveBeenCalled();
+  } finally {vi.useRealTimers();}
+ });
+});

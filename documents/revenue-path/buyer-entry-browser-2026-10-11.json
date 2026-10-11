@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-11T07:24:07.107Z",
+  "syntheticOnly": true,
+  "actualReactComponents": true,
+  "actualAuthRecoveryCheckoutReturnHandlers": true,
+  "listingOfferPreserved": true,
+  "plannerGoalPreserved": true,
+  "browserSignOut": true,
+  "expiredCodeDenied": true,
+  "HttpOnlySecureCookie": true,
+  "noBrowserTokenStorage": true,
+  "sessionExpiryRecoveryWithoutRepurchase": true,
+  "otherBuyerDenied": true,
+  "unsafeReturnSanitized": true,
+  "disabledSource503": true,
+  "storedArtifactSha256": "962113a6fdaca3db9c7b77723e8ef88364e2c4fd2e0e63ccd39a533c05331bda",
+  "checkoutMockCreates": 1,
+  "actualProviderCalls": 0,
+  "actualDbQueries": 0,
+  "actualCredentials": 0,
+  "actualEmails": 0,
+  "providerFixtureReads": 17,
+  "codeFixtureRequests": 5,
+  "pageErrors": [],
+  "implementationHead": "84320cdb510cf1c57b022135dd99d89ce9942b78",
+  "implementationTree": "0702443c5b65839e51cd36eb4616de46bef15022",
+  "localChecks": {
+    "vitestCases": 127,
+    "standaloneTypeScript": true,
+    "lint": true,
+    "requiredBuildPages": 756,
+    "sitemapDistinctURLs": 642,
+    "buyerPagesInSitemap": false
+  },
+  "independentReview": {
+    "accepted": "disabled draft source only",
+    "correctionControls": 11,
+    "focusedTests": 27,
+    "earlierAdversarialControls": 40,
+    "actualResourceProof": false
+  }
+}

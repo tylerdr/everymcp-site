@@ -28,6 +28,11 @@ const valid = {
   sessionProductVersion: "2026-09-21",
   currency: "usd",
   amountSubtotal: 4900,
+  amountTotal: 4900,
+  amountDiscount: 0,
+  amountTax: 0,
+  amountShipping: 0,
+  pricingPolicy: "usd4900-no-discount-v1",
   quantity: 1,
   unitAmount: 4900,
   priceCurrency: "usd",
@@ -61,6 +66,7 @@ for (const [field, value] of [
 assert.equal(
   matchesStarterEntitlement({
     ...valid,
+    pricingPolicy: undefined,
     sessionProductKey: undefined,
     sessionProductVersion: "2026-09-20",
     productKey: undefined,
@@ -70,6 +76,11 @@ assert.equal(
   "legacy paid sessions should remain recoverable"
 );
 
+assert.equal(matchesStarterEntitlement({ ...valid, amountTax: 490, amountTotal: 5390 }), true, "legitimate tax preserves base price");
+assert.equal(matchesStarterEntitlement({ ...valid, amountDiscount: 1000, amountTotal: 3900 }), false, "new discounts are unauthorized");
+assert.equal(matchesStarterEntitlement({ ...valid, amountTotal: 3900 }), false, "unreconciled collected total fails");
+assert.equal(matchesStarterEntitlement({ ...valid, amountTotal: null }), false, "missing collected total fails");
+assert.equal(matchesStarterEntitlement({ ...valid, pricingPolicy: undefined, amountDiscount: 1000, amountTotal: 3900 }), true, "existing paid discounted sessions retain rights, not future discount permission");
 assert.equal(isTransientStripeFailure("StripeConnectionError", undefined), true);
 assert.equal(isTransientStripeFailure("StripeAPIError", 503), true);
 assert.equal(isTransientStripeFailure("StripeRateLimitError", 429), true);

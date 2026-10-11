@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-10-11T06:21:59.168Z",
+  "ownedOriginVerifiedTlsGetBridge": true,
+  "listingToAttributedPricing": true,
+  "pricingCanonical": true,
+  "actualPacketPreview": true,
+  "checkoutClosed": true,
+  "freePlannerRetained": true,
+  "resultNoindexAndLocked": true,
+  "api": [
+    {
+      "path": "/api/fulfillment/starter-kit",
+      "status": 400
+    },
+    {
+      "path": "/api/fulfillment/starter-kit?session_id=bad",
+      "status": 403
+    }
+  ],
+  "pageErrors": [],
+  "paymentActions": 0,
+  "productionSha": "2c8d7fbf69dbbe4b49900b4fd8c7bd7e282179f0",
+  "productionDeployment": "dpl_3aLiXiqo8ixdcDhg5BaXC9tZ5mzi",
+  "reviewedTree": "152fd02e912ef61f184f81cacf46294026f15016",
+  "sitemapUniqueUrls": 642,
+  "listingRoutes": 616
+}

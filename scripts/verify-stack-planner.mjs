@@ -18,7 +18,7 @@ assert.ok(!/<(?:select|button)\b/.test(plannerPage),'Planner controls use the pr
 assert.ok(!/<button\b/.test(tracking),'Copy and handoff actions use the prescribed Button primitive');
 for(const value of ['track("stack_plan_generated"','track("stack_plan_starter_kit_clicked"','track("stack_plan_brief_copied"',"navigator.clipboard.writeText","source=stack-planner","#starter-kit","Clipboard access is unavailable"])assert.ok(tracking.includes(value),value);
 for(const value of ['requestedSource === "stack-planner"',"source={source}","goal={goal}"])assert.ok(pricing.includes(value),value);
-for(const value of ['body: JSON.stringify({ plan, email, source, goal })','track("checkout_started", { plan, ...attribution })'])assert.ok(checkoutButton.includes(value),value);
+for(const value of ['body: JSON.stringify({ plan, email, source, goal, listing })','track("checkout_started", { plan, ...attribution })'])assert.ok(checkoutButton.includes(value),value);
 for(const value of ["acquisition_source: source","acquisition_goal: goal","attributionValuePattern"])assert.ok(checkoutRoute.includes(value),value);
 assert.ok(homepage.includes('href="/plan"')&&homepage.includes("Build my free stack"));
 assert.ok(sitemap.includes('"/plan"'));
@@ -93,7 +93,7 @@ assert.equal(kit.buildStarterKit('unknown-goal'),kit.starterKit);
 verifyKitSelection(kit.starterKit,[...expectedStacks.research,...expectedStacks['ship-software']]);
 let verified={status:'paid',session:{metadata:{acquisition_goal:'ship-software'}}};
 class Result {constructor(body,options={}){this.body=body;this.options=options;}static json(body,options){return new Result(body,options);}}
-const handler=load('app/api/fulfillment/starter-kit/route.ts',{'node:crypto':{createHash},'next/server':{NextResponse:Result},'@/lib/starter-kit':kit,'@/lib/stripe-fulfillment':{verifyPaidSession:async()=>verified}});
+const handler=load('app/api/fulfillment/starter-kit/route.ts',{'@/lib/recovery/binding':{getStarterBinding:()=>null},'node:crypto':{createHash},'next/server':{NextResponse:Result},'@/lib/starter-kit':kit,'@/lib/stripe-fulfillment':{verifyPaidSession:async()=>verified}});
 const delivered=await handler.GET({url:'https://everymcp.com/api/fulfillment/starter-kit?session_id=cs_fixture&goal=research'});
 assert.equal(delivered.body,kit.buildStarterKit('ship-software'),'Paid metadata, not the query, owns the delivered goal');
 assert.equal(delivered.options.headers['Cache-Control'],'private, no-store');

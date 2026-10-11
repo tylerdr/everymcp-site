@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { buildStarterKit, starterKitFilename } from "@/lib/starter-kit";
+import { getStarterBinding } from "@/lib/recovery/binding";
 import { verifyPaidSession } from "@/lib/stripe-fulfillment";
 
 export const runtime = "nodejs";
@@ -22,7 +23,29 @@ export async function GET(request: Request) {
 
   // Only the verified paid session may carry a goal into delivery. The kit builder
   // validates the bounded goal again; legacy/no-goal purchases keep the generic kit.
-  const starterKit = buildStarterKit(result.session.metadata?.acquisition_goal);
+  const binding = getStarterBinding();
+  let starterKit: string;
+  try {
+    if (binding) {
+      const metadata = result.session.metadata || {};
+      if (["fulfillment_owner", "fulfillment_auth_project", "pricing_policy"].some((key) => key in metadata)) {
+        const principal = await binding.authenticate(request);
+        if (!principal) return NextResponse.json({ error: "Sign in with your purchase email to retry delivery" }, { status: 401, headers: { "Cache-Control": "private, no-store" } });
+        if (principal.ownerKey !== metadata.fulfillment_owner) return NextResponse.json({ error: "Purchase unavailable for this buyer" }, { status: 404, headers: { "Cache-Control": "private, no-store" } });
+      }
+      const stored = await binding.packet(sessionId!);
+      if (!stored) return NextResponse.json({ error: "A completed payment is required before delivery" }, { status: 403 });
+      starterKit = stored;
+    } else {
+      // Only historical unbound rights may use the old delivery path. New
+      // owned-contract sessions must retry their immutable snapshot after rollback.
+      const metadata = result.session.metadata || {};
+      if (["fulfillment_owner", "fulfillment_auth_project", "pricing_policy"].some((key) => key in metadata)) {
+        return NextResponse.json({ error: "Paid snapshot temporarily unavailable; retry this link" }, { status: 503 });
+      }
+      starterKit = buildStarterKit(result.session.metadata?.acquisition_goal);
+    }
+  } catch { return NextResponse.json({ error: "Paid snapshot temporarily unavailable; retry this link" }, { status: 503 }); }
   return new NextResponse(starterKit, {
     headers: {
       "Cache-Control": "private, no-store",

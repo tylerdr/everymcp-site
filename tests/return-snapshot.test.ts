@@ -1,0 +1,16 @@
+import { afterEach, expect, it, vi } from "vitest";
+import type Stripe from "stripe";
+const state = vi.hoisted(() => ({ metadata:{} as Stripe.Metadata, owner: "synthetic" as string | null, packet:null as null | ((id:string) => Promise<string|null>), builder:vi.fn(() => "changed current catalog packet") }));
+vi.mock("../lib/recovery/binding",()=>({ getStarterBinding:()=>state.packet ? { packet:state.packet, authenticate: async () => state.owner ? ({ownerKey:state.owner}) : null } : null }));
+vi.mock("../lib/stripe-fulfillment",()=>({verifyPaidSession:async()=>({status:"paid",session:{id:"cs_test_synthetic",metadata:state.metadata}})}));
+vi.mock("../lib/starter-kit",()=>({buildStarterKit:state.builder,starterKitFilename:"starter.md"}));
+import { GET } from "../app/api/fulfillment/starter-kit/route";
+const request=()=>new Request("https://example.invalid/api/fulfillment/starter-kit?session_id=cs_test_synthetic");
+afterEach(()=>{state.metadata={};state.owner="synthetic";state.packet=null;state.builder.mockClear();});
+it.each(["fulfillment_owner","fulfillment_auth_project","pricing_policy"])("missing binding/rollback refuses rebuilding a bound %s session",async(key)=>{state.metadata={[key]:"synthetic_contract"};expect((await GET(request())).status).toBe(503);expect(state.builder).not.toHaveBeenCalled();});
+it("unbound historical paid sessions keep their return-link delivery rights",async()=>{state.metadata={product_version:"2026-09-20",plan:"starter"};const response=await GET(request());expect(response.status).toBe(200);expect(await response.text()).toBe("changed current catalog packet");expect(state.builder).toHaveBeenCalledOnce();});
+it("active return delivers the stored original, never the current catalog builder",async()=>{state.metadata={fulfillment_owner:"synthetic"};state.packet=async()=>"original persisted paid packet";const response=await GET(request());expect(response.status).toBe(200);expect(await response.text()).toBe("original persisted paid packet");expect(state.builder).not.toHaveBeenCalled();});
+it("store failure refuses a new bound return with retry, without regenerating",async()=>{state.metadata={fulfillment_owner:"synthetic"};state.packet=async()=>{throw new Error("store outage");};expect((await GET(request())).status).toBe(503);expect(state.builder).not.toHaveBeenCalled();});
+
+it("expired buyer session cannot download an owned paid return",async()=>{state.metadata={fulfillment_owner:"synthetic"};state.owner=null;const packet=vi.fn(async()=>"original packet");state.packet=packet;expect((await GET(request())).status).toBe(401);expect(packet).not.toHaveBeenCalled();expect(state.builder).not.toHaveBeenCalled();});
+it("different buyer cannot download an owned paid return",async()=>{state.metadata={fulfillment_owner:"synthetic"};state.owner="other";const packet=vi.fn(async()=>"original packet");state.packet=packet;expect((await GET(request())).status).toBe(404);expect(packet).not.toHaveBeenCalled();expect(state.builder).not.toHaveBeenCalled();});

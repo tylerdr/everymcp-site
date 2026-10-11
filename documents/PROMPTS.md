@@ -167,3 +167,19 @@ Parent explicitly requests independent exact-head PR27 review, corrections, auth
 ## 2026-10-11 — Standalone typecheck correction and production evidence
 
 During authorized PR27 production revalidation, standalone tsc exposed TS2322 in a synthetic Response header fixture. Correct the test type through normal reviewed PR; record the failed check accurately and preserve runtime/checkout gates.
+
+## 2026-10-11 — Durable recovery draft
+
+Parent requests independently tested separate disabled signed webhook/durable entitlement/lost-return recovery slice and exact minimal account/mode/host/storage/cost/schema/role/security/offer/sandbox/rollback activation packet. No live DB/credentials/security/provider/payment activation; reviewed normal Tai releases only.
+
+## 2026-10-11 — Parent-readable activation resolution
+
+Parent requests inline exact activation packet, authorized nonsecret seller/project/store metadata, existing-store isolation check, exact owner/sandbox mechanism and PR27/28 receipts. No infrastructure/credentials/SQL/payment/mail operations or PR29 production release before continuity/default-disabled proof.
+
+## 2026-10-11 — Close canonical fulfillment and price gaps
+
+Parent requests one canonical owner to close real Postgres/auth/authoritative purchase wiring, immutable snapshot delivery and readiness-coupled checkout in the existing draft while activation stays disabled. Reconcile allow_promotion_codes and actual collected totals with the approved49USD offer; preserve tax and historical paid rights. Focused tests and exact remaining binding decisions; no SQL/provider/credential actions.
+
+## 2026-10-11 — Minimal public buyer entry and recovery
+
+Parent requests source implementation of buyer sign-in/onboarding and return/recovery using canonical fixed-project Auth, preserving listing/offer/safe returns, expired/denied states and ownership. Synthetic browser/server tests and independent review; coherent PR29 update. Keep new bindings/commerce disabled. No actual Auth/database/provider/credential/configuration operations. Stop at source ready plus exact resource/hosted approvals.

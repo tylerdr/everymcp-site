@@ -30,12 +30,21 @@ const pageRequire = (id) => {
   if (id === "@/lib/stripe-fulfillment") return {
     verifyPaidSession: async (...args) => {
       verificationArgs = args;
-      return { status: resultState };
+      return { status: resultState, ...(resultState === "paid" ? { session: { id: "cs_test_synthetic", metadata: {} } } : {}) };
     }
   };
   if (id === "@/components/FulfillmentDownload") return {
     FulfillmentDownload: ({ href }) => createElement("a", { href }, "Download your starter kit")
   };
+  if (id === "@/lib/recovery/binding") return { getStarterBinding: () => null };
+  if (id === "@/lib/site") return { siteUrl: "https://everymcp.com" };
+  if (id === "@/lib/recovery/entitlements") return { receiptId: () => "a".repeat(64) };
+  if (id === "@/lib/buyer/context") {
+    const module = { exports: {} };
+    const source = ts.transpileModule(read("lib/buyer/context.ts"),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+    new Function("require","module","exports",source)(require,module,module.exports);
+    return module.exports;
+  }
   return require(id);
 };
 new Function("require", "module", "exports", compiled)(pageRequire, pageModule, pageModule.exports);
@@ -95,7 +104,7 @@ for (const fragment of ["selection matrix", "@modelcontextprotocol/server-filesy
   }
 }
 
-if (!pricing.includes("isStripeCheckoutConfigured") || !pricing.includes("Checkout is temporarily closed")) {
+if (!pricing.includes("getStarterBinding") || !pricing.includes("Checkout is temporarily closed")) {
   throw new Error("Pricing must close the paid CTA until Stripe configuration is bound");
 }
 

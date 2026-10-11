@@ -236,3 +236,23 @@ PR27 review identified incomplete packet acceptance and unbounded requests/body 
 ## 2026-10-11 — PR27 production proof and fixture correction
 
 Reviewed PR27 is live at ebee82b, READY deployment dpl_4Uk6V5Wja93hb1wVcZSBNE7g1T6x. Actual browser buyer flow/closed checkout/noindex/denied fulfillment and642URL sitemap pass. Standalone tsc found a test-only header union error after Next build passed; follow-up types the fixture explicitly and corrects evidence. No runtime/payment activation.
+
+## 2026-10-11 — Disabled durable recovery draft
+
+Added atomic scoped event/immutable paid snapshot contracts, server-owner lost-return listing/download, real SDK synthetic signature verification and local durable proof adapter.16 recovery regressions include three independent corruption/duplicate/cancellation findings; publicroutesalways503. Review-only SQL and exact activation packet; no DB/provider/credentials/spend or revenue acceptance.
+
+PR28 production2c8d7fb/dpl_3aLiXiqo8ixdcDhg5BaXC9tZ5mzi READY and exact actual buyer-path/closedcheckout/freeplanner/lockednoindexreturn/deniedAPI/642URLs proof passed. Standalone types correction accepted; runtime remains unchanged.
+
+## 2026-10-11 — Activation metadata and continuity packet
+
+Resolved nonsecret seller/store/host candidates; recorded conditional reuse/isolation/cost/owner/testcaps and unapplied role/RLS companion SQL. Independent synthetic historical live/testkey-only recovery and default503proof; no realhistorical sessions or activation.
+
+## 2026-10-11 — PR29 disabled adapter and price corrections
+
+Prepared concrete production adapters under a hard false source gate: scoped SERIALIZABLE Postgres immutable store/privilege checks, own verified current-user identity, authoritative shared purchase/event/return snapshots. Coupled chargeable checkout to all delivery bindings and matching account/mode. New$49/no-promotion policy reconciles actual collected totals and tax while preserving historically paid discounted entitlements. Focused actual-route and authoritative-reader regressions added; complete candidate isolation SQL remains review-only. No activation, infrastructure, secrets, SQL/payment/mail/provider spend or production release.
+
+Independent review caught grant-present/RLS-denied readiness, malformed persisted event map keys, and bound-contract return regeneration under rollback. Corrected d920dac adds mandatory scoped two-table rollback-only write readiness, preassignment key validation, failed-client discard and bound snapshot503/retry; actual route regressions retain unbound historical fallback. Still disabled; no actual SQL/provider test.
+
+## 2026-10-11 — Disabled public buyer entry and recovery
+
+Added minimal email-code signup/sign-in UI and APIs under the canonical false source gate, verified-current-user HttpOnly sessions, safe listing/goal return context, current-owner bound paid returns/downloads, owned receipt recovery and browser-local sign-out. Actual controlled React/server browser covers expiry recovery without repurchase, cross-owner refusal, safe return and disabled routes. Independent review found SDK outage misclassification and unfinished-body deadline ordering; corrected both and added actual pinned-SDK/stalled-stream regressions. No real Auth signup/email, DB/payment, credential/config/security changes, paid spend, production merge or activation.

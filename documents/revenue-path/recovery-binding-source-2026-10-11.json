@@ -1,18 +1,17 @@
 {
-  "checkedAt": "2026-10-11T06:46:07.876427+00:00",
-  "implementationHead": "bf9557ad1f8976b3d0c508f76f54b7508013c43e",
-  "implementationTree": "d2c3cfde08d6d8058b480f5e56d1714aff6e6503",
+  "checkedAt": "2026-10-11T06:52:09.927948+00:00",
+  "implementationHead": "d920dac8b2ac83fded1f87eabe1a1914eb493447",
+  "implementationTree": "a339540b00f12c57a82df05cc09340161e2bea5d",
   "productionUnchanged": "2c8d7fbf69dbbe4b49900b4fd8c7bd7e282179f0",
   "sourceActivationGate": false,
   "tests": {
-    "vitestPassed": 83,
+    "vitestPassed": 95,
     "fullStandaloneTypeScript": "passed",
     "lint": "passed",
     "requiredBuild": "passed",
     "staticPages": 753,
     "lockNpmCiDryRun": "passed"
   },
-  "actualProviderCalls": 0,
   "actualDatabaseQueries": 0,
   "credentialsReadCreatedInstalled": 0,
   "sourceControls": [
@@ -21,7 +20,10 @@
     "Shared authoritative snapshot reused without invoking changed catalog builder",
     "Own confirmed current-user verification only; scoped SHA owner; oversized/expired/anonymous/spoofed principals refused",
     "PostgreSQL SERIALIZABLE parameterized scope, immutable inserts, privilege preflight, bounded conflict retry and failed commit refusal",
-    "Actual authoritative session mapping rejects discount under strict policy,unpaid,mismatch,missingdetails,wrongmode;validtax accepted;historical test/live full and discounted totals reconciled"
+    "Actual authoritative session mapping rejects discount under strict policy,unpaid,mismatch,missingdetails,wrongmode;validtax accepted;historical test/live full and discounted totals reconciled",
+    "Scoped two-table readiness INSERT probes rolled back; grant-present/RLS-denied live/account/receipt-policy all refuse actual checkout creation",
+    "Persisted malformed event key refused before map assignment; no COMMIT/INSERT",
+    "Bound owner/project/policy returns with unavailable binding/store503retry and zero catalog builder; unbound historical200fallback retained"
   ],
   "limits": [
     "Synthetic adapters/fakeSQL and mockStripe only; no actual PG/auth/payment event/restart durability trial",
@@ -29,5 +31,32 @@
     "Public buyer sign-in/onboarding and provider mail decisions remain unimplemented/unapproved",
     "Exact seller test context, sharedstore ACL/headroom/backupretention and operator role/secret provisioning unapproved",
     "No production merge/deploy/activation requested"
-  ]
+  ],
+  "actualPaymentOrMailApiCalls": 0,
+  "independentPriceControls": 40,
+  "actualCustomerHistoryRetrieved": false,
+  "independentReview": {
+    "acceptedScope": "disabled draft only",
+    "sourceHead": "d920dac8b2ac83fded1f87eabe1a1914eb493447",
+    "sourceTree": "a339540b00f12c57a82df05cc09340161e2bea5d",
+    "bindingStorageRecoveryControls": 27,
+    "authoritativePriceControls": 40,
+    "focusedAuthoredMethods": 60,
+    "actualCheckoutDenialMockCreates": 0,
+    "remainingSourceBlockersFound": 0,
+    "rollbackReadinessProbes": "INSERTs followed by ROLLBACK; require approved write permission, not catalog-only preflight",
+    "authorAndCommitterLogin": "tylerdr"
+  },
+  "preview": {
+    "id": "dpl_5iNbuCkGYTh3QvEJ99qtLC6Wa57G",
+    "state": "READY",
+    "gitSha": "d920dac8b2ac83fded1f87eabe1a1914eb493447",
+    "creator": "tylerdr",
+    "noProductionDeployment": true
+  },
+  "githubDocsCi": {
+    "id": 38119381556,
+    "conclusion": "success",
+    "fullBuildExecutedLocally": true
+  }
 }

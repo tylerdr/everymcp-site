@@ -38,3 +38,8 @@ it("actual checkout refuses a store lacking scoped write readiness proof",async(
  mock.binding=createStarterBinding({...d,store} as unknown as Parameters<typeof createStarterBinding>[0]);
  expect((await POST(request())).status).toBe(503);expect(mock.create).not.toHaveBeenCalled();
 });
+
+it("expired buyer denies checkout with401 and zero session creation",async()=>{mock.binding=createStarterBinding({...deps(),authenticate:async()=>null});expect((await POST(request())).status).toBe(401);expect(mock.create).not.toHaveBeenCalled();});
+it("cookie-authenticated cross-origin checkout refuses creation",async()=>{mock.binding=createStarterBinding(deps());const value=request();const headers=new Headers(value.headers);headers.set("Cookie","__Host-everymcp-buyer=synthetic_verified_access_token");headers.set("Origin","https://attacker.invalid");const body=await value.text();expect((await POST(new Request(value.url,{method:"POST",headers,body}))).status).toBe(400);expect(mock.create).not.toHaveBeenCalled();});
+
+it("authoritative owner outage refuses checkout with503 and zero creation",async()=>{mock.binding=createStarterBinding({...deps(),authenticate:async()=>{throw new Error("owner unavailable");}});expect((await POST(request())).status).toBe(503);expect(mock.create).not.toHaveBeenCalled();});

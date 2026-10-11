@@ -3,10 +3,11 @@
 import { track } from "@vercel/analytics";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { fetchStarterKit } from "@/lib/starter-kit-download";
+import Link from "next/link";
+import { fetchStarterKit, BuyerSessionExpired } from "@/lib/starter-kit-download";
 
-export function FulfillmentDownload({ href }: { href: string }) {
-  const [state, setState] = useState<"idle" | "loading" | "downloaded" | "failed">("idle");
+export function FulfillmentDownload({ href, signInHref }: { href: string; signInHref?: string }) {
+  const [state, setState] = useState<"idle" | "loading" | "downloaded" | "failed" | "expired">("idle");
   const [error, setError] = useState<string | null>(null);
   async function download() {
     setState("loading"); setError(null);
@@ -22,17 +23,18 @@ export function FulfillmentDownload({ href }: { href: string }) {
       setState("downloaded");
       track("starter_kit_download_received");
     } catch (failure) {
-      setState("failed");
+      setState(failure instanceof BuyerSessionExpired ? "expired" : "failed");
       setError(failure instanceof Error ? failure.message : "Download unavailable. Retry here; you do not need to pay again.");
       track("starter_kit_download_failed");
     }
   }
   return (
     <div className="space-y-3 text-center">
-      <Button onClick={download} disabled={state === "loading"} className="h-auto rounded-full px-5 py-2.5 font-bold">
+      <Button onClick={download} disabled={state === "loading" || state === "expired"} className="h-auto rounded-full px-5 py-2.5 font-bold">
         {state === "loading" ? "Preparing download..." : state === "failed" ? "Retry your download" : state === "downloaded" ? "Download again" : "Download your starter kit"}
       </Button>
       <p role="status" className="max-w-lg text-sm text-muted-foreground">{error || (state === "downloaded" ? "Your kit was received by this browser. Save the file and keep this checkout return link for another download." : "Keep this checkout return link until you have saved your kit.")}</p>
+      {state === "expired" && signInHref && <Button asChild variant="outline"><Link href={signInHref}>Sign in to retry this purchase</Link></Button>}
       <noscript><Button asChild variant="outline"><a href={href}>Download the kit without JavaScript</a></Button></noscript>
     </div>
   );

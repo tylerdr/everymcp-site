@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { buyerSignIn, pricingIntent } from "@/lib/buyer/context";
 import { track } from "@vercel/analytics";
 
 type CheckoutPlan = "starter";
@@ -11,6 +13,7 @@ type CheckoutButtonProps = {
   email?: string;
   source?: string;
   goal?: string;
+  listing?: string;
   className?: string;
   fallbackHref?: string;
   fallbackLabel?: string;
@@ -22,6 +25,7 @@ export function CheckoutButton({
   email,
   source,
   goal,
+  listing,
   className = "",
   fallbackHref,
   fallbackLabel = "Open inquiry form"
@@ -47,17 +51,22 @@ export function CheckoutButton({
     track("checkout_started", { plan, ...attribution });
 
     try {
+      const returnTo = pricingIntent({ source: source === "listing" || source === "stack-planner" ? source : undefined, listing, goal: goal as Parameters<typeof pricingIntent>[0]["goal"] });
+      const identity = await fetch("/api/buyer/session", { cache: "no-store", signal: AbortSignal.timeout(10000) });
+      if (identity.status === 401) { window.location.assign(buyerSignIn(returnTo)); return; }
+      if (!identity.ok) throw new Error("Buyer sign-in setup is temporarily unavailable. No payment was taken.");
       const response = await fetch("/api/checkout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Idempotency-Key": checkoutAttemptKey
         },
-        body: JSON.stringify({ plan, email, source, goal })
+        body: JSON.stringify({ plan, email, source, goal, listing })
       });
 
       const payload = (await response.json().catch(() => ({}))) as { url?: string; error?: string };
 
+      if (response.status === 401) { window.location.assign(buyerSignIn(returnTo)); return; }
       if (!response.ok) {
         throw new Error(payload.error || "Checkout is temporarily unavailable. No payment was taken.");
       }
@@ -77,14 +86,14 @@ export function CheckoutButton({
 
   return (
     <div className="space-y-2">
-      <button
+      <Button
         type="button"
         onClick={handleCheckout}
         disabled={isLoading}
         className={`rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:bg-sky disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
       >
         {isLoading ? "Starting checkout..." : label}
-      </button>
+      </Button>
       {error && (
         <div className="space-y-2" aria-live="polite">
           <p className="text-sm font-medium text-red-700">{error}</p>

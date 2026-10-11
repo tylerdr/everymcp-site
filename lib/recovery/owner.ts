@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { cookieToken } from "@/lib/buyer/session";
 import type { Scope } from "./entitlements";
 
 export type Principal = { ownerKey: string; scope: Scope; email: string };
@@ -10,12 +11,14 @@ export function ownerKey(scope: Scope, project: string, userId: string) {
 export function supabaseOwner(scope: Scope, project: string, publishableKey: string, fetcher: typeof fetch = fetch) {
   if (!/^[a-z]{20}$/.test(project) || !publishableKey.startsWith("sb_publishable_")) throw new Error("Invalid owner binding");
   return async (request: Request): Promise<Principal | null> => {
-    const authorization = request.headers.get("authorization");
+    const bearer = cookieToken(request);
+    const authorization = request.headers.get("authorization") || (bearer ? "Bearer " + bearer : null);
     if (!authorization || !/^Bearer [A-Za-z0-9_.-]{16,8192}$/.test(authorization)) return null;
     const response = await fetcher(`https://${project}.supabase.co/auth/v1/user`, {
       headers: { apikey: publishableKey, Authorization: authorization }, redirect: "error", cache: "no-store", signal: AbortSignal.timeout(5000)
     });
-    if (!response.ok) return null;
+    if (response.status === 401 || response.status === 403) return null;
+    if (!response.ok) throw new Error("Owner verification unavailable");
     const reader = response.body?.getReader();
     if (!reader) return null;
     const chunks: Uint8Array[] = [];

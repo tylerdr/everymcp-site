@@ -27,6 +27,12 @@ export async function GET(request: Request) {
   let starterKit: string;
   try {
     if (binding) {
+      const metadata = result.session.metadata || {};
+      if (["fulfillment_owner", "fulfillment_auth_project", "pricing_policy"].some((key) => key in metadata)) {
+        const principal = await binding.authenticate(request);
+        if (!principal) return NextResponse.json({ error: "Sign in with your purchase email to retry delivery" }, { status: 401, headers: { "Cache-Control": "private, no-store" } });
+        if (principal.ownerKey !== metadata.fulfillment_owner) return NextResponse.json({ error: "Purchase unavailable for this buyer" }, { status: 404, headers: { "Cache-Control": "private, no-store" } });
+      }
       const stored = await binding.packet(sessionId!);
       if (!stored) return NextResponse.json({ error: "A completed payment is required before delivery" }, { status: 403 });
       starterKit = stored;

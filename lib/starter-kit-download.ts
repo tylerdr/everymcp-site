@@ -1,3 +1,4 @@
+export class BuyerSessionExpired extends Error {}
 const maximumBytes = 1_000_000;
 const incomplete = "The kit download was incomplete. Retry here; you do not need to pay again.";
 
@@ -15,6 +16,7 @@ export async function fetchStarterKit(href: string, fetcher: typeof fetch = fetc
   const bounded = <T>(operation: Promise<T>) => Promise.race([operation, deadline]);
   try {
     const response = await bounded(fetcher(href, { cache: "no-store", signal: controller.signal }));
+    if (response.status === 401) throw new BuyerSessionExpired("Your session expired. Sign in to retry this purchase; you do not need to pay again.");
     if (!response.ok) {
       throw new Error(response.status === 403
         ? "Payment could not be verified. Keep your checkout return link and retry after payment completes."

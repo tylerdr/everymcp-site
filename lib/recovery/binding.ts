@@ -33,13 +33,17 @@ export function createStarterBinding(dependencies: Dependencies) {
       return true;
     } catch { return false; }
   }
+  async function owner(request: Request) {
+    const principal = await authenticate(request);
+    return principal && sameScope(principal.scope, scope) && /^[a-f0-9]{64}$/.test(principal.ownerKey) && principal.email ? principal : null;
+  }
   return {
     scope,
+    authenticate: owner,
     ownerMetadata(principal: Principal) { return checkoutOwnerMetadata(principal, authProject); },
     async checkoutPrincipal(request: Request) {
       if (!await ready()) return null;
-      const principal = await authenticate(request).catch(() => null);
-      return principal && sameScope(principal.scope, scope) && /^[a-f0-9]{64}$/.test(principal.ownerKey) && principal.email ? principal : null;
+      return owner(request).catch(() => null);
     },
     ready,
     handlers: createRecoveryHandlers({ scope, store, authenticate, verifyPurchase, verifyNotice }),

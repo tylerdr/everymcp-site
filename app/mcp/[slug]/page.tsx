@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ListingSourceEvidence } from "@/components/ListingSourceEvidence";
+import { ListingStarterKitHandoff } from "@/components/ListingStarterKitHandoff";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/data/categories";
 import { getListingEvidence } from "@/lib/listing-evidence";
@@ -80,6 +81,8 @@ export default function McpDetailPage({ params }: { params: { slug: string } }) 
         <h2 className="text-2xl font-extrabold">Choose a starting stack</h2>
         <p className="mt-3 text-sm leading-7 text-muted-foreground">The free planner offers three-server shortlists for five common goals. It does not automatically include {mcp.name} or confirm compatibility with your environment.</p>
         <Button asChild className="mt-5 h-auto whitespace-normal py-3"><Link href="/plan">Build a free starting stack</Link></Button>
+        <p className="mt-5 text-sm leading-7 text-muted-foreground">Rolling out your first MCP workflow? The $49 starter kit provides a selection matrix, permission record, client example, and acceptance/rollback checklist. It does not certify {mcp.name} or provide managed setup.</p>
+        <ListingStarterKitHandoff slug={mcp.slug} />
         <p className="mt-5 text-sm text-muted-foreground">For complex enterprise requirements, <Link href="/services#implementation-inquiry" className="text-primary underline underline-offset-4">share consulting context</Link>.</p>
       </section>
     </section>

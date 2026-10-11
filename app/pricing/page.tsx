@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { isStackGoalId } from "@/lib/stack-planner";
 import { isStripeCheckoutConfigured } from "@/lib/stripe-config";
+import { buildStarterKit } from "@/lib/starter-kit";
 
 export const metadata: Metadata = {
   title: "Pricing — EveryMCP",
@@ -52,8 +53,9 @@ export default function PricingPage({ searchParams }: PricingPageProps) {
   const checkoutConfigured = isStripeCheckoutConfigured();
   const requestedSource = firstParam(searchParams?.source);
   const requestedGoal = firstParam(searchParams?.goal);
-  const source = requestedSource === "stack-planner" ? requestedSource : undefined;
-  const goal = source && isStackGoalId(requestedGoal) ? requestedGoal : undefined;
+  const source = requestedSource === "stack-planner" || requestedSource === "listing" ? requestedSource : undefined;
+  const goal = source === "stack-planner" && isStackGoalId(requestedGoal) ? requestedGoal : undefined;
+  const packetPreview = buildStarterKit(goal).split("## 5. Boundary and rollout record\n")[1].split("## 6.")[0].trim();
 
   return (
     <section className="mx-auto w-full max-w-6xl px-4 pb-16 pt-12 sm:px-6">
@@ -111,6 +113,14 @@ export default function PricingPage({ searchParams }: PricingPageProps) {
           </article>
         ))}
       </div>
+
+      <section aria-labelledby="kit-preview" className="mt-12 rounded-3xl border border-border bg-background p-8 text-foreground">
+        <h2 id="kit-preview" className="text-2xl font-extrabold">For the developer rolling out a first MCP workflow</h2>
+        <p className="mt-3 text-sm leading-7 text-muted-foreground">Download a Markdown packet you can edit and share: selection matrix, worked client configuration, permission record, validation prompts, and acceptance/rollback checklist. Use the free planner first to tailor the packet to your goal. This is a reference packet, not a managed integration or security certification.</p>
+        <h3 className="mt-6 text-lg font-bold">Sample from the paid packet: boundary and rollout record</h3>
+        <pre className="mt-3 overflow-x-auto whitespace-pre-wrap rounded-xl border border-border p-4 text-xs leading-6">{packetPreview}</pre>
+        <p className="mt-4 text-sm text-muted-foreground">After verified payment, the checkout return page provides the download. Keep that link and save the file. Recovery after losing the return link is not currently available.</p>
+      </section>
 
       <div className="mt-12 rounded-3xl border border-slate-200 bg-white p-8 text-center">
         <h2 className="text-xl font-extrabold text-ink">Not sure what you need?</h2>

@@ -56,3 +56,10 @@
 
 - [x] T024 implementation: Narrow /checkout/success noindex metadata and offline five-state real-page regression prepared on fix/checkout-success-noindex; draft review/release remains separate. Preserve fulfillment and all642 sitemap URLs/616 listings.
 - [ ] T025: Obtain authorized GSC affected-URL samples, counts, crawl dates and Google-selected canonicals for October7 alerts before attributing cause or correcting sitemap/ranked routes. Checkout draft is outside sitemap and attribution remains unknown.
+
+- [x] T026 implementation: Contextual listing starter-kit offer, actual packet preview, recoverable download and non-PII event instrumentation; tested buyer-path draft. Revenue activation is not complete.
+- [ ] T027: Owner-resolve approved Stripe account/mode and existing production binding, then specifically authorized sandbox checkout/payment verification. Do not charge a live card or create/read credentials.
+- [ ] T028: Approve durable entitlement/provider/tenant/lost-return recovery contract; implement signed payment-event fulfillment, persistent idempotent receipt and secure recovery; validate actual sandbox event→receipt→download→lost-return path before revenue acceptance. No ephemeral store substitutes for durability.
+
+- [x] Reject truncated/title-only paid downloads and recover from stalled/oversized streams (PR27 reviewed corrections).
+- [ ] Complete exact revised-head independent review, normal release and production regression; checkout remains closed.

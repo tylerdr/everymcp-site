@@ -1,6 +1,11 @@
-# EveryMCP venture status — 2026-10-07
+# EveryMCP venture status — 2026-10-11
 
-- Fresh main/production remains PR23 d9f2629; documentation PR24 remains separate. Checkout noindex correction prepared as a new draft only, no merge/release.
-- Only result-page robots metadata changes. Canonical, missing/synthetic paid behavior, payment verification, fulfillment and offer preserved; all642 sitemap URLs/616 listing routes, Neon aliases and redirects unchanged.
-- Focused five-state real-page offline regression plus entitlement checks, lint/types/build validated before publication. No live payment, provider/MCP probe, credentials or spend.
-- GSC category alerts confirmed but affected samples/counts/crawl dates unavailable. Checkout is outside sitemap; alert attribution unknown. Earlier actual scheduled success remains separate from unobserved October5 slot. Prepared with OpenAI Codex assistance; parent review/coordination next.
+- Origin/main and READY production remain PR25 9d626667; open24/26 are historical evidence drafts. New buyer-path code isolates contextual49USD offer/actual preview/retryable download from those lanes.
+-22 tests, existing contract checks, lint/types/build753 and candidate listing→pricing browser pass. Synthetic actual download UI proves transient failure→same-session retry→valid file and non-PII event order.
+- Live purchase path remains incomplete: production pricing closes checkout pending approved Stripe account/mode binding; no payment/session/paid artifact or revenue accepted.
+- Durable event-driven entitlement/lost-return recovery has no approved storage/webhook contract. Owner setup plus sandbox payment-event→persistent receipt→download/recovery proof required; no credentials/card charge/paid provider/tenant or billing changes. Reviewed draft only, preserve traffic/price/gates. Prepared with OpenAI Codex assistance.
+
+- Independent PR27 review found incomplete/stalled download issues; revised2e17692 fixes digest, bounded streaming and timeout retry.
+-29 Vitest methods, lint/types,753-page build, actual component browser retry passed.
+- Checkout remains closed; no payments/provider calls/credentials/spend.
+- Disabled durable recovery is a separate draft; activation requires account/storage/identity approvals.

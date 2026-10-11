@@ -1,0 +1,107 @@
+{
+  "baseSha": "9d6266671c090ad7bef41c9e14c1b37c5434fff4",
+  "candidateBrowser": {
+    "actualPacketPreview": true,
+    "candidate": true,
+    "checkoutRemainsClosed": true,
+    "contextual49DollarHandoff": true,
+    "landing": "revenuecat-mcp",
+    "pageErrors": [],
+    "paymentActions": 0,
+    "pricingCanonicalPreserved": true
+  },
+  "implementationSha": "2e17692f883c8078c18d056331c17f0f6100e57b",
+  "limits": [
+    "No paid conversion or live purchase demonstrated.",
+    "Client event calls verified with synthetic browser sink; no analytics backend receipt or sales count inferred.",
+    "No approved Stripe account/mode binding, signed webhook/durable entitlement store or lost-return recovery activation.",
+    "No card charge, credentials, billing changes, tenant changes or provider spend."
+  ],
+  "livePurchasePath": {
+    "acceptance": "Live purchase incomplete: pricing declares checkout closed. No Checkout Session created, payment made or paid artifact retrieved.",
+    "checkedAt": "2026-10-11T05:58:28.283254+00:00",
+    "durableRecovery": "Code currently depends on retaining Stripe checkout-return session ID; no signed webhook/approved durable entitlement store or lost-link recovery path exists.",
+    "path": [
+      {
+        "49DollarOffer": false,
+        "checkoutClosed": false,
+        "deliveryLocked": false,
+        "path": "/mcp/revenuecat-mcp",
+        "starterKitLink": false,
+        "status": 200
+      },
+      {
+        "49DollarOffer": true,
+        "checkoutClosed": false,
+        "deliveryLocked": false,
+        "path": "/plan?goal=research",
+        "starterKitLink": true,
+        "status": 200
+      },
+      {
+        "49DollarOffer": true,
+        "checkoutClosed": true,
+        "deliveryLocked": false,
+        "path": "/pricing?source=stack-planner&goal=research",
+        "starterKitLink": true,
+        "status": 200
+      },
+      {
+        "49DollarOffer": false,
+        "checkoutClosed": false,
+        "deliveryLocked": true,
+        "path": "/checkout/success",
+        "starterKitLink": true,
+        "status": 200
+      }
+    ],
+    "productionSha": "9d6266671c090ad7bef41c9e14c1b37c5434fff4"
+  },
+  "preserved": [
+    "616 listing routes",
+    "642 sitemap URLs",
+    "approved49USD price",
+    "Stripe account/mode/entitlement gates",
+    "Neon aliases",
+    "redirects",
+    "existing checkout and fulfillment payment gates; additive fulfillment integrity header"
+  ],
+  "syntheticDownloadBrowser": {
+    "synthetic": true,
+    "actualComponent": true,
+    "transientFailureRecovered": true,
+    "sameEntitlementRetried": true,
+    "downloadFilename": "everymcp-mcp-integration-starter-kit.md",
+    "events": [
+      "starter_kit_download_requested",
+      "starter_kit_download_failed",
+      "starter_kit_download_requested",
+      "starter_kit_download_received"
+    ],
+    "analyticsProperties": "none: no session IDs, URLs or customer data",
+    "paidProviderCalls": 0
+  },
+  "tests": {
+    "build": "753 pages passed",
+    "checkoutSyntheticStates": 5,
+    "downloadCases": 13,
+    "lint": "passed",
+    "types": "passed",
+    "vitest": 29
+  },
+  "integrity": {
+    "server": "SHA-256 of entire verified paid packet",
+    "client": "full digest and ordered seven-section structure",
+    "streamBytesMaximum": 1000000,
+    "requestAndBodyDeadlineMs": 10000,
+    "adversarialTests": [
+      "title-only matching digest",
+      "truncated real packet",
+      "changed complete packet",
+      "oversized bounded stream",
+      "never-settling request",
+      "never-settling body",
+      "retry after timeout"
+    ]
+  }
+}

@@ -163,3 +163,7 @@ Tyler: finish remaining work to get us to revenue. Parent delegates smallest buy
 ## 2026-10-11 — Review and disabled recovery follow-up
 
 Parent explicitly requests independent exact-head PR27 review, corrections, authorized normal reviewed merge and production revalidation with checkout closed; separately publish disabled durable webhook/receipt/owner recovery with synthetic/local adapters and exact activation packet. No live DB/credentials/providers/payment activation.
+
+## 2026-10-11 — Standalone typecheck correction and production evidence
+
+During authorized PR27 production revalidation, standalone tsc exposed TS2322 in a synthetic Response header fixture. Correct the test type through normal reviewed PR; record the failed check accurately and preserve runtime/checkout gates.

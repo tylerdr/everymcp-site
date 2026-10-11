@@ -9,3 +9,8 @@
 -29 Vitest methods, lint/types,753-page build, actual component browser retry passed.
 - Checkout remains closed; no payments/provider calls/credentials/spend.
 - Disabled durable recovery is a separate draft; activation requires account/storage/identity approvals.
+
+- PR27 live/READY at ebee82b, independently reviewed tree f37e9f5.
+- Production listing→pricing/sample, freeplanner, closedcheckout, lockednoindexreturn and deniedAPI passed;642URLs/616listings preserved.
+- Standalone tsc caught test-only header fixture union error after Next build passed; follow-up corrects type and evidence.
+- Durable recovery remains separate disableddraft; no money path acceptance, DB/credentials/paidspend.

@@ -86,7 +86,7 @@
     "checkoutSyntheticStates": 5,
     "downloadCases": 13,
     "lint": "passed",
-    "types": "passed",
+    "types": "Next build type check passed; later standalone tsc exposed header-fixture TS2322. Explicit HeadersInit fixture correction is in this follow-up; standalone and full build revalidation required.",
     "vitest": 29
   },
   "integrity": {

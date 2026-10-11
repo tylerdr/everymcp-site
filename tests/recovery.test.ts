@@ -138,5 +138,5 @@ describe("disabled durable entitlement proof", () => {
     const crossAccount = JSON.stringify({ id: "evt_local", type: "checkout.session.completed", livemode: false, account: "acct_other", data: { object: { id: "cs_test_synthetic" } } });
     expect(() => verify(crossAccount, Stripe.webhooks.generateTestHeaderString({ payload: crossAccount, secret }))).toThrow("scope");
   });
-  it("keeps public handlers unconditionally disabled", async () => { expect((await GET()).status).toBe(503); expect((await POST()).status).toBe(503); });
+  it("keeps public handlers unconditionally disabled", async () => { expect((await GET(new Request("https://synthetic.local/recovery"))).status).toBe(503); expect((await POST(new Request("https://synthetic.local/webhook", { method: "POST" }))).status).toBe(503); });
 });

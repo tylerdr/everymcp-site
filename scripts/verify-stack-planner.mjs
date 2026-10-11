@@ -93,7 +93,7 @@ assert.equal(kit.buildStarterKit('unknown-goal'),kit.starterKit);
 verifyKitSelection(kit.starterKit,[...expectedStacks.research,...expectedStacks['ship-software']]);
 let verified={status:'paid',session:{metadata:{acquisition_goal:'ship-software'}}};
 class Result {constructor(body,options={}){this.body=body;this.options=options;}static json(body,options){return new Result(body,options);}}
-const handler=load('app/api/fulfillment/starter-kit/route.ts',{'node:crypto':{createHash},'next/server':{NextResponse:Result},'@/lib/starter-kit':kit,'@/lib/stripe-fulfillment':{verifyPaidSession:async()=>verified}});
+const handler=load('app/api/fulfillment/starter-kit/route.ts',{'@/lib/recovery/binding':{getStarterBinding:()=>null},'node:crypto':{createHash},'next/server':{NextResponse:Result},'@/lib/starter-kit':kit,'@/lib/stripe-fulfillment':{verifyPaidSession:async()=>verified}});
 const delivered=await handler.GET({url:'https://everymcp.com/api/fulfillment/starter-kit?session_id=cs_fixture&goal=research'});
 assert.equal(delivered.body,kit.buildStarterKit('ship-software'),'Paid metadata, not the query, owns the delivered goal');
 assert.equal(delivered.options.headers['Cache-Control'],'private, no-store');

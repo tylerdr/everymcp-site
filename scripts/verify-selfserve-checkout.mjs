@@ -95,7 +95,7 @@ for (const fragment of ["selection matrix", "@modelcontextprotocol/server-filesy
   }
 }
 
-if (!pricing.includes("isStripeCheckoutConfigured") || !pricing.includes("Checkout is temporarily closed")) {
+if (!pricing.includes("getStarterBinding") || !pricing.includes("Checkout is temporarily closed")) {
   throw new Error("Pricing must close the paid CTA until Stripe configuration is bound");
 }
 

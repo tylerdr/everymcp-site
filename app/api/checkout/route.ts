@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { isPlan, products } from "@/lib/products";
+import { getStarterBinding } from "@/lib/recovery/binding";
 import { siteUrl } from "@/lib/site";
 import {
   getStripeConfiguration,
@@ -48,7 +49,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid checkout request" }, { status: 400 });
     }
 
-    const { plan, email, source, goal } = parseBody(body);
+    const { plan, source, goal } = parseBody(body);
 
     if (!plan) {
       return NextResponse.json({ error: "Invalid plan" }, { status: 400 });
@@ -67,8 +68,12 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Checkout attempt key is required" }, { status: 400 });
     }
 
+    const binding = getStarterBinding();
+    if (!binding) return NextResponse.json({ error: "Durable checkout setup pending. No payment was taken." }, { status: 503 });
+    const principal = await binding.checkoutPrincipal(request);
+    if (!principal) return NextResponse.json({ error: "Verified owner and durable delivery readiness are required. No payment was taken." }, { status: 503 });
     const stripeConfiguration = getStripeConfiguration();
-    if (!stripeConfiguration) {
+    if (!stripeConfiguration || stripeConfiguration.accountId !== binding.scope.accountId || stripeConfiguration.mode !== binding.scope.mode) {
       return NextResponse.json(
         { error: "Checkout is temporarily unavailable. No payment was taken." },
         { status: 503, headers: { "Retry-After": "10" } }
@@ -104,11 +109,12 @@ export async function POST(request: Request) {
       {
         mode: "payment",
         line_items: [lineItem],
-        customer_email: email,
+        customer_email: principal.email,
         success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${siteUrl}/pricing?checkout=cancelled#starter-kit`,
-        allow_promotion_codes: true,
+        allow_promotion_codes: false,
         metadata: {
+          ...binding.ownerMetadata(principal),
           plan,
           product_key: selectedPlan.productKey,
           product_version: selectedPlan.version,

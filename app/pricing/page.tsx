@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { isStackGoalId } from "@/lib/stack-planner";
-import { isStripeCheckoutConfigured } from "@/lib/stripe-config";
+import { getStarterBinding } from "@/lib/recovery/binding";
 import { buildStarterKit } from "@/lib/starter-kit";
 
 export const metadata: Metadata = {
@@ -49,8 +49,8 @@ function firstParam(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] : value;
 }
 
-export default function PricingPage({ searchParams }: PricingPageProps) {
-  const checkoutConfigured = isStripeCheckoutConfigured();
+export default async function PricingPage({ searchParams }: PricingPageProps) {
+  const checkoutConfigured = await getStarterBinding()?.ready() || false;
   const requestedSource = firstParam(searchParams?.source);
   const requestedGoal = firstParam(searchParams?.goal);
   const source = requestedSource === "stack-planner" || requestedSource === "listing" ? requestedSource : undefined;

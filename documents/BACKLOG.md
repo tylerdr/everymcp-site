@@ -68,7 +68,10 @@
 - [ ] Review and release test-only HeadersInit correction with accurate standalone type evidence.
 
 - [x] T028 disabled implementation/local proof: scoped signed-event receipts and server-owner recovery;16tests and independent review corrections.
-- [ ] T028 activation: exact approved account/test mode, named durable host/$0capacity, private schema/role, production SERIALIZABLE adapter and verified principal/customer binding, authorized sandbox fault/isolation/lost-return proof. Publicroutesremain503.
+- [ ] T028 activation: exact approved account/test mode, named durable host/$0capacity, private schema/role (concrete SERIALIZABLE/verified-principal/purchase adapters implemented but source disabled), authorized sandbox fault/isolation/lost-return proof. Publicroutesremain503.
 
 - [x] Resolve available seller/store/host metadata and independently confirm synthetic historical continuity/default-disabled routes.
 - [ ] Owner confirm Sprinterseller/testcontext and candidateSprinterWebsite reuse; authorize metadata-only capacity/PUBLICACL preflight before any shared-role/SQL/providertrial. Productionmail/onboarding remains separate.
+
+- [x] PR29 source-only: concrete PostgreSQL/verified-current-user/authoritative purchase bindings; checkout zero-create safety; stored snapshot reuse; strict new$49policy and historical paid total reconciliation.
+- [ ] PR29 acceptance: independent final-head review/CI/preview; exact seller/teststore/auth approvals and real bounded sandbox payment→storedreceipt→lostreturn isolation proof. Public buyer sign-in/onboarding still requires approved implementation before production activation.

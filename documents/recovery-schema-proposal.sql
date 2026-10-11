@@ -7,7 +7,7 @@ REVOKE ALL ON SCHEMA everymcp_receipts FROM PUBLIC;
 CREATE TABLE everymcp_receipts.payment_events (
   account_id text NOT NULL CHECK (account_id ~ '^acct_[A-Za-z0-9]+$'),
   mode text NOT NULL CHECK (mode IN ('test', 'live')),
-  event_id text NOT NULL CHECK (length(event_id) BETWEEN 1 AND 255),
+  event_id text NOT NULL CHECK (event_id ~ '^[a-f0-9]{64}$'),
   payload_sha256 text NOT NULL CHECK (payload_sha256 ~ '^[a-f0-9]{64}$'),
   created_at timestamptz NOT NULL DEFAULT now(),
   PRIMARY KEY (account_id, mode, event_id)

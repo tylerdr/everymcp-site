@@ -246,3 +246,7 @@ PR28 production2c8d7fb/dpl_3aLiXiqo8ixdcDhg5BaXC9tZ5mzi READY and exact actual b
 ## 2026-10-11 — Activation metadata and continuity packet
 
 Resolved nonsecret seller/store/host candidates; recorded conditional reuse/isolation/cost/owner/testcaps and unapplied role/RLS companion SQL. Independent synthetic historical live/testkey-only recovery and default503proof; no realhistorical sessions or activation.
+
+## 2026-10-11 — PR29 disabled adapter and price corrections
+
+Prepared concrete production adapters under a hard false source gate: scoped SERIALIZABLE Postgres immutable store/privilege checks, own verified current-user identity, authoritative shared purchase/event/return snapshots. Coupled chargeable checkout to all delivery bindings and matching account/mode. New$49/no-promotion policy reconciles actual collected totals and tax while preserving historically paid discounted entitlements. Focused actual-route and authoritative-reader regressions added; complete candidate isolation SQL remains review-only. No activation, infrastructure, secrets, SQL/payment/mail/provider spend or production release.

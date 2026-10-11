@@ -175,3 +175,7 @@ Parent requests independently tested separate disabled signed webhook/durable en
 ## 2026-10-11 — Parent-readable activation resolution
 
 Parent requests inline exact activation packet, authorized nonsecret seller/project/store metadata, existing-store isolation check, exact owner/sandbox mechanism and PR27/28 receipts. No infrastructure/credentials/SQL/payment/mail operations or PR29 production release before continuity/default-disabled proof.
+
+## 2026-10-11 — Close canonical fulfillment and price gaps
+
+Parent requests one canonical owner to close real Postgres/auth/authoritative purchase wiring, immutable snapshot delivery and readiness-coupled checkout in the existing draft while activation stays disabled. Reconcile allow_promotion_codes and actual collected totals with the approved49USD offer; preserve tax and historical paid rights. Focused tests and exact remaining binding decisions; no SQL/provider/credential actions.

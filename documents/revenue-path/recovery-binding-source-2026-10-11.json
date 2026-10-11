@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-10-11T06:46:07.876427+00:00",
+  "implementationHead": "bf9557ad1f8976b3d0c508f76f54b7508013c43e",
+  "implementationTree": "d2c3cfde08d6d8058b480f5e56d1714aff6e6503",
+  "productionUnchanged": "2c8d7fbf69dbbe4b49900b4fd8c7bd7e282179f0",
+  "sourceActivationGate": false,
+  "tests": {
+    "vitestPassed": 83,
+    "fullStandaloneTypeScript": "passed",
+    "lint": "passed",
+    "requiredBuild": "passed",
+    "staticPages": 753,
+    "lockNpmCiDryRun": "passed"
+  },
+  "actualProviderCalls": 0,
+  "actualDatabaseQueries": 0,
+  "credentialsReadCreatedInstalled": 0,
+  "sourceControls": [
+    "Actual checkout create count zero without any mandatory binding, failed store or mismatched account/mode",
+    "New server principal metadata,4900USDquantity1,promotions disabled",
+    "Shared authoritative snapshot reused without invoking changed catalog builder",
+    "Own confirmed current-user verification only; scoped SHA owner; oversized/expired/anonymous/spoofed principals refused",
+    "PostgreSQL SERIALIZABLE parameterized scope, immutable inserts, privilege preflight, bounded conflict retry and failed commit refusal",
+    "Actual authoritative session mapping rejects discount under strict policy,unpaid,mismatch,missingdetails,wrongmode;validtax accepted;historical test/live full and discounted totals reconciled"
+  ],
+  "limits": [
+    "Synthetic adapters/fakeSQL and mockStripe only; no actual PG/auth/payment event/restart durability trial",
+    "Default disabled existing historical bearer delivery preserved but not durable lost-return recovery",
+    "Public buyer sign-in/onboarding and provider mail decisions remain unimplemented/unapproved",
+    "Exact seller test context, sharedstore ACL/headroom/backupretention and operator role/secret provisioning unapproved",
+    "No production merge/deploy/activation requested"
+  ]
+}

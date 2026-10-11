@@ -179,3 +179,7 @@ Parent requests inline exact activation packet, authorized nonsecret seller/proj
 ## 2026-10-11 — Close canonical fulfillment and price gaps
 
 Parent requests one canonical owner to close real Postgres/auth/authoritative purchase wiring, immutable snapshot delivery and readiness-coupled checkout in the existing draft while activation stays disabled. Reconcile allow_promotion_codes and actual collected totals with the approved49USD offer; preserve tax and historical paid rights. Focused tests and exact remaining binding decisions; no SQL/provider/credential actions.
+
+## 2026-10-11 — Minimal public buyer entry and recovery
+
+Parent requests source implementation of buyer sign-in/onboarding and return/recovery using canonical fixed-project Auth, preserving listing/offer/safe returns, expired/denied states and ownership. Synthetic browser/server tests and independent review; coherent PR29 update. Keep new bindings/commerce disabled. No actual Auth/database/provider/credential/configuration operations. Stop at source ready plus exact resource/hosted approvals.

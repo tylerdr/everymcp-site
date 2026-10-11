@@ -74,4 +74,7 @@
 - [ ] Owner confirm Sprinterseller/testcontext and candidateSprinterWebsite reuse; authorize metadata-only capacity/PUBLICACL preflight before any shared-role/SQL/providertrial. Productionmail/onboarding remains separate.
 
 - [x] PR29 source-only: concrete PostgreSQL/verified-current-user/authoritative purchase bindings; checkout zero-create safety; stored snapshot reuse; strict new$49policy and historical paid total reconciliation.
-- [ ] PR29 acceptance: independent final-head review/CI/preview; exact seller/teststore/auth approvals and real bounded sandbox payment→storedreceipt→lostreturn isolation proof. Public buyer sign-in/onboarding still requires approved implementation before production activation.
+- [ ] PR29 acceptance: independent final-head review/CI/preview; exact seller/teststore/auth approvals and real bounded sandbox payment→storedreceipt→lostreturn isolation proof. Public buyer entry is now implemented as disabled source; exact Auth signup/email-code/SMTP policy and bounded hosted proof remain unapproved.
+
+- [x] PR29 buyer source: minimal email-code sign-in/first-time onboarding, canonical HttpOnly session, listing/goal-safe return, current-owner paid return/download, expired-session and lost-return recovery; controlled actual React/server browser and SDK/body regressions.
+- [ ] PR29 resource-only activation: exact seller test context; approved isolated durable store/headroom/ACL/role; fixed Auth project/signup/email-code template/SMTP and separate controlled email trial; approved preview URL/config; bounded real payment/event/fault/owner isolation proof. Gate staysfalse and draft; no remaining intentional public UI implementation gap.

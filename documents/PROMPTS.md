@@ -167,3 +167,7 @@ Parent explicitly requests independent exact-head PR27 review, corrections, auth
 ## 2026-10-11 — Standalone typecheck correction and production evidence
 
 During authorized PR27 production revalidation, standalone tsc exposed TS2322 in a synthetic Response header fixture. Correct the test type through normal reviewed PR; record the failed check accurately and preserve runtime/checkout gates.
+
+## 2026-10-11 — Durable recovery draft
+
+Parent requests independently tested separate disabled signed webhook/durable entitlement/lost-return recovery slice and exact minimal account/mode/host/storage/cost/schema/role/security/offer/sandbox/rollback activation packet. No live DB/credentials/security/provider/payment activation; reviewed normal Tai releases only.

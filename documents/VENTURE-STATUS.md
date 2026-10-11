@@ -14,3 +14,9 @@
 - Production listing→pricing/sample, freeplanner, closedcheckout, lockednoindexreturn and deniedAPI passed;642URLs/616listings preserved.
 - Standalone tsc caught test-only header fixture union error after Next build passed; follow-up corrects type and evidence.
 - Durable recovery remains separate disableddraft; no money path acceptance, DB/credentials/paidspend.
+
+- Reviewed PR27 buyer path and PR28 test fixture correction merged; checkout remains closed.
+- Separate disabled recovery contracts persist scoped atomic immutable receipts and recover by verified owner after local restart.
+-16 recovery regressions plus existing29cases; three independent corruption/duplicate/cancellation defects corrected.
+- Activation packet and review-only SQL published with draft; no DB/credentials/security/provider/payment/paidspend changes.
+- Actual sandbox account/store/owner/event→receipt→recovery proof remains required for revenue acceptance.

@@ -66,3 +66,6 @@
 
 - [x] Independent PR27 review, guarded normal merge and exact production behavior proof.
 - [ ] Review and release test-only HeadersInit correction with accurate standalone type evidence.
+
+- [x] T028 disabled implementation/local proof: scoped signed-event receipts and server-owner recovery;16tests and independent review corrections.
+- [ ] T028 activation: exact approved account/test mode, named durable host/$0capacity, private schema/role, production SERIALIZABLE adapter and verified principal/customer binding, authorized sandbox fault/isolation/lost-return proof. Publicroutesremain503.

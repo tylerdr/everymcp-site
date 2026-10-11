@@ -1,0 +1,42 @@
+{
+  "baseSha": "2c8d7fbf69dbbe4b49900b4fd8c7bd7e282179f0",
+  "implementationSha": "9ad9b5f633f938f9c724105622384457770b3859",
+  "status": "disabled local/synthetic proof; not production durability or sale",
+  "publicRoutes": {
+    "/api/stripe/webhook": "503 unconditionally",
+    "/api/fulfillment/recovery": "503 unconditionally"
+  },
+  "tests": {
+    "recovery": 16,
+    "existing": 29,
+    "total": 45,
+    "lint": "passed",
+    "standaloneTypes": "full tsc --noEmit --incremental false passed",
+    "build": "753 static pages and complete contracts passed"
+  },
+  "independentFindingsFixed": [
+    "malformed ledger array silent receipt loss",
+    "corrupt snapshot/changed-owner duplicate acknowledgement",
+    "rejecting stream cancel unhandled rejection"
+  ],
+  "bounds": {
+    "rawWebhookBytes": 64000,
+    "rawWebhookDeadlineMs": 3000,
+    "packetBytes": 1000000,
+    "localLockDeadlineMs": 2000
+  },
+  "limits": [
+    "Synthetic real-SDK signature fixtures only; no real Stripe retrieval/signing secret.",
+    "Local fsync/rename/lock storage only; never Vercel tmp or deployed persistence.",
+    "SQL schema proposal not applied; no role/security changes.",
+    "Production account/mode/host/capacity/identity mapping not approved or guessed.",
+    "No real Checkout Session, payment, email or provider/model spend.",
+    "Public routes cannot activate through an environment flag."
+  ],
+  "activationPacket": "documents/DURABLE-RECOVERY.md",
+  "independentReview": {
+    "implementationSha": "9ad9b5f633f938f9c724105622384457770b3859",
+    "controls": 28,
+    "status": "all three findings corrected; accepts disabled draft only"
+  }
+}

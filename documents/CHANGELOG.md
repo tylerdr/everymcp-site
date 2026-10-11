@@ -236,3 +236,9 @@ PR27 review identified incomplete packet acceptance and unbounded requests/body 
 ## 2026-10-11 — PR27 production proof and fixture correction
 
 Reviewed PR27 is live at ebee82b, READY deployment dpl_4Uk6V5Wja93hb1wVcZSBNE7g1T6x. Actual browser buyer flow/closed checkout/noindex/denied fulfillment and642URL sitemap pass. Standalone tsc found a test-only header union error after Next build passed; follow-up types the fixture explicitly and corrects evidence. No runtime/payment activation.
+
+## 2026-10-11 — Disabled durable recovery draft
+
+Added atomic scoped event/immutable paid snapshot contracts, server-owner lost-return listing/download, real SDK synthetic signature verification and local durable proof adapter.16 recovery regressions include three independent corruption/duplicate/cancellation findings; publicroutesalways503. Review-only SQL and exact activation packet; no DB/provider/credentials/spend or revenue acceptance.
+
+PR28 production2c8d7fb/dpl_3aLiXiqo8ixdcDhg5BaXC9tZ5mzi READY and exact actual buyer-path/closedcheckout/freeplanner/lockednoindexreturn/deniedAPI/642URLs proof passed. Standalone types correction accepted; runtime remains unchanged.

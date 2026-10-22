@@ -66,3 +66,9 @@
 
 - [x] Independent PR27 review, guarded normal merge and exact production behavior proof.
 - [ ] Review and release test-only HeadersInit correction with accurate standalone type evidence.
+
+## 2026-10-22 revenue readiness
+- [x] Implement offline normalized revenue reconciliation and synthetic validation; docs/REVENUE-RECONCILIATION.md. Draft review only; not provider evidence.
+- [ ] Reconcile private product-attributed October payment/refund exports and separate fee/settlement/MRR evidence; unknown until coverage verified.
+- [ ] Obtain fresh analytics denominators and mobile/desktop acceptance; preserve existing planner experiment window.
+- [ ] Confirm seller/test context and authorize exact read-only store preflight per PR29; other activation actions remain separate holds.

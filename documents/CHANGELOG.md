@@ -236,3 +236,8 @@ PR27 review identified incomplete packet acceptance and unbounded requests/body 
 ## 2026-10-11 — PR27 production proof and fixture correction
 
 Reviewed PR27 is live at ebee82b, READY deployment dpl_4Uk6V5Wja93hb1wVcZSBNE7g1T6x. Actual browser buyer flow/closed checkout/noindex/denied fulfillment and642URL sitemap pass. Standalone tsc found a test-only header union error after Next build passed; follow-up types the fixture explicitly and corrects evidence. No runtime/payment activation.
+
+## 2026-10-22
+- Restored isolated cloud clone and verified origin/main against READY production metadata.
+- Added offline revenue evidence reconciliation, explicit unknown coverage and replay checks; confirmed target metric is collections net of refunds, excluding tax/tests, separate from fees/settlements/MRR.
+- Added sanitized readiness baseline and preserved PR29 activation holds. No paid activation or actual financial evidence accepted.

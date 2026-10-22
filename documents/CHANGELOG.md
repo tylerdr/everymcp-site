@@ -256,3 +256,8 @@ Independent review caught grant-present/RLS-denied readiness, malformed persiste
 ## 2026-10-11 — Disabled public buyer entry and recovery
 
 Added minimal email-code signup/sign-in UI and APIs under the canonical false source gate, verified-current-user HttpOnly sessions, safe listing/goal return context, current-owner bound paid returns/downloads, owned receipt recovery and browser-local sign-out. Actual controlled React/server browser covers expiry recovery without repurchase, cross-owner refusal, safe return and disabled routes. Independent review found SDK outage misclassification and unfinished-body deadline ordering; corrected both and added actual pinned-SDK/stalled-stream regressions. No real Auth signup/email, DB/payment, credential/config/security changes, paid spend, production merge or activation.
+
+## 2026-10-22 — Purchase acceptance continuation
+- Read-only resource/config/catalog and hosted browser checks completed; rejected proposed shared store after PUBLIC net queue access found. No customer rows, credential values, permission changes or sends.
+- Added deny-only per-transaction cross-product isolation check; neutral checkout-return metadata avoids unverified completion claim.
+- Updated existing DURABLE-RECOVERY packet with exact identities, authority sources, bounded run and rollback; historical agent read-only holds superseded.

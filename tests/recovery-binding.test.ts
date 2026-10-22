@@ -86,18 +86,30 @@ describe("authoritative current-user ownership", () => {
   });
 });
 describe("durable PostgreSQL transaction adapter without a database", () => {
-  function fake(fail?: string, permissions = true) {
+  function fake(fail?: string, permissions = true, isolated = true) {
     const calls: { sql: string; values?: unknown[] }[] = [];
     let failures = fail ? 1 : 0;
     const release = vi.fn();
     const client: SqlClient = { async query<Row>(sql: string, values?: unknown[]) {
       calls.push({ sql, values });
       if (sql === "COMMIT" && failures-- > 0) throw Object.assign(new Error("synthetic commit failure"), { code: fail });
-      return { rows: (sql.includes("AS ready") ? [{ ready: permissions }] : []) as Row[] };
+      return { rows: (sql.includes("AS isolated") ? [{ isolated }] : sql.includes("AS ready") ? [{ ready: permissions }] : []) as Row[] };
     }, release };
     const connect = vi.fn(async () => client);
     return { calls, release, connect, store: new PostgresStore({connect}, scope) };
   }
+  it("rejects effective cross-product access before receipt reads, callbacks or writes", async () => {
+    const f = fake(undefined,true,false), change = vi.fn(() => true);
+    await expect(f.store.transaction(change)).rejects.toThrow("Cross-product store isolation");
+    expect(change).not.toHaveBeenCalled();
+    expect(f.calls.map(c=>c.sql).some(sql=>sql.startsWith("SELECT event_id") || sql.startsWith("SELECT session_id") || sql.startsWith("INSERT"))).toBe(false);
+    expect(f.calls.at(-1)?.sql).toBe("ROLLBACK");
+    expect(await f.store.checkReadiness()).toBe(false);
+  });
+  it("refuses a missing isolation verdict", async () => {
+    const store = new PostgresStore({connect:async()=>({query:async()=>({rows:[]}),release(){}})},scope);
+    expect(await store.checkReadiness()).toBe(false);
+  });
   it("serializes scoped parameterized writes and commits immutable event IDs", async () => {
     const f = fake(); const key = "a".repeat(64); const hash = "b".repeat(64);
     await f.store.transaction((l) => { l.events[key] = hash; });
@@ -124,7 +136,7 @@ describe("durable PostgreSQL transaction adapter without a database", () => {
     const calls: string[] = [];
     const client: SqlClient = { async query<Row>(sql: string) {
       calls.push(sql);
-      return { rows: (sql.includes("AS ready") ? [{ ready: true }] : sql.startsWith("SELECT event_id") ? [{ event_id: "__proto__", payload_sha256: "a".repeat(64) }] : []) as Row[] };
+      return { rows: (sql.includes("AS isolated") ? [{ isolated: true }] : sql.includes("AS ready") ? [{ ready: true }] : sql.startsWith("SELECT event_id") ? [{ event_id: "__proto__", payload_sha256: "a".repeat(64) }] : []) as Row[] };
     }, release() {} };
     const store = new PostgresStore({connect: async () => client},scope);
     await expect(store.transaction(() => true)).rejects.toThrow("event integrity");

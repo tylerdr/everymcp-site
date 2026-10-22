@@ -49,6 +49,7 @@ const pageRequire = (id) => {
 };
 new Function("require", "module", "exports", compiled)(pageRequire, pageModule, pageModule.exports);
 const resultPage = pageModule.exports;
+assert.equal(resultPage.metadata.title, "Checkout status", "Return metadata must not assert payment completion before verification");
 assert.deepEqual(resultPage.metadata.robots, { index: false, follow: true });
 assert.equal(resultPage.metadata.alternates.canonical, "/checkout/success");
 assert.equal(resultPage.dynamic, "force-dynamic");

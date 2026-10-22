@@ -183,3 +183,7 @@ Parent requests one canonical owner to close real Postgres/auth/authoritative pu
 ## 2026-10-11 — Minimal public buyer entry and recovery
 
 Parent requests source implementation of buyer sign-in/onboarding and return/recovery using canonical fixed-project Auth, preserving listing/offer/safe returns, expired/denied states and ownership. Synthetic browser/server tests and independent review; coherent PR29 update. Keep new bindings/commerce disabled. No actual Auth/database/provider/credential/configuration operations. Stop at source ready plus exact resource/hosted approvals.
+
+
+## 2026-10-22 — Purchase-to-delivery acceptance continuation
+User directs completing safe nondependent resource/config/source/browser checks and one concrete activation/test packet. Classify each blocker by actual authority; prior agent blanket holds do not block reversible internal work. Stripe reauthentication independently confirmed/requested. Retain restricted sends/spend/permissions and production data boundaries. No further generic calculators or duplicate audits.

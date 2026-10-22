@@ -27,7 +27,7 @@ it.each(["live", "other-account", "receipt-policy"])("actual checkout refuses a 
  let probes = 0;
  const client: SqlClient = { async query<Row>(sql: string) {
    if (sql.startsWith("INSERT")) { probes++; if (variant !== "receipt-policy" || sql.includes("paid_receipts")) throw Object.assign(new Error("test-only RLS denies configured scope"), { code: "42501" }); }
-   return { rows: (sql.includes("AS ready") ? [{ ready: true }] : []) as Row[] };
+   return { rows: (sql.includes("AS isolated") ? [{ isolated: true }] : sql.includes("AS ready") ? [{ ready: true }] : []) as Row[] };
  }, release() {} };
  mock.account=configured.accountId;mock.mode=configured.mode;
  mock.binding=createStarterBinding({ ...deps(), scope: configured, authenticate: async () => ({...principal,scope:configured}), store: new PostgresStore({connect: async () => client},configured) });

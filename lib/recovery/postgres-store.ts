@@ -6,6 +6,34 @@ export interface SqlClient {
 export interface SqlPool { connect(): Promise<SqlClient> }
 import { assertLedger, receiptId, type EntitlementStore, type Ledger, type Receipt, type Scope } from "./entitlements";
 
+// Effective privileges include PUBLIC even for NOINHERIT logins. Check on every
+// transaction before reading receipts or exercising either INSERT policy. This
+// is a deny-only check: never repair another product's permissions from the app.
+export const databaseIsolationSql = `SELECT NOT EXISTS (
+  SELECT 1 FROM pg_auth_members m JOIN pg_roles r ON r.oid=m.member
+  WHERE r.rolname=current_user
+) AND NOT EXISTS (
+  SELECT 1 FROM pg_namespace n
+  WHERE n.nspname NOT IN ('pg_catalog','information_schema','everymcp_receipts')
+    AND n.nspname NOT LIKE 'pg_%'
+    AND has_schema_privilege(current_user,n.oid,'CREATE')
+) AND NOT EXISTS (
+  SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
+  WHERE n.nspname NOT IN ('pg_catalog','information_schema','everymcp_receipts')
+    AND n.nspname NOT LIKE 'pg_%'
+    AND has_schema_privilege(current_user,n.oid,'USAGE')
+    AND ((c.relkind IN ('r','p','v','m','f') AND (
+      has_table_privilege(current_user,c.oid,'SELECT,INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER')
+      OR has_any_column_privilege(current_user,c.oid,'SELECT,INSERT,UPDATE,REFERENCES')
+    )) OR (c.relkind='S' AND has_sequence_privilege(current_user,c.oid,'USAGE,SELECT,UPDATE')))
+) AND NOT EXISTS (
+  SELECT 1 FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
+  WHERE p.prosecdef AND n.nspname NOT IN ('pg_catalog','information_schema')
+    AND n.nspname NOT LIKE 'pg_%'
+    AND has_schema_privilege(current_user,n.oid,'USAGE')
+    AND has_function_privilege(current_user,p.oid,'EXECUTE')
+) AS isolated`;
+
 // Server-only, fixed private schema; no migration, role provisioning or global
 // credentials. The caller supplies an approved, dedicated scoped login/pool.
 export class PostgresStore implements EntitlementStore {
@@ -32,6 +60,8 @@ export class PostgresStore implements EntitlementStore {
       let discard: Error | undefined;
       try {
         await client.query("BEGIN ISOLATION LEVEL SERIALIZABLE");
+        const isolation = await client.query<{ isolated: boolean }>(databaseIsolationSql);
+        if (isolation.rows.length !== 1 || isolation.rows[0].isolated !== true) throw new Error("Cross-product store isolation unavailable");
         const permissions = await client.query<{ ready: boolean }>(`SELECT
           current_user = 'everymcp_receipt_server'
           AND NOT r.rolsuper AND NOT r.rolinherit AND NOT r.rolbypassrls

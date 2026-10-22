@@ -15,9 +15,9 @@ type SearchParams = {
 type FulfillmentState = "paid" | "missing" | "unavailable" | "invalid" | "not_paid";
 
 export const metadata: Metadata = {
-  title: "Checkout Complete",
+  title: "Checkout status",
   robots: { index: false, follow: true },
-  description: "Your EveryMCP checkout is complete.",
+  description: "Check payment verification and starter kit delivery status.",
   alternates: {
     canonical: "/checkout/success"
   }

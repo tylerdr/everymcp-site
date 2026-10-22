@@ -78,3 +78,11 @@
 
 - [x] PR29 buyer source: minimal email-code sign-in/first-time onboarding, canonical HttpOnly session, listing/goal-safe return, current-owner paid return/download, expired-session and lost-return recovery; controlled actual React/server browser and SDK/body regressions.
 - [ ] PR29 resource-only activation: exact seller test context; approved isolated durable store/headroom/ACL/role; fixed Auth project/signup/email-code template/SMTP and separate controlled email trial; approved preview URL/config; bounded real payment/event/fault/owner isolation proof. Gate staysfalse and draft; no remaining intentional public UI implementation gap.
+
+## 2026-10-22 purchase acceptance
+- [x] Catalog-only capacity/PUBLIC-ACL and nondecrypted config discovery; current authorization covers reads.
+- [x] Reject current shared store candidate for demonstrated PUBLIC net table exposure; implement transaction-level deny-only isolation guard.
+- [x] Neutral checkout-return metadata; retain verified body gates/noindex.
+- [x] Hosted planner/copy/pricing/recovery and disabled-endpoint checks; current final activation packet in DURABLE-RECOVERY.md.
+- [ ] Nominate isolated store/Auth project; current shared candidate cannot pass. No other-product ACL repair without scope.
+- [ ] Post-reauth seller/test binding, exact reviewed preview config, dedicated-login DB fault/restart/owner proof, controlled email acceptance and production decision remain distinct prerequisites.

@@ -167,3 +167,8 @@ Parent explicitly requests independent exact-head PR27 review, corrections, auth
 ## 2026-10-11 — Standalone typecheck correction and production evidence
 
 During authorized PR27 production revalidation, standalone tsc exposed TS2322 in a synthetic Response header fixture. Correct the test type through normal reviewed PR; record the failed check accurately and preserve runtime/checkout gates.
+
+## 2026-10-22 — Dedicated cloud revenue-readiness cycle
+User requests evidence-backed readiness and a target of US$10,000 October collections by October31 23:59 America/Los_Angeles, separate MRR and unknown baselines, preservation of prior PRs/activation holds, reversible implementation/tests/draft PR and sanitized resumable handoff. No production activation, charges, sending, spend or resource/security changes authorized by the target. Product: EveryMCP. Shared portfolio records remain parent-owned; no Vault mount assumed.
+
+2026-10-22 clarification: user explicitly confirms $10,000 collected product revenue net of refunds during October, excluding sales tax and test transactions; MRR separate. Metric question resolved. Continue without duplicating preflight/work.

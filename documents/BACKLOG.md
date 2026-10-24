@@ -86,3 +86,6 @@
 - [x] Hosted planner/copy/pricing/recovery and disabled-endpoint checks; current final activation packet in DURABLE-RECOVERY.md.
 - [ ] Nominate isolated store/Auth project; current shared candidate cannot pass. No other-product ACL repair without scope.
 - [ ] Post-reauth seller/test binding, exact reviewed preview config, dedicated-login DB fault/restart/owner proof, controlled email acceptance and production decision remain distinct prerequisites.
+
+- [x] 2026-10-23: Bound checkout raw JSON before binding/provider work; focused stalled/oversized/chunked regressions pass.
+- [ ] Publish exact-identity successor for review/Vercel gate. Do not label source-only checks hosted acceptance.

@@ -44,12 +44,40 @@ function parseBody(value: unknown): CheckoutRequest {
   };
 }
 
+// Refuse oversized or unfinished JSON before identity, storage or Stripe work.
+async function readCheckoutBody(request: Request): Promise<unknown> {
+  if (!request.body) throw new Error("Missing checkout body");
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let size = 0;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const deadline = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => {
+      reject(new Error("Checkout body timeout"));
+      void reader.cancel().catch(() => {});
+    }, 3000);
+  });
+  try {
+    for (;;) {
+      const { done, value } = await Promise.race([reader.read(), deadline]);
+      if (done) break;
+      size += value.byteLength;
+      if (size > 2048) throw new Error("Checkout body too large");
+      chunks.push(value);
+    }
+    return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(Buffer.concat(chunks)));
+  } finally {
+    clearTimeout(timer);
+    void reader.cancel().catch(() => {});
+  }
+}
+
 export async function POST(request: Request) {
   try {
     if (cookieToken(request) && !sameOriginMutation(request)) return NextResponse.json({error:"Invalid checkout origin"},{status:400});
     let body: unknown;
     try {
-      body = await request.json();
+      body = await readCheckoutBody(request);
     } catch {
       return NextResponse.json({ error: "Invalid checkout request" }, { status: 400 });
     }

@@ -4,7 +4,7 @@ import { afterEach, expect, it, vi } from "vitest";
 import { createStarterBinding, type StarterBinding } from "../lib/recovery/binding";
 import type { Principal } from "../lib/recovery/owner";
 import type { Scope } from "../lib/recovery/entitlements";
-const mock = vi.hoisted(() => ({ binding: null as StarterBinding | null, create: vi.fn(async (_params: Stripe.Checkout.SessionCreateParams, _options: Stripe.RequestOptions) => ({ url:"https://checkout.stripe.invalid/synthetic" })), account: "acct_synthetic", mode: "test" }));
+const mock = vi.hoisted(() => ({ binding: null as StarterBinding | null, create: vi.fn(async (_params: Stripe.Checkout.SessionCreateParams, _options: Stripe.RequestOptions) => { void _params; void _options; return { url:"https://checkout.stripe.invalid/synthetic" }; }), account: "acct_synthetic", mode: "test" }));
 vi.mock("../lib/recovery/binding", async (original) => ({ ...await original<typeof import("../lib/recovery/binding")>(), getStarterBinding: () => mock.binding }));
 vi.mock("../lib/stripe-config", () => ({ getStripeConfiguration: () => ({ accountId: mock.account, mode: mock.mode, client: { checkout: { sessions: { create: mock.create } } } }), verifyStripeAccount: async () => "valid", isTransientStripeError: () => false }));
 import { POST } from "../app/api/checkout/route";
@@ -34,7 +34,7 @@ it.each(["live", "other-account", "receipt-policy"])("actual checkout refuses a 
  expect((await POST(request())).status).toBe(503);expect(probes).toBe(variant === "receipt-policy" ? 2 : 1);expect(mock.create).not.toHaveBeenCalled();
 });
 it("actual checkout refuses a store lacking scoped write readiness proof",async()=>{
- const d=deps();const {checkReadiness: _removed,...store}=d.store;
+ const d=deps();const {checkReadiness: _removed,...store}=d.store; void _removed;
  mock.binding=createStarterBinding({...d,store} as unknown as Parameters<typeof createStarterBinding>[0]);
  expect((await POST(request())).status).toBe(503);expect(mock.create).not.toHaveBeenCalled();
 });
@@ -43,3 +43,26 @@ it("expired buyer denies checkout with401 and zero session creation",async()=>{m
 it("cookie-authenticated cross-origin checkout refuses creation",async()=>{mock.binding=createStarterBinding(deps());const value=request();const headers=new Headers(value.headers);headers.set("Cookie","__Host-everymcp-buyer=synthetic_verified_access_token");headers.set("Origin","https://attacker.invalid");const body=await value.text();expect((await POST(new Request(value.url,{method:"POST",headers,body}))).status).toBe(400);expect(mock.create).not.toHaveBeenCalled();});
 
 it("authoritative owner outage refuses checkout with503 and zero creation",async()=>{mock.binding=createStarterBinding({...deps(),authenticate:async()=>{throw new Error("owner unavailable");}});expect((await POST(request())).status).toBe(503);expect(mock.create).not.toHaveBeenCalled();});
+
+it("stalled complete-looking JSON cannot reach binding or Stripe before EOF; deadline refuses",async()=>{
+ vi.useFakeTimers();
+ try {
+  const ready=vi.fn(async()=>true);mock.binding={...createStarterBinding(deps()),ready};
+  const stream=new ReadableStream<Uint8Array>({start(c){c.enqueue(new TextEncoder().encode('{"plan":"starter"}'));},cancel(){return Promise.reject(new Error("synthetic cancel refusal"));}});
+  const r=new Request("https://example.invalid/api/checkout",{method:"POST",headers:{"Idempotency-Key":"synthetic_attempt_123"},body:stream,duplex:"half"} as RequestInit);
+  const pending=POST(r);await vi.advanceTimersByTimeAsync(2999);expect(ready).not.toHaveBeenCalled();expect(mock.create).not.toHaveBeenCalled();
+  await vi.advanceTimersByTimeAsync(1);expect((await pending).status).toBe(400);expect(ready).not.toHaveBeenCalled();expect(mock.create).not.toHaveBeenCalled();
+ }finally{vi.useRealTimers();}
+});
+it("oversized chunked checkout body refuses before binding even if cancellation rejects",async()=>{
+ const ready=vi.fn(async()=>true);mock.binding={...createStarterBinding(deps()),ready};
+ const stream=new ReadableStream<Uint8Array>({start(c){c.enqueue(new Uint8Array(2049));},cancel(){return Promise.reject(new Error("synthetic cancel refusal"));}});
+ const r=new Request("https://example.invalid/api/checkout",{method:"POST",body:stream,duplex:"half"} as RequestInit);
+ expect((await POST(r)).status).toBe(400);expect(ready).not.toHaveBeenCalled();expect(mock.create).not.toHaveBeenCalled();
+});
+it("bounded multi-chunk valid JSON retains the ordinary authenticated checkout path",async()=>{
+ mock.binding=createStarterBinding(deps());
+ const stream=new ReadableStream<Uint8Array>({start(c){c.enqueue(new TextEncoder().encode('{"plan":'));c.enqueue(new TextEncoder().encode('"starter"}'));c.close();}});
+ const r=new Request("https://example.invalid/api/checkout",{method:"POST",headers:{"Idempotency-Key":"synthetic_attempt_123"},body:stream,duplex:"half"} as RequestInit);
+ expect((await POST(r)).status).toBe(200);expect(mock.create).toHaveBeenCalledOnce();
+});

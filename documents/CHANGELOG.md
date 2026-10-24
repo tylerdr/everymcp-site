@@ -261,3 +261,6 @@ Added minimal email-code signup/sign-in UI and APIs under the canonical false so
 - Read-only resource/config/catalog and hosted browser checks completed; rejected proposed shared store after PUBLIC net queue access found. No customer rows, credential values, permission changes or sends.
 - Added deny-only per-transaction cross-product isolation check; neutral checkout-return metadata avoids unverified completion claim.
 - Updated existing DURABLE-RECOVERY packet with exact identities, authority sources, bounded run and rollback; historical agent read-only holds superseded.
+
+## 2026-10-23 — checkout input bound
+Recovered exact51b0c7f from saved packet after scratch pruning. Checkout JSON now requires EOF within3seconds and at most2048bytes before binding/Stripe access.20focusedcheckouttests, standalone types and explicit changed-file lint pass; no full baseline rerun. Preserved isolation guard, prices, owner/entitlement behavior and disabled source gate. No provider/config/credential/payment/deployment mutation.

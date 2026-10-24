@@ -171,3 +171,5 @@ Email confirmation codes provide first-time onboarding and sign-in through one f
 
 ### Receipt-store isolation acceptance (2026-10-22 correction)
 A dedicated NOINHERIT role is insufficient when PUBLIC grants expose other-product relations. Every receipt transaction must deny external effective table/column/sequence access, external schema CREATE, role memberships and callable user SECURITY DEFINER routines before reading/writing receipts. The app does not repair ACLs. Current shared Sprinter Website candidate fails; actual isolated login/database proof remains required. Return-page metadata reports status without assuming checkout completion.
+
+Checkout request admission (2026-10-23): maximum2048rawbytes and3seconds to complete JSON, before binding/account/store/provider work. Malformed, oversized, stalled and invalid UTF-8 requests refuse400. Existing authenticated valid checkout contract is unchanged.

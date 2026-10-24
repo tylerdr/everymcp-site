@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { assertLedger, recordPayment, recoverPacket, sameScope, type EntitlementStore, type PaymentNotice, type Scope, type VerifiedPurchase } from "./entitlements";
+import { assertLedger, recordPayment, recoverCurrentPacket, sameScope, type EntitlementStore, type PaymentNotice, type Scope, type VerifiedPurchase } from "./entitlements";
 
 // No production wiring. Identity/signature/purchase adapters must be independently
 // approved and server-bound; a caller-supplied owner is never an identity.
@@ -8,6 +8,7 @@ export type RecoveryAdapters = {
   scope: Scope;
   verifyNotice: (raw: string, signature: string) => PaymentNotice;
   verifyPurchase: (session: string, scope: Scope) => Promise<VerifiedPurchase>;
+  resolveNotice?: (notice: PaymentNotice) => Promise<PaymentNotice | null>;
   authenticate: (request: Request) => Promise<{ scope: Scope; ownerKey: string } | null>;
 };
 const headers = { "Cache-Control": "private, no-store" };
@@ -43,7 +44,9 @@ export function createRecoveryHandlers(adapters: RecoveryAdapters) {
         if (notice.payloadSha256 !== createHash("sha256").update(bytes).digest("hex") || !sameScope(notice.scope, adapters.scope)) throw new Error("Invalid notice");
       } catch { return json({ error: "Invalid webhook" }, 400); }
       try {
-        const result = await recordPayment(adapters.store, adapters.scope, notice, adapters.verifyPurchase);
+        const resolved = adapters.resolveNotice ? await adapters.resolveNotice(notice) : notice;
+        if (!resolved) return json({ status: "ignored" });
+        const result = await recordPayment(adapters.store, adapters.scope, resolved, adapters.verifyPurchase);
         return json({ status: result });
       } catch { return json({ error: "Receipt persistence unavailable; retry delivery" }, 503); }
     },
@@ -57,11 +60,16 @@ export function createRecoveryHandlers(adapters: RecoveryAdapters) {
             assertLedger(ledger);
             return Object.values(ledger.receipts)
             .filter((receipt) => sameScope(receipt.scope, adapters.scope) && receipt.ownerKey === principal.ownerKey)
-            .map((receipt) => ({ id: receipt.id, packetSha256: receipt.packetSha256 }));
+            .map((receipt) => ({ id: receipt.id, packetSha256: receipt.packetSha256, sessionId: receipt.sessionId }));
           });
-          return json({ receipts });
+          const current = [];
+          for (const receipt of receipts) {
+            const purchase = await adapters.verifyPurchase(receipt.sessionId, adapters.scope);
+            if (purchase.paid && sameScope(purchase.scope, adapters.scope) && purchase.sessionId === receipt.sessionId && purchase.ownerKey === principal.ownerKey) current.push({id: receipt.id, packetSha256: receipt.packetSha256});
+          }
+          return json({ receipts: current });
         }
-        const packet = await recoverPacket(adapters.store, adapters.scope, principal.ownerKey, id);
+        const packet = await recoverCurrentPacket(adapters.store, adapters.scope, principal.ownerKey, id, adapters.verifyPurchase);
         if (!packet) return json({ error: "Receipt unavailable" }, 404);
         return new Response(packet, { headers: { ...headers, "Content-Type": "text/markdown; charset=utf-8", "Content-Disposition": 'attachment; filename="everymcp-mcp-integration-starter-kit.md"', "X-EveryMCP-Artifact-SHA256": createHash("sha256").update(packet).digest("hex") } });
       } catch { return json({ error: "Recovery unavailable; retry later" }, 503); }

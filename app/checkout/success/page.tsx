@@ -12,7 +12,7 @@ type SearchParams = {
   session_id?: string;
 };
 
-type FulfillmentState = "paid" | "missing" | "unavailable" | "invalid" | "not_paid";
+type FulfillmentState = "paid" | "missing" | "unavailable" | "invalid" | "not_paid" | "revoked";
 
 export const metadata: Metadata = {
   title: "Checkout status",
@@ -71,6 +71,8 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
       ? "Open this page from a completed checkout to receive your download."
       : state === "unavailable"
         ? "Checkout verification is temporarily unavailable. Refresh this page later; no download is unlocked until payment is verified."
+        : state === "revoked"
+          ? "Access is unavailable because this payment was refunded or disputed. Your original purchase record is preserved. Contact support if this looks incorrect."
         : state === "not_paid"
           ? "Payment is still pending or was not completed. No download is unlocked yet."
           : "This checkout link is invalid or expired. No download is unlocked.";

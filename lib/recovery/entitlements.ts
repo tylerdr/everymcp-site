@@ -8,8 +8,8 @@ export type Ledger = { events: Record<string, string>; receipts: Record<string, 
 export interface EntitlementStore {
   transaction<T>(change: (ledger: Ledger) => T): Promise<T>;
 }
-export type PaymentNotice = { id: string; type: string; sessionId: string; scope: Scope; payloadSha256: string };
-const acceptedEvents = new Set(["checkout.session.completed", "checkout.session.async_payment_succeeded", "checkout.session.async_payment_failed"]);
+export type PaymentNotice = { id: string; type: string; sessionId: string; scope: Scope; payloadSha256: string; paymentIntentId?: string; chargeId?: string };
+const acceptedEvents = new Set(["checkout.session.completed", "checkout.session.async_payment_succeeded", "checkout.session.async_payment_failed", "charge.refunded", "refund.created", "refund.updated", "refund.failed", "charge.dispute.created", "charge.dispute.updated", "charge.dispute.closed", "charge.dispute.funds_withdrawn", "charge.dispute.funds_reinstated"]);
 const sha = (value: string) => createHash("sha256").update(value).digest("hex");
 export const receiptId = (scope: Scope, session: string) => sha(JSON.stringify([scope.accountId, scope.mode, session]));
 export function sameScope(a: Scope, b: Scope) { return a.accountId === b.accountId && a.mode === b.mode; }
@@ -46,7 +46,7 @@ export async function recordPayment(
     assertLedger(ledger);
     const id = receiptId(configured, purchase.sessionId);
     const existing = ledger.receipts[id];
-    if (existing && (!sameScope(existing.scope, configured) || existing.ownerKey !== purchase.ownerKey)) throw new Error("Receipt owner conflict");
+    if (existing && (!sameScope(existing.scope, configured) || (purchase.ownerKey && existing.ownerKey !== purchase.ownerKey))) throw new Error("Receipt owner conflict");
     const eventKey = receiptId(configured, notice.id);
     if (ledger.events[eventKey]) {
       if (ledger.events[eventKey] !== notice.payloadSha256) throw new Error("Conflicting duplicate event");
@@ -72,4 +72,18 @@ export async function recoverPacket(store: EntitlementStore, scope: Scope, owner
     if (sha(receipt.packet) !== receipt.packetSha256) throw new Error("Receipt integrity failure");
     return receipt.packet;
   });
+}
+
+// Storage-only recoverPacket above is not an entitlement API. Public handlers must
+// use this reader, which verifies current rights after ownership before returning bytes.
+export async function recoverCurrentPacket(store: EntitlementStore, scope: Scope, ownerKey: string, id: string, verify: (id: string, scope: Scope) => Promise<VerifiedPurchase>) {
+  const saved = await store.transaction(ledger => {
+    assertLedger(ledger);
+    const receipt = ledger.receipts[id];
+    return receipt && sameScope(receipt.scope, scope) && receipt.ownerKey === ownerKey ? { ...receipt } : null;
+  });
+  if (!saved) return null;
+  const current = await verify(saved.sessionId, scope);
+  if (!sameScope(current.scope, scope) || current.sessionId !== saved.sessionId || !current.paid || current.ownerKey !== ownerKey) return null;
+  return saved.packet;
 }

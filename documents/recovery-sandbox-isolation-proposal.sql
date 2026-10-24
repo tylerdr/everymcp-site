@@ -1,5 +1,5 @@
 -- REVIEW ONLY: complete candidate sandbox proposal, not executed.
--- Requires approval of seller, test mode, named shared project and catalog-only
+-- Requires approval of seller, test mode, selected isolated project and catalog-only
 -- capacity/PUBLIC-ACL preflight. Stop if any cross-product access is possible.
 -- Operator applies with existing administration access; no admin key goes to app.
 BEGIN;
@@ -48,16 +48,16 @@ ALTER TABLE everymcp_receipts.paid_receipts ENABLE ROW LEVEL SECURITY;
 ALTER TABLE everymcp_receipts.paid_receipts FORCE ROW LEVEL SECURITY;
 CREATE POLICY everymcp_test_events_read ON everymcp_receipts.payment_events
   FOR SELECT TO everymcp_receipt_server
-  USING (account_id = 'acct_1Re4lnCrDNIXmbyx' AND mode = 'test');
+  USING (account_id = 'acct_1Re4ltEQ7c58oLZ4' AND mode = 'test');
 CREATE POLICY everymcp_test_events_insert ON everymcp_receipts.payment_events
   FOR INSERT TO everymcp_receipt_server
-  WITH CHECK (account_id = 'acct_1Re4lnCrDNIXmbyx' AND mode = 'test');
+  WITH CHECK (account_id = 'acct_1Re4ltEQ7c58oLZ4' AND mode = 'test');
 CREATE POLICY everymcp_test_receipts_read ON everymcp_receipts.paid_receipts
   FOR SELECT TO everymcp_receipt_server
-  USING (account_id = 'acct_1Re4lnCrDNIXmbyx' AND mode = 'test');
+  USING (account_id = 'acct_1Re4ltEQ7c58oLZ4' AND mode = 'test');
 CREATE POLICY everymcp_test_receipts_insert ON everymcp_receipts.paid_receipts
   FOR INSERT TO everymcp_receipt_server
-  WITH CHECK (account_id = 'acct_1Re4lnCrDNIXmbyx' AND mode = 'test');
+  WITH CHECK (account_id = 'acct_1Re4ltEQ7c58oLZ4' AND mode = 'test');
 -- No UPDATE/DELETE, auth schema grants, other-product grants, exposed Data API
 -- schema, SECURITY DEFINER routine, or changes to existing PUBLIC privileges.
 -- PRIVATE schema/RLS alone cannot neutralize inherited PUBLIC access elsewhere:

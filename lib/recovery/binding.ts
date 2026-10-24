@@ -7,12 +7,21 @@ import { getStripeConfiguration, verifyStripeAccount } from "@/lib/stripe-config
 import { assertLedger, recordPayment, receiptId, sameScope, type EntitlementStore, type Scope, type VerifiedPurchase } from "./entitlements";
 import { createRecoveryHandlers } from "./handlers";
 import { PostgresStore } from "./postgres-store";
-import { stripeNoticeVerifier } from "./stripe-notice";
+import { stripeNoticeVerifier, stripeNoticeResolver } from "./stripe-notice";
 import { supabaseOwner, type Principal } from "./owner";
 
-// Only a reviewed source change after accepted sandbox proof may lift this gate.
-// Environment variables alone cannot open a chargeable checkout or recovery.
-export const starterRecoveryEnabled = false;
+// Production is source-disabled. Explicit preview opt-in is confined to the
+// named sandbox and a platform-owned preview origin; store checks still apply.
+export const starterRecoveryEnabled = false; // Production remains source-disabled.
+export function previewRecoveryEnabled(env: Record<string, string | undefined> = process.env) {
+  let origin: URL;
+  try { origin = new URL(env.NEXT_PUBLIC_SITE_URL || ""); } catch { return false; }
+  const host = origin.host;
+  const previewOrigin = origin.protocol === "https:" && origin.pathname === "/" && !origin.search && !origin.hash && !origin.username && !origin.password
+    && host.endsWith(".vercel.app") && (host === env.VERCEL_URL || host === env.VERCEL_BRANCH_URL);
+  return previewOrigin && env.VERCEL_ENV === "preview" && env.EVERYMCP_PREVIEW_RECOVERY === "named-sandbox-v1"
+    && env.STRIPE_MODE === "test" && env.STRIPE_ACCOUNT_ID === "acct_1Re4ltEQ7c58oLZ4";
+}
 export type StarterBinding = ReturnType<typeof createStarterBinding>;
 type Dependencies = {
   scope: Scope;
@@ -21,10 +30,11 @@ type Dependencies = {
   authenticate: (request: Request) => Promise<Principal | null>;
   verifyPurchase: (id: string, scope: Scope) => Promise<VerifiedPurchase>;
   verifyAccount: () => Promise<boolean>;
+  resolveNotice?: (notice: import("./entitlements").PaymentNotice) => Promise<import("./entitlements").PaymentNotice | null>;
   verifyNotice: ReturnType<typeof stripeNoticeVerifier>;
 };
 export function createStarterBinding(dependencies: Dependencies) {
-  const { scope, authProject, store, authenticate, verifyPurchase, verifyAccount, verifyNotice } = dependencies;
+  const { scope, authProject, store, authenticate, verifyPurchase, verifyAccount, verifyNotice, resolveNotice } = dependencies;
   async function ready() {
     try {
       if (!store?.checkReadiness || !authenticate || !verifyPurchase || !verifyAccount || !verifyNotice || !/^acct_[A-Za-z0-9]+$/.test(scope?.accountId || "") || !/^[a-z]{20}$/.test(authProject || "") || !["test", "live"].includes(scope.mode)) return false;
@@ -46,7 +56,7 @@ export function createStarterBinding(dependencies: Dependencies) {
       return owner(request).catch(() => null);
     },
     ready,
-    handlers: createRecoveryHandlers({ scope, store, authenticate, verifyPurchase, verifyNotice }),
+    handlers: createRecoveryHandlers({ scope, store, authenticate, verifyPurchase, verifyNotice, resolveNotice }),
     async packet(sessionId: string) {
       // Same authoritative reader and atomic snapshot path as webhook fulfillment.
       const purchase = await verifyPurchase(sessionId, scope);
@@ -70,7 +80,7 @@ export function purchaseReader(scope: Scope, project: string, verify = verifyPai
     if (!sameScope(scope, requestedScope)) throw new Error("Purchase scope mismatch");
     const result = await verify(id, "starter");
     if (result.status === "unavailable") throw new Error("Authoritative purchase unavailable");
-    if (result.status !== "paid") return { sessionId: id, scope, ownerKey: "", paid: false, packet: "" };
+    if (result.status !== "paid" && result.status !== "revoked") return { sessionId: id, scope, ownerKey: "", paid: false, packet: "" };
     const session = result.session;
     if (session.id !== id || session.livemode !== (scope.mode === "live")) throw new Error("Session identity mismatch");
     const metadata = session.metadata || {};
@@ -85,13 +95,13 @@ export function purchaseReader(scope: Scope, project: string, verify = verifyPai
       if (saved && saved.ownerKey !== purchaseOwner) throw new Error("Owner conflict");
       return saved?.packet;
     }) : undefined;
-    return { sessionId: id, scope, ownerKey: purchaseOwner, paid: true, packet: snapshot ?? build(metadata.acquisition_goal) };
+    return { sessionId: id, scope, ownerKey: purchaseOwner, paid: result.status === "paid", packet: snapshot ?? (result.status === "paid" ? build(metadata.acquisition_goal) : "") };
   };
 }
 
 let binding: StarterBinding | null = null;
 export function getStarterBinding(): StarterBinding | null {
-  if (!starterRecoveryEnabled) return null;
+  if (!starterRecoveryEnabled && !previewRecoveryEnabled()) return null;
   if (binding) return binding;
   const stripe = getStripeConfiguration();
   const project = process.env.EVERYMCP_AUTH_PROJECT;
@@ -109,7 +119,7 @@ export function getStarterBinding(): StarterBinding | null {
     const pool = new Pool({ connectionString: url, ssl: { rejectUnauthorized: true }, max: 2, options: "-c statement_timeout=5000 -c lock_timeout=5000 -c idle_in_transaction_session_timeout=5000", connectionTimeoutMillis: 5000, idleTimeoutMillis: 5000 });
     const authenticate = supabaseOwner(scope, project, publicKey);
     const store = new PostgresStore(pool, scope);
-    binding = createStarterBinding({ scope, authProject: project, store, authenticate, verifyPurchase: purchaseReader(scope, project, verifyPaidSession, buildStarterKit, store), verifyAccount: async () => await verifyStripeAccount(stripe) === "valid", verifyNotice: stripeNoticeVerifier(signingSecret, scope) });
+    binding = createStarterBinding({ scope, authProject: project, store, authenticate, verifyPurchase: purchaseReader(scope, project, verifyPaidSession, buildStarterKit, store), verifyAccount: async () => await verifyStripeAccount(stripe) === "valid", verifyNotice: stripeNoticeVerifier(signingSecret, scope), resolveNotice: stripeNoticeResolver(stripe.client, scope) });
     return binding;
   } catch { return null; }
 }

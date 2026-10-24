@@ -23,7 +23,9 @@ export const databaseIsolationSql = `SELECT NOT EXISTS (
     AND n.nspname NOT LIKE 'pg_%'
     AND has_schema_privilege(current_user,n.oid,'USAGE')
     AND ((c.relkind IN ('r','p','v','m','f') AND (
-      has_table_privilege(current_user,c.oid,'SELECT,INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER')
+      has_table_privilege(current_user,c.oid,
+        'SELECT,INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER' ||
+        CASE WHEN current_setting('server_version_num')::integer >= 170000 THEN ',MAINTAIN' ELSE '' END)
       OR has_any_column_privilege(current_user,c.oid,'SELECT,INSERT,UPDATE,REFERENCES')
     )) OR (c.relkind='S' AND has_sequence_privilege(current_user,c.oid,'USAGE,SELECT,UPDATE')))
 ) AND NOT EXISTS (

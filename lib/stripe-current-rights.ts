@@ -85,5 +85,5 @@ export function reconcileProductCash(rows: { sessionId: string; rights: CurrentR
   }
   const values = [...entries.values()].filter(e => e.created >= start && e.created < end);
   const sum = (kind: CashEntry["kind"]) => values.filter(e => e.kind === kind).reduce((n,e) => n + e.productCents, 0);
-  return { collectionCents: sum("collection"), refundCents: Math.abs(sum("refund")), netRefundCents: sum("collection") + sum("refund"), disputeAdjustmentCents: sum("dispute"), cashAfterDisputesCents: values.reduce((n,e) => n+e.productCents,0), mrrCents: 0, coverage: "provided-verified-sessions-only" as const };
+  return { taxAllocation: "proportional-approximation" as const, finalTaxReconciliationRequired: rows.some(({rights}) => !rights.test && rights.taxCents > 0 && (rights.refundedCents > 0 || rights.entries.some(e => e.kind === "dispute"))), collectionCents: sum("collection"), refundCents: Math.abs(sum("refund")), netRefundCents: sum("collection") + sum("refund"), disputeAdjustmentCents: sum("dispute"), cashAfterDisputesCents: values.reduce((n,e) => n+e.productCents,0), mrrCents: 0, coverage: "provided-verified-sessions-only" as const };
 }

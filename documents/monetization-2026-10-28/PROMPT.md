@@ -1,0 +1,7 @@
+# Delegated scope — 2026-10-28
+
+Independent monetization content lane. Inspect current high-intent directory/tool content and actual available analytics; never invent traffic. Verify affiliate eligibility and commission from primary sources after the required provider lookup. No signups or third-party disclosure of user information. Implement one non-overlapping content/sample-to-offer improvement with truthful attribution/disclosure and no invented affiliate IDs. Finish editorial/campaign assets and revenue sensitivity math using observed or explicitly assumed traffic. Test links/rendering; draft PR only if non-overlapping. Checkout handlers and Stack Planner authority remain unchanged.
+
+User permits meaningful branch publication and a draft PR, not merging; both commit identities must be Tyler Dreher <tyler@sprinterconsulting.com>. No GitHub Actions, spend, external messages, live charges, grants, or provider/SQL/config writes. Stop at a resumable checkpoint by 06:50 UTC; no work beyond 07:00 without renewed budget. Do not create agents.
+
+Coordination exception to repository session-doc defaults: PR29 and PR30 both modify root documents/HANDOFF.md, BACKLOG.md, CHANGELOG.md, PROMPTS.md and SPEC.md. This lane records its prompt, handoff, backlog, changelog and status in this isolated directory to respect the explicit non-overlap constraint and avoid overwriting newer owner state. No Mac venture workspace is available or modified.

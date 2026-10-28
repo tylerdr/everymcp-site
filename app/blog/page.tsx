@@ -436,10 +436,10 @@ const posts: { href: string; title: string; description: string; date: string; r
   },
   {
     href: "/blog/mcp-servers-for-web-scraping",
-    title: "Best MCP Servers for Web Scraping & Browser Automation in 2026",
+    title: "MCP Servers for Web Scraping: Fetch, Playwright or Firecrawl?",
     description:
-      "Discover the top MCP servers for web scraping and browser automation. From Playwright to Puppeteer integrations, give your AI agent real-time web access.",
-    date: "March 21, 2026",
+      "Choose a web retrieval approach from publisher sources, work through a synthetic example, and download a free evaluation worksheet.",
+    date: "October 28, 2026",
     readTime: "8 min read",
     tag: "MCP Guide"
   },

@@ -19,6 +19,11 @@ type CheckoutButtonProps = {
   fallbackLabel?: string;
 };
 
+// Optional measurement must never block identity, checkout creation or redirect.
+function trackCheckout(name: "checkout_started" | "checkout_session_created", properties: Parameters<typeof track>[1]) {
+  try { void Promise.resolve(track(name, properties)).catch(() => {}); } catch { /* Measurement is best effort. */ }
+}
+
 export function CheckoutButton({
   plan,
   label,
@@ -48,7 +53,7 @@ export function CheckoutButton({
       ...(goal ? { goal } : {})
     };
 
-    track("checkout_started", { plan, ...attribution });
+    trackCheckout("checkout_started", { plan, ...attribution });
 
     try {
       const returnTo = pricingIntent({ source: source === "listing" || source === "stack-planner" ? source : undefined, listing, goal: goal as Parameters<typeof pricingIntent>[0]["goal"] });
@@ -75,7 +80,7 @@ export function CheckoutButton({
         throw new Error("Checkout URL missing");
       }
 
-      track("checkout_session_created", { plan, ...attribution });
+      trackCheckout("checkout_session_created", { plan, ...attribution });
       window.location.href = payload.url;
     } catch (caughtError) {
       const message = caughtError instanceof Error ? caughtError.message : "Checkout is temporarily unavailable. No payment was taken.";

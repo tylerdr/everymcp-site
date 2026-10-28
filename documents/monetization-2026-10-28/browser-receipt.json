@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-10-28T06:27:06.883167+00:00",
+  "base": "http://127.0.0.1:3001",
+  "scope": "Local Chromium, synthetic analytics sink; no backend receipt, provider execution, payment or paid download proof.",
+  "browser": "154.0.8037.57",
+  "pageStatus": 200,
+  "links": {
+    "/blog": 200,
+    "/blog/how-to-choose-an-mcp-server": 200,
+    "/directory": 200,
+    "/mcp/fetch": 200,
+    "/mcp/firecrawl": 200,
+    "/mcp/playwright-mcp-official": 200,
+    "/methodology": 200,
+    "/plan": 200,
+    "/pricing#kit-preview": 200,
+    "/samples/web-retrieval-evaluation.md": 200
+  },
+  "canonical": "https://everymcp.com/blog/mcp-servers-for-web-scraping",
+  "worksheetSha256": "a6d83a6860897a59ea5c96dd288fc587196f5872607638af4c893acc820275d4",
+  "downloadBytes": 3486,
+  "keyboardDownload": true,
+  "keyboardOfferNavigation": true,
+  "offerAnchor": true,
+  "checkoutClosed": true,
+  "noJavaScriptDownloadAndOffer": true,
+  "mobileNoHorizontalOverflow": true,
+  "pageErrors": [],
+  "syntheticEvents": [
+    {
+      "article": "web-scraping",
+      "resource": "worksheet"
+    },
+    {
+      "article": "web-scraping",
+      "resource": "offer"
+    }
+  ],
+  "telemetryFailureNavigation": true,
+  "screenshots": [
+    "/workspace/monetization-validation/guide-desktop.png",
+    "/workspace/monetization-validation/guide-mobile.png"
+  ]
+}

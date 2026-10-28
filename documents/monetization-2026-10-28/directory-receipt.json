@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-28",
+  "cliVersion": "1.55.3",
+  "pluginVersion": "0.3.5",
+  "authentication": "no login or key",
+  "lookups": [
+    {
+      "query": "Firecrawl",
+      "format": "json",
+      "limit": 3,
+      "names": [
+        "Firecrawl"
+      ],
+      "sha256": "fa86cf8eedc41e317673da7fde1fd2aceb9d04f269b506c63b40980461f3679b",
+      "nextActionsExecuted": false
+    },
+    {
+      "query": "Microsoft Playwright",
+      "format": "json",
+      "limit": 3,
+      "names": [],
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "nextActionsExecuted": false
+    },
+    {
+      "query": "browser automation",
+      "format": "json",
+      "limit": 3,
+      "names": [
+        "Browserbase",
+        "tinyfish",
+        "KERNEL"
+      ],
+      "sha256": "7791441f9060dfa4e9c0196b3e83630df355c5ef5a77bcb94a405687019c29d5",
+      "nextActionsExecuted": false
+    },
+    {
+      "query": "Model Context Protocol Fetch",
+      "format": "json",
+      "limit": 3,
+      "names": [
+        "Browserbase",
+        "tinyfish",
+        "Firecrawl"
+      ],
+      "sha256": "710fb8f922be46b5c73c7ffc2a3a0f9b46ce2f88d88fa40be468bb8fcf1fdf2b",
+      "nextActionsExecuted": false
+    }
+  ]
+}

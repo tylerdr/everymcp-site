@@ -1,0 +1,123 @@
+{
+  "checkedAt": "2026-10-22T07:36:27.879439+00:00",
+  "base": "https://everymcp-fwa8ow65d-tai-durden-ai.vercel.app",
+  "checks": [
+    {
+      "path": "/api/buyer/session",
+      "method": "GET",
+      "status": 503,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/api/fulfillment/recovery",
+      "method": "GET",
+      "status": 503,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/api/buyer/request-code",
+      "method": "POST",
+      "status": 503,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/api/buyer/verify-code",
+      "method": "POST",
+      "status": 503,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/api/checkout",
+      "method": "POST",
+      "status": 400,
+      "cache_control": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "/buyer/sign-in",
+      "method": "GET",
+      "status": 200,
+      "cache_control": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "noindex": true,
+      "false_paid_claim": false
+    },
+    {
+      "path": "/checkout/success",
+      "method": "GET",
+      "status": 200,
+      "cache_control": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "noindex": true,
+      "false_paid_claim": false
+    },
+    {
+      "path": "/sitemap.xml",
+      "method": "GET",
+      "status": 200,
+      "cache_control": "public, max-age=0, must-revalidate",
+      "url_count": 642,
+      "buyer_routes": false
+    }
+  ],
+  "actualPayments": 0,
+  "actualEmails": 0,
+  "note": "Empty Auth bodies; no credentials, valid email, Checkout attempt key or payment submitted. TLS defaults retained.",
+  "sourceBase": "5669af0e38602ff97ccc89a74514726710f4574a",
+  "database": {
+    "project": "mwxmownwmmvizbknnbpa",
+    "observedDatabaseBytes": 16362643,
+    "maxConnections": 60,
+    "observedConnections": 12,
+    "roleExists": false,
+    "receiptSchemaExists": false,
+    "sharedCandidateAccepted": false,
+    "publicSchemaUsage": [
+      "public",
+      "net"
+    ],
+    "publicNetRelations": [
+      "net._http_response",
+      "net.http_request_queue"
+    ],
+    "publicPrivileges": [
+      "DELETE",
+      "INSERT",
+      "MAINTAIN",
+      "REFERENCES",
+      "SELECT",
+      "TRIGGER",
+      "TRUNCATE",
+      "UPDATE"
+    ],
+    "securityDefinerPublicExecuteCount": 0,
+    "customerRowsRead": 0,
+    "mutations": 0,
+    "isolationSqlAdministrativeVerdict": false,
+    "dedicatedLoginTested": false
+  },
+  "browser": {
+    "surface": "dedicated cloud Chrome via cua_repl",
+    "desktopObserved": true,
+    "mobileObserved": false,
+    "researchPlanSubmitted": true,
+    "threeServersRendered": true,
+    "copiedStateObserved": true,
+    "goalPreservedIntoPricing": true,
+    "checkoutClosed": true,
+    "recoveryUnavailableObserved": true,
+    "credentialsEntered": false
+  },
+  "config": {
+    "method": "Vercel metadata decrypt=false; no values read",
+    "listedKeys": [
+      "NEXT_PUBLIC_GA_MEASUREMENT_ID",
+      "STRIPE_SECRET_KEY",
+      "NEXT_PUBLIC_SITE_URL"
+    ],
+    "previewRecoveryBindingPresent": false
+  },
+  "providerAcceptance": {
+    "paidTest": false,
+    "databaseDurability": false,
+    "realOwnerIsolation": false,
+    "email": false
+  }
+}

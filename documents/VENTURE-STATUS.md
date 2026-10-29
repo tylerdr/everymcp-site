@@ -1,16 +1,7 @@
 # EveryMCP venture status — 2026-10-11
 
-- Origin/main and READY production remain PR25 9d626667; open24/26 are historical evidence drafts. New buyer-path code isolates contextual49USD offer/actual preview/retryable download from those lanes.
--22 tests, existing contract checks, lint/types/build753 and candidate listing→pricing browser pass. Synthetic actual download UI proves transient failure→same-session retry→valid file and non-PII event order.
-- Live purchase path remains incomplete: production pricing closes checkout pending approved Stripe account/mode binding; no payment/session/paid artifact or revenue accepted.
-- Durable event-driven entitlement/lost-return recovery has no approved storage/webhook contract. Owner setup plus sandbox payment-event→persistent receipt→download/recovery proof required; no credentials/card charge/paid provider/tenant or billing changes. Reviewed draft only, preserve traffic/price/gates. Prepared with OpenAI Codex assistance.
-
-- Independent PR27 review found incomplete/stalled download issues; revised2e17692 fixes digest, bounded streaming and timeout retry.
--29 Vitest methods, lint/types,753-page build, actual component browser retry passed.
-- Checkout remains closed; no payments/provider calls/credentials/spend.
-- Disabled durable recovery is a separate draft; activation requires account/storage/identity approvals.
-
-- PR27 live/READY at ebee82b, independently reviewed tree f37e9f5.
-- Production listing→pricing/sample, freeplanner, closedcheckout, lockednoindexreturn and deniedAPI passed;642URLs/616listings preserved.
-- Standalone tsc caught test-only header fixture union error after Next build passed; follow-up corrects type and evidence.
-- Durable recovery remains separate disableddraft; no money path acceptance, DB/credentials/paidspend.
+- Reviewed PR27/PR28 production2c8d7fb remains READY; free planner,642sitemapURLs/616listingroutes and closedcheckout preserved.
+- Draft PR29 now implements concrete durable bindings plus minimal email-code onboarding/sign-in, verified HttpOnly session, safe listing/goal return and same-owner paid/lost-return recovery. Hard source gatefalse.
+- Corrected84320cd independently accepted DISABLED source only;127tests/standalone types/lint/756build and actual controlled React/server browser pass.0actual provider/DB/credentials/emails, one mockedcheckout,0pageerrors.
+- Remaining holds are exact seller/test, isolated store/ACL/headroom/role, fixedAuthsignup/code-template/SMTP approvals, approved preview/config and real bounded payment/event/fault/owner isolation plus separately authorized signup/mail proof. No remaining intentional UI implementation gap.
+- Parent owns resource/login/release coordination. NoSQL/config/security/payment/mail/secret/spend orPR29productionrelease/activation; privateSQLproposalunapplied and$0conditional reuse unproved.

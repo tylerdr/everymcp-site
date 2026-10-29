@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getMcpBySlug } from "@/lib/mcps";
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { isStackGoalId } from "@/lib/stack-planner";
-import { isStripeCheckoutConfigured } from "@/lib/stripe-config";
+import { getStarterBinding } from "@/lib/recovery/binding";
 import { buildStarterKit } from "@/lib/starter-kit";
 
 export const metadata: Metadata = {
@@ -49,10 +50,12 @@ function firstParam(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] : value;
 }
 
-export default function PricingPage({ searchParams }: PricingPageProps) {
-  const checkoutConfigured = isStripeCheckoutConfigured();
+export default async function PricingPage({ searchParams }: PricingPageProps) {
+  const checkoutConfigured = await getStarterBinding()?.ready() || false;
   const requestedSource = firstParam(searchParams?.source);
   const requestedGoal = firstParam(searchParams?.goal);
+  const requestedListing = firstParam(searchParams?.listing);
+  const listing = requestedSource === "listing" && requestedListing && getMcpBySlug(requestedListing) ? requestedListing : undefined;
   const source = requestedSource === "stack-planner" || requestedSource === "listing" ? requestedSource : undefined;
   const goal = source === "stack-planner" && isStackGoalId(requestedGoal) ? requestedGoal : undefined;
   const packetPreview = buildStarterKit(goal).split("## 5. Boundary and rollout record\n")[1].split("## 6.")[0].trim();
@@ -93,6 +96,7 @@ export default function PricingPage({ searchParams }: PricingPageProps) {
                     label={tier.cta.label}
                     source={source}
                     goal={goal}
+                    listing={listing}
                     fallbackHref="#starter-kit"
                     fallbackLabel="Retry starter kit checkout"
                   />
@@ -114,12 +118,13 @@ export default function PricingPage({ searchParams }: PricingPageProps) {
         ))}
       </div>
 
+      <p className="mt-6 text-muted-foreground"><Link href="/buyer/purchases" className="underline">Recover a starter kit purchase</Link>{listing && <> · <Link href={`/mcp/${listing}`} className="underline">Return to your listing</Link></>}</p>
       <section aria-labelledby="kit-preview" className="mt-12 rounded-3xl border border-border bg-background p-8 text-foreground">
         <h2 id="kit-preview" className="text-2xl font-extrabold">For the developer rolling out a first MCP workflow</h2>
-        <p className="mt-3 text-sm leading-7 text-muted-foreground">Download a Markdown packet you can edit and share: selection matrix, worked client configuration, permission record, validation prompts, and acceptance/rollback checklist. Use the free planner first to tailor the packet to your goal. This is a reference packet, not a managed integration or security certification.</p>
+        <p className="mt-3 text-sm leading-7 text-muted-foreground">Download a Markdown packet you can edit and share: selection matrix, worked client configuration, permission record, validation prompts, and acceptance/rollback checklist. Use the free planner first to tailor the packet to your goal. This is a reference packet, not a managed integration or security certification. A full refund ends future download access; a partial refund retains the complete packet. Access is paused during an open or lost payment dispute.</p>
         <h3 className="mt-6 text-lg font-bold">Sample from the paid packet: boundary and rollout record</h3>
         <pre className="mt-3 overflow-x-auto whitespace-pre-wrap rounded-xl border border-border p-4 text-xs leading-6">{packetPreview}</pre>
-        <p className="mt-4 text-sm text-muted-foreground">After verified payment, the checkout return page provides the download. Keep that link and save the file. Recovery after losing the return link is not currently available.</p>
+        <p className="mt-4 text-sm text-muted-foreground">After verified payment, the checkout return page provides the download. Keep that link and save the file. {checkoutConfigured ? "Purchases linked to your verified buyer account can also be recovered from your purchases page." : "Buyer account recovery is temporarily unavailable while setup is completed."}</p>
       </section>
 
       <div className="mt-12 rounded-3xl border border-slate-200 bg-white p-8 text-center">

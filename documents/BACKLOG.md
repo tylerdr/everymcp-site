@@ -66,3 +66,35 @@
 
 - [x] Independent PR27 review, guarded normal merge and exact production behavior proof.
 - [ ] Review and release test-only HeadersInit correction with accurate standalone type evidence.
+
+- [x] T028 disabled implementation/local proof: scoped signed-event receipts and server-owner recovery;16tests and independent review corrections.
+- [ ] T028 activation: exact approved account/test mode, named durable host/$0capacity, private schema/role (concrete SERIALIZABLE/verified-principal/purchase adapters implemented but source disabled), authorized sandbox fault/isolation/lost-return proof. Publicroutesremain503.
+
+- [x] Resolve available seller/store/host metadata and independently confirm synthetic historical continuity/default-disabled routes.
+- [ ] Owner confirm Sprinterseller/testcontext and candidateSprinterWebsite reuse; authorize metadata-only capacity/PUBLICACL preflight before any shared-role/SQL/providertrial. Productionmail/onboarding remains separate.
+
+- [x] PR29 source-only: concrete PostgreSQL/verified-current-user/authoritative purchase bindings; checkout zero-create safety; stored snapshot reuse; strict new$49policy and historical paid total reconciliation.
+- [ ] PR29 acceptance: independent final-head review/CI/preview; exact seller/teststore/auth approvals and real bounded sandbox payment→storedreceipt→lostreturn isolation proof. Public buyer entry is now implemented as disabled source; exact Auth signup/email-code/SMTP policy and bounded hosted proof remain unapproved.
+
+- [x] PR29 buyer source: minimal email-code sign-in/first-time onboarding, canonical HttpOnly session, listing/goal-safe return, current-owner paid return/download, expired-session and lost-return recovery; controlled actual React/server browser and SDK/body regressions.
+- [ ] PR29 resource-only activation: exact seller test context; approved isolated durable store/headroom/ACL/role; fixed Auth project/signup/email-code template/SMTP and separate controlled email trial; approved preview URL/config; bounded real payment/event/fault/owner isolation proof. Gate staysfalse and draft; no remaining intentional public UI implementation gap.
+
+## 2026-10-22 purchase acceptance
+- [x] Catalog-only capacity/PUBLIC-ACL and nondecrypted config discovery; current authorization covers reads.
+- [x] Reject current shared store candidate for demonstrated PUBLIC net table exposure; implement transaction-level deny-only isolation guard.
+- [x] Neutral checkout-return metadata; retain verified body gates/noindex.
+- [x] Hosted planner/copy/pricing/recovery and disabled-endpoint checks; current final activation packet in DURABLE-RECOVERY.md.
+- [ ] Nominate isolated store/Auth project; current shared candidate cannot pass. No other-product ACL repair without scope.
+- [ ] Post-reauth seller/test binding, exact reviewed preview config, dedicated-login DB fault/restart/owner proof, controlled email acceptance and production decision remain distinct prerequisites.
+
+- [x] 2026-10-23: Bound checkout raw JSON before binding/provider work; focused stalled/oversized/chunked regressions pass.
+- [ ] Publish exact-identity successor for review/Vercel gate. Do not label source-only checks hosted acceptance.
+
+
+## 2026-10-29 — Reconnected continuation
+- [x] Source: research/default worked boundary sample from the actual paid packet; conditional recovery copy; 3 focused checks/types/lint and independent review.
+- [x] Reconcile newer main discovery/guide/worksheet work without replacing PR29's payment source.
+- [ ] Root: integrate/review candidate; preserve separate reviewed f7beb496 private-store packet and PR30. Exact Vercel build remains required after publication.
+- [ ] Shared infrastructure owner: install/postcheck reviewed product-only receipt store under current actual metadata/action scope, then separately bind dedicated credentials and exact Preview configuration.
+- [ ] Hosted: controlled Auth principals, genuine sandbox webhook/original-download/reload/recovery/refund and owner-isolation acceptance; Production stays closed.
+- [ ] Commercial owner: verified support contact/owner, refund-request process, capacity and backend acquisition event receipts before paid launch. Prepare existing campaign drafts for authorized distribution only.

@@ -86,7 +86,7 @@
     "checkoutSyntheticStates": 5,
     "downloadCases": 13,
     "lint": "passed",
-    "types": "Next build type check passed; later standalone tsc exposed header-fixture TS2322. Explicit HeadersInit fixture correction is in this follow-up; standalone and full build revalidation required.",
+    "types": "Standalone TS2322 header-fixture error corrected in PR28; reviewed head0dc55a1 full tsc --noEmit --incremental false passed. Runtime unchanged; production2c8d7fb revalidated.",
     "vitest": 29
   },
   "integrity": {

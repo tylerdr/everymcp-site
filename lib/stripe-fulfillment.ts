@@ -8,10 +8,12 @@ import {
   isTransientStripeError,
   verifyStripeAccount
 } from "@/lib/stripe-config";
+import { readCurrentRights, type CurrentRights } from "./stripe-current-rights";
 import { matchesStarterEntitlement } from "@/lib/stripe-entitlement";
 
 export type PaidSessionResult =
-  | { status: "paid"; session: Stripe.Checkout.Session }
+  | { status: "paid"; session: Stripe.Checkout.Session; rights?: CurrentRights }
+  | { status: "revoked"; session: Stripe.Checkout.Session; rights: CurrentRights }
   | { status: "missing" | "unavailable" | "invalid" | "not_paid" };
 
 export async function verifyPaidSession(
@@ -41,10 +43,12 @@ export async function verifyPaidSession(
 
   const expectedProduct = products[expectedPlan];
 
+  let sessionRetrieved = false;
   try {
     const session = await stripeConfiguration.client.checkout.sessions.retrieve(sessionId, {
       expand: ["line_items.data.price.product"]
     });
+    sessionRetrieved = true;
     const lineItems = session.line_items?.data || [];
     const lineItem = lineItems.length === 1 ? lineItems[0] : null;
     const price = lineItem?.price;
@@ -62,6 +66,11 @@ export async function verifyPaidSession(
         sessionProductVersion: session.metadata?.product_version,
         currency: session.currency,
         amountSubtotal: session.amount_subtotal,
+        amountTotal: session.amount_total,
+        amountDiscount: session.total_details?.amount_discount,
+        amountTax: session.total_details?.amount_tax,
+        amountShipping: session.total_details?.amount_shipping,
+        pricingPolicy: session.metadata?.pricing_policy,
         quantity: lineItem?.quantity,
         unitAmount: price?.unit_amount,
         priceCurrency: price?.currency,
@@ -82,16 +91,17 @@ export async function verifyPaidSession(
       return { status: "not_paid" };
     }
 
-    return { status: "paid", session };
+    const rights = await readCurrentRights(stripeConfiguration.client, session);
+    return { status: rights.allowed ? "paid" : "revoked", session, rights };
   } catch (error) {
     if (isTransientStripeError(error) || isStripeConfigurationError(error)) {
       return { status: "unavailable" };
     }
 
-    if (isStripeNotFoundError(error)) {
+    if (isStripeNotFoundError(error) && !sessionRetrieved) {
       return { status: "invalid" };
     }
 
-    return { status: "invalid" };
+    return { status: "unavailable" };
   }
 }

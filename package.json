@@ -4,17 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "test:audit-mcp": "vitest run tests/audit-mcp.test.ts tests/listing-evidence.test.ts tests/starter-kit-download.test.ts",
+    "test:audit-mcp": "vitest run tests/audit-mcp.test.ts tests/listing-evidence.test.ts tests/starter-kit-download.test.ts tests/starter-kit-example.test.ts tests/recovery.test.ts tests/recovery-binding.test.ts tests/checkout-readiness.test.ts tests/starter-price.test.ts tests/return-snapshot.test.ts tests/buyer-auth.test.ts && node scripts/verify-checkout-analytics.mjs",
     "test:stack-planner": "node scripts/verify-stack-planner.mjs",
     "test": "npm run test:audit-mcp && npm run test:stack-planner && node scripts/verify-brand-assets.mjs && node scripts/verify-catalog-claims.mjs && node scripts/verify-marketplace-guides.mjs && node scripts/verify-selfserve-checkout.mjs && node scripts/verify-stripe-entitlement.mjs && node scripts/verify-google-analytics.mjs && node scripts/verify-lead-lifecycle.mjs",
     "build": "npm run test:audit-mcp && npm run test:stack-planner && node scripts/verify-brand-assets.mjs && node scripts/verify-catalog-claims.mjs && node scripts/verify-marketplace-guides.mjs && node scripts/verify-selfserve-checkout.mjs && node scripts/verify-stripe-entitlement.mjs && node scripts/verify-google-analytics.mjs && node scripts/verify-lead-lifecycle.mjs && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:buyer-browser": "node scripts/verify-buyer-browser.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/client": "^2.0.0",
     "@modelcontextprotocol/server": "^2.0.0",
     "@radix-ui/react-slot": "1.3.3",
+    "@supabase/supabase-js": "2.117.3",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "class-variance-authority": "0.7.1",
@@ -22,6 +24,7 @@
     "lucide-react": "1.51.0",
     "mcp-handler": "^2.1.1",
     "next": "14.2.35",
+    "pg": "8.23.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "stripe": "^20.4.0",
@@ -30,6 +33,7 @@
   },
   "devDependencies": {
     "@types/node": "20.17.10",
+    "@types/pg": "8.23.1",
     "@types/react": "18.3.16",
     "@types/react-dom": "18.3.5",
     "autoprefixer": "10.4.20",

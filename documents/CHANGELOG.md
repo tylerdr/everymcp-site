@@ -236,3 +236,35 @@ PR27 review identified incomplete packet acceptance and unbounded requests/body 
 ## 2026-10-11 — PR27 production proof and fixture correction
 
 Reviewed PR27 is live at ebee82b, READY deployment dpl_4Uk6V5Wja93hb1wVcZSBNE7g1T6x. Actual browser buyer flow/closed checkout/noindex/denied fulfillment and642URL sitemap pass. Standalone tsc found a test-only header union error after Next build passed; follow-up types the fixture explicitly and corrects evidence. No runtime/payment activation.
+
+## 2026-10-11 — Disabled durable recovery draft
+
+Added atomic scoped event/immutable paid snapshot contracts, server-owner lost-return listing/download, real SDK synthetic signature verification and local durable proof adapter.16 recovery regressions include three independent corruption/duplicate/cancellation findings; publicroutesalways503. Review-only SQL and exact activation packet; no DB/provider/credentials/spend or revenue acceptance.
+
+PR28 production2c8d7fb/dpl_3aLiXiqo8ixdcDhg5BaXC9tZ5mzi READY and exact actual buyer-path/closedcheckout/freeplanner/lockednoindexreturn/deniedAPI/642URLs proof passed. Standalone types correction accepted; runtime remains unchanged.
+
+## 2026-10-11 — Activation metadata and continuity packet
+
+Resolved nonsecret seller/store/host candidates; recorded conditional reuse/isolation/cost/owner/testcaps and unapplied role/RLS companion SQL. Independent synthetic historical live/testkey-only recovery and default503proof; no realhistorical sessions or activation.
+
+## 2026-10-11 — PR29 disabled adapter and price corrections
+
+Prepared concrete production adapters under a hard false source gate: scoped SERIALIZABLE Postgres immutable store/privilege checks, own verified current-user identity, authoritative shared purchase/event/return snapshots. Coupled chargeable checkout to all delivery bindings and matching account/mode. New$49/no-promotion policy reconciles actual collected totals and tax while preserving historically paid discounted entitlements. Focused actual-route and authoritative-reader regressions added; complete candidate isolation SQL remains review-only. No activation, infrastructure, secrets, SQL/payment/mail/provider spend or production release.
+
+Independent review caught grant-present/RLS-denied readiness, malformed persisted event map keys, and bound-contract return regeneration under rollback. Corrected d920dac adds mandatory scoped two-table rollback-only write readiness, preassignment key validation, failed-client discard and bound snapshot503/retry; actual route regressions retain unbound historical fallback. Still disabled; no actual SQL/provider test.
+
+## 2026-10-11 — Disabled public buyer entry and recovery
+
+Added minimal email-code signup/sign-in UI and APIs under the canonical false source gate, verified-current-user HttpOnly sessions, safe listing/goal return context, current-owner bound paid returns/downloads, owned receipt recovery and browser-local sign-out. Actual controlled React/server browser covers expiry recovery without repurchase, cross-owner refusal, safe return and disabled routes. Independent review found SDK outage misclassification and unfinished-body deadline ordering; corrected both and added actual pinned-SDK/stalled-stream regressions. No real Auth signup/email, DB/payment, credential/config/security changes, paid spend, production merge or activation.
+
+## 2026-10-22 — Purchase acceptance continuation
+- Read-only resource/config/catalog and hosted browser checks completed; rejected proposed shared store after PUBLIC net queue access found. No customer rows, credential values, permission changes or sends.
+- Added deny-only per-transaction cross-product isolation check; neutral checkout-return metadata avoids unverified completion claim.
+- Updated existing DURABLE-RECOVERY packet with exact identities, authority sources, bounded run and rollback; historical agent read-only holds superseded.
+
+## 2026-10-23 — checkout input bound
+Recovered exact51b0c7f from saved packet after scratch pruning. Checkout JSON now requires EOF within3seconds and at most2048bytes before binding/Stripe access.20focusedcheckouttests, standalone types and explicit changed-file lint pass; no full baseline rerun. Preserved isolation guard, prices, owner/entitlement behavior and disabled source gate. No provider/config/credential/payment/deployment mutation.
+
+
+## 2026-10-29 — Source-only worked sample and current-main reconciliation
+Prepared a filled hypothetical research/default boundary sample in the actual paid artifact and pricing excerpt; corrected recovery copy to require availability, verified buyer account and current rights. Preserved immutable original custody and all payment gates. Combined current main's published guide/worksheet/discovery work with PR29 by clean local merge. Three new focused tests, standalone types and changed-file lint pass; independent review PASS. Source only, not a hosted release or paid receipt.

@@ -167,3 +167,7 @@ Parent explicitly requests independent exact-head PR27 review, corrections, auth
 ## 2026-10-11 — Standalone typecheck correction and production evidence
 
 During authorized PR27 production revalidation, standalone tsc exposed TS2322 in a synthetic Response header fixture. Correct the test type through normal reviewed PR; record the failed check accurately and preserve runtime/checkout gates.
+
+## 2026-10-29 — Revenue sprint: honest lead outcome recovery
+
+Parent delegates a distinct buyer-facing recovery fix outside commerce PR29: inspect lost responses and false success, build and verify a narrow candidate, then independently review and publish a draft PR only. Keep existing checkout/provider activation gates closed; no credentials, provider configuration, customer messages, payments, merge, or production promotion. The current lead adapter falsely reports that nothing was saved after a provider transport failure. Correct that uncertain outcome and keep the existing free methodology resource accessible.

@@ -1,16 +1,9 @@
-# EveryMCP venture status — 2026-10-11
+# EveryMCP status — 2026-10-29
 
-- Origin/main and READY production remain PR25 9d626667; open24/26 are historical evidence drafts. New buyer-path code isolates contextual49USD offer/actual preview/retryable download from those lanes.
--22 tests, existing contract checks, lint/types/build753 and candidate listing→pricing browser pass. Synthetic actual download UI proves transient failure→same-session retry→valid file and non-PII event order.
-- Live purchase path remains incomplete: production pricing closes checkout pending approved Stripe account/mode binding; no payment/session/paid artifact or revenue accepted.
-- Durable event-driven entitlement/lost-return recovery has no approved storage/webhook contract. Owner setup plus sandbox payment-event→persistent receipt→download/recovery proof required; no credentials/card charge/paid provider/tenant or billing changes. Reviewed draft only, preserve traffic/price/gates. Prepared with OpenAI Codex assistance.
+- Lead recovery draft reports provider outcome uncertainty honestly and keeps the free methodology reachable after errors.
+- 14 new adapter/route cases pass; full43 tests, lint, types and 753-page build pass. Local browser form/resource recovery verified with synthetic input.
+- Root independently reviewed source. Draft/cloud evidence stays attached to the PR; production main remains f181b0f.
+- Lead provider configuration is absent in production; hosted storage/confirmation acceptance is pending. No capture or revenue claim.
+- Separate commerce PR29 retains its activation gates and owner; no credential, provider, payment, outbound or promotion changes.
 
-- Independent PR27 review found incomplete/stalled download issues; revised2e17692 fixes digest, bounded streaming and timeout retry.
--29 Vitest methods, lint/types,753-page build, actual component browser retry passed.
-- Checkout remains closed; no payments/provider calls/credentials/spend.
-- Disabled durable recovery is a separate draft; activation requires account/storage/identity approvals.
-
-- PR27 live/READY at ebee82b, independently reviewed tree f37e9f5.
-- Production listing→pricing/sample, freeplanner, closedcheckout, lockednoindexreturn and deniedAPI passed;642URLs/616listings preserved.
-- Standalone tsc caught test-only header fixture union error after Next build passed; follow-up corrects type and evidence.
-- Durable recovery remains separate disableddraft; no money path acceptance, DB/credentials/paidspend.
+Local browser follow-up also passed against a synthetic loopback provider: first POST retained the key and destroyed its response socket; the actual form showed unknown outcome with the free resource link; retrying unchanged details returned409/queued and rendered confirmation. This proves the local transport/UI contract only, not real provider persistence or email delivery. Both local servers were stopped afterward.

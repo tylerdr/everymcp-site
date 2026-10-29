@@ -65,3 +65,5 @@ vercel --prod
 ```
 
 Then in Vercel project settings, add and assign the `everymcp.com` domain.
+
+Provider timeouts, lost responses, and transient HTTP errors return `503` with `saved: null`: storage or follow-up may already have happened. Retry guidance asks for the same details, and the deterministic normalized-email-plus-intent key is unchanged. This is not an exactly-once delivery guarantee: the provider must honor the contract, and distinct inquiries with the same email and intent currently share one identity. The form offers the existing free methodology on errors without claiming capture succeeded.

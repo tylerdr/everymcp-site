@@ -5,6 +5,7 @@
 ---
 
 ## Active Sprint
+- [ ] T023: Review and release the 2026-10-29 draft lead-outcome recovery fix; 14 synthetic runtime tests and actual local form recovery pass. Provider binding and hosted acceptance remain TD001/OQ002.
 - [x] T020: Version/transport-specific declaration contract and owned HTTP fixtures released normally as PR19 at `a0320ef98efbc4df2478bb9180dab94da1f33024`. Exact-head independent review and hosted checks passed; READY production/domain, nine routes/canonicals, five dated notes/references, 616 sitemap listings, free planner and commerce/provider holds passed `2026-10-05T00:59:37Z`. Live endpoints, grading and publication stay disabled.
 - [x] T021: Exact-head independent/hosted review passed for fixed disabled RevenueCat adapter PR20; parent approved plan b2f2f102 and normal release. Merged 0d5aed17, exact READY production/domain nine-route/616-sitemap/evidence/commerce/provider readback passed 2026-10-05T02:35:48Z.
 - [x] T022: Parent-approved one RevenueCat proof completed once after exact independent/hosted PR21 acceptance and normal merge a01c9daa. Manual run 37256631159/job 111594998429: one anonymous server/discover POST at 2026-10-05T02:45:30Z returned401/Bearer, halted all remaining profiles;317 ms/812 wire/788 header/0 captured body. Canonical sanitized log SHA 02567fd9 verified; capability/evaluation unknown, zero tool/model/auth/retry/publication. Exact READY production and nine-route/616-sitemap/hold readback passed 2026-10-05T02:47:25Z. Approval consumed; evidence-only draft records proof.

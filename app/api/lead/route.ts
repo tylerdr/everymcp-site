@@ -42,6 +42,19 @@ export async function POST(request: Request) {
     );
   }
 
+  if (result.status === "outcome_unknown") {
+    return NextResponse.json(
+      {
+        ok: false,
+        saved: null,
+        retryable: true,
+        resourcePath: LEAD_RESOURCE_PATH,
+        error: "We could not confirm whether your request was saved or follow-up was sent. Please retry with the same details. You can read the methodology now."
+      },
+      { status: 503, headers: { "Retry-After": "10" } }
+    );
+  }
+
   return NextResponse.json(
     {
       ok: false,

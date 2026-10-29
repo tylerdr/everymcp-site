@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DirectoryExplorer } from "@/components/DirectoryExplorer";
+import { Button } from "@/components/ui/button";
 import { categories } from "@/data/categories";
 import { getCategoryBySlug, getMcpsByCategory, relatedCategories } from "@/lib/mcps";
 
@@ -34,6 +35,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
 
   const servers = getMcpsByCategory(params.slug);
   const related = relatedCategories(params.slug);
+  const hasWebRetrievalGuide = params.slug === "browser-automation" || params.slug === "web-search-research";
 
   return (
     <section className="mx-auto w-full max-w-6xl px-4 pb-16 pt-12 sm:px-6">
@@ -41,6 +43,25 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
       <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink">{category.name}</h1>
       <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">{category.blurb}</p>
       <p className="mt-2 text-sm font-semibold text-slate-700">{servers.length} servers in this category</p>
+
+      {hasWebRetrievalGuide && (
+        <aside aria-labelledby="web-retrieval-guide" className="mt-6 rounded-2xl border border-border bg-background p-6 text-foreground">
+          <h2 id="web-retrieval-guide" className="text-lg font-bold">Choose how your agent reads the web</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-muted-foreground">
+            Compare URL fetching, browser interaction, and crawling before choosing a server.
+            The guide covers Fetch, Microsoft Playwright, and Firecrawl, with a free worksheet
+            for evaluating your own pages. No account required.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Button asChild className="h-auto whitespace-normal py-3">
+              <Link href="/blog/mcp-servers-for-web-scraping">Read the web retrieval guide</Link>
+            </Button>
+            <Button asChild variant="outline" className="h-auto whitespace-normal py-3">
+              <a href="/samples/web-retrieval-evaluation.md" download>Download the free worksheet</a>
+            </Button>
+          </div>
+        </aside>
+      )}
 
       <div className="mt-8">
         <DirectoryExplorer presetCategory={params.slug} />

@@ -33,5 +33,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7
   }));
 
-  return [...baseEntries, ...categoryEntries, ...mcpEntries, ...marketplaceEntries];
+  // Include the reviewed guide and its hub; the date reflects the content review,
+  // not each sitemap request. Other articles require their own editorial review.
+  const editorialEntries: MetadataRoute.Sitemap = ["/blog", "/blog/mcp-servers-for-web-scraping"].map((path) => ({
+    url: `${siteUrl}${path}`,
+    lastModified: new Date("2026-10-28T00:00:00.000Z"),
+    changeFrequency: "monthly",
+    priority: 0.7
+  }));
+
+  return [...baseEntries, ...categoryEntries, ...mcpEntries, ...marketplaceEntries, ...editorialEntries];
 }

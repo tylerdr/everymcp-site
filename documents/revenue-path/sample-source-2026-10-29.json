@@ -1,0 +1,43 @@
+{
+  "date_utc": "2026-10-29",
+  "kind": "source-only",
+  "pr29_parent": "9d41a585dc714813974e5b652dee901c8de2c7d8",
+  "preserved_main": "f181b0fc450ba4ef7bd24b86c27ff1b255521c9d",
+  "checks": [
+    {
+      "command": "./node_modules/.bin/vitest run tests/starter-kit-example.test.ts",
+      "exit_code": 0,
+      "test_files_passed": 1,
+      "tests_passed": 3,
+      "duration_ms": 427
+    },
+    {
+      "command": "./node_modules/.bin/tsc --noEmit --incremental false",
+      "exit_code": 0,
+      "stdout": ""
+    },
+    {
+      "command": "./node_modules/.bin/next lint --file lib/starter-kit.ts --file tests/starter-kit-example.test.ts",
+      "exit_code": 0,
+      "result": "No ESLint warnings or errors"
+    }
+  ],
+  "review": {
+    "scope": "three-file source delta",
+    "result": "PASS; no P1/P2",
+    "limits": "Excerpt check follows the pricing extraction; not browser or hosted acceptance."
+  },
+  "sha256": {
+    "lib/starter-kit.ts": "6723efe18e247777cc0a9e8872a89d9fd42dc6e779f95362abdb662f764a17e3",
+    "tests/starter-kit-example.test.ts": "f642c9c52e0d2f5480a5395ce2d0088fde501be9659fa69d2b14c79a58ef144a",
+    "package.json": "57c77cc52467a16c8a8ca7d409bbdfafed634ae36d677f58f3c53bd664962389"
+  },
+  "no_claim": [
+    "new Vercel build",
+    "native database acceptance",
+    "Auth email delivery",
+    "sandbox purchase receipt",
+    "live activation",
+    "collected revenue"
+  ]
+}

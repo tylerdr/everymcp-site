@@ -1,0 +1,60 @@
+{
+  "scope": "Public documentation link availability only; no provider tools, accounts or signup used. Body hash may cover bounded bytes; complete marks truncation. No performance/security certification.",
+  "sources": [
+    {
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+      "checkedAt": "2026-10-28T06:21:54.753330+00:00",
+      "method": "GET",
+      "anonymous": true,
+      "status": 200,
+      "finalUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+      "capturedBytes": 327686,
+      "complete": true,
+      "sha256": "c315b2a0da8d9fbe00d7ff6a29b620dbd4d28f70af7add024b758892013b522a"
+    },
+    {
+      "url": "https://github.com/microsoft/playwright-mcp",
+      "checkedAt": "2026-10-28T06:21:54.754292+00:00",
+      "method": "GET",
+      "anonymous": true,
+      "status": 200,
+      "finalUrl": "https://github.com/microsoft/playwright-mcp",
+      "capturedBytes": 632105,
+      "complete": true,
+      "sha256": "75caa71f2edbdc94f8e3c864599c9251fc77d9843b70b4ea11ce467f14e861fd"
+    },
+    {
+      "url": "https://docs.firecrawl.dev/mcp-server",
+      "checkedAt": "2026-10-28T06:21:54.754956+00:00",
+      "method": "GET",
+      "anonymous": true,
+      "status": 200,
+      "finalUrl": "https://docs.firecrawl.dev/mcp-server",
+      "capturedBytes": 258280,
+      "complete": true,
+      "sha256": "a59b4cb9eb33935de68bb5cb1f548db31298d6eb688f0e62b5c190f4582cd3ec"
+    },
+    {
+      "url": "https://www.firecrawl.dev/affiliates",
+      "checkedAt": "2026-10-28T06:21:54.756113+00:00",
+      "method": "GET",
+      "anonymous": true,
+      "status": 200,
+      "finalUrl": "https://www.firecrawl.dev/affiliates",
+      "capturedBytes": 391129,
+      "complete": true,
+      "sha256": "fdfcc3343882331a42165b448a49b756684b412b819eda1bf3f96ef083e8759c"
+    },
+    {
+      "url": "https://partners.dub.co/firecrawl",
+      "checkedAt": "2026-10-28T06:21:54.756716+00:00",
+      "method": "GET",
+      "anonymous": true,
+      "status": 200,
+      "finalUrl": "https://partners.dub.co/firecrawl",
+      "capturedBytes": 36876,
+      "complete": true,
+      "sha256": "004611cc704d4a72864d966e3065bbafce1a0106722a28ea4bd9a0b5d4d67dfe"
+    }
+  ]
+}

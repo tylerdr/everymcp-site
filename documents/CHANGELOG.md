@@ -264,3 +264,7 @@ Added minimal email-code signup/sign-in UI and APIs under the canonical false so
 
 ## 2026-10-23 — checkout input bound
 Recovered exact51b0c7f from saved packet after scratch pruning. Checkout JSON now requires EOF within3seconds and at most2048bytes before binding/Stripe access.20focusedcheckouttests, standalone types and explicit changed-file lint pass; no full baseline rerun. Preserved isolation guard, prices, owner/entitlement behavior and disabled source gate. No provider/config/credential/payment/deployment mutation.
+
+
+## 2026-10-29 — Source-only worked sample and current-main reconciliation
+Prepared a filled hypothetical research/default boundary sample in the actual paid artifact and pricing excerpt; corrected recovery copy to require availability, verified buyer account and current rights. Preserved immutable original custody and all payment gates. Combined current main's published guide/worksheet/discovery work with PR29 by clean local merge. Three new focused tests, standalone types and changed-file lint pass; independent review PASS. Source only, not a hosted release or paid receipt.

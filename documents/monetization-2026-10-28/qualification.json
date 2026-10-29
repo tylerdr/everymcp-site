@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-28T06:27:37Z",
+  "baseSha": "2c8d7fbf69dbbe4b49900b4fd8c7bd7e282179f0",
+  "files": {
+    "app/blog/mcp-servers-for-web-scraping/page.tsx": "b4b7dc063937649616b773a7c3e162aff81b0a08033143b7b8af53922ef82253",
+    "app/blog/page.tsx": "b09a6246439c3a9a6eb18f37660de76d09347944b52f855602233cb8217f3fe5",
+    "components/WebRetrievalActions.tsx": "2d1fda3c3427b178cc5b2572379ad750495cefdd6b22d460bc824c09dacad5b8",
+    "public/samples/web-retrieval-evaluation.md": "a6d83a6860897a59ea5c96dd288fc587196f5872607638af4c893acc820275d4"
+  },
+  "lint": "full next lint passed; affected page/component rerun after contrast correction passed",
+  "typecheck": "tsc --noEmit passed, including after contrast correction",
+  "browser": "browser-receipt.json",
+  "visual": "Desktop/mobile screenshots inspected; offer panel corrected to white on rgb(15,23,42); planner button retains contrasting foreground.",
+  "sensitivity": "Recomputed output matches checked JSON; arithmetic assertions pass.",
+  "ownerOverlap": "No changed path overlaps PR29 or PR30 at recorded heads.",
+  "unchanged": [
+    "app/api",
+    "app/pricing/page.tsx",
+    "lib/stack-planner.ts",
+    "lib/products.ts",
+    "lib/starter-kit.ts",
+    "data",
+    "app/sitemap.ts",
+    "package.json",
+    "package-lock.json",
+    ".github"
+  ],
+  "buildGate": "Existing Vercel preview required for final commit; no local full-build duplicate and no GitHub Actions requested.",
+  "limitations": [
+    "No analytics-backend receipt",
+    "No paid checkout or fulfillment execution",
+    "No provider MCP execution",
+    "No campaign delivery",
+    "No production release"
+  ]
+}

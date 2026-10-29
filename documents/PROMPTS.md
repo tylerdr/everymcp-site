@@ -190,3 +190,7 @@ User directs completing safe nondependent resource/config/source/browser checks 
 
 ## 2026-10-23 — bounded source continuation
 Resume in the same cloud environment after workspace maintenance; inspect current source/PR/deployment, preserve prior checks and close one concrete source gap. No replacement chat, duplicate writer, Mac build, send, purchase, real charge or new credential access. Stop on rate/access refusal. Restored saved51b0c7f; narrow checkout-body bound is the selected successor.
+
+
+## 2026-10-29 — Reconnected revenue-readiness continuation
+User asks to review latest production/source, continue after Stripe reconnect, and drive toward meaningful revenue. Preserve root-owned publication, shared SQL installation and credential/provider boundaries. Prepare a useful paid-packet sample and source handoff while hosted acceptance dependencies remain unresolved; do not send campaigns or charge a live card.

@@ -2,6 +2,37 @@ import { buildStackBrief, getStackGoal, getStackRecommendations, isStackGoalId }
 
 export const starterKitFilename = "everymcp-mcp-integration-starter-kit.md";
 
+function workedBoundaryExample(goal: string | undefined): string {
+  if (isStackGoalId(goal) && goal !== "research") return "";
+
+  return `### Hypothetical worked example — one approved page
+
+Job: return the title, plan name and update date from one approved synthetic product page, with its exact source URL. Example source content: Widget A; Plan: Example; Updated: 2026-10-01.
+
+Expected result: title = Widget A; plan = Example; updated = 2026-10-01; source = the exact approved fixture URL. Missing fields stay missing.
+
+These are proposed decisions for an exercise, not enforced provider defaults, a benchmark, an audited configuration or a completed test. Observed result: NOT RUN. Confirm the selected client and server can enforce each boundary.
+
+| Boundary | Proposed decision |
+| --- | --- |
+| Allowed action | Retrieve the single approved fixture and return the four fields above |
+| Write access | None; do not create, update or delete source records |
+| Approved sources | One synthetic page controlled by the evaluator; no customer data |
+| Destinations | The evaluator's approved client and local decision record |
+| Credentials | None for this fixture; stop if authentication is requested |
+| Attempts and timeout | One attempt, 30 seconds; verify enforcement in the client |
+| Missing field | Report the field as missing; do not infer its value |
+| Refusal or timeout | Record failure and stop; no credential escalation or silent retry |
+| Logs | Keep sanitized fixture results only; evaluator chooses retention before testing |
+| Rollback | Disable the connection, then verify that it can no longer retrieve the fixture |
+
+Before using real data, record the actual command, pinned versions, timestamp, observed output and boundary-test evidence in sections 6 and 7.
+
+### Your boundary record
+
+`;
+}
+
 function personalizedStackSection(goal: string | undefined): string {
   if (!isStackGoalId(goal)) return "";
 
@@ -128,7 +159,7 @@ For a credentialed server, keep the secret in the client or deployment secret st
 
 ## 5. Boundary and rollout record
 
-| Boundary | Decision |
+${workedBoundaryExample(goal)}| Boundary | Decision |
 | --- | --- |
 | Allowed tools | |
 | Read-only or write-capable | |
@@ -187,7 +218,9 @@ The integration is ready for real data only when the owner can explain what it c
 - A secret-safe generic client configuration template
 - Source, credential, permission, boundary, validation, retry, and rollback records
 
-This is a self-serve reference packet delivered as a download after a successful checkout return. It does not include managed implementation, third-party security verification, provider credentials, durable entitlement recovery after a lost checkout return, or a promise that any listed server remains current.
+This is a self-serve reference packet delivered as a download after a successful checkout return. It does not include managed implementation, third-party security verification, provider credentials, or a promise that any listed server remains current.
+
+Keep a local copy. See https://everymcp.com/buyer/purchases for current recovery availability. Recovery, when available, requires the verified buyer account and current payment rights.
 `;
 }
 

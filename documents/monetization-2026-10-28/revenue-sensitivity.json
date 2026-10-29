@@ -1,0 +1,59 @@
+{
+  "label": "ASSUMPTIONS ONLY — not forecast, collected revenue or observed traffic",
+  "observedTraffic": null,
+  "observedPaidConversion": null,
+  "observedRevenue": null,
+  "checkoutActivationProved": false,
+  "affiliateActivationProved": false,
+  "starterPriceUsd": 49,
+  "scenarios": [
+    {
+      "scenario": "small_cohort",
+      "visits": 250,
+      "offerClickRate": 0.02,
+      "clickToPaidRate": 0.02,
+      "offerClicks": 5,
+      "expectedOrders": 0.1,
+      "grossUsd": 4.9
+    },
+    {
+      "scenario": "working_assumption",
+      "visits": 1000,
+      "offerClickRate": 0.05,
+      "clickToPaidRate": 0.05,
+      "offerClicks": 50,
+      "expectedOrders": 2.5,
+      "grossUsd": 122.5
+    },
+    {
+      "scenario": "strong_assumption",
+      "visits": 5000,
+      "offerClickRate": 0.1,
+      "clickToPaidRate": 0.1,
+      "offerClicks": 500,
+      "expectedOrders": 50,
+      "grossUsd": 2450
+    }
+  ],
+  "targetGrossUsd": 10000,
+  "targetOrders": 205,
+  "targetVisitsAtWorkingRates": 82000,
+  "affiliate": [
+    {
+      "assumedVisits": 1000,
+      "assumedProviderClickRate": 0.05,
+      "assumedClickToEligiblePaidRate": 0.03,
+      "assumedMonthlyEligibleSpendUsd": 50,
+      "commissionRate": 0.15,
+      "firstMonthExpectedCommissionUsd": 11.25
+    },
+    {
+      "assumedVisits": 1000,
+      "assumedProviderClickRate": 0.05,
+      "assumedClickToEligiblePaidRate": 0.03,
+      "assumedMonthlyEligibleSpendUsd": 50,
+      "commissionRate": 0.25,
+      "firstMonthExpectedCommissionUsd": 18.75
+    }
+  ]
+}

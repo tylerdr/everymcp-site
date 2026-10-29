@@ -1,214 +1,124 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { WebRetrievalActions } from "@/components/WebRetrievalActions";
+import { STARTER_KIT_AMOUNT } from "@/lib/products";
+
+const title = "MCP Servers for Web Scraping: Fetch, Playwright or Firecrawl?";
+const description = "Choose a web retrieval approach by the output you need. Compare publisher sources, work through a synthetic example, and download a free MCP evaluation worksheet.";
+const path = "/blog/mcp-servers-for-web-scraping";
 
 export const metadata: Metadata = {
-  title: "Best MCP Servers for Web Scraping & Browser Automation in 2026",
-  description:
-    "Discover the top MCP servers for web scraping and browser automation. From Playwright to Puppeteer integrations, find the right Model Context Protocol tool to give your AI agent web access.",
-  alternates: {
-    canonical: "/blog/mcp-servers-for-web-scraping"
-  },
-  openGraph: {
-    title: "Best MCP Servers for Web Scraping & Browser Automation in 2026",
-    description:
-      "Top MCP servers for web scraping and browser automation — give your AI agent real-time web access.",
-    url: "https://everymcp.com/blog/mcp-servers-for-web-scraping",
-    type: "article"
-  }
+  title,
+  description,
+  alternates: { canonical: path },
+  openGraph: { title, description, url: `https://everymcp.com${path}`, type: "article" }
 };
 
 const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Best MCP Servers for Web Scraping & Browser Automation in 2026",
-  description:
-    "Discover the top MCP servers for web scraping and browser automation. From Playwright to Puppeteer integrations, find the right Model Context Protocol tool to give your AI agent web access.",
-  url: "https://everymcp.com/blog/mcp-servers-for-web-scraping",
+  headline: title,
+  description,
+  url: `https://everymcp.com${path}`,
   datePublished: "2026-03-21",
-  dateModified: "2026-03-21",
-  author: {
-    "@type": "Organization",
-    name: "EveryMCP",
-    url: "https://everymcp.com"
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "EveryMCP",
-    url: "https://everymcp.com"
-  }
+  dateModified: "2026-10-28",
+  author: { "@type": "Organization", name: "EveryMCP", url: "https://everymcp.com" },
+  publisher: { "@type": "Organization", name: "EveryMCP", url: "https://everymcp.com" }
 };
+
+const approaches = [
+  {
+    name: "Fetch MCP",
+    need: "Read text from a known public URL.",
+    documented: "The reference server retrieves page content and converts HTML to Markdown; its documented fetch inputs include URL, length, offset and raw-output options.",
+    check: "Does the returned content contain the needed fields? A page that depends on browser interaction may need another approach.",
+    source: "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+    sourceLabel: "Fetch maintainer README",
+    listing: "/mcp/fetch"
+  },
+  {
+    name: "Microsoft Playwright MCP",
+    need: "Navigate a page or interact with browser controls.",
+    documented: "Microsoft documents browser automation through accessibility snapshots, with persistent, isolated and extension-based browser contexts.",
+    check: "Use an isolated test context. Decide which navigation and interaction tools to expose before connecting an account.",
+    source: "https://github.com/microsoft/playwright-mcp",
+    sourceLabel: "Microsoft Playwright MCP README",
+    listing: "/mcp/playwright-mcp-official"
+  },
+  {
+    name: "Firecrawl MCP",
+    need: "Evaluate a hosted web-data service for extraction.",
+    documented: "Firecrawl documents limited keyless Search, Scrape and Parse, plus account sign-in or API-key access to the tool surface available on a team’s plan.",
+    check: "Confirm the required tool, data destination and usage limit. Test the actual target pages before estimating costs or subscribing.",
+    source: "https://docs.firecrawl.dev/mcp-server",
+    sourceLabel: "Firecrawl MCP documentation",
+    listing: "/mcp/firecrawl"
+  }
+];
 
 export default function MCPWebScrapingPage() {
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
-      <main className="max-w-3xl mx-auto px-4 py-12">
-        <nav className="text-sm text-gray-500 mb-8">
-          <Link href="/" className="hover:text-gray-900">Home</Link>
-          {" / "}
-          <Link href="/blog" className="hover:text-gray-900">Blog</Link>
-          {" / "}
-          <span>MCP Servers for Web Scraping</span>
-        </nav>
+    <article className="mx-auto w-full max-w-4xl px-4 py-12 text-foreground sm:px-6">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
+        <Link href="/blog" className="underline underline-offset-4">MCP guides</Link> / Web scraping
+      </nav>
+      <header>
+        <p className="text-sm font-semibold text-muted-foreground">Source review: October 28, 2026</p>
+        <h1 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">{title}</h1>
+        <p className="mt-5 text-lg leading-8">Start with the result your workflow needs: readable page text, browser interaction, or hosted extraction. Choose one approach, then prove it can return your required fields within an agreed data and cost boundary.</p>
+        <p className="mt-4 text-sm leading-6 text-muted-foreground">This comparison uses the linked publisher documentation. EveryMCP has not run these providers for this guide or verified compatibility with your client. The example below is synthetic.</p>
+        <p className="mt-3 text-sm leading-6 text-muted-foreground"><strong>Commercial disclosure:</strong> Provider links here are ordinary source links without affiliate tracking. EveryMCP sells the optional starter kit described below.</p>
+      </header>
 
-        <article>
-          <header className="mb-10">
-            <div className="text-xs font-semibold uppercase tracking-widest text-indigo-600 mb-3">
-              MCP Ecosystem · March 2026
-            </div>
-            <h1 className="text-4xl font-bold text-gray-900 leading-tight mb-4">
-              Best MCP Servers for Web Scraping &amp; Browser Automation in 2026
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Web access is one of the most powerful capabilities you can give an AI agent. These MCP servers connect Claude, GPT-4, and other LLMs to real-time web data — enabling scraping, browsing, screenshot capture, and full browser control via the Model Context Protocol.
-            </p>
-          </header>
+      <section aria-labelledby="choose-approach" className="mt-10">
+        <h2 id="choose-approach" className="text-2xl font-bold">Choose by the work you need to do</h2>
+        <div className="mt-5 grid gap-5">
+          {approaches.map((approach) => (
+            <section key={approach.name} className="rounded-2xl border border-border bg-background p-5 sm:p-6">
+              <h3 className="text-xl font-bold">{approach.name}</h3>
+              <p className="mt-2 font-semibold">{approach.need}</p>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">{approach.documented} <a href={approach.source} className="text-primary underline underline-offset-4">{approach.sourceLabel}</a>.</p>
+              <p className="mt-3 text-sm leading-7"><strong>Your first check:</strong> {approach.check}</p>
+              <Link href={approach.listing} className="mt-3 inline-block text-sm text-primary underline underline-offset-4">Inspect the {approach.name} directory listing</Link>
+            </section>
+          ))}
+        </div>
+        <p className="mt-4 text-sm leading-7 text-muted-foreground">These are starting hypotheses, not a speed or quality ranking. For a repeatable fixed workflow, also consider whether an existing API or a small script would meet the need without an agent choosing tools.</p>
+      </section>
 
-          <section className="prose prose-gray max-w-none">
-            <h2>Why Web Scraping MCP Servers Matter</h2>
-            <p>
-              Out of the box, large language models have a knowledge cutoff. They can&apos;t browse the web, check live prices, read today&apos;s news, or interact with dynamic web apps. MCP (Model Context Protocol) servers change that by exposing browser and scraping capabilities as tools that any MCP-compatible client can call.
-            </p>
-            <p>
-              The result: your AI agent can fetch a webpage, extract structured data, fill forms, click buttons, and return results — all without leaving the conversation.
-            </p>
+      <section id="worked-example" aria-labelledby="example-title" className="mt-10 rounded-2xl border border-border bg-background p-5 sm:p-8">
+        <h2 id="example-title" className="text-2xl font-bold">Work through one extraction decision</h2>
+        <p className="mt-3 leading-7">Example goal: read an approved product page and return its title, plan name and update date, with a source link. Begin with a synthetic page containing exactly those fields. This is a proposed test, not an observed provider result.</p>
+        <h3 className="mt-5 font-bold">Synthetic input</h3>
+        <pre className="mt-3 overflow-x-auto whitespace-pre-wrap break-words rounded-xl border border-border p-4 text-xs leading-6">{'<main>\n  <h1>Widget A</h1>\n  <p>Plan: Example</p>\n  <p>Updated: 2026-10-01</p>\n</main>'}</pre>
+        <h3 className="mt-5 font-bold">Expected fields</h3>
+        <p className="mt-2 text-sm leading-7">Title: <strong>Widget A</strong>. Plan: <strong>Example</strong>. Updated date: <strong>2026-10-01</strong>. Source: the exact approved URL you served. A missing field should stay missing, with an explanation; it should not be inferred from another page.</p>
+        <ol className="mt-5 list-decimal space-y-3 pl-5 text-sm leading-7">
+          <li><strong>Try the smallest surface.</strong> If all fields arrive in the initial HTML, evaluate retrieval first. If the fields appear only after interaction, evaluate a browser approach on a separate fixture.</li>
+          <li><strong>Set a bounded run.</strong> For this exercise, propose one approved URL, no login, no writes, one attempt and a 30-second timeout. These are your test requirements; verify how your chosen client enforces them.</li>
+          <li><strong>Make failure visible.</strong> Remove the date, return a 403 and simulate a timeout in your own test environment. Record missing data or refusal instead of silently retrying, guessing or switching to a credentialed session.</li>
+          <li><strong>Record the decision.</strong> Save the version, requested tools, observed fields, elapsed time, usage and failure outputs. Leave each outcome “not run” until you have the evidence.</li>
+        </ol>
+        <p className="mt-4 text-sm leading-7 text-muted-foreground">Only move to real pages you are authorized to access after the fixture checks. Review requested permissions, network destinations and retained data. Publisher documentation describes intended behavior; your records establish what happened in your environment.</p>
+        <WebRetrievalActions kind="worksheet" />
+        <p className="mt-3 text-xs text-muted-foreground">Free Markdown worksheet with this example, a blank decision record and failure-case prompts. No email or account required.</p>
+      </section>
 
-            <h2>Top MCP Servers for Web Scraping</h2>
+      <section aria-labelledby="offer-title" className="mt-10 rounded-2xl border border-border bg-secondary p-5 text-secondary-foreground sm:p-8">
+        <h2 id="offer-title" className="text-2xl font-bold">Need a reusable rollout packet?</h2>
+        <p className="mt-3 text-sm leading-7">Use the free worksheet for this web retrieval decision. The ${STARTER_KIT_AMOUNT / 100} MCP Integration Starter Kit adds a catalog-based selection matrix, source and permission review, a worked Filesystem client configuration, and acceptance/rollback records for a broader MCP rollout.</p>
+        <p className="mt-3 text-sm leading-7">The kit is a general reference packet. It does not include a configured scraping integration, provider credits, managed setup or a security certification. Review its actual sample and current checkout availability on the pricing page.</p>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <WebRetrievalActions kind="offer" />
+          <WebRetrievalActions kind="planner" />
+        </div>
+        <p className="mt-4 text-xs leading-6 text-secondary-foreground/80">The free planner has five general goals; it does not automatically select Firecrawl or reproduce this comparison.</p>
+      </section>
 
-            <h3>1. Playwright MCP Server</h3>
-            <p>
-              The most capable browser automation option in the MCP ecosystem. Playwright MCP wraps Microsoft&apos;s battle-tested browser automation library, giving your AI agent full control over Chromium, Firefox, and WebKit.
-            </p>
-            <ul>
-              <li><strong>Best for:</strong> Dynamic JavaScript-heavy sites, SPAs, login flows</li>
-              <li><strong>Key tools:</strong> navigate, click, fill, screenshot, evaluate, wait</li>
-              <li><strong>Supports:</strong> Headless and headed modes, network interception</li>
-              <li><strong>Use case:</strong> Automated form fills, web testing, data extraction from dashboards</li>
-            </ul>
-
-            <h3>2. Puppeteer MCP Server</h3>
-            <p>
-              A Chromium-only alternative to Playwright, popular for its simplicity and large community. The Puppeteer MCP server is lighter weight and well-suited for scraping scenarios that don&apos;t require cross-browser support.
-            </p>
-            <ul>
-              <li><strong>Best for:</strong> Simple scraping, PDF generation, screenshots</li>
-              <li><strong>Key tools:</strong> goto, click, type, screenshot, pdf, evaluate</li>
-              <li><strong>Use case:</strong> Generating PDF reports from web pages, scraping public data</li>
-            </ul>
-
-            <h3>3. Fetch MCP Server</h3>
-            <p>
-              The lightweight option when you don&apos;t need a full browser. Fetch MCP sends plain HTTP requests and returns the raw HTML or JSON response. It&apos;s fast, stateless, and works great for static content and public APIs.
-            </p>
-            <ul>
-              <li><strong>Best for:</strong> Static HTML pages, REST APIs, RSS feeds</li>
-              <li><strong>Key tools:</strong> fetch (with URL, method, headers, body)</li>
-              <li><strong>Use case:</strong> Pulling article text, checking API endpoints, fetching sitemaps</li>
-            </ul>
-
-            <h3>4. Firecrawl MCP Server</h3>
-            <p>
-              Firecrawl is a managed scraping service with an MCP integration. It handles JavaScript rendering, anti-bot measures, and returns clean Markdown output — ideal when you want structured, readable content without managing your own browser infrastructure.
-            </p>
-            <ul>
-              <li><strong>Best for:</strong> Content extraction at scale, clean Markdown output</li>
-              <li><strong>Key tools:</strong> scrape, crawl, map, search</li>
-              <li><strong>Use case:</strong> Building knowledge bases, competitive research, content pipelines</li>
-              <li><strong>Note:</strong> Requires Firecrawl API key</li>
-            </ul>
-
-            <h3>5. Browser MCP</h3>
-            <p>
-              Browser MCP connects directly to your local Chrome or Chromium instance via Chrome DevTools Protocol. Unlike headless solutions, it can interact with tabs you already have open — useful for authenticated sessions where you&apos;re already logged in.
-            </p>
-            <ul>
-              <li><strong>Best for:</strong> Authenticated web apps, reusing existing sessions</li>
-              <li><strong>Key tools:</strong> screenshot, click, type, navigate, evaluate</li>
-              <li><strong>Use case:</strong> Automating tasks in apps you&apos;re already logged into</li>
-            </ul>
-
-            <h2>How to Choose the Right Web Scraping MCP Server</h2>
-
-            <h3>Static content → Use Fetch MCP</h3>
-            <p>If the page is plain HTML (no JavaScript rendering needed), Fetch is the fastest and simplest option. Zero setup beyond the server itself.</p>
-
-            <h3>Dynamic content → Use Playwright or Puppeteer MCP</h3>
-            <p>If the page requires JavaScript to render its content (SPAs, infinite scroll, dynamic forms), you need a real browser. Playwright supports more browsers; Puppeteer is simpler to configure.</p>
-
-            <h3>Scale + clean output → Use Firecrawl MCP</h3>
-            <p>If you&apos;re crawling many pages and want clean, LLM-ready Markdown without managing infrastructure, Firecrawl&apos;s managed service is worth the API cost.</p>
-
-            <h3>Already logged in → Use Browser MCP</h3>
-            <p>If you need to interact with an authenticated session (Gmail, internal tools, dashboards), Browser MCP can reuse your existing Chrome session.</p>
-
-            <h2>Example: Web Scraping Workflow with Playwright MCP</h2>
-            <p>Here&apos;s what a typical agent interaction looks like when web scraping MCP is configured:</p>
-            <ol>
-              <li>User asks: <em>&quot;What are the top 5 posts on Hacker News right now?&quot;</em></li>
-              <li>Agent calls <code>playwright_navigate</code> with URL <code>https://news.ycombinator.com</code></li>
-              <li>Agent calls <code>playwright_evaluate</code> to extract post titles and links</li>
-              <li>Agent returns structured results with titles, scores, and URLs</li>
-            </ol>
-            <p>The entire flow takes seconds and requires no custom scraping code.</p>
-
-            <h2>MCP Web Scraping vs Traditional Scraping</h2>
-            <p>
-              Traditional web scraping requires writing code: spinning up a browser, handling selectors, managing retries, parsing HTML. MCP web scraping servers abstract this into tools that an LLM can call naturally, in the context of a conversation.
-            </p>
-            <p>
-              The AI agent figures out <em>what</em> to extract based on your natural language request — no CSS selectors or XPath required. This makes MCP-based scraping dramatically more flexible and accessible.
-            </p>
-
-            <h2>Find Web Scraping MCP Servers on EveryMCP</h2>
-            <p>
-              EveryMCP indexes hundreds of MCP servers, including the full ecosystem of web scraping and browser automation tools. Use our directory to find servers by capability, filter by stars, and read documentation — all in one place.
-            </p>
-          </section>
-
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Related Articles</h2>
-            <div className="grid gap-4">
-              <Link
-                href="/blog/best-mcp-servers-2026"
-                className="block p-4 rounded-lg border border-gray-200 hover:border-indigo-300 hover:bg-indigo-50 transition-colors"
-              >
-                <div className="font-semibold text-gray-900">Best MCP Servers in 2026: Top Tools Ranked</div>
-                <div className="text-sm text-gray-500 mt-1">The definitive guide to the best MCP servers across all categories.</div>
-              </Link>
-              <Link
-                href="/blog/how-to-choose-an-mcp-server"
-                className="block p-4 rounded-lg border border-gray-200 hover:border-indigo-300 hover:bg-indigo-50 transition-colors"
-              >
-                <div className="font-semibold text-gray-900">How to Choose an MCP Server</div>
-                <div className="text-sm text-gray-500 mt-1">A practical framework for evaluating MCP servers for your use case.</div>
-              </Link>
-              <Link
-                href="/blog/top-mcp-servers-for-developers"
-                className="block p-4 rounded-lg border border-gray-200 hover:border-indigo-300 hover:bg-indigo-50 transition-colors"
-              >
-                <div className="font-semibold text-gray-900">Top MCP Servers for Developers</div>
-                <div className="text-sm text-gray-500 mt-1">The best MCP servers for coding, debugging, and developer workflows.</div>
-              </Link>
-            </div>
-          </div>
-
-          <div className="mt-10 p-6 bg-indigo-50 rounded-xl">
-            <h3 className="text-lg font-bold text-indigo-900 mb-2">Browse the Full MCP Directory</h3>
-            <p className="text-indigo-700 mb-4">
-              Find web scraping MCP servers and hundreds more — organized by category, starred by the community.
-            </p>
-            <Link
-              href="/directory"
-              className="inline-block bg-indigo-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors"
-            >
-              Explore MCP Directory →
-            </Link>
-          </div>
-        </article>
-      </main>
-    </>
+      <footer className="mt-10 border-t border-border pt-6 text-sm leading-7 text-muted-foreground">
+        <p>Read the <Link href="/methodology" className="text-primary underline underline-offset-4">catalog methodology</Link> for how source references differ from independent verification. Continue with <Link href="/blog/how-to-choose-an-mcp-server" className="text-primary underline underline-offset-4">the MCP selection guide</Link> or <Link href="/directory" className="text-primary underline underline-offset-4">browse the directory</Link>.</p>
+      </footer>
+    </article>
   );
 }

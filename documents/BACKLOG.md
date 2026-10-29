@@ -89,3 +89,12 @@
 
 - [x] 2026-10-23: Bound checkout raw JSON before binding/provider work; focused stalled/oversized/chunked regressions pass.
 - [ ] Publish exact-identity successor for review/Vercel gate. Do not label source-only checks hosted acceptance.
+
+
+## 2026-10-29 — Reconnected continuation
+- [x] Source: research/default worked boundary sample from the actual paid packet; conditional recovery copy; 3 focused checks/types/lint and independent review.
+- [x] Reconcile newer main discovery/guide/worksheet work without replacing PR29's payment source.
+- [ ] Root: integrate/review candidate; preserve separate reviewed f7beb496 private-store packet and PR30. Exact Vercel build remains required after publication.
+- [ ] Shared infrastructure owner: install/postcheck reviewed product-only receipt store under current actual metadata/action scope, then separately bind dedicated credentials and exact Preview configuration.
+- [ ] Hosted: controlled Auth principals, genuine sandbox webhook/original-download/reload/recovery/refund and owner-isolation acceptance; Production stays closed.
+- [ ] Commercial owner: verified support contact/owner, refund-request process, capacity and backend acquisition event receipts before paid launch. Prepare existing campaign drafts for authorized distribution only.

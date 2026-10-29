@@ -2,6 +2,12 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-10-29 — Preserve uncertainty after a lost lead-provider response
+
+Draft candidate from main f181b0f. Transient HTTP failures, timeout, and network failures now return an unknown storage outcome (`saved: null`) instead of falsely claiming nothing was saved or sent. The form uses honest uncertainty for transport/invalid-response failures and exposes the existing free methodology on errors through a shadcn link. No paid commerce or provider configuration changes.
+
+Fourteen runtime adapter/route tests cover a simulated post-save lost response and same-key recovery, six transient HTTP classes, abort cleanup, unconfigured/invalid-input no-call guards, absent confirmation, success, and key scope. Included in the existing build gate; all 43 tests, contract scripts, lint, types and 753-page production build pass. Actual local unconfigured form submit retained inputs and displayed a working methodology link. Provider acceptance remains synthetic until an approved binding is supplied. Parent independently reviewed the source diff without an introduced blocker.
+
 ## 2026-10-03 — Apply the repository's shadcn UI requirement
 
 Root review required the planner controls to follow AGENTS.md. The repository had no shadcn components or utility setup, so this focused addition introduces the official new-york Button and NativeSelect source, a cn utility, components.json, and theme tokens compatible with the existing Tailwind 3 stack. The planner uses NativeSelect/NativeSelectOption, the submit and copy actions use Button, and the starter handoff uses Button asChild around its semantic link.
@@ -236,3 +242,5 @@ PR27 review identified incomplete packet acceptance and unbounded requests/body 
 ## 2026-10-11 — PR27 production proof and fixture correction
 
 Reviewed PR27 is live at ebee82b, READY deployment dpl_4Uk6V5Wja93hb1wVcZSBNE7g1T6x. Actual browser buyer flow/closed checkout/noindex/denied fulfillment and642URL sitemap pass. Standalone tsc found a test-only header union error after Next build passed; follow-up types the fixture explicitly and corrects evidence. No runtime/payment activation.
+
+Local browser follow-up also passed against a synthetic loopback provider: first POST retained the key and destroyed its response socket; the actual form showed unknown outcome with the free resource link; retrying unchanged details returned409/queued and rendered confirmation. This proves the local transport/UI contract only, not real provider persistence or email delivery. Both local servers were stopped afterward.

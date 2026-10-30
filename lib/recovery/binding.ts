@@ -9,6 +9,7 @@ import { createRecoveryHandlers } from "./handlers";
 import { PostgresStore } from "./postgres-store";
 import { stripeNoticeVerifier, stripeNoticeResolver } from "./stripe-notice";
 import { supabaseOwner, type Principal } from "./owner";
+import { receiptAuthProject, receiptPoolConfiguration } from "./database-config";
 
 // Production is source-disabled. Explicit preview opt-in is confined to the
 // named sandbox and a platform-owned preview origin; store checks still apply.
@@ -20,7 +21,8 @@ export function previewRecoveryEnabled(env: Record<string, string | undefined> =
   const previewOrigin = origin.protocol === "https:" && origin.pathname === "/" && !origin.search && !origin.hash && !origin.username && !origin.password
     && host.endsWith(".vercel.app") && (host === env.VERCEL_URL || host === env.VERCEL_BRANCH_URL);
   return previewOrigin && env.VERCEL_ENV === "preview" && env.EVERYMCP_PREVIEW_RECOVERY === "named-sandbox-v1"
-    && env.STRIPE_MODE === "test" && env.STRIPE_ACCOUNT_ID === "acct_1Re4ltEQ7c58oLZ4";
+    && env.STRIPE_MODE === "test" && env.STRIPE_ACCOUNT_ID === "acct_1Re4ltEQ7c58oLZ4"
+    && env.EVERYMCP_AUTH_PROJECT === receiptAuthProject;
 }
 export type StarterBinding = ReturnType<typeof createStarterBinding>;
 type Dependencies = {
@@ -106,17 +108,12 @@ export function getStarterBinding(): StarterBinding | null {
   const stripe = getStripeConfiguration();
   const project = process.env.EVERYMCP_AUTH_PROJECT;
   const publicKey = process.env.EVERYMCP_AUTH_PUBLISHABLE_KEY;
-  const url = process.env.EVERYMCP_RECEIPT_DATABASE_URL;
+  const poolConfiguration = receiptPoolConfiguration(process.env);
   const signingSecret = process.env.EVERYMCP_STRIPE_WEBHOOK_SECRET;
-  if (!stripe || !project || !publicKey || !url || !signingSecret?.startsWith("whsec_")) return null;
+  if (!stripe || !project || !publicKey || !poolConfiguration || !signingSecret?.startsWith("whsec_")) return null;
   try {
-    const database = new URL(url);
-    const role = decodeURIComponent(database.username);
-    const direct = database.hostname === `db.${project}.supabase.co` && role === "everymcp_receipt_server";
-    const pooled = database.hostname.endsWith(".pooler.supabase.com") && role === `everymcp_receipt_server.${project}`;
-    if (database.protocol !== "postgresql:" || database.pathname !== "/postgres" || (!direct && !pooled) || !database.password || database.search || database.hash) return null;
     const scope: Scope = { accountId: stripe.accountId, mode: stripe.mode };
-    const pool = new Pool({ connectionString: url, ssl: { rejectUnauthorized: true }, max: 2, options: "-c statement_timeout=5000 -c lock_timeout=5000 -c idle_in_transaction_session_timeout=5000", connectionTimeoutMillis: 5000, idleTimeoutMillis: 5000 });
+    const pool = new Pool(poolConfiguration);
     const authenticate = supabaseOwner(scope, project, publicKey);
     const store = new PostgresStore(pool, scope);
     binding = createStarterBinding({ scope, authProject: project, store, authenticate, verifyPurchase: purchaseReader(scope, project, verifyPaidSession, buildStarterKit, store), verifyAccount: async () => await verifyStripeAccount(stripe) === "valid", verifyNotice: stripeNoticeVerifier(signingSecret, scope), resolveNotice: stripeNoticeResolver(stripe.client, scope) });

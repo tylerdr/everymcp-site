@@ -94,9 +94,9 @@ describe("fresh refund and dispute rights",()=>{
     expect(stripeNoticeVerifier(key,scope)(raw,signature)).toMatchObject({sessionId:"",chargeId:"ch_one",paymentIntentId:"pi_one"});
   });
   it("preview opt-in cannot open production, development, live or another sandbox",()=>{
-    const env={NEXT_PUBLIC_SITE_URL:"https://everymcp-test.vercel.app",VERCEL_URL:"everymcp-test.vercel.app",VERCEL_ENV:"preview",EVERYMCP_PREVIEW_RECOVERY:"named-sandbox-v1",STRIPE_MODE:"test",STRIPE_ACCOUNT_ID:scope.accountId};
+    const env={NEXT_PUBLIC_SITE_URL:"https://everymcp-test.vercel.app",VERCEL_URL:"everymcp-test.vercel.app",VERCEL_ENV:"preview",EVERYMCP_PREVIEW_RECOVERY:"named-sandbox-v1",STRIPE_MODE:"test",STRIPE_ACCOUNT_ID:scope.accountId,EVERYMCP_AUTH_PROJECT:"wcacimdgzcdehcbtjkbk"};
     expect(previewRecoveryEnabled(env)).toBe(true);
-    for(const patch of [{NEXT_PUBLIC_SITE_URL:"https://everymcp.com"},{NEXT_PUBLIC_SITE_URL:"https://attacker.vercel.app"},{VERCEL_ENV:"production"},{VERCEL_ENV:"development"},{STRIPE_MODE:"live"},{STRIPE_ACCOUNT_ID:"acct_other"},{EVERYMCP_PREVIEW_RECOVERY:""}])expect(previewRecoveryEnabled({...env,...patch})).toBe(false);
+    for(const patch of [{NEXT_PUBLIC_SITE_URL:"https://everymcp.com"},{NEXT_PUBLIC_SITE_URL:"https://attacker.vercel.app"},{VERCEL_ENV:"production"},{VERCEL_ENV:"development"},{STRIPE_MODE:"live"},{STRIPE_ACCOUNT_ID:"acct_other"},{EVERYMCP_PREVIEW_RECOVERY:""},{EVERYMCP_AUTH_PROJECT:"abcdefghijklmnopqrst"},{EVERYMCP_AUTH_PROJECT:""}])expect(previewRecoveryEnabled({...env,...patch})).toBe(false);
   });
   it("refund of one order leaves another original and current rights untouched",async()=>{
     const {store,ledger}=memory();let revoked=false;

@@ -62,6 +62,9 @@ export class PostgresStore implements EntitlementStore {
       let discard: Error | undefined;
       try {
         await client.query("BEGIN ISOLATION LEVEL SERIALIZABLE");
+        // Transaction poolers need transaction-local settings, not startup/session
+        // options that may be ignored or belong to a different pooled backend.
+        await client.query("SET LOCAL statement_timeout='5s'; SET LOCAL lock_timeout='5s'; SET LOCAL idle_in_transaction_session_timeout='5s'");
         const isolation = await client.query<{ isolated: boolean }>(databaseIsolationSql);
         if (isolation.rows.length !== 1 || isolation.rows[0].isolated !== true) throw new Error("Cross-product store isolation unavailable");
         const permissions = await client.query<{ ready: boolean }>(`SELECT

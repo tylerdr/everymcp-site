@@ -79,9 +79,25 @@ Maintainer references reviewed for the guide:
 - Microsoft Playwright MCP: https://github.com/microsoft/playwright-mcp
 - Firecrawl MCP: https://docs.firecrawl.dev/mcp-server
 
-These are ordinary source links without affiliate tracking. EveryMCP sells an
-optional general MCP Integration Starter Kit with a catalog selection matrix,
-worked Filesystem client example and permission/rollout records. It does not
-include provider credits, a configured scraping integration or managed setup.
-See the actual sample, price and current availability:
+## 5. Choose your next step
+
+| What you need next | Where to continue |
+| --- | --- |
+| Evaluate one web page and record the result | Keep using this free worksheet. No purchase is required. |
+| Choose a general MCP starting stack | Use the free planner: https://everymcp.com/plan |
+| Turn your choice into a reusable team rollout packet | Review the optional MCP Integration Starter Kit sample below. |
+
+The optional kit combines a catalog-based selection matrix, a worked Filesystem
+client configuration, source and permission review prompts, and acceptance and
+rollback records in an editable Markdown packet. Its public sample shows a
+hypothetical boundary record; that is not evidence of a completed test.
+
+Review the actual sample, price and current checkout availability:
 https://everymcp.com/pricing#kit-preview
+
+The kit does not include provider credits, a configured scraping integration,
+managed setup or a security certification. It does not replace the tests you
+record in this worksheet.
+
+Commercial disclosure: EveryMCP sells the optional kit. The maintainer references
+above are ordinary source links without affiliate tracking.

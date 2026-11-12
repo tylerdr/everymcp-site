@@ -50,3 +50,10 @@
 - Actual recovery route exercises current owner/rights and exact original; 28 checks plus separate-process fixture recovery pass, with TypeScript/lint and independent review.
 - Source/recovery artifact: 6,068 bytes, SHA256 bb79833b4eec8061142fe571833bf7daf79fc766ab4cb53ae84fd1ea30d6fb2d; Auth, rights and custody are fictional in these tests.
 - Shared kit/Auth/commerce files and PR30/33/35 remain unchanged. Hosted configuration, persistent custody, writer authorization, recurring rights and live acceptance remain pending. No revenue or paid activation claim.
+
+
+## 2026-11-12 — Protected monitoring custody source candidate
+- Real PostgreSQL adapter implements immutable originals, atomic completion, scope checks and period CAS with separate producer/recovery access.
+- Unapplied schema/RLS/grant proposal and independently expected fingerprint preserve existing shared-store/credential ownership. No database selected or SQL run.
+- 44 focused tests plus separate-process recovery and two retained-original checks pass; independent review and TypeScript/lint pass.
+- Native SQL/RLS/isolation/durability, deployment writer authority, canonical watchlists, recurring rights and hosted acceptance remain pending. No monitoring activation or revenue claim.

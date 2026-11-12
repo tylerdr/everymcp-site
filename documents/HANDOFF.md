@@ -1,3 +1,15 @@
+# PR36 protected PostgreSQL custody continuation — 2026-11-12
+
+The existing Node runtime now has a real parameterized PostgreSQL custody adapter: separate producer/recovery roles, append-only execution starts and completed originals, immutable scoped period commits, exact bytes/hash/owner binding and verified CAS winners. Transactions inspect actual session/role privileges, protected scope binding and an independently reviewed definition fingerprint before data access. A lost COMMIT acknowledgement is not automatically retried. Current owner and rights checks remain at retrieval; database identity is never called Vercel attestation.
+
+The private schema/grant/FORCE-RLS proposal is unapplied, rollback-only, with NOLOGIN placeholders and no scope bindings. No hosted project, SQL installation, credential or account/customer access occurred. Native syntax/RLS/grants/isolation/restart acceptance remains unrun. Independent source review passed after adding explicit rejection of rewrite rules and inherited tables. Shared kit/Auth/commerce and reserved PR30/33/35 are untouched.
+
+44 focused tests, a separate adapter recovery process and two retained legacy-original checks pass, along with TypeScript/lint. The fictional SQL-backed original/recovery is 9,201 bytes / SHA256 797198ee74396d2ee9b5b1584dc8d2f504eb0d0fa2d40969057132c20292e005. The test SQL server models responses; it is not PostgreSQL or a production filesystem store. Existing legacy artifacts remain byte-identical. Exact draft/Preview evidence belongs to the PR/lane receipt.
+
+[MONITORING-POSTGRES-CUSTODY.md](MONITORING-POSTGRES-CUSTODY.md) gives the concrete next decision: existing store owner names an eligible isolated target and separately authorizes native negative/positive acceptance before binding a reviewed fingerprint and scope. Deployment writer verification, canonical owner/watchlist/job creation, recurring rights and retention/quota remain unimplemented/unbound. Production factory stays null; no collection, Actions, payments or activation.
+
+---
+
 # PR36 monitoring owner binding continuation — 2026-11-12
 
 The real owner-authentication seam now calls the established Supabase current-user protocol under fixed server configuration, with a monitoring-specific identity namespace, strict eligibility and bounded request/body processing. It rejects competing credentials and never uses metadata, kit rights, caller owner IDs or email as ownership authority. Shared Auth/kit/store/commerce and PR30/33/35 are untouched; the production factory remains null.

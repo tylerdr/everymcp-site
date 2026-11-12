@@ -307,3 +307,10 @@ Prepared a filled hypothetical research/default boundary sample in the actual pa
 - Implement a bounded authoritative Supabase current-user adapter with monitoring-specific owner identity, fixed server configuration, credential ambiguity refusal and no subscription grant. Shared kit/Auth/store/payment source remains untouched.
 - Exercise the actual recovery route with current owner/rights checks and exact original bytes, including wrong owner, Auth denial/outage, metadata spoofing and rights revoked during retrieval.
 - 28 focused checks plus a separate-process original recovery pass; standalone TypeScript, repository lint and scoped lint pass. Fictional recovered report: 6,068 bytes, SHA256 bb79833b4eec8061142fe571833bf7daf79fc766ab4cb53ae84fd1ea30d6fb2d. No real Auth, hosted storage, subscription or monitoring activation.
+
+
+## 2026-11-12 — Candidate protected monitoring custody
+
+- Implement parameterized PostgreSQL custody with separate producer/recovery access, append-only starts/completions/period commits, scoped integrity checks and immutable CAS winners. Keep deployment attestation and current-rights checks independent.
+- Add an unapplied private-schema/column-grant/FORCE-RLS proposal and deny-only readiness/definition checks; independent review corrected rewrite/inheritance drift gaps. No SQL execution, project choice, login, credential or activation.
+- 44 focused tests, separate-process adapter recovery and two retained legacy-original checks pass; TypeScript/lint pass. Fictional SQL responses exercise actual adapter/handler code but do not prove native RLS, PostgreSQL durability or hosted monitoring.

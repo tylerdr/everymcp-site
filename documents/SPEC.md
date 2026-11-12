@@ -204,3 +204,8 @@ Future Node renderer-v2 reports summarize the latest complete captured change be
 ### Monitoring owner identity candidate (2026-11-12)
 
 The monitoring runtime now has a concrete Supabase current-user adapter using server-fixed project and product scope. Each recovery independently derives a versioned monitoring owner key from the authoritative user UUID, with confirmed-email/nonanonymous eligibility and bounded failures. Caller metadata, email changes and one-time kit payments cannot grant monitoring ownership or recurring rights. Actual route tests retain current-rights checks and immutable originals. Runtime activation, persistent custody, canonical job creation, deployment writer authority and recurring commerce remain unbound. See MONITORING-OWNER-BINDING.md; synthetic Auth is not live customer-session acceptance.
+
+
+### Protected monitoring custody candidate (2026-11-12)
+
+The Node workflow now has a real PostgreSQL custody adapter using separate producer/read access, immutable canonical starts/originals/job commits and current-owner/current-rights retrieval. A private-schema proposal and independent catalog-definition guard remain unapplied. Actual adapter/handler fixtures prove source behavior, including concurrent winner recovery and unchanged legacy bytes; they do not prove native SQL/RLS or hosted durability. Canonical watchlist creation, deployment writer authorization, recurring rights and runtime activation remain unimplemented/unbound. See MONITORING-POSTGRES-CUSTODY.md.

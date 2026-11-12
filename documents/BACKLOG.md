@@ -147,3 +147,10 @@
 - [x] Implement separately namespaced authoritative owner verification using the existing Supabase current-user protocol; reject ambiguous credentials, malformed/unavailable identity and metadata-derived authority.
 - [x] Verify actual private recovery route, current rights and original-byte fresh-session/separate-process recovery with fictional Auth/custody; independent design/source review.
 - [ ] Existing Auth/store/commerce owner: confirm monitoring account/mode/product/project binding and canonical watchlist owner mapping. Identity is implemented but unbound; dedicated persistent custody, deployment writer authority and recurring rights still require implementation/acceptance. See MONITORING-OWNER-BINDING.md.
+
+
+### PR36 protected PostgreSQL custody — 2026-11-12
+- [x] Implement actual SQL custody adapter, scoped producer/read roles, immutable originals and period CAS, bounded acknowledged-abort retries and uncertain-COMMIT refusal.
+- [x] Prepare unapplied private-schema/grant/RLS proposal with independent expected definition fingerprint; exercise real runtime/owner/recovery handlers through fictional SQL responses and retained legacy originals.
+- [ ] Existing store owner: name eligible isolated target and authorize native syntax/negative RLS/grants/concurrency/restart acceptance before any binding. Proposal stays rollback-only with NOLOGIN placeholders and no scope records.
+- [ ] Implement independent deployment-writer authentication and canonical owner/watchlist/job creation; confirm recurring rights and storage retention/quota. These are not supplied by a database role, Auth user or kit payment. See MONITORING-POSTGRES-CUSTODY.md.

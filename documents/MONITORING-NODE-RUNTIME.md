@@ -59,3 +59,8 @@ Only after explicit collector/runtime/storage/rights/scheduling approval and ada
 ## Owner adapter continuation — November 12
 
 `createMonitoringOwner` now implements the owner-authentication seam against the existing Supabase current-user protocol. It is not wired into the null production factory. See [MONITORING-OWNER-BINDING.md](MONITORING-OWNER-BINDING.md) for exact scope, credential/body/deadline controls, current-session limitations, actual route/separate-process fixture acceptance and the remaining owner-approved binding. Persistent custody, deployment writer authority, canonical watchlist creation and recurring rights are separate missing implementations; this source addition does not infer them from a verified user.
+
+
+## PostgreSQL custody continuation — November 12
+
+`PostgresCustodyStore` now implements actual parameterized custody transactions with a distinct producer/read-role contract and independent approved definition fingerprint. [MONITORING-POSTGRES-CUSTODY.md](MONITORING-POSTGRES-CUSTODY.md) records the unapplied schema, exact source/handler evidence and native acceptance still required. Scope/role authentication is not deployment attestation; the factory remains null. Canonical watchlist/job creation and recurring rights remain separate missing integrations.

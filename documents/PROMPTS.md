@@ -228,3 +228,7 @@ Coordinator identifies oldest-first preview budgeting in PR36: older full-histor
 ## 2026-11-12 — Monitoring owner identity boundary
 
 Coordinator directs this existing PR36 lane to inspect established storage, identity and billing custody, then implement one concrete nonoverlapping missing adapter with synthetic end-to-end acceptance and independent design/final review. Implement a separately namespaced monitoring owner adapter against the existing Supabase current-user protocol; preserve shared kit/Auth/commerce code, PR30/33/35, private SQL and denied operations. Identity alone grants no recurring rights. Keep runtime binding absent; no real account/customer reads, collection, setup, credentials, SQL, scheduling, provider/payment/email actions or commercial activation.
+
+## 2026-11-12 — Protected monitoring custody source proposal
+
+Coordinator authorizes a concrete established-stack custody adapter, unapplied schema/grant/RLS proposal and actual adapter/handler tests with fictional storage. Independently review security design before implementation and final source afterward. Separate trusted producer from authenticated owner access; preserve immutable originals, ownership, replay/concurrency safety and current recurring-rights checks. No hosted project selection, SQL installation/execution, Auth/provider/customer reads, credentials, scheduling, collection, new dependencies, activation or production release. Preserve reserved PR30/33/35 and all private-store/permissions denials.

@@ -100,6 +100,14 @@
 - [ ] Commercial owner: verified support contact/owner, refund-request process, capacity and backend acquisition event receipts before paid launch. Prepare existing campaign drafts for authorized distribution only.
 
 
+## 2026-11-12 — Service-recorded source continuation
+
+- [x] Implement the separately approved service origin with authenticated producer, domain-separated signatures, public-only verification, strict origin codecs and immutable original recovery. Preserve prior evidence policy and bytes.
+- [x] Exercise actual loopback collector/admission/SQL adapter/report/fresh-process recovery; 133 monitoring tests and TS/lint pass. Native/hosted evidence remains separate.
+- [ ] Integrate canonical server-owned watchlist/version/period jobs and authoritative recurring lifecycle rights after the responsible commerce/identity owners resolve the exact policy. Do not derive monitoring rights from kit payment.
+- [ ] Bind reviewed service keys/producer invocation, existing Auth/scope and eligible private custody only under separate hosted setup authority. No real keys or settings are created by source tests.
+- [ ] Resolve the retained namespace restriction before any further native execution. Do not retry or prepare another runner under this assignment.
+
 ## 2026-11-12 — Recurring monitoring report stage
 
 - [x] Add provider-free validated receipt history for complete or selected stable-slug watchlists; preserve inconclusive/cached/stale evidence and both sides of source-change comparisons.

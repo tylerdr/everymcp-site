@@ -1,3 +1,17 @@
+# PR36 authenticated service-recorded monitoring — 2026-11-12
+
+The approved distinct service origin now connects actual producer bearer authentication and Ed25519 start/completion signing to the existing Node collector, strict admission, immutable SQL adapter, useful versioned report and public-key-only recovery. It authenticates service assertions, never platform/build/fetch truth. Legacy Python/GitHub and Node-v1/v2 verification and original bytes remain preserved; no permissive fallback was introduced. See [MONITORING-SERVICE-RECORDED.md](MONITORING-SERVICE-RECORDED.md).
+
+Independent design/source review passed after strict single-public-PEM parsing was added. 133 focused tests across 17 suites pass, including 20 new service cases and fresh-process recovery after issuance expiry, plus TypeScript and repository lint. The fictional loopback/SQL-model report and recovered original are both 9,640 bytes, SHA256 `9936364be394f4f9f58e74724dc794ed6628e88e1d61da25c321675feabfcb55`. Its retained [acceptance receipt](evidence/monitoring-service-recorded-20261112.json) distinguishes source evidence from native/hosted evidence. Final exact remote/automatic Preview receipts belong to PR36.
+
+Next coherent source integration: canonical watchlist/job ownership and server-derived recurring rights, with the established owner namespace. Commerce/identity owners must resolve generation versus recovery lifecycle, version/period ownership and quotas; one-time kit payment is not recurring entitlement. Hosted target/fingerprint, key custody/rotation, approved producer invocation, SQL/Auth binding, two genuine collection periods and payment/delivery lifecycle acceptance remain unbound or unrun. The production factory remains null; no services, keys, grants, prices or terms were configured.
+
+The namespace failure below is unchanged: no retry, alternate runner, engine acquisition or SQL. PR30/33/35 and existing genuine/legacy artifacts remain untouched. Main242f1450 and PR36's prior798d4be were freshly reconciled before publication. This is draft source publication only: no merge, production activation, live monitoring, provider use or revenue claim. No Mac/Vault writes.
+
+---
+
+## Retained native outcome
+
 # PR36 native custody attempt stopped — 2026-11-12
 
 One authorized run of exact reviewed c69b636e40b5e5c318a0c445bbaa9de15aae7590 exited1 at the initial unshare probe: cannot open /proc/self/uid_map, Read-only file system. No task directory, package download, engine, SQL or native test execution occurred. No retry, fallback, escalation or settings change. The single attempt is consumed.

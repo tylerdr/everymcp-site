@@ -1,3 +1,13 @@
+# EveryMCP — authenticated service-recorded source, November 12
+
+- Implemented a distinct signed service-observation origin through actual collector, admission, immutable SQL adapter, useful comparison report and public-key-only recovery. Service endorsement is not platform/build/fetch attestation.
+- 133 monitoring tests plus TypeScript/lint pass; independent design/source review passed. Fictional loopback/SQL-model original equals fresh-process recovery:9,640bytes, SHA2569936364be394f4f9f58e74724dc794ed6628e88e1d61da25c321675feabfcb55. Legacy exact bytes preserved.
+- Next source boundary is canonical server-owned watchlists/jobs and authoritative recurring generation/recovery rights. Current kit payment is not monitoring entitlement.
+- Hosted custody/Auth/key/invocation bindings and genuine-period/payment/delivery acceptance remain missing. Native attempt remains stopped at read-only UID-map failure; no retry or alternate runner.
+- Draft PR36 source only; no merge/activation, public offer changes, real collection, providers or collected revenue. PR30/33/35 untouched. Exact publication/Preview receipts accompany the draft.
+
+## Retained earlier status
+
 # EveryMCP — native attempt blocked, November 12
 
 - Exact approved c69b636 controller ran once and exited1: unshare could not open read-only /proc/self/uid_map.

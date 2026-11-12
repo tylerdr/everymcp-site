@@ -4,6 +4,7 @@ export { LEGACY_NODE_HISTORY_POLICY } from "./history-v1-renderer";
 import { canonicalJson, isDue, sha256, timestamp as instant, validateSourceReport, type SourceReport } from "./source-contract";
 
 export const NODE_HISTORY_POLICY = "source-receipt-history-node-v2";
+export const SERVICE_HISTORY_POLICY = "source-receipt-history-service-v1";
 export type NodeSnapshot = {
   report: SourceReport;
   evidence: {
@@ -18,10 +19,26 @@ export type NodeSnapshot = {
     evidenceClass: "synthetic-fixture" | "server-collection";
   };
 };
+export type ServiceSnapshot = {
+  report: SourceReport;
+  evidence: {
+    receiptSha256: string;
+    sourceSha256: string;
+    executionId: string;
+    startedAt: string;
+    completedAt: string;
+    evidenceClass: "synthetic-fixture" | "server-collection";
+    origin: "everymcp-service-custody-v1";
+    serviceId: string;
+    keyId: string;
+  };
+};
+type HistoryEvidence = NodeSnapshot["evidence"] | ServiceSnapshot["evidence"];
+type Snapshot<E extends HistoryEvidence> = { report: SourceReport; evidence: E };
 type Source = SourceReport["sources"][number];
 type Observation = NonNullable<Source["observation"]>;
-type Citation = NodeSnapshot["evidence"] & { pointer: string; receiptGeneratedAt: string };
-type Attempt = { observation: Observation; evidence: Citation };
+type Citation<E extends HistoryEvidence = NodeSnapshot["evidence"]> = E & { pointer: string; receiptGeneratedAt: string };
+type Attempt<E extends HistoryEvidence> = { observation: Observation; evidence: Citation<E> };
 type EventKind = "baseline" | "inconclusive" | "source_missing_at_check" | "source_reachable_again" | "source_body_changed";
 export type DocumentComparison = {
   state: "unavailable" | "captured_representation_unchanged" | "captured_representation_changed";
@@ -30,26 +47,26 @@ export type DocumentComparison = {
   beforeBodyObservedAt?: string | null;
   afterBodyObservedAt?: string | null;
 };
-type HistoryEvent = Attempt & {
+type HistoryEvent<E extends HistoryEvidence> = Attempt<E> & {
   id: string;
   kind: EventKind;
   beforeObservation?: Observation;
-  beforeEvidence?: Citation;
+  beforeEvidence?: Citation<E>;
   documentComparison?: DocumentComparison;
 };
-type HistorySource = Pick<Source, "url" | "relationships" | "observation" | "lastSuccessfulObservation" | "runDisposition" | "reviewFindings"> & {
+type HistorySource<E extends HistoryEvidence> = Pick<Source, "url" | "relationships" | "observation" | "lastSuccessfulObservation" | "runDisposition" | "reviewFindings"> & {
   state: Observation["state"] | "not_checked";
   freshnessAsOf: "unchecked" | "stale" | "current";
-  events: HistoryEvent[];
-  evidence: Citation;
+  events: HistoryEvent<E>[];
+  evidence: Citation<E>;
 };
-export type NodeHistory = {
+type History<E extends HistoryEvidence, P extends string> = {
   schemaVersion: 1;
-  historyPolicyVersion: typeof NODE_HISTORY_POLICY | typeof LEGACY_NODE_HISTORY_POLICY;
+  historyPolicyVersion: P;
   sourcePolicyVersion: string;
   asOf: string;
   selectedSlugs: string[];
-  receipts: (NodeSnapshot["evidence"] & { generatedAt: string })[];
+  receipts: (E & { generatedAt: string })[];
   summary: {
     selectedSlugCount: number;
     sourceCount: number;
@@ -61,8 +78,10 @@ export type NodeHistory = {
   publication: SourceReport["publication"];
   assessment: SourceReport["assessment"];
   inventoryFindings: SourceReport["inventoryFindings"];
-  entries: (SourceReport["listings"][number] & { name: string; sources: HistorySource[] })[];
+  entries: (SourceReport["listings"][number] & { name: string; sources: HistorySource<E>[] })[];
 };
+export type NodeHistory = History<NodeSnapshot["evidence"], typeof NODE_HISTORY_POLICY | typeof LEGACY_NODE_HISTORY_POLICY>;
+export type ServiceHistory = History<ServiceSnapshot["evidence"], typeof SERVICE_HISTORY_POLICY>;
 
 const lexical = (a: string, b: string) => a < b ? -1 : a > b ? 1 : 0;
 const same = (a: unknown, b: unknown) => canonicalJson(a).equals(canonicalJson(b));
@@ -93,6 +112,22 @@ export function compareNodeDocuments(before: Observation, after: Observation): D
 
 /** Pure, bounded history generation. Custody authentication is the caller's admission boundary. */
 export function buildNodeHistory(snapshots: NodeSnapshot[], asOf: string, catalog: unknown[], curated: unknown[], slugs: string[]): NodeHistory {
+  return buildHistory(snapshots, asOf, catalog, curated, slugs, NODE_HISTORY_POLICY, validateNodeEvidence);
+}
+function validateNodeEvidence(evidence: NodeSnapshot["evidence"]): void {
+  if (!["vercel-next-custody-v1", "vercel-next-custody-v2"].includes(evidence.origin)) throw new Error("Unsupported history evidence origin");
+}
+const serviceEvidence = z.object({
+  receiptSha256: z.string().regex(/^[a-f0-9]{64}$/), sourceSha256: z.string().regex(/^[a-f0-9]{64}$/),
+  executionId: z.string().min(1).max(128).regex(/^[\x21-\x7e]+$/), startedAt: z.string(), completedAt: z.string(),
+  evidenceClass: z.enum(["synthetic-fixture", "server-collection"]), origin: z.literal("everymcp-service-custody-v1"),
+  serviceId: z.string().min(1).max(128).regex(/^[\x21-\x7e]+$/), keyId: z.string().min(1).max(128).regex(/^[\x21-\x7e]+$/),
+}).strict();
+function validateServiceEvidence(evidence: ServiceSnapshot["evidence"]): void { serviceEvidence.parse(evidence); }
+export function buildServiceHistory(snapshots: ServiceSnapshot[], asOf: string, catalog: unknown[], curated: unknown[], slugs: string[]): ServiceHistory {
+  return buildHistory(snapshots, asOf, catalog, curated, slugs, SERVICE_HISTORY_POLICY, validateServiceEvidence);
+}
+function buildHistory<E extends HistoryEvidence, P extends string>(snapshots: Snapshot<E>[], asOf: string, catalog: unknown[], curated: unknown[], slugs: string[], policy: P, validateEvidence: (evidence: E) => void): History<E, P> {
   const now = instant(asOf);
   if (!Array.isArray(snapshots) || snapshots.length < 1 || snapshots.length > 32) throw new Error("History needs one to 32 receipts");
   const names = new Map(z.array(z.object({ slug: z.string(), name: z.string() })).parse(catalog).map(item => [item.slug, item.name]));
@@ -100,12 +135,12 @@ export function buildNodeHistory(snapshots: NodeSnapshot[], asOf: string, catalo
     throw new Error("Invalid selected slugs");
   }
   const selected = [...new Set(slugs)].sort(lexical);
-  const unique = new Map<string, NodeSnapshot>(), executions = new Map<string, string>();
+  const unique = new Map<string, Snapshot<E>>(), executions = new Map<string, string>();
   for (const snapshot of snapshots) {
     const report = validateSourceReport(snapshot.report, catalog, curated);
     const evidence = snapshot.evidence;
     if (sha256(canonicalJson(report)) !== evidence.sourceSha256) throw new Error("Source SHA-256 mismatch");
-    if (!["vercel-next-custody-v1", "vercel-next-custody-v2"].includes(evidence.origin)) throw new Error("Unsupported history evidence origin");
+    validateEvidence(evidence);
     if (evidence.evidenceClass !== "synthetic-fixture" && evidence.evidenceClass !== "server-collection") throw new Error("Unsupported history evidence classification");
     if (instant(report.generatedAt) > now || instant(evidence.completedAt) > now || instant(evidence.startedAt) > instant(evidence.completedAt)) {
       throw new Error("Invalid or future history execution dates");
@@ -118,13 +153,13 @@ export function buildNodeHistory(snapshots: NodeSnapshot[], asOf: string, catalo
   }
   const ordered = [...unique.values()].sort((a, b) => instant(a.report.generatedAt) - instant(b.report.generatedAt) || lexical(a.evidence.receiptSha256, b.evidence.receiptSha256));
   const latest = ordered[ordered.length - 1];
-  const attempts = new Map<string, Map<number, Attempt>>();
+  const attempts = new Map<string, Map<number, Attempt<E>>>();
   const findings = new Map<string, Map<string, Source["reviewFindings"][number]>>();
   const lastAttempt = new Map<string, Observation>(), lastSuccess = new Map<string, Observation>();
-  const citation = (snapshot: NodeSnapshot, index: number, suffix = ""): Citation => ({ ...snapshot.evidence, pointer: `/sources/${index}${suffix}`, receiptGeneratedAt: snapshot.report.generatedAt });
+  const citation = (snapshot: Snapshot<E>, index: number, suffix = ""): Citation<E> => ({ ...snapshot.evidence, pointer: `/sources/${index}${suffix}`, receiptGeneratedAt: snapshot.report.generatedAt });
   for (const snapshot of ordered) {
     snapshot.report.sources.forEach((source, index) => {
-      const dated = attempts.get(source.url) ?? new Map<number, Attempt>();
+      const dated = attempts.get(source.url) ?? new Map<number, Attempt<E>>();
       attempts.set(source.url, dated);
       for (const [field, previous] of [["observation", lastAttempt], ["lastSuccessfulObservation", lastSuccess]] as const) {
         const observation = source[field], prior = previous.get(source.url);
@@ -150,12 +185,12 @@ export function buildNodeHistory(snapshots: NodeSnapshot[], asOf: string, catalo
       }
     });
   }
-  const rows = new Map<string, HistorySource>();
+  const rows = new Map<string, HistorySource<E>>();
   latest.report.sources.forEach((source, index) => {
     const dated = [...(attempts.get(source.url)?.values() ?? [])].sort((a, b) => instant(a.observation.checkedAt) - instant(b.observation.checkedAt));
-    const events: HistoryEvent[] = [];
-    let previous: Attempt | undefined, success: Attempt | undefined, conclusive: Attempt | undefined;
-    const add = (kind: EventKind, attempt: Attempt, before?: Attempt) => {
+    const events: HistoryEvent<E>[] = [];
+    let previous: Attempt<E> | undefined, success: Attempt<E> | undefined, conclusive: Attempt<E> | undefined;
+    const add = (kind: EventKind, attempt: Attempt<E>, before?: Attempt<E>) => {
       const identity = { url: source.url, kind, observation: { ...attempt.observation, checkedAt: new Date(instant(attempt.observation.checkedAt)).toISOString() }, ...(before ? { before: { state: before.observation.state, contentHash: before.observation.contentHash } } : {}) };
       events.push({ id: sha256(canonicalJson(identity)), kind, ...attempt,
         ...(before ? { beforeObservation: before.observation, beforeEvidence: before.evidence } : {}),
@@ -195,7 +230,7 @@ export function buildNodeHistory(snapshots: NodeSnapshot[], asOf: string, catalo
     return result;
   };
   return {
-    schemaVersion: 1, historyPolicyVersion: NODE_HISTORY_POLICY, sourcePolicyVersion: latest.report.policyVersion, asOf, selectedSlugs: selected,
+    schemaVersion: 1, historyPolicyVersion: policy, sourcePolicyVersion: latest.report.policyVersion, asOf, selectedSlugs: selected,
     receipts: ordered.map(snapshot => ({ ...snapshot.evidence, generatedAt: snapshot.report.generatedAt })),
     summary: { selectedSlugCount: selected.length, sourceCount: selectedRows.length, stateCounts: counts(selectedRows.map(source => source.state)), staleOrUnchecked: selectedRows.filter(source => source.freshnessAsOf !== "current").length, datedObservationCount: selectedRows.reduce((sum, source) => sum + (attempts.get(source.url)?.size ?? 0), 0), eventCounts: counts(selectedRows.flatMap(source => source.events.map(event => event.kind))) },
     publication: latest.report.publication, assessment: latest.report.assessment, inventoryFindings: latest.report.inventoryFindings, entries,
@@ -213,8 +248,11 @@ function code(value: string): string {
 function sourceLink(url: string): string {
   return `[${markdown(url)}](<${url.replace(/[<>]/g, value => encodeURIComponent(value))}>)`;
 }
-function cite(evidence: Citation, pointer = evidence.pointer): string {
+function citeNode(evidence: Citation, pointer = evidence.pointer): string {
   return `evidence class ${code(evidence.evidenceClass)}${evidence.evidenceClass === "synthetic-fixture" ? " (fictional identifiers; no actual Vercel execution claimed)" : ""} · origin ${code(evidence.origin)} · execution ${code(evidence.executionId)} · deployment ${code(evidence.deploymentId)} · git ${code(evidence.gitSha)} · ${code(pointer)} · custody receipt ${code(evidence.receiptSha256)} · source payload ${code(evidence.sourceSha256)}`;
+}
+function citeService(evidence: Citation<ServiceSnapshot["evidence"]>, pointer = evidence.pointer): string {
+  return `EveryMCP service-recorded observation · evidence class ${code(evidence.evidenceClass)}${evidence.evidenceClass === "synthetic-fixture" ? " (fictional observations, signer and identifiers)" : ""} · origin ${code(evidence.origin)} · service ${code(evidence.serviceId)} · key ${code(evidence.keyId)} · execution ${code(evidence.executionId)} · ${code(pointer)} · custody receipt ${code(evidence.receiptSha256)} · source payload ${code(evidence.sourceSha256)}`;
 }
 function clip(value: string, budget: number): { quote: string; cut: boolean; used: number } {
   // Python also treats NEL as whitespace. Counting JS's additional FEFF boundary is conservative.
@@ -226,15 +264,35 @@ function clip(value: string, budget: number): { quote: string; cut: boolean; use
 }
 
 export function renderNodeHistory(report: NodeHistory): Buffer {
+  if (![NODE_HISTORY_POLICY, LEGACY_NODE_HISTORY_POLICY].includes(report.historyPolicyVersion) || report.schemaVersion !== 1) throw new Error("Unsupported history renderer policy");
+  checkHistoryEvidence(report, validateNodeEvidence);
   if (report.historyPolicyVersion === LEGACY_NODE_HISTORY_POLICY) return renderNodeHistoryV1(report);
-  if (report.historyPolicyVersion !== NODE_HISTORY_POLICY || report.schemaVersion !== 1) throw new Error("Unsupported history renderer policy");
+  return renderHistory(report, NODE_HISTORY_POLICY, citeNode,
+    "Unchanged or cached evidence is not a new check. Unresolved findings remain visible after recovery. Each citation identifies its evidence class. Synthetic fixtures use fictional custody identifiers and do not establish an actual Vercel execution. Server-collection custody requires caller admission; hashes establish content integrity, not collector identity by themselves.");
+}
+export function renderServiceHistory(report: ServiceHistory): Buffer {
+  if (report.historyPolicyVersion !== SERVICE_HISTORY_POLICY || report.schemaVersion !== 1) throw new Error("Unsupported service history renderer policy");
+  checkHistoryEvidence(report, validateServiceEvidence);
+  return renderHistory(report, SERVICE_HISTORY_POLICY, citeService,
+    "Unchanged or cached evidence is not a new check. Unresolved findings remain visible after recovery. Each citation identifies its service, signing key and evidence class. Synthetic fixtures contain fictional observations and identifiers. Receipt dates are service-reported dates.",
+    "EveryMCP service-recorded observations carry signer/credential-holder endorsement only. This does not establish truthful fetching, independent time, a particular build or platform provenance, or MCP compatibility/security. Hashes bind recorded bytes; service identifiers and signing keys do not independently verify the observations.");
+}
+function checkHistoryEvidence<E extends HistoryEvidence, P extends string>(report: History<E, P>, validateEvidence: (evidence: E) => void): void {
+  for (const receipt of report.receipts) validateEvidence(Object.fromEntries(Object.entries(receipt).filter(([key]) => key !== "generatedAt")) as E);
+  const check = (citation: Citation<E>) => validateEvidence(Object.fromEntries(Object.entries(citation).filter(([key]) => key !== "pointer" && key !== "receiptGeneratedAt")) as E);
+  for (const entry of report.entries) for (const source of entry.sources) {
+    check(source.evidence);
+    for (const event of source.events) { check(event.evidence); if (event.beforeEvidence) check(event.beforeEvidence); }
+  }
+}
+function renderHistory<E extends HistoryEvidence, P extends string>(report: History<E, P>, policy: string, cite: (evidence: Citation<E>, pointer?: string) => string, notice: string, endorsement?: string): Buffer {
   const summary = report.summary;
-  const lines = ["# Public source history", "", `As of: ${report.asOf}`, "", `Policy: ${NODE_HISTORY_POLICY}.`, "",
+  const lines = ["# Public source history", "", `As of: ${report.asOf}`, "", `Policy: ${policy}.`, "", ...(endorsement ? [endorsement, ""] : []),
     `${summary.selectedSlugCount} selected listings; ${summary.sourceCount} distinct source URLs; ${summary.datedObservationCount} distinct dated observations in ${report.receipts.length} supplied receipts.`,
     `Latest evidence states: ${Object.entries(summary.stateCounts).map(([state, count]) => `${state}: ${count}`).join(", ")}. Stale or unchecked sources: ${summary.staleOrUnchecked}.`, "",
     "Review-required evidence. Receipt dates are observation dates, not proof that monitoring is running now. No automatic delivery or paid entitlement is established.",
     "HTTP observations do not establish MCP compatibility, tool behavior, security or publisher identity. Missing-at-check means HTTP 404/410 at that time; unknown is inconclusive. Neither proves continuous downtime, outage duration or uptime. Raw source-body changes can include page chrome.",
-    "Unchanged or cached evidence is not a new check. Unresolved findings remain visible after recovery. Each citation identifies its evidence class. Synthetic fixtures use fictional custody identifiers and do not establish an actual Vercel execution. Server-collection custody requires caller admission; hashes establish content integrity, not collector identity by themselves.", ""];
+    notice, ""];
   lines.push("## Latest captured change", "",
     "Previews prioritize the newest complete changed projection: at most 12 quoted words before and 12 after per source. Older comparisons retain their dates and evidence below. These short previews may not contain the changed passage; operational impact remains unknown.", "");
   const sources = new Map(report.entries.flatMap(entry => entry.sources.map(source => [source.url, source] as const)));

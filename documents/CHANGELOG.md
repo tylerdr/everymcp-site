@@ -328,3 +328,10 @@ Prepared a filled hypothetical research/default boundary sample in the actual pa
 - Invoked the one approved c69b636 controller; initial namespace probe failed on read-only /proc/self/uid_map before package acquisition or engine execution. All native cases remain unrun.
 - Retain nonsecret exact command/hash/provenance and independently checked cleanup evidence. No task artifacts or visible PostgreSQL/unshare processes remained; no retry, fallback, security change or native acceptance claim.
 - Publish outcome documentation only; production monitoring, commerce and reserved source remain unchanged.
+
+## 2026-11-12 — Authenticated service-recorded source contract
+
+- Add a distinct service-recorded start/completion schema, fixed public registry and authenticated producer using installed Node cryptography. Sign exact original identities; retain truthful service-only provenance and legacy verification policy.
+- Connect the real collector/admission/history/recovery chain to strict service SQL custody. Reuse mechanical SQL and comparison logic behind fixed origin wrappers, preserve original bytes and fail closed on unknown owner/rights/bindings.
+- Pass independent design/source review, 133 monitoring tests, TypeScript and lint. A public-key-only fresh process recovers the exact 9,640-byte fictional report; both copies hash to9936364be394f4f9f58e74724dc794ed6628e88e1d61da25c321675feabfcb55.
+- Retain namespace failure and all native/hosted/collection/activation gates. No keys, SQL, provider settings, paid offer, merge or live monitoring established; PR30/33/35 remain reserved.

@@ -242,3 +242,6 @@ November12 parent qualification: dedicated database is not inherently necessary.
 
 
 November12 parent authorized one exact c69b636 native invocation under the reviewed bounds, with no retry/fallback/escalation. Recheck source/provenance, independently verify outcomes/cleanup and publish useful evidence to existing draft only. Invocation stopped at initial read-only uid-map failure; authority consumed, native tests unrun.
+
+
+November12 parent approved source-only implementation of a distinct authenticated SERVICE-RECORDED observation origin. Preserve old Python/GitHub and Node-v1/v2 verification/bytes; no platform/build attestation claim. Require independent design/final review, real producer authority, existing canonical owner/job/current-rights/custody checks, fictional end-to-end and cross-version refusal. No real key setup, collection, native retry/alternative runner, SQL, provider/customer/payment, configuration, merge or activation.

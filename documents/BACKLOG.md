@@ -127,3 +127,10 @@
 - [x] Add versioned bounded document projections, coherent receipt admission and real report comparison; preserve legacy renderer/job recovery.
 - [x] Exercise meaningful/noise/incomplete/stale/identity cases with fictional responses and real local persistence/recovery.
 - [ ] After separate runtime/collection authorization, accept two genuine same-identity document captures; do not relabel fictional run metadata as observed monitoring.
+
+### PR36 Node runtime redesign — 2026-11-12
+- [x] Separate bounded Node receipt/admission, report construction and immutable recovery from canonical Actions evidence; keep routes disabled and old Python artifacts untouched.
+- [x] Synthetic cross-language history parity, tamper/replay/index substitution and fresh-process original recovery; independent trust-model/source review.
+- [ ] Implement independently verifiable deployment-bound writer authentication and approved immutable custody through existing owners; documented Vercel project/environment OIDC alone is insufficient.
+- [ ] Implement/review the bounded Node collector/projection adapter; current source adapter is injected and no collection has occurred.
+- [ ] Obtain exact current recurring generation/recovery rights and approved hosted two-period/payment lifecycle acceptance. No recurring offer or activation is established.

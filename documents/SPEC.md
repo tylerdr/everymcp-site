@@ -189,3 +189,7 @@ An internal worker consumes server-derived watchlists and verified worker/owner/
 ### Bounded static document comparison candidate (2026-11-12)
 
 `public-source-v2` records section hashes and bounded heading/excerpt previews from already-obtained eligible response bytes; it never executes content or follows extracted links. `source-receipt-history-v2` shows dated section changes and explicit unavailability, with normalized equality limited to the captured representation. Exact v1 report/job recovery is retained. Source identity changes refuse comparison. SOURCE-DOCUMENT-PROJECTION.md defines limits and normalization; all v2 multi-period evidence is fictional and the recurring offer remains unapproved/off.
+
+### Separate Node receipt/admission candidate (2026-11-12)
+
+The existing Next/Node application now has default-off capture/report/recovery routes and deterministic source-history construction against injected authority/custody contracts. A separately versioned authenticated-custody receipt binds original server job, deployment authorization, scope, inventory, chronology and exact source/report bytes; admission retrieves trusted originals rather than accepting caller success/provenance. This origin is not canonical GitHub Actions provenance. Production writer authentication, Node collector, private storage and current-rights bindings remain unimplemented, and the factory is null. See MONITORING-NODE-RUNTIME.md for the concrete trust boundary and executed fictional acceptance. Existing Python original bytes remain unchanged.

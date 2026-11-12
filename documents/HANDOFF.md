@@ -1,3 +1,11 @@
+# PR36 separate Node runtime continuation — 2026-11-12
+
+The existing Next application now has real Node orchestration, source receipt validation, history/report construction and immutable recovery against injected contracts. The origin is separately versioned `vercel-next-custody-v1`, not a relabeled Actions/manual receipt. `getMonitoringRuntime()` remains null; both new APIs return private/no-store 503. Production deployment-bound writer authentication, trusted store, Node collector and current-rights bindings remain unimplemented. See [MONITORING-NODE-RUNTIME.md](MONITORING-NODE-RUNTIME.md) for the precise contract, limits and next hosted acceptance; no project-only OIDC or environment metadata is misrepresented as signed source evidence.
+
+The fictional golden inputs match Python canonical hashes and useful event/section semantics. Real Node report production and a separate process recover identical original bytes. Tests also cover tampering, replay, nonce/execution uniqueness, wrong-job indexes, deadline bounds, concurrent/lost-ack retry and current-rights checks. Independent review found and corrected binding/deadline gaps. Final exact-commit test/build evidence is recorded in the PR/lane receipt. Existing Python code, genuine source artifacts and v1/v2 render/recovery bytes are unchanged in this continuation. PR30/33/35, disabled Actions, held SQL/permissions operations and all collection/activation boundaries remain intact.
+
+---
+
 # PR36 document projection continuation — 2026-11-12
 
 The assigned capture/schema/importer extension now feeds the real history producer with bounded, source-bound static document sections. Fictional Node 18 → Node 20 input produces dated old/new previews and section/receipt pointers; normalized equality explicitly leaves other differences unclassified. V1 receipts/cache/rendering/job recovery remain supported. Current production binding stays None, all activation holds remain, and PR30/33/35 are untouched.

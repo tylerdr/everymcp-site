@@ -210,3 +210,9 @@ Parent confirms PR36 publication and directs continuing the recurring workflow: 
 Coordinator instruction (excerpt): “implement the smallest versioned bounded projection at the point where the existing collector already holds response bytes, update the schema/importer coherently, and consume it in PR36's real history/report producer. This is CODE ONLY.”
 
 Scope preserves retained v1 receipts/renderer, bounded excerpts, independent review, current source custody and all existing activation holds. No live collection or new dependency installation.
+
+## 2026-11-12 — Separate Node runtime receipt redesign
+
+Coordinator direction: “Proceed with bounded source redesign to a genuinely verifiable Vercel/Next runtime receipt, independent review, no collection/scheduling/setup or activation. Preserve existing evidence without asserting provenance equivalence; inspect current owner/PR overlap first.”
+
+Implement and review a separately versioned conditional Node admission/report/recovery path using synthetic inputs only. Preserve canonical Actions evidence, disabled Actions, prior denials, original Python renderers/artifacts and reserved PR30/33/35. No hosted attestation, storage, collector, credential, service or rights setup is authorized by this source assignment.

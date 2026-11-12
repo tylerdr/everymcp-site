@@ -30,3 +30,9 @@
 - Source/receipt/report integration now localizes bounded static document changes with source references and dated before/after previews.
 - 73 relevant Python tests, lint and TypeScript pass; legacy original bytes and fresh-process fictional recovery remain exact.
 - No live captures, scheduler/provider/config changes, paid activation or cash claim; two genuine capture periods remain required.
+
+## 2026-11-12 — Node source candidate
+- PR36 now has separate default-off Next/Node receipt/admission/history/recovery code; old Python evidence remains unchanged.
+- Fictional golden parity and fresh-process original-byte recovery exercise the actual Node producer, not hosted monitoring.
+- Deployment-bound writer authentication, immutable production custody, Node collector and recurring-rights bindings remain unimplemented; Vercel OIDC project claims alone are insufficient.
+- No collection, schedule, provider/customer/payment action, recurring offer publication or production activation. Reserved PR30/33/35 and prior denials remain intact.

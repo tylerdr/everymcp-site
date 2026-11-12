@@ -286,3 +286,9 @@ Prepared a filled hypothetical research/default boundary sample in the actual pa
 - Add source-v2 bounded static projections at the existing response-processing point, with strict identity/date/hash binding and explicit unsupported/incomplete outcomes.
 - Consume section changes in real history reports; preserve exact v1 recovery and current-rights checks. Captured excerpts are bounded and safely escaped; equality never implies unchanged unexamined content.
 - Validate fictional capture→receipt→report→fresh-process recovery and actual legacy-byte compatibility; 73 related Python tests, lint and TypeScript pass. No collection/activation or recurring offer publication.
+
+## 2026-11-12 — Candidate separate Node monitoring receipt path
+
+- Implement conditional Next/Node capture/admission/report/recovery against explicit trusted runtime/custody contracts; default-off routes do not accept posted evidence. Keep the Python provenance policy and original artifacts unchanged.
+- Port deterministic history/projection comparison semantics with distinct source and custody hashes, fictional evidence labels, explicit unknown/stale/incomplete outcomes and original-byte recovery.
+- Add synthetic golden parity and security/recovery regressions, including a separate Node recovery process. Independent review corrected wrong-job index substitution and stalled-body admission. Production attestation, storage, Node collection, identity/rights and scheduling are still unimplemented/unbound; no monitoring, payment or delivery activation.

@@ -1,3 +1,13 @@
+# PR36 monitoring owner binding continuation — 2026-11-12
+
+The real owner-authentication seam now calls the established Supabase current-user protocol under fixed server configuration, with a monitoring-specific identity namespace, strict eligibility and bounded request/body processing. It rejects competing credentials and never uses metadata, kit rights, caller owner IDs or email as ownership authority. Shared Auth/kit/store/commerce and PR30/33/35 are untouched; the production factory remains null.
+
+The actual recovery route now has source acceptance through this adapter: same-owner new-session exact original, owner-B denial, current rights denial/unknown/revocation, Auth outage and no regeneration. 28 focused tests plus a separate recovery process pass. The fictional original/recovered report is6,068bytes, SHA256 bb79833b4eec8061142fe571833bf7daf79fc766ab4cb53ae84fd1ea30d6fb2d. TypeScript and lint pass; independent design/source review found no blocker. Exact publication/Preview receipts are retained in the PR and lane artifacts.
+
+[MONITORING-OWNER-BINDING.md](MONITORING-OWNER-BINDING.md) records the concrete implementation and smallest next binding decision: existing owner confirms monitoring scope/Auth project and maps canonical watchlists to this namespace. Persistent monitoring custody, independent deployment writer authorization, recurring period rights and hosted controlled-principal acceptance remain missing. No account/customer rows, real Auth, collection, SQL, credential setup, payment or email were accessed. Existing private-store/permissions and activation holds remain intact.
+
+---
+
 # PR36 executable Node collector continuation — 2026-11-12
 
 The source now contains a real bounded Node HTTPS collector, conservative robots handling and strict static-document projection, wired through the existing runtime in actual loopback HTTP → receipt → meaningful report → persisted original → fresh-process recovery tests. `vercel-next-custody-v2` binds an independently admitted predecessor capture; original v1 receipt/report recovery remains supported. No live source, public DNS/TLS, provider or hosted writer attestation was exercised. Production factory remains null.

@@ -300,3 +300,10 @@ Prepared a filled hypothetical research/default boundary sample in the actual pa
 - Validate malformed/oversized/redirected/timed-out responses and meaningful dated section changes. Preserve all hosted authority/storage/rights, collection, scheduling and commercial activation gates; no real monitored-source fetch or payment.
 
 - Version future Node report rendering to prioritize the latest complete changed projection, with balanced before/after quotes; retain old history evidence and frozen original bytes.
+
+
+## 2026-11-12 — Candidate monitoring owner binding
+
+- Implement a bounded authoritative Supabase current-user adapter with monitoring-specific owner identity, fixed server configuration, credential ambiguity refusal and no subscription grant. Shared kit/Auth/store/payment source remains untouched.
+- Exercise the actual recovery route with current owner/rights checks and exact original bytes, including wrong owner, Auth denial/outage, metadata spoofing and rights revoked during retrieval.
+- 28 focused checks plus a separate-process original recovery pass; standalone TypeScript, repository lint and scoped lint pass. Fictional recovered report: 6,068 bytes, SHA256 bb79833b4eec8061142fe571833bf7daf79fc766ab4cb53ae84fd1ea30d6fb2d. No real Auth, hosted storage, subscription or monitoring activation.

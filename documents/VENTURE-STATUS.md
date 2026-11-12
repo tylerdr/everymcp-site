@@ -43,3 +43,10 @@
 - Original v1 report bytes still recover unchanged; Python evidence/source remains untouched.
 - Hosted writer authority, custody, identity/recurring rights and scheduling remain unbound. No live source, customer/payment action or monitoring revenue proved.
 - Latest captured change now receives balanced preview allowance; older evidence and immutable prior reports remain intact.
+
+
+## 2026-11-12 — Monitoring owner source candidate
+- Supabase current-user adapter implemented for monitoring with a separate identity namespace and bounded, uncached, fail-closed requests.
+- Actual recovery route exercises current owner/rights and exact original; 28 checks plus separate-process fixture recovery pass, with TypeScript/lint and independent review.
+- Source/recovery artifact: 6,068 bytes, SHA256 bb79833b4eec8061142fe571833bf7daf79fc766ab4cb53ae84fd1ea30d6fb2d; Auth, rights and custody are fictional in these tests.
+- Shared kit/Auth/commerce files and PR30/33/35 remain unchanged. Hosted configuration, persistent custody, writer authorization, recurring rights and live acceptance remain pending. No revenue or paid activation claim.

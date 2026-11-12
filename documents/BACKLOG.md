@@ -141,3 +141,9 @@
 - [ ] Existing owners implement writer authentication, trusted custody and current owner/recurring rights; then wire the implemented collector.
 - [ ] Reconcile monitoring test command into the shared package/build owner before activation. No package/commerce/lead files changed in this lane.
 - [x] Version future reports to prioritize latest complete changed projection within balanced24-word source budget; preserve old renderer/original-period retry and Node 21 → 22 evidence.
+
+
+### PR36 monitoring owner adapter — 2026-11-12
+- [x] Implement separately namespaced authoritative owner verification using the existing Supabase current-user protocol; reject ambiguous credentials, malformed/unavailable identity and metadata-derived authority.
+- [x] Verify actual private recovery route, current rights and original-byte fresh-session/separate-process recovery with fictional Auth/custody; independent design/source review.
+- [ ] Existing Auth/store/commerce owner: confirm monitoring account/mode/product/project binding and canonical watchlist owner mapping. Identity is implemented but unbound; dedicated persistent custody, deployment writer authority and recurring rights still require implementation/acceptance. See MONITORING-OWNER-BINDING.md.

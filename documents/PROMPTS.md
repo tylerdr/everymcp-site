@@ -224,3 +224,7 @@ Coordinator directs this same PR36 owner to implement a real bounded Node collec
 ## 2026-11-12 — Latest-change buyer-value correction
 
 Coordinator identifies oldest-first preview budgeting in PR36: older full-history comparisons can exhaust the24-word quote allowance before the latest change. Version future rendering to prioritize the newest complete changed projection with balanced before/after excerpts and a clear Latest captured change summary. Keep historical evidence, unknown/stale limits and exact stored originals. Prove Node 21 → 22 remains readable after older periods and independently review the final source before publication.
+
+## 2026-11-12 — Monitoring owner identity boundary
+
+Coordinator directs this existing PR36 lane to inspect established storage, identity and billing custody, then implement one concrete nonoverlapping missing adapter with synthetic end-to-end acceptance and independent design/final review. Implement a separately namespaced monitoring owner adapter against the existing Supabase current-user protocol; preserve shared kit/Auth/commerce code, PR30/33/35, private SQL and denied operations. Identity alone grants no recurring rights. Keep runtime binding absent; no real account/customer reads, collection, setup, credentials, SQL, scheduling, provider/payment/email actions or commercial activation.

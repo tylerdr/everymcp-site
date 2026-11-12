@@ -38,7 +38,7 @@ export const SCOPE: Scope = { accountId: "acct_fictional", mode: "test", product
 export const OWNER = "a".repeat(64), WATCHLIST = "b".repeat(64);
 export const AUTHORITY: RuntimeAuthorization = { method: "deployment-bound-ledger-writer-v1", authorityClass: "synthetic-fixture", teamId: "team_fictional", projectId: "prj_fictional", environment: "preview", deploymentId: "dpl_fictional", gitSha: "1".repeat(40), authorizationId: "c".repeat(64), validFrom: "2026-11-01T00:00:00Z", validUntil: "2026-12-01T00:00:00Z" };
 export const request = () => new Request("https://fictional.invalid/api/monitoring/run", { method: "POST" });
-export function harness(store = new FictionalCustody()) {
+export function harness(store = new FictionalCustody(), ownerKey = OWNER) {
   let clock = new Date("2026-11-12T00:00:04Z");
   let payload: SourceReport | null = null;
   const jobs = new Map<string, Job>();
@@ -46,7 +46,7 @@ export function harness(store = new FictionalCustody()) {
   const deps: RuntimeDependencies = {
     scope: SCOPE, evidenceClass: "synthetic-fixture", store,
     authenticateWorker: async () => ({ scope: SCOPE, workerKey: "d".repeat(64) }),
-    authenticateOwner: async () => ({ scope: SCOPE, ownerKey: OWNER }),
+    authenticateOwner: async () => ({ scope: SCOPE, ownerKey }),
     loadJob: async id => jobs.get(id) ?? null,
     currentRights: async (job, action) => ({ scope: job.scope, ownerKey: job.ownerKey, watchlistId: job.watchlistId, version: job.version, periodStart: job.periodStart, periodEnd: job.periodEnd, action, decision: "active" }),
     authorizeRuntime: async () => clone(AUTHORITY),
@@ -65,12 +65,12 @@ export function harness(store = new FictionalCustody()) {
   async function capture(index: number) {
     payload = clone(golden.reports[index]) as SourceReport;
     clock = new Date(Date.parse(payload.generatedAt) - 2000);
-    const job: Job = { scope: SCOPE, ownerKey: OWNER, watchlistId: WATCHLIST, version: 1, slugs: ["example-mcp"], periodStart: new Date(+clock - 86400000).toISOString(), periodEnd: clock.toISOString(), kind: "capture", sourceUrls: ["https://github.com/example/mcp"], receiptIds: [] };
+    const job: Job = { scope: SCOPE, ownerKey, watchlistId: WATCHLIST, version: 1, slugs: ["example-mcp"], periodStart: new Date(+clock - 86400000).toISOString(), periodEnd: clock.toISOString(), kind: "capture", sourceUrls: ["https://github.com/example/mcp"], receiptIds: [] };
     return runtime.run(request(), add(job));
   }
   async function report(receiptIds: string[]) {
     clock = new Date("2026-11-12T00:00:04Z");
-    const job: Job = { scope: SCOPE, ownerKey: OWNER, watchlistId: WATCHLIST, version: 1, slugs: ["example-mcp"], periodStart: "2026-11-01T00:00:00Z", periodEnd: "2026-11-12T00:00:00Z", kind: "report", sourceUrls: [], receiptIds };
+    const job: Job = { scope: SCOPE, ownerKey, watchlistId: WATCHLIST, version: 1, slugs: ["example-mcp"], periodStart: "2026-11-01T00:00:00Z", periodEnd: "2026-11-12T00:00:00Z", kind: "report", sourceUrls: [], receiptIds };
     return runtime.run(request(), add(job));
   }
   return { deps, runtime, store, jobs, calls, add, capture, report, setClock: (stamp: string) => { clock = new Date(stamp); } };

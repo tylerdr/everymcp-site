@@ -28,7 +28,8 @@ export type LeadCaptureResult =
   | { status: "captured"; duplicate: false }
   | { status: "already_captured"; duplicate: true }
   | { status: "confirmation_unavailable"; saved: boolean; retryable: true }
-  | { status: "unavailable"; reason: "unconfigured" | "transient" | "provider_rejected"; retryable: boolean };
+  | { status: "outcome_unknown"; retryable: true }
+  | { status: "unavailable"; reason: "unconfigured" | "provider_rejected"; retryable: boolean };
 
 type ProviderResponse = Record<string, unknown>;
 
@@ -146,11 +147,12 @@ export async function captureLead(input: LeadInput): Promise<LeadCaptureResult> 
       return { status: "confirmation_unavailable", saved: response.ok || response.status === 409, retryable: true };
     }
     if (response.status === 408 || response.status === 425 || response.status === 429 || response.status >= 500) {
-      return { status: "unavailable", reason: "transient", retryable: true };
+      // A provider can persist or send before returning a transient failure.
+      return { status: "outcome_unknown", retryable: true };
     }
     return { status: "unavailable", reason: "provider_rejected", retryable: false };
   } catch {
-    return { status: "unavailable", reason: "transient", retryable: true };
+    return { status: "outcome_unknown", retryable: true };
   } finally {
     clearTimeout(timeout);
   }

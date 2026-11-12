@@ -98,3 +98,12 @@
 - [ ] Shared infrastructure owner: install/postcheck reviewed product-only receipt store under current actual metadata/action scope, then separately bind dedicated credentials and exact Preview configuration.
 - [ ] Hosted: controlled Auth principals, genuine sandbox webhook/original-download/reload/recovery/refund and owner-isolation acceptance; Production stays closed.
 - [ ] Commercial owner: verified support contact/owner, refund-request process, capacity and backend acquisition event receipts before paid launch. Prepare existing campaign drafts for authorized distribution only.
+
+## 2026-11-12 — Separate lead recovery candidate
+
+- [x] Reproduce the saved-then-lost-response defect on current main; carry PR33's narrow lead runtime/test fix on a separately assigned current-main branch without modifying its reserved branch.
+- [x] Preserve all newer commerce tests and checkout-analytics validation; pass 14 focused lead cases, lint, standalone types and the full build (153 tests, 756 pages).
+- [x] Verify actual local browser input retention, synthetic same-key retry and keyboard free-methodology recovery, with external requests blocked and no real leads/emails.
+- [ ] Review exact candidate independently, publish draft and require its automatic Vercel Preview; conditionally release and perform verified-TLS GET-only production acceptance without submitting a lead.
+- [ ] Establish actual provider/confirmation acceptance separately. Current email-plus-intent deduplication conflates distinct same-intent inquiries; this recovery fix does not promise exactly-once delivery.
+- [ ] Resolve PR33's original source writer before touching that reserved branch or presumed unpublished work. Parent assigned only the new recovery branch.

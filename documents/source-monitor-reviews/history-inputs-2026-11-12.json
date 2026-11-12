@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "receipts": [
+    {
+      "receiptPath": "2026-10-04-manual/receipt.json",
+      "executionPath": "2026-10-04-manual/execution.json",
+      "sha256": "2196cc1d41678e4ac23cda41751bfb5eceb6a2c114dc6a6a53ebda070c87d347",
+      "headSha": "a3f2affc5a8e354428ecc66ed11c33ea1ec4dca8"
+    }
+  ]
+}

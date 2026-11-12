@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-12",
+  "evidenceClass": "synthetic-fixture",
+  "sourceBase": "ab70d47d3975f0bb08f9f4fe17b164f1bd6d5ca1",
+  "main": "242f1450cb31f2a6038c180abdbf46ce53fca782",
+  "draftPullRequest": "https://github.com/tylerdr/everymcp-site/pull/36",
+  "scope": "unbound owned watchlist/canonical-job/recurring-rights/service-report workflow",
+  "sourceBlobs": {
+    "lib/monitoring/control-contract.ts": "7fb776b7aaf03edcf4dbc7493e41fba4d107b72e",
+    "lib/monitoring/control-postgres.ts": "926109bf993e6acf6122c8ec88b4a94bd566d272",
+    "lib/monitoring/control-postgres-policy.ts": "00a1a0fc9999bbe4b4c43cde365b96dd609f022d",
+    "lib/monitoring/owned-workflow.ts": "76c8cc1795c77c702393080fc8c527f5422c6e1d",
+    "lib/monitoring/owned-runtime.ts": "4e560278bd96baeeb534e8e102264a7c6186d9ca",
+    "lib/monitoring/owned-handlers.ts": "2207ba00553600b3d4ad84e9bc075b462a271647",
+    "lib/monitoring/owned-report.ts": "38926d26d98e47ed5e101cc5580ff191573fe0c3",
+    "lib/monitoring/recurring-rights.ts": "5e90529760e93664cec9c93725d063bacd7ac489",
+    "lib/monitoring/service-records.ts": "2d31cc021f9f464c2a9378d21290018365ef4c61",
+    "lib/monitoring/service-runtime.ts": "1d6c96ff372c67e4e35919cfd1bb2d851fb00fe6",
+    "lib/monitoring/service-authority.ts": "41257098ee8fc18a071a811e2db759e139852cbf",
+    "lib/monitoring/history.ts": "9c4d6600b7bc0e9f56c5bc1d372ed00b36f65d1a",
+    "documents/monitoring-control-proposal.sql": "435e9ec894b8eb3b5120abf8e2aa4bc55fcee34d"
+  },
+  "review": {
+    "independentDesign": "PASS before implementation",
+    "independentFinalSourceSecurityTests": "PASS; no remaining unbound-source release blocker",
+    "resolvedFindings": [
+      "fresh private owner creates schema objects instead of inheriting installer table defaults; full schema/table/column ACL allowlists",
+      "owner-scoped immutable mutation lookup before current catalog resolution",
+      "immutable expected-period coverage in separately versioned signed report and recovered original"
+    ]
+  },
+  "checks": {
+    "focusedSuites": 21,
+    "focusedTestsPassed": 173,
+    "focusedTestsFailed": 0,
+    "typeScript": "passed",
+    "repositoryLint": "passed",
+    "freshProcessRecovery": "passed; public signer keys only, fictional renewed current invoice plus original invoice and Auth/SQL",
+    "nativeSQL": "UNRUN; retained initial UID-map failure, no retry or alternative runner"
+  },
+  "workflow": {
+    "configuration": "actual current-user adapter + same-origin strict owner handlers",
+    "selection": "actual immutable PostgreSQL control adapter against fictional transactional SQL responses; canonical slugs/URLs/version/period/TTL/invoice/coverage",
+    "billing": "installed Stripe20.4.0 SDK/API2026-02-25.clover with no-socket fictional HTTP transport; no real account or provider API call",
+    "source": "actual bounded Node collector against loopback HTTP only",
+    "report": "actual admission, comparison and immutable signed service-v2 owned report",
+    "recovery": "actual recovery-role adapters and current rights after issuance expiry in a new process; no signing key/producer/collector/current inventory"
+  },
+  "original": {
+    "jobId": "d62a45ed5947e35bbbd44eb6b671ea959956731004c5a6efbcc5fb4c5b8deb4a",
+    "receiptId": "9a2040e3f74f5dc6796bb18d8b662b1c7add9c6458af13914830ec1937062550",
+    "reportSha256": "bf7bde548ba2f1b209ed9a8d0c9a4b71e0ee550bc64d552b6dcbe3dbb135c5a7",
+    "reportLength": 12556,
+    "coverage": {
+      "expectedPeriods": 4,
+      "availablePeriods": 3,
+      "missingPeriodEnds": [
+        "2026-11-08T00:00:11.000Z"
+      ],
+      "state": "gaps"
+    }
+  },
+  "copies": {
+    "original-owned-report.md": {
+      "bytes": 12556,
+      "sha256": "bf7bde548ba2f1b209ed9a8d0c9a4b71e0ee550bc64d552b6dcbe3dbb135c5a7"
+    },
+    "fresh-process-owned-report.md": {
+      "bytes": 12556,
+      "sha256": "bf7bde548ba2f1b209ed9a8d0c9a4b71e0ee550bc64d552b6dcbe3dbb135c5a7"
+    }
+  },
+  "retainedReport": "documents/evidence/monitoring-owned-fictional-report.md",
+  "policy": {
+    "id": "current-paid-subscription-v1",
+    "status": "draft source implementation; commercial acceptance or revision required before activation",
+    "generationAndRecovery": "current paid recurring subscription required; original invoice independently checked on recovery",
+    "knownDenials": [
+      "inactive/canceled/expired/unpaid",
+      "successful refund including partial",
+      "issued credit note",
+      "open/lost dispute"
+    ],
+    "unknown": [
+      "ambiguous provider/binding/settlement",
+      "pending refund or restored dispute",
+      "tax/discount/balance/proration/mixed/split/out-of-band unsupported",
+      "incomplete pagination, failure or changed snapshot"
+    ],
+    "realProductPriceCadence": "not selected or published"
+  },
+  "remaining": [
+    "protected trusted subscription enrollment integration",
+    "accepted recurring access/reversal/retention policy and product identity",
+    "native control/custody acceptance under a separately resolved execution restriction",
+    "approved exact hosted targets/Auth/scope/roles/fingerprints/key/producer bindings",
+    "owner UX/routes and controlled schedule/private delivery binding",
+    "two genuine monitored periods",
+    "authentic sandbox payment/renewal/recovery/refund/dispute/reversal acceptance"
+  ],
+  "nativeHold": {
+    "action": "prior initial unshare namespace probe",
+    "target": "/proc/self/uid_map",
+    "result": "failed: Read-only file system",
+    "engineDownloadAndSQL": "did not execute",
+    "thisContinuation": "no probe, retry, alternative runner or acquisition"
+  },
+  "reservedHeads": {
+    "PR30": "f26945c2148c66f941f517694d5dc316bcfc5398",
+    "PR33": "d6a728b05389ca905c219a1e84ed2aea86092dee",
+    "PR35": "546d7250b81aef41035b084696499e853c1b1ddf"
+  },
+  "claims": "No native/hosted evidence, paid intake, real collection, sandbox/live transaction, MRR or collected revenue. Service signatures endorse recorded assertions, not platform/build/fetch truth."
+}

@@ -2,6 +2,18 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-11-12 — Default-off monitoring worker and recovery integration
+
+Add an internal worker around the source-history engine with injected verified worker/owner identity, canonical watchlist, current recurring rights, evidence ingestion and immutable-store interfaces. A stable watchlist-period job reuses its original report; generation verifies prepared bytes before committing an index, concurrent losers return the authoritative winner, and recovery verifies current owner/rights before original bytes. The production binding remains absent and no shared kit infrastructure is repurposed.
+
+Fifteen focused cases pass with a testing-only local adapter, including concurrent processes, crash/lost-response recovery, same-original recovery in a fresh process, stale/missing sources and current-rights denial. Independent review found no blocking issue. The exact owner-adapter and activation/offer/payment decisions are documented without executing SQL, provider, hosted configuration, customer or payment operations. This is source/local workflow readiness, not hosted monitoring or recurring revenue.
+
+## 2026-11-12 — Provider-free watchlist history and recoverable reports
+
+Prepared on `feature/monitoring-watchlist-reports-20261112` from PR34 main242f1450. New offline report generation admits independently verified source-receipt/execution inputs, retains complete selected-slug coverage, compares dated conclusive availability and successful body hashes, and preserves unknowns and unresolved findings. Immutable content-addressed bundles support concurrent idempotent publication and exact-byte recovery in a fresh process. No existing collector, workflow, catalog, payment/Auth or PR30/33/35 runtime source is changed.
+
+Sixteen focused history cases pass. Related source tests covered47 cases (one pre-existing missing operational-directory prerequisite passed after setup/focused recheck); lint, standalone types and the full application build pass (139 tests,756 pages). Independent review found no blocking issue. A reproducible actual-receipt example and an actionable subscription payment→delivery→fresh-session recovery→reversal acceptance packet separate historical evidence and synthetic tests from production. No live monitoring, automatic delivery, recurring price, provider/SQL/configuration, charge or MRR claim.
+
 ## 2026-10-03 — Apply the repository's shadcn UI requirement
 
 Root review required the planner controls to follow AGENTS.md. The repository had no shadcn components or utility setup, so this focused addition introduces the official new-york Button and NativeSelect source, a cn utility, components.json, and theme tokens compatible with the existing Tailwind 3 stack. The planner uses NativeSelect/NativeSelectOption, the submit and copy actions use Button, and the starter handoff uses Button asChild around its semantic link.
@@ -268,3 +280,79 @@ Recovered exact51b0c7f from saved packet after scratch pruning. Checkout JSON no
 
 ## 2026-10-29 — Source-only worked sample and current-main reconciliation
 Prepared a filled hypothetical research/default boundary sample in the actual paid artifact and pricing excerpt; corrected recovery copy to require availability, verified buyer account and current rights. Preserved immutable original custody and all payment gates. Combined current main's published guide/worksheet/discovery work with PR29 by clean local merge. Three new focused tests, standalone types and changed-file lint pass; independent review PASS. Source only, not a hosted release or paid receipt.
+
+## 2026-11-12 — Candidate bounded source document comparisons
+
+- Add source-v2 bounded static projections at the existing response-processing point, with strict identity/date/hash binding and explicit unsupported/incomplete outcomes.
+- Consume section changes in real history reports; preserve exact v1 recovery and current-rights checks. Captured excerpts are bounded and safely escaped; equality never implies unchanged unexamined content.
+- Validate fictional capture→receipt→report→fresh-process recovery and actual legacy-byte compatibility; 73 related Python tests, lint and TypeScript pass. No collection/activation or recurring offer publication.
+
+## 2026-11-12 — Candidate separate Node monitoring receipt path
+
+- Implement conditional Next/Node capture/admission/report/recovery against explicit trusted runtime/custody contracts; default-off routes do not accept posted evidence. Keep the Python provenance policy and original artifacts unchanged.
+- Port deterministic history/projection comparison semantics with distinct source and custody hashes, fictional evidence labels, explicit unknown/stale/incomplete outcomes and original-byte recovery.
+- Add synthetic golden parity and security/recovery regressions, including a separate Node recovery process. Independent review corrected wrong-job index substitution and stalled-body admission. Production attestation, storage, Node collection, identity/rights and scheduling are still unimplemented/unbound; no monitoring, payment or delivery activation.
+
+## 2026-11-12 — Candidate executable Node source collection
+
+- Replace collection placeholder with actual bounded Node transport, robots decisions, response observations and strict static projections; connect through runtime admission and stored report recovery using synthetic loopback HTTP.
+- Add v2 predecessor-bound receipts while preserving v1 originals, honest unknown/304 semantics and source/robots host cooldowns across periods and hosts.
+- Validate malformed/oversized/redirected/timed-out responses and meaningful dated section changes. Preserve all hosted authority/storage/rights, collection, scheduling and commercial activation gates; no real monitored-source fetch or payment.
+
+- Version future Node report rendering to prioritize the latest complete changed projection, with balanced before/after quotes; retain old history evidence and frozen original bytes.
+
+
+## 2026-11-12 — Candidate monitoring owner binding
+
+- Implement a bounded authoritative Supabase current-user adapter with monitoring-specific owner identity, fixed server configuration, credential ambiguity refusal and no subscription grant. Shared kit/Auth/store/payment source remains untouched.
+- Exercise the actual recovery route with current owner/rights checks and exact original bytes, including wrong owner, Auth denial/outage, metadata spoofing and rights revoked during retrieval.
+- 28 focused checks plus a separate-process original recovery pass; standalone TypeScript, repository lint and scoped lint pass. Fictional recovered report: 6,068 bytes, SHA256 bb79833b4eec8061142fe571833bf7daf79fc766ab4cb53ae84fd1ea30d6fb2d. No real Auth, hosted storage, subscription or monitoring activation.
+
+
+## 2026-11-12 — Candidate protected monitoring custody
+
+- Implement parameterized PostgreSQL custody with separate producer/recovery access, append-only starts/completions/period commits, scoped integrity checks and immutable CAS winners. Keep deployment attestation and current-rights checks independent.
+- Add an unapplied private-schema/column-grant/FORCE-RLS proposal and deny-only readiness/definition checks; independent review corrected rewrite/inheritance drift gaps. No SQL execution, project choice, login, credential or activation.
+- 44 focused tests, separate-process adapter recovery and two retained legacy-original checks pass; TypeScript/lint pass. Fictional SQL responses exercise actual adapter/handler code but do not prove native RLS, PostgreSQL durability or hosted monitoring.
+
+
+## 2026-11-12 — Candidate native custody acceptance harness
+
+- Prepare an exact PostgreSQL17.11 one-run controller and five native fixture groups using the real proposal, adapter and report/recovery runtime. Acquisition, namespace probing and SQL remain pending; ordinary invocation skips native tests.
+- Include actual ambient-PUBLIC refusal/pass cases, direct login/SET ROLE/NOLOGIN, native RLS/grants/integrity negatives, SERIALIZABLE contenders, injected lost acknowledgement and clean restart. Preserve exact typed catalog diagnostics and immutable originals.
+- Document existing-database eligibility and later PUBLIC-grant recovery interruption without weakening guards. Keep hosted target/writer/rights decisions separate. No monitoring runtime, price or paid availability changed.
+
+
+## 2026-11-12 — Native custody execution outcome
+
+- Invoked the one approved c69b636 controller; initial namespace probe failed on read-only /proc/self/uid_map before package acquisition or engine execution. All native cases remain unrun.
+- Retain nonsecret exact command/hash/provenance and independently checked cleanup evidence. No task artifacts or visible PostgreSQL/unshare processes remained; no retry, fallback, security change or native acceptance claim.
+- Publish outcome documentation only; production monitoring, commerce and reserved source remain unchanged.
+
+## 2026-11-12 — Authenticated service-recorded source contract
+
+- Add a distinct service-recorded start/completion schema, fixed public registry and authenticated producer using installed Node cryptography. Sign exact original identities; retain truthful service-only provenance and legacy verification policy.
+- Connect the real collector/admission/history/recovery chain to strict service SQL custody. Reuse mechanical SQL and comparison logic behind fixed origin wrappers, preserve original bytes and fail closed on unknown owner/rights/bindings.
+- Pass independent design/source review, 133 monitoring tests, TypeScript and lint. A public-key-only fresh process recovers the exact 9,640-byte fictional report; both copies hash to9936364be394f4f9f58e74724dc794ed6628e88e1d61da25c321675feabfcb55.
+- Retain namespace failure and all native/hosted/collection/activation gates. No keys, SQL, provider settings, paid offer, merge or live monitoring established; PR30/33/35 remain reserved.
+
+
+## 2026-11-12 — Owned watchlists and recurring rights source
+
+- Add separate protected control-store proposal/adapter, immutable owned watchlist versions and canonical jobs with atomic supporting invoice/coverage. No proposal SQL was run.
+- Add strict same-origin owner handlers and bounded fresh recurring-rights checks through installed Stripe SDK; no public enrollment, kit-to-subscription inference or new offer.
+- Introduce explicit service-v2 owned-report policy carrying coverage gaps and latest changed/unchanged/unknown assessment; preserve old original bytes and strict version bindings.
+- Exercise 173 focused cases including genuine local code paths with fictional SQL/provider inputs and public-only fresh-process recovery. Original/report hash: bf7bde548ba2f1b209ed9a8d0c9a4b71e0ee550bc64d552b6dcbe3dbb135c5a7. Native/hosted/payment acceptance remains unrun; no merge/activation.
+
+
+## 2026-11-12 — Actual-catalog monitoring qualification
+
+- Qualify 614 of 616 single routes and 184,528 of 189,420 pairs against unchanged capture bounds. Preserve RevenueCat/Hotjar's three-reference/two-host rejection and every separate community reference.
+- Return 422 with source-limit reasons/counts for unsupported selections; preserve stale-edit 409 and exact replay. Reject future URL-policy exclusions instead of silently monitoring partial references.
+- Pass 183 focused tests, TypeScript/lint and independent source review with full 616/585 inventories, fictional loopback observations and exact public-key-only fresh-process recovery. Correct only fictional SQL clone overhead; no native/runtime performance claim.
+- Add an unselected 90-day post-cancellation original-recovery proposal. No financial policy, commercial terms, hosted binding, source collection, native execution, merge or activation changed.
+
+
+### 2026-11-12 — Offline compatibility evidence contract (PR36 draft)
+
+Added a pure, unbound full-document/quotation evidence gate with explicit abstention and no semantic impact authority. Signed originals, canonical scope, whole-report service capture bounds, complete-body hashes/projections and cumulative quotation limits are checked; legacy formats/originals remain unchanged. Independent design/final review, 69 focused tests, TypeScript and lint pass. Contract/source frozen before fresh held-out evaluation; current previews alone cannot satisfy complete-evidence requirements. No collection, retention policy, runtime activation, native retry, payment or production release.

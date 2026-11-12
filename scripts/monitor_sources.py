@@ -19,9 +19,10 @@ from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 from jsonschema import Draft202012Validator, FormatChecker
 from protego import Protego
+import source_document_projection as projection
 
 ROOT = Path(__file__).resolve().parents[1]
-POLICY_VERSION = "public-source-v1"
+POLICY_VERSION = "public-source-v2"
 ALLOWED_HOSTS = frozenset({"github.com", "www.revenuecat.com", "contentsquare.com",
                           "docs.coingecko.com", "stack.convex.dev", "docs.cursor.com"})
 STATES = {"reachable", "missing_at_check", "unknown"}
@@ -166,7 +167,7 @@ def fetch_source(url, previous, timeout=8):
         signal.signal(signal.SIGALRM, old_handler)
 
 
-def observe(status, headers, body, previous, checked_at, duration_ms=0):
+def observe(status, headers, body, previous, checked_at, duration_ms=0, *, source=None):
     observation = {"checkedAt": checked_at, "httpStatus": status, "state": "unknown", "reason": "http_unknown",
                    "contentHash": None, "etag": None, "lastModified": None, "bodyComplete": False,
                    "evidenceType": "observed_http", "retryAfterSeconds": None,
@@ -202,6 +203,8 @@ def observe(status, headers, body, previous, checked_at, duration_ms=0):
         observation["reason"] = "redirect_not_followed"
     elif status >= 500:
         observation["reason"] = "server_error"
+    if source is not None:
+        observation['documentProjection'] = projection.capture(body, headers, source, observation, previous)
     return observation
 
 
@@ -226,7 +229,7 @@ def update_cache(previous, observation):
 
 
 def valid_observation(observation):
-    if not isinstance(observation, dict) or set(observation) != OBSERVATION_FIELDS or observation.get("state") not in STATES:
+    if not isinstance(observation, dict) or set(observation) not in (OBSERVATION_FIELDS, OBSERVATION_FIELDS | {'documentProjection'}) or observation.get("state") not in STATES:
         return False
     try:
         parse_date(observation["checkedAt"])
@@ -252,6 +255,9 @@ def valid_observation(observation):
         return False
     if observation["state"] == "unknown" and observation["reason"] in {"http_success", "not_modified", "http_missing_at_check"}:
         return False
+    if 'documentProjection' in observation:
+        try: projection.validate(observation['documentProjection'], observation)
+        except (ValueError, TypeError, KeyError): return False
     return bool(content_hash and observation["bodyComplete"]) if observation["state"] == "reachable" else content_hash is None and not observation["bodyComplete"]
 
 
@@ -259,7 +265,7 @@ def read_cache(path, sources):
     if not path.exists():
         return {}
     raw = json.loads(path.read_text())
-    if raw.get("schemaVersion") != 1 or raw.get("policyVersion") != POLICY_VERSION:
+    if (raw.get("schemaVersion"), raw.get("policyVersion")) not in ((1, 'public-source-v1'), (2, POLICY_VERSION)):
         raise ValueError("Incompatible cache policy; inspect it before replacing")
     result = {}
     for url, entry in raw.get("sources", {}).items():
@@ -270,6 +276,10 @@ def read_cache(path, sources):
         success = entry.get("lastSuccessfulObservation")
         if success and (not valid_observation(success) or success["state"] != "reachable" or not success.get("bodyComplete")):
             raise ValueError("Invalid cached successful observation")
+        for observation in (entry['observation'], success):
+            if observation and 'documentProjection' in observation:
+                if raw['schemaVersion'] != 2: raise ValueError('Legacy cache cannot contain projections')
+                projection.validate(observation['documentProjection'], observation, sources[url])
         if not isinstance(entry.get("reviewFindings", []), list):
             raise ValueError("Invalid review findings")
         for finding in entry.get("reviewFindings", []):
@@ -351,7 +361,7 @@ def build_report(listings, sources, rejected, cache, run_at, attempts, mode, ski
                              "runDisposition": skipped.get(url, "checked_this_run"),
                              "reviewFindings": cached.get("reviewFindings", [])})
     counts = Counter(source["observation"]["state"] if source["observation"] else "not_checked" for source in observations)
-    report = {"schemaVersion": 1, "policyVersion": POLICY_VERSION, "generatedAt": run_at,
+    report = {"schemaVersion": 2, "policyVersion": POLICY_VERSION, "generatedAt": run_at,
               "mode": mode, "method": "Unauthenticated public HTTP GET; no MCP tools invoked",
               "listings": listings, "sources": observations, "rejectedInputs": rejected,
               "robotsPolicies": [{"host": host, **{key: value for key, value in policy.items() if key != "text"}} for host, policy in sorted((robot_policies or {}).items())],
@@ -398,6 +408,10 @@ def validate_report(report):
     for source in report["sources"]:
         if normalize_url(source["url"]) != source["url"] or (source["observation"] and not valid_observation(source["observation"])):
             raise ValueError("Unsafe source or observation")
+        for observation in (source['observation'], source['lastSuccessfulObservation']):
+            if observation and not valid_observation(observation): raise ValueError('Unsafe retained observation')
+            if observation and 'documentProjection' in observation:
+                projection.validate(observation['documentProjection'], observation, source)
     assessment = report["assessment"]
     if any(assessment[key] is not None for key in ("protocolVersion", "actor", "transport", "totalApplicableCriteria", "score", "badge")):
         raise ValueError("HTTP availability cannot establish protocol/quality assessment")
@@ -498,7 +512,7 @@ def run_checks(sources, cache, max_checks, max_seconds, max_age_days, fetch=fetc
         try:
             status, headers, body = request(url, previous, delay)
             attempts += 1
-            observation = observe(status, headers, body, previous, checked_at, max(0, int((clock() - request_start) * 1000)))
+            observation = observe(status, headers, body, previous, checked_at, max(0, int((clock() - request_start) * 1000)), source=sources[url])
             if status in (403, 429):
                 stopped_hosts.add(host)
         except RunBudgetExceeded:
@@ -513,6 +527,7 @@ def run_checks(sources, cache, max_checks, max_seconds, max_age_days, fetch=fetc
                            "etag": None, "lastModified": None, "bodyComplete": False,
                            "evidenceType": "observed_http", "retryAfterSeconds": None,
                            "receivedBytes": 0, "durationMs": max(0, int((clock() - request_start) * 1000))}
+            observation['documentProjection'] = projection.unavailable(sources[url], observation, 'incomplete', 'body_unavailable')
         cache[url] = update_cache(previous, observation)
     return cache, attempts, skipped
 
@@ -548,7 +563,7 @@ def main():
                           "check" if args.check else "dry_run", skipped, args.max_age_days, robots, metrics)
     write_immutable_run(args.run_dir, report)
     if args.check:
-        write_json(args.cache, {"schemaVersion": 1, "policyVersion": POLICY_VERSION, "sources": cache, "robotsPolicies": robots})
+        write_json(args.cache, {"schemaVersion": 2, "policyVersion": POLICY_VERSION, "sources": cache, "robotsPolicies": robots})
     write_json(args.output, report)
     summary = ("## EveryMCP source observations\n\n"
                f"Generated: {report['generatedAt']} · policy: {POLICY_VERSION}\n\n"

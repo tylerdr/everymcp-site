@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-12",
+  "evidenceClass": "synthetic-fixture",
+  "sourceBase": "798d4bec4daf1dff6fa463b4630de4e3ef473bd7",
+  "main": "242f1450cb31f2a6038c180abdbf46ce53fca782",
+  "draftPullRequest": "https://github.com/tylerdr/everymcp-site/pull/36",
+  "status": "reviewed source-only; hosted factory remains null",
+  "policy": "everymcp-service-custody-v1",
+  "reportPolicy": "source-receipt-history-service-v1",
+  "sourceBlobs": {
+    "lib/monitoring/service-authority.ts": "34adbeaf0ec773b43c12a5ce51a885864d1119f7",
+    "lib/monitoring/service-records.ts": "3768dadd0f3293c6cd619d43d28e0bd966be6660",
+    "lib/monitoring/service-runtime.ts": "be4305d5884572538d5382c5d8240f7dd849a4f8",
+    "lib/monitoring/service-history.ts": "5a452acc693d43ad5cd0623ae28830b1aba99586",
+    "lib/monitoring/history.ts": "7dd5c0ce19f0b8899676fd75ece791828756f072",
+    "lib/monitoring/postgres-custody-core.ts": "9b6b0f84bebcfa7139422ce63bcb9819e161c8aa",
+    "lib/monitoring/postgres-store.ts": "5f9ac05ea5299dbe2e61c4ed384ca6a0c003bb17",
+    "lib/monitoring/service-postgres-store.ts": "1eaf9a70895e060e4e3577894ccdb0675e762880"
+  },
+  "tests": {
+    "focusedSuites": 17,
+    "focusedPassed": 133,
+    "focusedFailed": 0,
+    "newServiceCases": 20,
+    "freshProcessPublicKeyOnly": true,
+    "typeScript": "passed",
+    "repositoryLint": "passed",
+    "nativePostgreSQL": "unrun; prior single initial namespace probe failed before download/SQL; no retry",
+    "initialTestFailure": "runtime test import error, corrected before the final 133-pass run",
+    "initialLintFailure": "two unused identifiers, corrected; final lint passed"
+  },
+  "review": {
+    "independentDesign": "PASS before implementation",
+    "independentFinalSourceAndTests": "PASS; no source-release blocker",
+    "correctedFinding": "public verifier requires exactly one SPKI public PEM block before parsing; private/multiple PEM rejected"
+  },
+  "workflow": {
+    "input": "two fictional loopback HTTP periods using existing Node collector",
+    "auth": "fictional current-user response via actual owner adapter",
+    "storage": "actual SQL adapter against fictional SQL response model; no native database",
+    "producerKeys": "published RFC8032 test vectors, never generated or configured real credentials",
+    "recovery": "separate process, public verification configuration only, fictional recovery-role SQL model, no producer or regeneration; asserted clock after issuance expiry"
+  },
+  "original": {
+    "jobId": "7c102feadf5f3dd1dff17147575d14457f6620ae8f0c2928fb07cdca3dd3f69d",
+    "receiptId": "1b38c8b18e9a1c1a920dc0b51434d720c2e4856fe9b67b689bd9cd457d96149e",
+    "kind": "report",
+    "reportSha256": "9936364be394f4f9f58e74724dc794ed6628e88e1d61da25c321675feabfcb55",
+    "reportLength": 9640,
+    "evidenceClass": "synthetic-fixture",
+    "origin": "everymcp-service-custody-v1"
+  },
+  "copies": {
+    "original-service-report.md": {
+      "bytes": 9640,
+      "sha256": "9936364be394f4f9f58e74724dc794ed6628e88e1d61da25c321675feabfcb55"
+    },
+    "fresh-process-service-report.md": {
+      "bytes": 9640,
+      "sha256": "9936364be394f4f9f58e74724dc794ed6628e88e1d61da25c321675feabfcb55"
+    }
+  },
+  "retainedReport": "documents/evidence/monitoring-service-recorded-fictional-report.md",
+  "legacyParity": {
+    "builderSha256": "5236840d1ef2f14e9b74dee924d749df6a62a26190c5f952855deda60caa922c",
+    "v1": "retained fixture expectedBytes/expectedSha256 matched",
+    "v2Bytes": 9201,
+    "v2Sha256": "82db54061b0d70904cdb96934401b474b20f4d52b278cda96c062cb80011ac25",
+    "oldRuntimeVerifierAndPythonArtifacts": "unchanged"
+  },
+  "unrun": [
+    "native grants/RLS/isolation/restart acceptance",
+    "real source collection/two genuine periods",
+    "hosted Auth/current-rights/store/writer binding",
+    "automatic schedule/private delivery",
+    "sandbox or live payment/refund/dispute/reversal",
+    "production activation"
+  ],
+  "reservedHeads": {
+    "PR30": "f26945c2148c66f941f517694d5dc316bcfc5398",
+    "PR33": "d6a728b05389ca905c219a1e84ed2aea86092dee",
+    "PR35": "546d7250b81aef41035b084696499e853c1b1ddf"
+  },
+  "limitations": "Signatures authenticate service assertions only. They do not prove truthful fetch, independent time, exact build or platform attestation. READY preview is build evidence only. No revenue established."
+}

@@ -1,0 +1,47 @@
+{
+  "policy": "everymcp-compatibility-evidence-v1",
+  "scope": "Pure offline document-evidence gate; no impact classifier, collection, storage, route or rights grant",
+  "limits": {
+    "bodyBytes": 16384,
+    "supplementBytes": 65536,
+    "profileBytes": 8192,
+    "urlCharacters": 2048,
+    "sources": 2,
+    "steps": 12,
+    "quotes": 8,
+    "quoteCharacters": 160,
+    "quoteWordsPerSource": 24,
+    "historyDays": 90
+  },
+  "trusted_configuration": [
+    "Fixed service verifier and independently selected before/after receipt IDs",
+    "Canonical server-owned scope, owner, watchlist/version, sorted slugs and complete source cohort",
+    "Exact matching catalog/curated inventory snapshot and explicit asOf"
+  ],
+  "admitted_origins": ["everymcp-service-custody-v1", "everymcp-service-custody-v2"],
+  "body_media_types": ["text/plain", "text/markdown"],
+  "required_evidence": [
+    "Both original signatures, cross-bindings and canonical source payloads verified under unchanged policies",
+    "Whole-report service capture window: check mode, no dry-run sources, at most2 checked sources,1 robots request and30000ms reported request duration; no checked source outside canonical job or uncounted current observation",
+    "One or two canonical URLs on one host, with every selected source present in both phases",
+    "Distinct executions/nonces, ordered completed captures within90days; no claim of adjacency or global latestness",
+    "checked_this_run HTTP200 reachable complete observation, captured projection, observation within execution",
+    "Before evidence fresh at its capture completion; after evidence fresh at asOf using existing isDue policy",
+    "Complete original UTF8 body supplement matching signed body hash and receivedBytes; never a preview reconstruction",
+    "Projection recomputed from full bytes under retained media/profile and exactly equal, including clipped previews",
+    "Exact nonempty quotation on UTF8 byte boundaries, linked only to declared profile step/source",
+    "Every emitted quote occurrence counts against one24word budget per URL across both phases and all steps"
+  ],
+  "new_material_budget": "UTF8 profile/quote/body-metadata canonical JSON plus raw supplement bytes <=65536; existing signed originals retain their existing limits",
+  "output_statuses": ["ready_for_document_review", "abstain"],
+  "output_data": ["Profile digest", "Bounded quotations and source/receipt/body hashes, offsets, dates and pointers", "Raw source-byte changed/unchanged metadata"],
+  "assessment": {
+    "documentContractChange": "not_assessed",
+    "potentialWorkflowImpact": "not_assessed",
+    "runtimeCompatibility": "unverified",
+    "rightsGranted": false
+  },
+  "provenance_limit": "Signatures endorse service assertions, not independent fetching, time, deployment identity, relevance, latestness or runtime behavior",
+  "abstention": "Any missing, stale, unsupported, contradictory, unverifiable or over-budget selected evidence discards all requested quotes; never partial ready",
+  "activation": "Unbound. No automatic body capture/retention, new entitlement, policy selection or public compatibility promise. Legacy originals remain unchanged."
+}

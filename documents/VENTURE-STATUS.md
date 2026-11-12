@@ -1,3 +1,12 @@
+# EveryMCP — default-off workflow candidate, November 12
+
+- PR36 adds an internal worker to the evidence-backed report engine; production binding is absent. Existing kit/Auth/store/payment source and PR30/33/35 are untouched.
+-15 workflow cases pass, including actual local persistence/fresh-process recovery and synthetic authority/failure cases. Independent review found no blocking issue; historical five-source report hash is retained in MONITORING-WORKFLOW.md.
+- No live collection, verified customer session, real recurring payment, hosted report delivery, refund/dispute trial or MRR is claimed. Preview validates the application composition only.
+- Parent receives a concrete nonsecret scheduler/store/Auth/offer/payment/private-delivery decision packet and exact adapter interfaces. Shared infrastructure and commercial-policy ownership remain intact.
+
+## Earlier report-stage status
+
 # EveryMCP venture status — 2026-11-12 monitoring candidate
 
 - Main remains PR34 `242f1450`; PR35 reviewed leadfix remains held after its denied retry. PR30/33 and private commerce/store ownership are unchanged.

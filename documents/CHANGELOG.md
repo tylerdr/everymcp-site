@@ -2,6 +2,12 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-11-12 — Default-off monitoring worker and recovery integration
+
+Add an internal worker around the source-history engine with injected verified worker/owner identity, canonical watchlist, current recurring rights, evidence ingestion and immutable-store interfaces. A stable watchlist-period job reuses its original report; generation verifies prepared bytes before committing an index, concurrent losers return the authoritative winner, and recovery verifies current owner/rights before original bytes. The production binding remains absent and no shared kit infrastructure is repurposed.
+
+Fifteen focused cases pass with a testing-only local adapter, including concurrent processes, crash/lost-response recovery, same-original recovery in a fresh process, stale/missing sources and current-rights denial. Independent review found no blocking issue. The exact owner-adapter and activation/offer/payment decisions are documented without executing SQL, provider, hosted configuration, customer or payment operations. This is source/local workflow readiness, not hosted monitoring or recurring revenue.
+
 ## 2026-11-12 — Provider-free watchlist history and recoverable reports
 
 Prepared on `feature/monitoring-watchlist-reports-20261112` from PR34 main242f1450. New offline report generation admits independently verified source-receipt/execution inputs, retains complete selected-slug coverage, compares dated conclusive availability and successful body hashes, and preserves unknowns and unresolved findings. Immutable content-addressed bundles support concurrent idempotent publication and exact-byte recovery in a fresh process. No existing collector, workflow, catalog, payment/Auth or PR30/33/35 runtime source is changed.

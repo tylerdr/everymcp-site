@@ -111,3 +111,13 @@
 - [ ] Existing store/Auth/commerce owners: resolve isolated private-store and identity gates, recurring product/period rights and controlled sandbox payment→delivery→fresh-session recovery→refund/dispute/reversal acceptance.
 - [ ] Product/delivery owner: approve deterministic private subscriber reporting policy, retention and any separate notification trial; no per-customer manual fulfillment or invented SLA.
 - [ ] PR35 release remains denied; do not retry on current evidence. PR33 writer uncertainty and PR30 custody remain unchanged.
+
+
+## 2026-11-12 — Default-off monitoring workflow continuation
+
+- [x] Reconcile existing kit-specific owner/receipt boundaries; keep collector, Auth, payment and production-store code untouched.
+- [x] Add internal worker with injected owner adapters, stable period identity, current generation/recovery rights, original-byte binding and prepare-before-index behavior; no production binding or environment enablement.
+- [x] Prove15 local workflow cases and obtain independent review; preserve fixture versus historical versus hosted evidence distinctions.
+- [x] Return exact nonsecret owner/runtime/recurring-offer/payment decision packet in MONITORING-WORKFLOW.md.
+- [ ] Parent route authoritative worker/owner, canonical watchlist, recurring rights, verified source ingestion and production-store adapters to existing owners; no parallel SQL/Auth/commerce writer.
+- [ ] Approve private automated inbox delivery and perform the bounded genuine sandbox payment→report→fresh-session recovery→reversal sequence before intake. No report-level Tyler fulfillment.

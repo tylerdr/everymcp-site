@@ -1,3 +1,17 @@
+# EveryMCP — November 12 default-off workflow continuation
+
+PR36 now also contains an internal monitoring worker around the reviewed report engine. `get_production_binding()` remains unconditionally `None`; no route, environment opt-in, hosted adapter, schedule, collection, customer send or payment is added. Existing kit-specific Auth, ownership, store and commerce code remains untouched. PR30/33/35 and their holds are preserved.
+
+Fifteen focused workflow cases pass: historical and synthetic source reports through real local persistence, prepare-before-index checks, three-process convergence, concurrent differing candidates returning one original, crash/lost-response retry, fresh-process original recovery, owner/scope denial, revoked/unknown rights, corrupted storage and changed-input retry without rebuilding. Independent read-only review found no blocking issue in the worker/test adapter/tests. The real local historical result is4861bytes, SHA256 `187072dc5ef9342e21c415bf29ee4b97e5e430763e72a68d031f788b67c33237`, with five explicitly stale sources (two missing at check, three reachable). Identity, recurring rights and local index are fixtures, not hosted customer acceptance.
+
+The worker period identifies a full-history as-of snapshot, not exclusively new events within that window. The index is a trusted injected store boundary, not an authenticated local database. Rights are authoritative at check time, not an instantaneous revocation guarantee across a remote check and response. Generation and historical recovery policy remain separate owner decisions.
+
+[MONITORING-WORKFLOW.md](MONITORING-WORKFLOW.md) contains exact existing-owner adapter interfaces and the complete nonsecret activation/recurring-offer/payment packet: named Python/Linux scheduler/runtime budget; approved isolated store/Auth installation and controlled-principal scope; exact monthly offer/cap/cadence/retention/support/cancellation/refund rights; confirmed monitoring seller/test context; bounded genuine sandbox lifecycle cases; and deterministic private-inbox delivery policy. Parent must route the existing owners; this lane does not infer vacant custody from inactive branches. No hosted integration or recurring MRR is established by a Vercel application build.
+
+The earlier report-stage notes below retain their executed checks. Existing application code and package/dependency composition remain unchanged; later exact-head Vercel evidence must be recorded separately from the Python fixture run.
+
+---
+
 # EveryMCP — November 12 monitoring report stage
 
 ## Current source and ownership

@@ -314,3 +314,10 @@ Prepared a filled hypothetical research/default boundary sample in the actual pa
 - Implement parameterized PostgreSQL custody with separate producer/recovery access, append-only starts/completions/period commits, scoped integrity checks and immutable CAS winners. Keep deployment attestation and current-rights checks independent.
 - Add an unapplied private-schema/column-grant/FORCE-RLS proposal and deny-only readiness/definition checks; independent review corrected rewrite/inheritance drift gaps. No SQL execution, project choice, login, credential or activation.
 - 44 focused tests, separate-process adapter recovery and two retained legacy-original checks pass; TypeScript/lint pass. Fictional SQL responses exercise actual adapter/handler code but do not prove native RLS, PostgreSQL durability or hosted monitoring.
+
+
+## 2026-11-12 — Candidate native custody acceptance harness
+
+- Prepare an exact PostgreSQL17.11 one-run controller and five native fixture groups using the real proposal, adapter and report/recovery runtime. Acquisition, namespace probing and SQL remain pending; ordinary invocation skips native tests.
+- Include actual ambient-PUBLIC refusal/pass cases, direct login/SET ROLE/NOLOGIN, native RLS/grants/integrity negatives, SERIALIZABLE contenders, injected lost acknowledgement and clean restart. Preserve exact typed catalog diagnostics and immutable originals.
+- Document existing-database eligibility and later PUBLIC-grant recovery interruption without weakening guards. Keep hosted target/writer/rights decisions separate. No monitoring runtime, price or paid availability changed.

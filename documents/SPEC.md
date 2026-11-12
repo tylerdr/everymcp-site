@@ -209,3 +209,8 @@ The monitoring runtime now has a concrete Supabase current-user adapter using se
 ### Protected monitoring custody candidate (2026-11-12)
 
 The Node workflow now has a real PostgreSQL custody adapter using separate producer/read access, immutable canonical starts/originals/job commits and current-owner/current-rights retrieval. A private-schema proposal and independent catalog-definition guard remain unapplied. Actual adapter/handler fixtures prove source behavior, including concurrent winner recovery and unchanged legacy bytes; they do not prove native SQL/RLS or hosted durability. Canonical watchlist creation, deployment writer authorization, recurring rights and runtime activation remain unimplemented/unbound. See MONITORING-POSTGRES-CUSTODY.md.
+
+
+### Native custody contract preparation (2026-11-12)
+
+A prepared, separately gated PostgreSQL17.11 fixture will test the actual proposal and SQL adapter against native grants/RLS/isolation/restart behavior. It remains unexecuted. Existing databases can qualify if effective ambient access meets the deny-only guard; unrelated later PUBLIC grants may interrupt recovery even with an unchanged monitoring fingerprint. Direct role login and hosted pooler identity require separate evidence. Disposable local testing requires no hosted target choice and grants no installation, credential or activation authority. See MONITORING-NATIVE-APPROVAL.md for one-run limits and provenance distinctions.

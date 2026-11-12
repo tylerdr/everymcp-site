@@ -152,5 +152,12 @@
 ### PR36 protected PostgreSQL custody — 2026-11-12
 - [x] Implement actual SQL custody adapter, scoped producer/read roles, immutable originals and period CAS, bounded acknowledged-abort retries and uncertain-COMMIT refusal.
 - [x] Prepare unapplied private-schema/grant/RLS proposal with independent expected definition fingerprint; exercise real runtime/owner/recovery handlers through fictional SQL responses and retained legacy originals.
-- [ ] Existing store owner: name eligible isolated target and authorize native syntax/negative RLS/grants/concurrency/restart acceptance before any binding. Proposal stays rollback-only with NOLOGIN placeholders and no scope records.
+- [ ] Approve the bounded disposable local native fixture independently of hosted target selection (MONITORING-NATIVE-APPROVAL.md). Hosted owner must separately select an eligible target and review actual fingerprint/login/scope before binding. Proposal stays rollback-only with NOLOGIN placeholders and no scope records.
 - [ ] Implement independent deployment-writer authentication and canonical owner/watchlist/job creation; confirm recurring rights and storage retention/quota. These are not supplied by a database role, Auth user or kit payment. See MONITORING-POSTGRES-CUSTODY.md.
+
+
+### Native custody source-contract preparation — 2026-11-12
+- [x] Prepare pinned17.11 acquisition/isolation/cleanup controller, explicit approval packet and actual adapter/native fixture source; no execution.
+- [x] Clarify five ambient-PUBLIC states and direct-login identity, unchanged-schema recovery interruption, and no categorical foreign-USAGE/invoker prohibition.
+- [ ] Obtain one-run approval with explicit soft RSS/disk limits; then execute once and preserve actual diagnostics/SQLSTATE/cleanup. Native semantics remain unproved.
+- [ ] Existing platform owner: approve an independent deployment/execution witness binding approved SHA, nonce, job/scope and result digests; OIDC/KMS project labels and DB credentials alone are insufficient.

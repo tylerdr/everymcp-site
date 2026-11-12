@@ -1,3 +1,17 @@
+# PR36 native custody acceptance preparation — 2026-11-12
+
+Prepared, not executed: a pinned PostgreSQL17.11 extraction/isolation controller and native tests against the actual SQL adapter/runtime. The exact one-run approval packet is [MONITORING-NATIVE-APPROVAL.md](MONITORING-NATIVE-APPROVAL.md). No engine acquisition, namespace probe, SQL, hosted selection, configuration or activation occurred. Source-only helper tests and skipped native gating are distinct from native acceptance.
+
+The native fixture covers clean defaults, PUBLIC definer/readable-table (including denying RLS)/legacy CREATE refusal, unrelated-role grants and foreign USAGE/invoker allowance, direct login versus SET ROLE/NOLOGIN, grants/RLS/hash/FK negatives, real SERIALIZABLE contenders, injected lost COMMIT acknowledgement and clean-restart exact original recovery. It checkpoints typed nonsecret catalog/SQLSTATE diagnostics before assertions. The actual recovery adapter must refuse ambient PUBLIC capability before fingerprint/custody reads even though the schema fingerprint is unchanged. These cases remain unrun until approval.
+
+An existing PostgreSQL15+ database may already qualify; a dedicated database is not inherently required. The guard remains deny-only. Hosted login/scope/fingerprint acceptance and independent deployment execution witness remain unresolved. Vercel OIDC/KMS project labels, a database role and caller metadata do not establish report provenance. See the packet for the precise next witness decision and resource limits.
+
+Current remote baseline main242f1450 / PR36 8c5a682 was reconciled; reserved PR30/33/35 unchanged. This update touches only fixture source and lane documentation. No production runtime or original/renderer is changed. The apt metadata read received EACCES for its protected retries config; no retry or installation occurred. Private SQL/access and Actions holds remain intact. Final reviewed head, draft/Preview and source-check receipts belong to the PR/lane delivery receipt; READY is application-build evidence only.
+
+---
+
+## Retained previous implementation receipts
+
 # PR36 protected PostgreSQL custody continuation — 2026-11-12
 
 The existing Node runtime now has a real parameterized PostgreSQL custody adapter: separate producer/recovery roles, append-only execution starts and completed originals, immutable scoped period commits, exact bytes/hash/owner binding and verified CAS winners. Transactions inspect actual session/role privileges, protected scope binding and an independently reviewed definition fingerprint before data access. A lost COMMIT acknowledgement is not automatically retried. Current owner and rights checks remain at retrieval; database identity is never called Vercel attestation.
@@ -6,7 +20,7 @@ The private schema/grant/FORCE-RLS proposal is unapplied, rollback-only, with NO
 
 44 focused tests, a separate adapter recovery process and two retained legacy-original checks pass, along with TypeScript/lint. The fictional SQL-backed original/recovery is 9,201 bytes / SHA256 797198ee74396d2ee9b5b1584dc8d2f504eb0d0fa2d40969057132c20292e005. The test SQL server models responses; it is not PostgreSQL or a production filesystem store. Existing legacy artifacts remain byte-identical. Exact draft/Preview evidence belongs to the PR/lane receipt.
 
-[MONITORING-POSTGRES-CUSTODY.md](MONITORING-POSTGRES-CUSTODY.md) gives the concrete next decision: existing store owner names an eligible isolated target and separately authorizes native negative/positive acceptance before binding a reviewed fingerprint and scope. Deployment writer verification, canonical owner/watchlist/job creation, recurring rights and retention/quota remain unimplemented/unbound. Production factory stays null; no collection, Actions, payments or activation.
+[MONITORING-POSTGRES-CUSTODY.md](MONITORING-POSTGRES-CUSTODY.md) gives the concrete next decision: a disposable local fixture can be approved before any hosted target is chosen; hosted target/fingerprint/scope selection remains separately owned. Deployment writer verification, canonical owner/watchlist/job creation, recurring rights and retention/quota remain unimplemented/unbound. Production factory stays null; no collection, Actions, payments or activation.
 
 ---
 

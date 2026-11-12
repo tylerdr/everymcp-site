@@ -1,3 +1,13 @@
+# EveryMCP — native custody source preparation, November 12
+
+- PR36 retains the default-off collector/report/owner/custody candidate; no production monitoring, subscription or collected revenue is proved.
+- Prepared a bounded PostgreSQL17.11 fixture and exact one-run approval packet; no binary acquisition, namespace probe or native SQL executed.
+- Five compatibility states explicitly distinguish ambient PUBLIC hazards from unrelated role grants; direct login is required. Existing eligible databases are possible without unrelated ACL changes.
+- Native acceptance remains pending alongside hosted target/fingerprint/login binding, independent deployment witness, canonical watchlists and recurring rights. PR30/33/35 remain untouched.
+- Source checks/review and exact draft build receipt accompany publication; Vercel READY is not native or customer acceptance.
+
+## Retained earlier status
+
 # EveryMCP — default-off workflow candidate, November 12
 
 - PR36 adds an internal worker to the evidence-backed report engine; production binding is absent. Existing kit/Auth/store/payment source and PR30/33/35 are untouched.

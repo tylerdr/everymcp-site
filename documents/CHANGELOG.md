@@ -351,3 +351,8 @@ Prepared a filled hypothetical research/default boundary sample in the actual pa
 - Return 422 with source-limit reasons/counts for unsupported selections; preserve stale-edit 409 and exact replay. Reject future URL-policy exclusions instead of silently monitoring partial references.
 - Pass 183 focused tests, TypeScript/lint and independent source review with full 616/585 inventories, fictional loopback observations and exact public-key-only fresh-process recovery. Correct only fictional SQL clone overhead; no native/runtime performance claim.
 - Add an unselected 90-day post-cancellation original-recovery proposal. No financial policy, commercial terms, hosted binding, source collection, native execution, merge or activation changed.
+
+
+### 2026-11-12 — Offline compatibility evidence contract (PR36 draft)
+
+Added a pure, unbound full-document/quotation evidence gate with explicit abstention and no semantic impact authority. Signed originals, canonical scope, whole-report service capture bounds, complete-body hashes/projections and cumulative quotation limits are checked; legacy formats/originals remain unchanged. Independent design/final review, 69 focused tests, TypeScript and lint pass. Contract/source frozen before fresh held-out evaluation; current previews alone cannot satisfy complete-evidence requirements. No collection, retention policy, runtime activation, native retry, payment or production release.

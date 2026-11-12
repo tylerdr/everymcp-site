@@ -1,3 +1,13 @@
+# EveryMCP — compatibility evidence contract, November 12
+
+- Added an offline complete-document/quotation evidence gate; current previews alone abstain. No impact algorithm or compatibility promise exists.
+- Exact source/contract hashes frozen before held-out evaluation; private experiment and all legacy receipt/original policies remain unchanged.
+- Independent design/final review, 69 focused tests, TypeScript and lint pass; automatic exact-head Vercel build is checked at draft publication.
+- New complete-body availability/custody and semantic inference remain separate unimplemented boundaries. Retention alternative remains unselected.
+- Draft PR36 only; no native retry/alternative runner, collection, SQL/provider/customer/payment action, activation, merge, revenue claim or Vault/Mac writes.
+
+## Retained earlier status
+
 # EveryMCP — actual catalog qualification, November 12
 
 - Real catalog eligibility: 614/616 single routes and 184,528/189,420 pairs fit unchanged two-URL/one-host bounds; RevenueCat/Hotjar remain explicit unsupported scopes.

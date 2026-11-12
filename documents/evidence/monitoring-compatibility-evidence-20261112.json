@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "policy": "everymcp-compatibility-evidence-v1",
+  "frozenAt": "2026-11-12T15:58:54.216340+00:00",
+  "baselineCommit": "3c3b5ce64ed681aa1b9f75ba22e9bd6ffc8a6cf6",
+  "status": "reviewed_source_only_contract_first",
+  "files": [
+    {
+      "path": "lib/monitoring/compatibility-evidence.ts",
+      "bytes": 12866,
+      "sha256": "3c2f48fa2501394ae0635a5c0ab036333289ab3ef07838857ecbfd0938053748",
+      "gitBlob": "b879c86a351989ba7cba483871c637be4edad579"
+    },
+    {
+      "path": "tests/monitoring-compatibility-evidence.test.ts",
+      "bytes": 14930,
+      "sha256": "8dea75bd729f6d4f57723233b0e9a165e227e6a70db763b2779d156693349715",
+      "gitBlob": "982f680c4e3e455cf1696b3fac9afb713a6a2182"
+    },
+    {
+      "path": "tests/fixtures/monitoring-node/compatibility-evidence-fixture.ts",
+      "bytes": 5976,
+      "sha256": "7de5d9180905dcd214158081a42d175b4209799837212b638245f8f3ae4ec575",
+      "gitBlob": "2675916765ce3bfb10b1a721ae3403163ebb8137"
+    },
+    {
+      "path": "documents/compatibility-evidence-contract-v1.json",
+      "bytes": 3197,
+      "sha256": "51d94c783f1968532ec87c9cff791bdf156681f6ef4dd6f134b88e6ae2d2186d",
+      "gitBlob": "c70756f31be5d257ec1b5401848b3a244a46f2ab"
+    },
+    {
+      "path": "documents/MONITORING-COMPATIBILITY-EVIDENCE.md",
+      "bytes": 6058,
+      "sha256": "907dac314d1131741f665a9142bd9c47d14f3944aaa6ea6673aec2a1a2cce677",
+      "gitBlob": "4812e08bacfbf72fb6b8df76b6b36ef6dac79a79"
+    }
+  ],
+  "sourceManifestSha256": "78f98304d2f3c3978d53137a2900d98343c66b734d27ea8ced19cd14b8bda7da",
+  "scope": "Pure unbound full-document evidence gate. No impact classifier, route, collector, storage, legacy policy or rights change.",
+  "checks": {
+    "focusedSuites": 6,
+    "focusedTestsPassed": 69,
+    "newGateTests": 21,
+    "typecheck": "pass",
+    "repositoryLint": "pass",
+    "independentDesignReview": "pass with incorporated revisions",
+    "independentFinalReview": "pass; exact five blobs listed",
+    "beforeFixRegression": {
+      "passed": 14,
+      "failed": 6,
+      "reason": "Signed capture contradictions and shared assessment mutation reproduced; downstream failures from mutation included."
+    },
+    "afterFix": "all69passed",
+    "preview": "pending automatic exact-commit build at publication"
+  },
+  "preservation": {
+    "legacyRendererAndOriginalChecks": "passed in focused suite; existing runtime/receipt files untouched",
+    "privateFrozenExperimentSha256": "c2fdbbd675172c6adda28e65a259d95b57db585d315f39c958e30be4f61f76cc",
+    "privateExperimentRetainedUnchanged": true,
+    "reservedPRsUnmodified": {
+      "30": "f26945c2148c66f941f517694d5dc316bcfc5398",
+      "33": "d6a728b05389ca905c219a1e84ed2aea86092dee",
+      "35": "546d7250b81aef41035b084696499e853c1b1ddf"
+    },
+    "main": "242f1450cb31f2a6038c180abdbf46ce53fca782"
+  },
+  "unrun": [
+    "Fresh held-out evidence evaluation after this freeze",
+    "Impact-classification evaluation: no classifier implemented",
+    "Genuine source capture or complete-body availability",
+    "Native SQL: retained UID-map failure; no retry or alternative runner",
+    "Hosted owner/payment/delivery/recovery/reversal acceptance"
+  ],
+  "remainingBoundary": "Retained previews cannot supply complete source text. A separately reviewed bounded body-availability/custody contract is needed before real integration; this candidate neither captures nor stores new material. Semantic relevance/impact inference remains unimplemented.",
+  "notClaims": [
+    "runtime compatibility",
+    "truthful independent fetch/time/latestness",
+    "payment readiness",
+    "willingness to pay",
+    "MRR or collected revenue"
+  ]
+}

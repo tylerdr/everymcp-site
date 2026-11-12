@@ -1,3 +1,15 @@
+# PR36 compatibility evidence gate — 2026-11-12
+
+The frozen private experiment exposed an evidence gap: full-text supporting quotations were absent from retained previews. This continuation implements only a pure offline complete-document evidence gate, not an impact classifier. It verifies independently selected signed capture originals, canonical full scope and chronology, service capture admission, complete raw-body hash/length and exact projection reconstruction. Bounded UTF8 quotations must match source byte spans within one 24-word/source budget across phases and profile steps. Missing complete evidence abstains; workflow relevance, contract impact and runtime compatibility stay unassessed/unverified.
+
+The contract/source are frozen before fresh held-out evaluation in [the exact receipt](evidence/monitoring-compatibility-evidence-20261112.json) and [contract documentation](MONITORING-COMPATIBILITY-EVIDENCE.md). Independent review caught and fixed whole-report admission and mutable assessment isolation; their pre-fix failures are retained separately. Final 6 suites / 69 tests, TypeScript and repository lint pass. All fixtures are fictional and independent of the private experiment. No old receipt, collector, renderer, custody, Auth/rights, route or commercial behavior changed. Automatic exact-head Vercel Preview is the remaining publication build gate; its result is reported on PR36 without claiming runtime activation.
+
+Next: fresh held-out evidence admission/abstention evaluation under the frozen contract. Current retained originals alone cannot provide complete bodies. A later separately reviewed capture/custody decision and a defensible impact algorithm are still required; no new retention or financial policy was selected. PR30/33/35 and main remain unchanged. Native UID-map restriction remains no-retry/no-alternative-runner; hosted SQL, real collection, provider/payment/customer actions, schedule, merge and activation remain unrun.
+
+---
+
+## Retained previous source receipt
+
 # PR36 actual-catalog qualification — 2026-11-12
 
 Offline qualification of all 616 routes and 189,420 unordered pairs finds 614 eligible single listings and 184,528 eligible pairs under the unchanged two-total-URL/one-host cap. RevenueCat and Hotjar each retain three canonical URLs on two hosts and remain unsupported. No normalization rejection exists in the current catalog. The actual handler now returns explicit 422 reasons/counts for unsupported selections instead of misleading stale-edit 409 guidance; true stale edits and exact mutation replay retain their behavior. See [MONITORING-CATALOG-QUALIFICATION.md](MONITORING-CATALOG-QUALIFICATION.md).

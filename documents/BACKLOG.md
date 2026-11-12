@@ -188,3 +188,10 @@
 - [x] Correct misleading stale-edit errors for unsupported selection to 422 with safe reasons/counts; prove actual-catalog full-inventory synthetic reports and exact fresh-process recovery. 183 focused tests pass.
 - [ ] Review the alternative 90-day earned-original recovery policy, including original-invoice reversal semantics and separate retention/deletion requirements; do not implement or publish terms until selected.
 - [ ] RevenueCat/Hotjar remain outside the approved source cap. Supporting full scope requires a separate multi-job coverage/aggregation design, not omitted references or expanded per-job bounds.
+
+
+### PR36 compatibility evidence qualification — 2026-11-12
+- [x] Freeze and independently review the bounded complete-document evidence gate; 69 focused tests including 21 new admission/abstention/security cases pass.
+- [x] Preserve private frozen experiment, old receipt policies/originals and reserved PR30/33/35 source.
+- [ ] Evaluate fresh held-out evidence requests under the frozen contract. No impact classifier exists yet.
+- [ ] Separately decide/review lawful bounded full-body availability and custody/current-rights integration before deriving semantic workflow impact. No new collection/retention mechanism is selected.

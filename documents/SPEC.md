@@ -226,3 +226,8 @@ A disabled source workflow now joins authenticated watchlist configuration, cano
 
 
 Actual-catalog qualification pins the 616-route/585-source inventory and exhaustively verifies one/two-route capture eligibility. Unsupported selections return 422 with safe reasons/counts; malformed inputs and stale mutation/version conflicts keep distinct responses. All canonical references count; rejected references cannot disappear into a partial scope. Existing source caps, evidence versions and originals remain unchanged. See MONITORING-CATALOG-QUALIFICATION.md; the linked 90-day cancellation/recovery alternative is unselected design documentation, not product behavior or published terms.
+
+
+### Compatibility evidence contract candidate (2026-11-12)
+
+A pure offline gate admits only complete plain-text/Markdown bodies matching independently selected verified service captures and their exact retained projections. Canonical profile declarations are bounded and do not prove dependency relevance. Exact UTF8 quotation spans share the existing 24-word/source budget. Missing/stale/incomplete/contradictory evidence produces whole-request abstention. Successful admission means ready for document review; document contract changes and potential workflow impact remain not assessed, runtime compatibility unverified and rights ungranted. No classifier, collector, route, new storage/retention or legacy receipt change is implemented. See MONITORING-COMPATIBILITY-EVIDENCE.md and the frozen machine contract.

@@ -239,3 +239,6 @@ Coordinator clarifies that preparing a disposable local PostgreSQL17.11 source-c
 
 
 November12 parent qualification: dedicated database is not inherently necessary. Prepare clean defaults, PUBLIC SECURITY DEFINER, PUBLIC-readable table including denying RLS, unrelated anon/authenticated grants without membership, and legacy PUBLIC CREATE fixture states. Require direct current_user=session_user, refuse wrapper SET ROLE and NOLOGIN. Explain unrelated PUBLIC grants can interrupt recovery before unchanged fingerprint and foreign USAGE/invoker alone is not prohibited. No engine acquisition/execution, hosted target selection or unrelated ACL change authorized.
+
+
+November12 parent authorized one exact c69b636 native invocation under the reviewed bounds, with no retry/fallback/escalation. Recheck source/provenance, independently verify outcomes/cleanup and publish useful evidence to existing draft only. Invocation stopped at initial read-only uid-map failure; authority consumed, native tests unrun.

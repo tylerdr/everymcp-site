@@ -1,3 +1,15 @@
+# PR36 native custody attempt stopped — 2026-11-12
+
+One authorized run of exact reviewed c69b636e40b5e5c318a0c445bbaa9de15aae7590 exited1 at the initial unshare probe: cannot open /proc/self/uid_map, Read-only file system. No task directory, package download, engine, SQL or native test execution occurred. No retry, fallback, escalation or settings change. The single attempt is consumed.
+
+[MONITORING-NATIVE-OUTCOME.md](MONITORING-NATIVE-OUTCOME.md) and its structured evidence distinguish actual failure from all unrun native cases. Independent point-in-time cleanup verification found no task artifacts or visible PostgreSQL/unshare processes; no cleanup mutation was required. Prior source/original receipts remain intact. The1GiB RSS/disk watchdogs remain soft and were never reached.
+
+Native acceptance needs a separately approved compliant execution boundary and new bounded-run authorization; none is selected here. Hosted bindings, independent deployment witness, canonical watchlists and recurring rights remain unresolved. This update publishes nonsecret outcome documentation only to draft PR36. No merge, production activation or revenue claim; PR30/33/35 remain reserved and unchanged.
+
+---
+
+## Retained preparation and implementation receipts
+
 # PR36 native custody acceptance preparation — 2026-11-12
 
 Prepared, not executed: a pinned PostgreSQL17.11 extraction/isolation controller and native tests against the actual SQL adapter/runtime. The exact one-run approval packet is [MONITORING-NATIVE-APPROVAL.md](MONITORING-NATIVE-APPROVAL.md). No engine acquisition, namespace probe, SQL, hosted selection, configuration or activation occurred. Source-only helper tests and skipped native gating are distinct from native acceptance.

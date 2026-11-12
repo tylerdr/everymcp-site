@@ -321,3 +321,10 @@ Prepared a filled hypothetical research/default boundary sample in the actual pa
 - Prepare an exact PostgreSQL17.11 one-run controller and five native fixture groups using the real proposal, adapter and report/recovery runtime. Acquisition, namespace probing and SQL remain pending; ordinary invocation skips native tests.
 - Include actual ambient-PUBLIC refusal/pass cases, direct login/SET ROLE/NOLOGIN, native RLS/grants/integrity negatives, SERIALIZABLE contenders, injected lost acknowledgement and clean restart. Preserve exact typed catalog diagnostics and immutable originals.
 - Document existing-database eligibility and later PUBLIC-grant recovery interruption without weakening guards. Keep hosted target/writer/rights decisions separate. No monitoring runtime, price or paid availability changed.
+
+
+## 2026-11-12 — Native custody execution outcome
+
+- Invoked the one approved c69b636 controller; initial namespace probe failed on read-only /proc/self/uid_map before package acquisition or engine execution. All native cases remain unrun.
+- Retain nonsecret exact command/hash/provenance and independently checked cleanup evidence. No task artifacts or visible PostgreSQL/unshare processes remained; no retry, fallback, security change or native acceptance claim.
+- Publish outcome documentation only; production monitoring, commerce and reserved source remain unchanged.

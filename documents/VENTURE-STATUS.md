@@ -1,3 +1,13 @@
+# EveryMCP — native attempt blocked, November 12
+
+- Exact approved c69b636 controller ran once and exited1: unshare could not open read-only /proc/self/uid_map.
+- Stopped before package download, task root, PostgreSQL or SQL; every native acceptance case remains unrun. No retry or fallback.
+- Independent cleanup observations found no task artifacts or visible engine/unshare processes. Safe outcome receipts accompany the draft.
+- Native execution requires a separately approved compliant boundary and new bounded-run authority. No hosted bindings, recurring monitoring, paid delivery or collected revenue were established.
+- Runtime source and PR30/33/35 untouched; no merge/activation. Current publication changes documentation only.
+
+## Retained earlier status
+
 # EveryMCP — native custody source preparation, November 12
 
 - PR36 retains the default-off collector/report/owner/custody candidate; no production monitoring, subscription or collected revenue is proved.

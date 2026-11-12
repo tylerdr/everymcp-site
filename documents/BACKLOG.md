@@ -159,5 +159,6 @@
 ### Native custody source-contract preparation — 2026-11-12
 - [x] Prepare pinned17.11 acquisition/isolation/cleanup controller, explicit approval packet and actual adapter/native fixture source; no execution.
 - [x] Clarify five ambient-PUBLIC states and direct-login identity, unchanged-schema recovery interruption, and no categorical foreign-USAGE/invoker prohibition.
-- [ ] Obtain one-run approval with explicit soft RSS/disk limits; then execute once and preserve actual diagnostics/SQLSTATE/cleanup. Native semantics remain unproved.
+- [x] Obtain one-run approval and invoke exact c69b636 once; retain failure/cleanup evidence. Initial unshare failed opening read-only /proc/self/uid_map before acquisition; no native SQL/SQLSTATE or tests occurred.
+- [ ] Native acceptance remains blocked. No retry is authorized; require separately reviewed compliant execution boundary and new one-run authority. Do not weaken restrictions or switch routes.
 - [ ] Existing platform owner: approve an independent deployment/execution witness binding approved SHA, nonce, job/scope and result digests; OIDC/KMS project labels and DB credentials alone are insufficient.

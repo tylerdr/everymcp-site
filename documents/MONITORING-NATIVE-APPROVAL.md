@@ -1,5 +1,7 @@
 # One proposed disposable native custody run
 
+**Current outcome:** the one subsequently authorized invocation of `c69b636e40b5e5c318a0c445bbaa9de15aae7590` stopped at the initial uid-map namespace restriction before acquisition. See [MONITORING-NATIVE-OUTCOME.md](MONITORING-NATIVE-OUTCOME.md). The attempt is consumed; the following packet is retained as the historical reviewed contract, not reusable execution authority.
+
 November 12, 2026. **Prepared source only. Acquisition, namespace probe, engine execution and SQL remain pending approval.** This packet is not approval, a hosted installation plan or native acceptance evidence. PR36 remains draft and production monitoring remains unavailable.
 
 ## Exact scope and source

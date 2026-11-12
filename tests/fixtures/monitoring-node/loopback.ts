@@ -1,4 +1,5 @@
-/** Explicit HTTP-only loopback dialer. Canonical URLs remain fictional; no public DNS/TLS occurs. */
+/** Explicit HTTP-only loopback dialer. URL identities may come from the catalog;
+ * response content is fictional and only 127.0.0.1 is dialed. No public DNS/TLS occurs. */
 import { createServer, request, type IncomingMessage, type ServerResponse } from "node:http";
 import type { AddressInfo } from "node:net";
 import type { RequestOptions } from "node:https";

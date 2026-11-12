@@ -1,3 +1,13 @@
+# EveryMCP — actual catalog qualification, November 12
+
+- Real catalog eligibility: 614/616 single routes and 184,528/189,420 pairs fit unchanged two-URL/one-host bounds; RevenueCat/Hotjar remain explicit unsupported scopes.
+- Corrected source handler feedback to 422 reasons/counts; stale edits stay 409. Every reference, slug and original remains intact.
+- 183 focused tests, TypeScript and lint pass. Full-catalog synthetic baseline/change/unknown plus identical fresh-process recovery pass; native/hosted/payment acceptance remains unrun.
+- Proposed 90-day earned-original recovery after cancellation for review only; no policy, price, terms, enrollment or retention mechanism changed.
+- Draft PR36 only; no merge/activation, real collection, native retry, revenue claim or Vault/Mac writes. Main and PR30/33/35 unchanged.
+
+## Retained earlier status
+
 # EveryMCP — owned workflow source, November 12
 
 - Owned watchlist handlers, immutable versions, canonical bounded jobs and actual recurring-rights adapter now compose with service-recorded monitoring and recovery.

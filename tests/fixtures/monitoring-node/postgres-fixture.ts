@@ -7,10 +7,19 @@ import { SCOPE } from "./runtime-fixture";
 type Row = Record<string, unknown>;
 type State = { starts: Row[]; completions: Row[]; jobs: Row[] };
 export const FICTIONAL_DEFINITION = "e".repeat(64); // Not an observed native installation fingerprint.
-const cloned = <T,>(value: T): T => JSON.parse(JSON.stringify(value), (_key, item: unknown) => {
-  if (item && typeof item === "object" && "type" in item && item.type === "Buffer" && "data" in item && Array.isArray(item.data)) return Buffer.from(item.data);
-  return item;
-}) as T;
+// Do not JSON-revive every byte on every modeled query: real-catalog receipts are large.
+// The on-disk JSON format stays unchanged. This is only the fictional SQL response model.
+export function cloneFictionalSqlValue<T>(value: T): T {
+  if (Buffer.isBuffer(value)) return Buffer.from(value) as T;
+  if (Array.isArray(value)) return value.map(item => cloneFictionalSqlValue(item)) as T;
+  if (value && typeof value === "object" && Object.getPrototypeOf(value) === Object.prototype) {
+    if ("type" in value && value.type === "Buffer" && "data" in value && Array.isArray(value.data)) return Buffer.from(value.data) as T;
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, cloneFictionalSqlValue(item)])) as T;
+  }
+  if (value === null || ["string", "boolean"].includes(typeof value) || typeof value === "number" && Number.isFinite(value)) return value;
+  throw new Error("Unsupported fictional SQL value");
+}
+const cloned = cloneFictionalSqlValue;
 const sameScope = (row: Row, args: unknown[]) => row.account_id === args[0] && row.mode === args[1] && row.product_key === args[2];
 const databaseError = (code: string) => Object.assign(new Error("Fictional database fault"), { code });
 export class FictionalPostgres {

@@ -1,0 +1,128 @@
+{
+  "date": "2026-11-12",
+  "sourceParent": "e3293fcad77b4d35814aef609bc315029dfa05dc",
+  "sourceBranch": "feature/monitoring-watchlist-reports-20261112",
+  "inventorySha256": "77fb866960540c586bcc1b7203e42ccdb680be2eab43543d602d126a1ba85e20",
+  "catalogSha256": "e00842c3b6446e28e6f9c09c6b16bc5032575eb3ca60e6cedcd250a5f686b347",
+  "curatedSha256": "8c8a8cc88437b3d9b58811271c646a3d66e897fda7e4266fe6df4c6229ac4a54",
+  "sourceCount": 585,
+  "rejectedInputs": 0,
+  "totalSingles": 616,
+  "eligibleSingles": 614,
+  "totalPairs": 189420,
+  "pairs": {
+    "eligible": 184528,
+    "overTwoUrls": 3065,
+    "multipleHostsOnly": 1827,
+    "unavailable": 0
+  },
+  "unsupportedSingles": [
+    {
+      "slug": "revenuecat-mcp",
+      "sourceUrls": [
+        "https://github.com/revenuecat/revenuecat-mcp",
+        "https://www.revenuecat.com/docs/tools/mcp",
+        "https://www.revenuecat.com/docs/tools/mcp/setup"
+      ],
+      "sourceCount": 3,
+      "hostCount": 2,
+      "reasons": [
+        "too_many_source_urls",
+        "multiple_source_hosts"
+      ]
+    },
+    {
+      "slug": "hotjar-mcp",
+      "sourceUrls": [
+        "https://contentsquare.com/hotjar/",
+        "https://contentsquare.com/platform/capabilities/mcp-server/",
+        "https://github.com/community/hotjar-mcp"
+      ],
+      "sourceCount": 3,
+      "hostCount": 2,
+      "reasons": [
+        "too_many_source_urls",
+        "multiple_source_hosts"
+      ]
+    }
+  ],
+  "qualification": "Offline all-route/all-pair source-bound eligibility only; no quality/reachability/compatibility or live monitoring claim",
+  "sourceChange": "Typed server-inventory qualifier; explicit422source reasons/counts, unchanged400malformed/409stale; no reference dropping/cap expansion",
+  "tests": {
+    "suites": 22,
+    "passed": 183,
+    "failed": 0,
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "independentDesignReview": "PASS",
+    "independentSourceReview": "PASS",
+    "localLog": "/workspace/monitor-catalog-qualification-20261112/focused-tests.txt",
+    "initialFailures": [
+      {
+        "outcome": "5pass2timeout",
+        "reason": "Fictional SQL JSON+per-byte reviver overhead on actual full catalog; test-only clone optimized, timeout unchanged",
+        "retainedLog": "/workspace/monitor-catalog-qualification-20261112/catalog-tests-initial-timeout.txt"
+      },
+      {
+        "outcome": "7pass1assertion",
+        "reason": "New assertion expected unescaped underscore; report correctly contained Markdown-escaped separate_reference. Expectation corrected; relationship preserved",
+        "retainedLog": "/workspace/monitor-catalog-qualification-20261112/catalog-tests-escaped-markdown-assertion.txt"
+      }
+    ]
+  },
+  "reports": [
+    {
+      "selection": "filesystem--memory",
+      "jobId": "4291e031256816832c90be65f21060a2c87a4efcb4b0f53edd162304e0940d38",
+      "reportSha256": "87d42c0b63a7cafb5e260997521a428054d383c1e978662d0b15e7fecb0bbc42",
+      "reportLength": 21837,
+      "fragments": [
+        "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+        "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+        "latest state: **unknown**"
+      ],
+      "originalEqualsFreshProcess": true,
+      "evidenceClass": "synthetic-fixture"
+    },
+    {
+      "selection": "icloud-mcp",
+      "jobId": "dd843e62941abe36e7221bdf6cb2eda99ede7d71f7dcaee940fd8f27319ab21a",
+      "reportSha256": "50ab69e07fb8e63e5a3f372d658a5d7c35213c674c2e6d06b49f7bf34ed91e1b",
+      "reportLength": 21422,
+      "fragments": [
+        "https://github.com/picklepilot/icloud-mcp",
+        "https://github.com/robworks-code/icloud-drive-mcp",
+        "latest state: **unknown**"
+      ],
+      "originalEqualsFreshProcess": true,
+      "evidenceClass": "synthetic-fixture"
+    }
+  ],
+  "recoveryEvidence": "Public-key-only separate process reloads fictional committed SQL snapshot. This is not native per-commit disk or PostgreSQL durability acceptance.",
+  "policyAlternative": {
+    "status": "PROPOSED_ONLY_NOT_SELECTED_OR_IMPLEMENTED",
+    "window": "90days from first immutable report commit",
+    "generation": "Fresh active paid recurring rights",
+    "recovery": "Authenticated original owner; fresh original-payment/reversal verification; no current renewal requirement proposed",
+    "originalSuccessfulPartialOrFullRefundOrIssuedCredit": "Proposed invoice-wide denial",
+    "originalOpenOrLostDispute": "Proposed suspend/deny",
+    "retentionDeletion": "Separate unapproved mechanism/obligations decision"
+  },
+  "unrun": [
+    "native PostgreSQL",
+    "public monitored-source fetch/DNS/TLS/robots",
+    "hosted Auth/storage/rights/monitoring",
+    "genuine sandbox or live payment lifecycle",
+    "schedule/delivery"
+  ],
+  "holds": [
+    "Native /proc/self/uid_map read-only failure; no retry or alternative runner",
+    "No collection/setup/credentials/policy activation/merge"
+  ],
+  "reservedRefs": {
+    "main": "242f1450cb31f2a6038c180abdbf46ce53fca782",
+    "pr30": "f26945c2148c66f941f517694d5dc316bcfc5398",
+    "pr33": "d6a728b05389ca905c219a1e84ed2aea86092dee",
+    "pr35": "546d7250b81aef41035b084696499e853c1b1ddf"
+  }
+}

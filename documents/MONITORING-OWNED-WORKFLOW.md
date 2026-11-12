@@ -64,3 +64,8 @@ The earlier native attempt remains consumed: initial unshare failed opening read
 Before activation, the responsible owners must approve the recurring product/price identity and this generation/recovery/reversal/retention policy; implement trusted subscription enrollment without using email/metadata; approve and verify exact control/custody/Auth targets, direct-login roles, fingerprints, secure key/producer custody and bounded pool configuration; then bind the currently disabled handlers/factory and a controlled schedule/delivery path. Native acceptance remains blocked and is not bypassed by fictional SQL tests.
 
 After those gates, genuine acceptance must cover two permitted source periods, owner-A/B isolation, immutable delivery and fresh-session recovery, authentic sandbox payment and renewals, cancellation/expiry, refund/credit/dispute/reversal, provider outage and lost acknowledgement. No live charges, customer communication, new commercial commitment or production activation is authorized by this source continuation. Reserved PR30/33/35 stay untouched.
+
+
+## Actual catalog qualification and policy alternative
+
+[Offline qualification](MONITORING-CATALOG-QUALIFICATION.md) covers every actual catalog route/pair and full-inventory synthetic report/recovery journeys. Unsupported selections now receive 422 reasons/counts instead of stale-edit guidance; source caps and originals are unchanged. The [90-day earned-original recovery alternative](MONITORING-RECOVERY-POLICY-ALTERNATIVE.md) is for review only: the current disabled policy above remains implemented, and no retention/financial terms changed.

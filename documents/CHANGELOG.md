@@ -343,3 +343,11 @@ Prepared a filled hypothetical research/default boundary sample in the actual pa
 - Add strict same-origin owner handlers and bounded fresh recurring-rights checks through installed Stripe SDK; no public enrollment, kit-to-subscription inference or new offer.
 - Introduce explicit service-v2 owned-report policy carrying coverage gaps and latest changed/unchanged/unknown assessment; preserve old original bytes and strict version bindings.
 - Exercise 173 focused cases including genuine local code paths with fictional SQL/provider inputs and public-only fresh-process recovery. Original/report hash: bf7bde548ba2f1b209ed9a8d0c9a4b71e0ee550bc64d552b6dcbe3dbb135c5a7. Native/hosted/payment acceptance remains unrun; no merge/activation.
+
+
+## 2026-11-12 — Actual-catalog monitoring qualification
+
+- Qualify 614 of 616 single routes and 184,528 of 189,420 pairs against unchanged capture bounds. Preserve RevenueCat/Hotjar's three-reference/two-host rejection and every separate community reference.
+- Return 422 with source-limit reasons/counts for unsupported selections; preserve stale-edit 409 and exact replay. Reject future URL-policy exclusions instead of silently monitoring partial references.
+- Pass 183 focused tests, TypeScript/lint and independent source review with full 616/585 inventories, fictional loopback observations and exact public-key-only fresh-process recovery. Correct only fictional SQL clone overhead; no native/runtime performance claim.
+- Add an unselected 90-day post-cancellation original-recovery proposal. No financial policy, commercial terms, hosted binding, source collection, native execution, merge or activation changed.

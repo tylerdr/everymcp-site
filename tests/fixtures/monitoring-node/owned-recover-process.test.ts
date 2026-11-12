@@ -18,7 +18,7 @@ import { SCOPE } from "./runtime-fixture";
 import { OWNER_CONFIG, authResponse, ownerRequest } from "./owner-fixture";
 const directory = process.env.EVERYMCP_OWNED_RECOVERY_DIR;
 it.skipIf(!directory)("recovers the original owned report after key expiry with fresh renewed recurring rights and public keys only", async () => {
-  const expected = JSON.parse(readFileSync(join(directory!, "expected.json"), "utf8")) as { jobId: string; reportSha256: string; reportLength: number };
+  const expected = JSON.parse(readFileSync(join(directory!, "expected.json"), "utf8")) as { jobId: string; reportSha256: string; reportLength: number; fragments?: string[] };
   const snapshot = JSON.parse(readFileSync(join(directory!, "fictional-control.json"), "utf8"), (_key, value: unknown) => value && typeof value === "object" && "type" in value && value.type === "Buffer" && "data" in value && Array.isArray(value.data) ? Buffer.from(value.data) : value) as Record<"heads" | "versions" | "jobs" | "bindings", [string, Record<string, unknown>][] >;
   const model = new FictionalControl(); for (const name of ["heads", "versions", "jobs", "bindings"] as const) for (const [key, value] of snapshot[name]) model[name].set(key, value);
   const control = new PostgresMonitoringControlStore(model.pool("recover"), { scope: SCOPE, access: "recover", expectedDefinitionSha256: DEFINITION });
@@ -35,7 +35,7 @@ it.skipIf(!directory)("recovers the original owned report after key expiry with 
   const runtime = createOwnedServiceRuntime({ scope: SCOPE, evidenceClass: "synthetic-fixture", store: custody, verifier, authenticateOwner: createMonitoringOwner(OWNER_CONFIG, async () => authResponse()), loadInventory, collectCanonicalSources: async () => { throw new Error("Recovery must not collect"); }, now }, workflow, control);
   const bytes = await runtime.recover(ownerRequest("fictional-new-auth-session"), expected.jobId);
   expect(bytes?.length).toBe(expected.reportLength); expect(sha256(bytes!)).toBe(expected.reportSha256);
-  expect(bytes!.toString()).toContain("2026-11-08T00:00:11.000Z");
+  for (const fragment of expected.fragments ?? ["2026-11-08T00:00:11.000Z"]) expect(bytes!.toString()).toContain(fragment);
   expect(provider.calls.some(call => call.path === "/v1/invoices/in_Current")).toBe(true);
   expect(provider.calls.some(call => call.path === "/v1/invoices/in_Renewed")).toBe(true);
   expect(model.calls.every(call => !/^(INSERT|UPDATE)/.test(call.sql))).toBe(true);

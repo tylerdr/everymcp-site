@@ -1,3 +1,15 @@
+# PR36 actual-catalog qualification — 2026-11-12
+
+Offline qualification of all 616 routes and 189,420 unordered pairs finds 614 eligible single listings and 184,528 eligible pairs under the unchanged two-total-URL/one-host cap. RevenueCat and Hotjar each retain three canonical URLs on two hosts and remain unsupported. No normalization rejection exists in the current catalog. The actual handler now returns explicit 422 reasons/counts for unsupported selections instead of misleading stale-edit 409 guidance; true stale edits and exact mutation replay retain their behavior. See [MONITORING-CATALOG-QUALIFICATION.md](MONITORING-CATALOG-QUALIFICATION.md).
+
+183 tests across 22 focused suites, TypeScript and lint pass; independent design/source review passed. Actual full-catalog Filesystem+Memory and iCloud selections traverse fictional loopback capture, real adapters with modeled SQL/provider responses, baseline/unchanged/changed/unknown reports and identical public-key-only fresh-process recovery. Cursor and duplicate-ID Neon routes also retain their one-source scope. The initial test-model byte-by-byte cloning bottleneck was corrected only in the fixture, with clone independence and unchanged-file-format tests; native performance/durability is not inferred. Exact hashes and failure distinctions are in [the receipt](evidence/monitoring-catalog-qualification-20261112.json).
+
+The alternative [90-day earned-original recovery policy](MONITORING-RECOVERY-POLICY-ALTERNATIVE.md) is for review only. No cancellation, retention, financial, price or existing-original policy changed. Next decision: accept that separately versioned proposal, including invoice-wide partial refund/credit denial and a separate deletion plan, or retain the current disabled current-paid policy. Hosted enrollment/bindings, native acceptance and genuine source/payment/delivery lifecycle gates remain unresolved. No native retry/alternative runner, external collection, setup, credentials, activation or merge occurred; PR30/33/35/main remain unchanged. Exact commit/automatic Preview receipt accompanies PR36 publication.
+
+---
+
+## Retained previous source receipt
+
 # PR36 owned monitoring workflow — 2026-11-12
 
 Owned watchlist configuration now connects to canonical bounded jobs, fresh recurring-rights verification and exact signed-report recovery. The actual handler factory derives current owner, rejects client ownership/paid/URL inputs and cross-origin mutations, persists immutable versions/CAS/mutation replays, and selects server inventory/period/receipt identities. Protected enrollment is read only to runtime roles; no kit purchase becomes a subscription. See [MONITORING-OWNED-WORKFLOW.md](MONITORING-OWNED-WORKFLOW.md).

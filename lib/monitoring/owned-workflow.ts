@@ -3,6 +3,7 @@ import { MonitoringDenied, MonitoringUnavailable, type Job, type Rights, type Sc
 import { canonicalJson, inventoryDigest, inventorySourceUrls, sha256, timestamp } from "./source-contract";
 import { serviceJobIdentity, validateServiceOriginal, type ServiceCustodyStore } from "./service-records";
 import type { ServiceVerifier } from "./service-authority";
+import { createWatchlistSelectionQualifier, WatchlistSelectionError } from "./watchlist-selection";
 import { controlEqual as same, controlHash, watchlistInputSchema, validateWatchlist, validateCanonicalJob, WatchlistConflict, type BillingAuthorization, type BillingBinding, type CanonicalJob, type MonitoringControlStore, type Watchlist } from "./control-contract";
 
 type Inventory = { catalog: unknown[]; curated: unknown[] };
@@ -48,10 +49,9 @@ export function createOwnedMonitoringWorkflow(input: Dependencies) {
       return original;
     }
     const inventory = await input.loadInventory();
-    // Resolve each slug independently: unknown slugs cannot disappear into a partial cohort.
-    for (const slug of slugs) if (!inventorySourceUrls(inventory.catalog, inventory.curated, [slug]).length) throw new WatchlistConflict("Listing has no canonical monitored source");
-    const sourceUrls = inventorySourceUrls(inventory.catalog, inventory.curated, slugs);
-    if (!sourceUrls.length || sourceUrls.length > 2 || new Set(sourceUrls.map(url => new URL(url).hostname)).size !== 1) throw new WatchlistConflict("Select at most two canonical sources on one host");
+    const selection = createWatchlistSelectionQualifier(inventory.catalog, inventory.curated)(slugs);
+    if (selection.reasons.length) throw new WatchlistSelectionError(selection);
+    const { sourceUrls } = selection;
     return input.configurationStore.saveWatchlist({ ...request, slugs, ownerKey: owner, sourceUrls, inventorySha256: inventoryDigest(inventory.catalog, inventory.curated), configuredAt: now() });
   }
   async function stored(id: string) { const row = await input.control.getCanonicalJob(id); return row && validateCanonicalJob(row, scope); }

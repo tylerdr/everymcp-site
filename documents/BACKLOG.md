@@ -180,3 +180,11 @@
 - [ ] Commerce owner: accept/revise recurring generation/recovery/cancellation/reversal/retention policy and configure actual product/price; implement trusted owner/customer/subscription enrollment. Do not infer this from kit payments or metadata.
 - [ ] Approve and verify exact control/custody/Auth/key/producer bindings plus native installation acceptance before any activation. UID-map restriction still forbids retry/alternative native execution.
 - [ ] Bind owner UX/routes and controlled scheduler/delivery only after those gates; then two genuine periods and authentic sandbox lifecycle acceptance. No payment readiness claim from fixtures.
+
+
+## 2026-11-12 — Actual catalog qualification
+
+- [x] Qualify all 616 distinct routes and 189,420 unordered pairs offline through the same server qualifier used for configuration; retain all references and explicit unsupported cohorts.
+- [x] Correct misleading stale-edit errors for unsupported selection to 422 with safe reasons/counts; prove actual-catalog full-inventory synthetic reports and exact fresh-process recovery. 183 focused tests pass.
+- [ ] Review the alternative 90-day earned-original recovery policy, including original-invoice reversal semantics and separate retention/deletion requirements; do not implement or publish terms until selected.
+- [ ] RevenueCat/Hotjar remain outside the approved source cap. Supporting full scope requires a separate multi-job coverage/aggregation design, not omitted references or expanded per-job bounds.

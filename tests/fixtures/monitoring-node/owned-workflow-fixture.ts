@@ -17,8 +17,9 @@ export const INITIAL_CONFIG = { expectedVersion: 0, mutationId: "11111111-1111-4
 export function mutation(method: "PUT" | "POST", value: unknown, token = TOKEN_A, origin = "https://fictional.invalid") {
   return new Request("https://fictional.invalid/owned-watchlist", { method, headers: { ...Object.fromEntries(ownerRequest(token).headers), origin, "sec-fetch-site": "same-origin", "content-type": "application/json" }, body: JSON.stringify(value) });
 }
-export async function ownedFixture(custodyPath?: string) {
+export async function ownedFixture(custodyPath?: string, inventory?: { catalog: unknown[]; curated: unknown[] }) {
   const h = await serviceHarness(new FictionalPostgres(custodyPath)), database = new FictionalControl(), provider = new FictionalRecurringHttp();
+  if (inventory) h.deps.loadInventory = async () => JSON.parse(JSON.stringify(inventory)) as typeof inventory;
   provider.account.id = SCOPE.accountId;
   const control = (access: "configure" | "produce" | "recover") => new PostgresMonitoringControlStore(database.pool(access), { scope: SCOPE, access, expectedDefinitionSha256: DEFINITION });
   const state = { html: "<html><body><h1>Requirements</h1><p>Node 18 required.</p></body></html>", status: 200 };

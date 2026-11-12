@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { MonitoringDenied, type Principal, type Scope } from "./runtime";
 import { controlEqual, WatchlistConflict, type Watchlist } from "./control-contract";
+import { WatchlistSelectionError } from "./watchlist-selection";
 import type { createOwnedMonitoringWorkflow } from "./owned-workflow";
 const headers = { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" };
 const publicWatchlist = (row: Watchlist | null) => row && ({ id: row.watchlistId, version: row.version, slugs: row.slugs, enabled: row.enabled, configuredAt: row.configuredAt });
@@ -27,7 +28,10 @@ export function createOwnedMonitoringHandlers(config: { origin: string; scope: S
       return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(Buffer.concat(chunks))) as unknown;
     } finally { clearTimeout(timer); void reader.cancel().catch(() => {}); }
   }
-  const errorResponse = (error: unknown) => Response.json({ error: error instanceof MonitoringDenied ? "Access denied" : error instanceof WatchlistConflict ? "Watchlist changed; reload and review your selection" : error instanceof SyntaxError || error instanceof z.ZodError ? "Invalid monitoring request" : "Monitoring unavailable" }, { status: error instanceof MonitoringDenied ? 403 : error instanceof WatchlistConflict ? 409 : error instanceof SyntaxError || error instanceof z.ZodError ? 400 : 503, headers });
+  const errorResponse = (error: unknown) => {
+    if (error instanceof WatchlistSelectionError) return Response.json({ error: "This selection cannot be monitored under the current source limits. Every canonical reference counts; select at most two source URLs on one host.", reasons: error.selection.reasons, sourceCount: error.selection.sourceCount, hostCount: error.selection.hostCount, limits: { sourceCount: 2, hostCount: 1 } }, { status: 422, headers });
+    return Response.json({ error: error instanceof MonitoringDenied ? "Access denied" : error instanceof WatchlistConflict ? "Watchlist changed; reload and review your selection" : error instanceof SyntaxError || error instanceof z.ZodError ? "Invalid monitoring request" : "Monitoring unavailable" }, { status: error instanceof MonitoringDenied ? 403 : error instanceof WatchlistConflict ? 409 : error instanceof SyntaxError || error instanceof z.ZodError ? 400 : 503, headers });
+  };
   return {
     async GET(request: Request) {
       try { return Response.json({ watchlist: publicWatchlist(await config.workflow.current(await owner(request))) }, { headers }); } catch (error) { return errorResponse(error); }

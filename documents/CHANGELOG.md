@@ -335,3 +335,11 @@ Prepared a filled hypothetical research/default boundary sample in the actual pa
 - Connect the real collector/admission/history/recovery chain to strict service SQL custody. Reuse mechanical SQL and comparison logic behind fixed origin wrappers, preserve original bytes and fail closed on unknown owner/rights/bindings.
 - Pass independent design/source review, 133 monitoring tests, TypeScript and lint. A public-key-only fresh process recovers the exact 9,640-byte fictional report; both copies hash to9936364be394f4f9f58e74724dc794ed6628e88e1d61da25c321675feabfcb55.
 - Retain namespace failure and all native/hosted/collection/activation gates. No keys, SQL, provider settings, paid offer, merge or live monitoring established; PR30/33/35 remain reserved.
+
+
+## 2026-11-12 — Owned watchlists and recurring rights source
+
+- Add separate protected control-store proposal/adapter, immutable owned watchlist versions and canonical jobs with atomic supporting invoice/coverage. No proposal SQL was run.
+- Add strict same-origin owner handlers and bounded fresh recurring-rights checks through installed Stripe SDK; no public enrollment, kit-to-subscription inference or new offer.
+- Introduce explicit service-v2 owned-report policy carrying coverage gaps and latest changed/unchanged/unknown assessment; preserve old original bytes and strict version bindings.
+- Exercise 173 focused cases including genuine local code paths with fictional SQL/provider inputs and public-only fresh-process recovery. Original/report hash: bf7bde548ba2f1b209ed9a8d0c9a4b71e0ee550bc64d552b6dcbe3dbb135c5a7. Native/hosted/payment acceptance remains unrun; no merge/activation.

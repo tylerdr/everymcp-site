@@ -1,3 +1,13 @@
+# EveryMCP — owned workflow source, November 12
+
+- Owned watchlist handlers, immutable versions, canonical bounded jobs and actual recurring-rights adapter now compose with service-recorded monitoring and recovery.
+- 173 focused tests pass. Fictional original and public-key-only fresh-process recovery are identical: 12,556 bytes / SHA256 bf7bde548ba2f1b209ed9a8d0c9a4b71e0ee550bc64d552b6dcbe3dbb135c5a7. Missing-period coverage survives alongside changed/unchanged/unknown assessments.
+- Policy remains an explicit draft; no product/price/cadence, trusted enrollment or hosted binding was selected. Current paid subscription for historical recovery needs commercial acceptance before activation.
+- Native SQL remains unrun under the retained UID-map restriction; no retry/alternate runner. Control proposal is unapplied. Genuine hosted collection and payment/delivery/reversal acceptance remain pending.
+- Draft PR36 only, no merge/activation or revenue claim. Main and PR30/33/35 unchanged; portable status only, no Vault/Mac writes.
+
+## Retained earlier status
+
 # EveryMCP — authenticated service-recorded source, November 12
 
 - Implemented a distinct signed service-observation origin through actual collector, admission, immutable SQL adapter, useful comparison report and public-key-only recovery. Service endorsement is not platform/build/fetch attestation.

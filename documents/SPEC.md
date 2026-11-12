@@ -218,3 +218,8 @@ A prepared, separately gated PostgreSQL17.11 fixture will test the actual propos
 ### Distinct service-recorded origin (2026-11-12)
 
 The approved source design supports authenticated EveryMCP service-recorded observations as a distinct origin/version, with actual producer authentication, signed starts/completions, strict admission and immutable original custody/recovery. Signatures endorse service assertions; they do not prove exact builds, platform attestation, truthful fetch or independent time. Existing evidence keeps its original verification policy and bytes. Useful source-linked report comparison is shared through strict versioned entry points. The source fixture exercises actual collector→admission→SQL adapter→report→public-key-only fresh-process recovery; canonical jobs/recurring-rights binding and hosted activation remain pending. No customer-facing price or terms changed. See MONITORING-SERVICE-RECORDED.md.
+
+
+### Owned recurring monitoring source (2026-11-12)
+
+A disabled source workflow now joins authenticated watchlist configuration, canonical bounded jobs, protected enrollment reads and fresh recurring-rights verification to the actual service-recorded collector/report/custody path. Immutable signed owned reports retain expected-period gaps and latest representation assessments through original recovery. The explicit current-paid-subscription-v1 policy remains a draft requiring acceptance before activation, particularly historical recovery after cancellation or expiry. No actual product, price, cadence, enrollment, provider, SQL or runtime binding is selected. Existing kit and legacy evidence policies remain separate. See MONITORING-OWNED-WORKFLOW.md for supported cases and exact remaining gates.

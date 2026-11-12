@@ -1,3 +1,19 @@
+# PR36 owned monitoring workflow — 2026-11-12
+
+Owned watchlist configuration now connects to canonical bounded jobs, fresh recurring-rights verification and exact signed-report recovery. The actual handler factory derives current owner, rejects client ownership/paid/URL inputs and cross-origin mutations, persists immutable versions/CAS/mutation replays, and selects server inventory/period/receipt identities. Protected enrollment is read only to runtime roles; no kit purchase becomes a subscription. See [MONITORING-OWNED-WORKFLOW.md](MONITORING-OWNED-WORKFLOW.md).
+
+A real installed-SDK adapter checks current recurring invoice/payment/charge/reversal relationships and the original invoice during recovery, using bounded fresh GETs. Its explicit current-paid-subscription-v1 policy is a draft requiring commercial acceptance before activation: current paid subscription is required even for historical recovery. Product/price/cadence and enrollment remain unconfigured. Unsupported/ambiguous evidence is unknown, not proof of nonpayment.
+
+The new owned receipt/report versions include immutable period coverage and clear changed/unchanged/unknown/baseline assessments. Earlier Python/GitHub, Node-v1/v2 and service-v1 original bytes/policies remain preserved. Source custody now also binds exact canonical job/inventory at admission and retrieval; expiry/version changes stop new generation while historical recovery uses its original job/version plus fresh rights.
+
+21 focused suites / 173 tests pass, including actual loopback collection → real SQL adapters against fictional transaction models → installed Stripe SDK with no-socket fictional responses → signed report → public-key-only fresh-process recovery after signer issuance expiry and simulated renewal. Original/recovered report: 12,556 bytes, SHA256 `bf7bde548ba2f1b209ed9a8d0c9a4b71e0ee550bc64d552b6dcbe3dbb135c5a7`; expected four periods, three admitted, November 8 gap retained. Source evidence is [recorded separately](evidence/monitoring-owned-workflow-20261112.json) from unrun native/hosted acceptance. Final independent review, exact remote commit and automatic Preview evidence accompany PR36.
+
+Next gates: accepted recurring generation/recovery/reversal/retention policy and product identity; trusted enrollment integration by the commerce owner; approved control/custody/Auth/key/producer targets and native installation acceptance; then controlled two-period hosted collection, private delivery and genuine sandbox payment/refund/dispute/reversal acceptance. None is configured or claimed here. The prior UID-map failure remains a no-retry/no-alternative-runner hold; SQL proposal is unapplied and rollback-only. No merge, price/terms publication, collection, provider/account access, payment, email, native SQL or Vault/Mac write. PR30/33/35 and main242f1450 remain unchanged; prior PR36 headab70d47 was freshly reconciled.
+
+---
+
+## Retained earlier source and native receipts
+
 # PR36 authenticated service-recorded monitoring — 2026-11-12
 
 The approved distinct service origin now connects actual producer bearer authentication and Ed25519 start/completion signing to the existing Node collector, strict admission, immutable SQL adapter, useful versioned report and public-key-only recovery. It authenticates service assertions, never platform/build/fetch truth. Legacy Python/GitHub and Node-v1/v2 verification and original bytes remain preserved; no permissive fallback was introduced. See [MONITORING-SERVICE-RECORDED.md](MONITORING-SERVICE-RECORDED.md).

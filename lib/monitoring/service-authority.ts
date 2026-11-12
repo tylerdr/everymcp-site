@@ -80,7 +80,7 @@ export function createServiceProducer(input: { verification: ServiceVerifierConf
     },
     signReceipt(start: ServiceStart, input: UnsignedServiceReceipt): ServiceReceipt {
       const body = unsignedServiceReceiptSchema.parse(input);
-      if (!verifier.verifyStart(start) || !sameServiceValue(start.runtime, authorization(body.completedAt)) || body.startSha256 !== sha256(canonicalJson(start)) || !sameServiceValue(body.runtime, start.runtime) || body.executionId !== start.executionId || body.nonce !== start.nonce || body.jobId !== start.jobId || body.inventorySha256 !== start.inventorySha256 || body.evidenceClass !== start.evidenceClass || body.stage !== start.job.kind || body.startedAt !== start.startedAt || !sameServiceValue(body.inputReceiptIds, start.job.receiptIds)) throw unavailable();
+      if (body.policy !== start.policy || !verifier.verifyStart(start) || !sameServiceValue(start.runtime, authorization(body.completedAt)) || body.startSha256 !== sha256(canonicalJson(start)) || !sameServiceValue(body.runtime, start.runtime) || body.executionId !== start.executionId || body.nonce !== start.nonce || body.jobId !== start.jobId || body.inventorySha256 !== start.inventorySha256 || body.evidenceClass !== start.evidenceClass || body.stage !== start.job.kind || body.startedAt !== start.startedAt || !sameServiceValue(body.inputReceiptIds, start.job.receiptIds)) throw unavailable();
       return serviceReceiptSchema.parse({ ...body, signature: sign(null, signedBytes("receipt", body), privateKey).toString("base64url") });
     },
   });

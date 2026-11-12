@@ -245,3 +245,8 @@ November12 parent authorized one exact c69b636 native invocation under the revie
 
 
 November12 parent approved source-only implementation of a distinct authenticated SERVICE-RECORDED observation origin. Preserve old Python/GitHub and Node-v1/v2 verification/bytes; no platform/build attestation claim. Require independent design/final review, real producer authority, existing canonical owner/job/current-rights/custody checks, fictional end-to-end and cross-version refusal. No real key setup, collection, native retry/alternative runner, SQL, provider/customer/payment, configuration, merge or activation.
+
+
+### 2026-11-12 — Canonical watchlists and recurring rights source continuation
+
+Parent assigns this PR36 owner the next coherent source-only customer workflow: owned watchlist configuration, canonical bounded jobs and authoritative recurring generation/recovery rights for the distinct service-recorded path. Use actual adapters and deterministic fixtures, independently review design and final outcomes, retain default-off activation and exact legacy originals. No client price/paid flag or kit entitlement; no new price, real keys, collection/schedule, hosted/provider/customer/SQL/configuration access, merge or native retry/alternative runner. Preserve reserved PR30/33/35 and Tyler attribution.

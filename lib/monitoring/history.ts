@@ -28,7 +28,7 @@ export type ServiceSnapshot = {
     startedAt: string;
     completedAt: string;
     evidenceClass: "synthetic-fixture" | "server-collection";
-    origin: "everymcp-service-custody-v1";
+    origin: "everymcp-service-custody-v1" | "everymcp-service-custody-v2";
     serviceId: string;
     keyId: string;
   };
@@ -120,7 +120,7 @@ function validateNodeEvidence(evidence: NodeSnapshot["evidence"]): void {
 const serviceEvidence = z.object({
   receiptSha256: z.string().regex(/^[a-f0-9]{64}$/), sourceSha256: z.string().regex(/^[a-f0-9]{64}$/),
   executionId: z.string().min(1).max(128).regex(/^[\x21-\x7e]+$/), startedAt: z.string(), completedAt: z.string(),
-  evidenceClass: z.enum(["synthetic-fixture", "server-collection"]), origin: z.literal("everymcp-service-custody-v1"),
+  evidenceClass: z.enum(["synthetic-fixture", "server-collection"]), origin: z.enum(["everymcp-service-custody-v1", "everymcp-service-custody-v2"]),
   serviceId: z.string().min(1).max(128).regex(/^[\x21-\x7e]+$/), keyId: z.string().min(1).max(128).regex(/^[\x21-\x7e]+$/),
 }).strict();
 function validateServiceEvidence(evidence: ServiceSnapshot["evidence"]): void { serviceEvidence.parse(evidence); }

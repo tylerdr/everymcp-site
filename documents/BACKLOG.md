@@ -170,3 +170,13 @@
 - [x] Obtain one-run approval and invoke exact c69b636 once; retain failure/cleanup evidence. Initial unshare failed opening read-only /proc/self/uid_map before acquisition; no native SQL/SQLSTATE or tests occurred.
 - [ ] Native acceptance remains blocked. No retry is authorized; require separately reviewed compliant execution boundary and new one-run authority. Do not weaken restrictions or switch routes.
 - [ ] Existing platform owner: approve an independent deployment/execution witness binding approved SHA, nonce, job/scope and result digests; OIDC/KMS project labels and DB credentials alone are insufficient.
+
+
+## 2026-11-12 — Owned monitoring workflow continuation
+
+- [x] Implement authenticated owned configuration with immutable versions, CAS and exact mutation recovery across catalog drift; canonical source/period/job selection and expiry/version refusal.
+- [x] Implement real SDK-backed recurring rights with protected enrollment and independent original-invoice reversal checks; retain explicit draft policy and fail-closed unsupported states.
+- [x] Persist expected-period coverage in separately versioned signed originals; exercise changed/unchanged/unknown output and fresh-process recovery. 173 focused tests pass.
+- [ ] Commerce owner: accept/revise recurring generation/recovery/cancellation/reversal/retention policy and configure actual product/price; implement trusted owner/customer/subscription enrollment. Do not infer this from kit payments or metadata.
+- [ ] Approve and verify exact control/custody/Auth/key/producer bindings plus native installation acceptance before any activation. UID-map restriction still forbids retry/alternative native execution.
+- [ ] Bind owner UX/routes and controlled scheduler/delivery only after those gates; then two genuine periods and authentic sandbox lifecycle acceptance. No payment readiness claim from fixtures.

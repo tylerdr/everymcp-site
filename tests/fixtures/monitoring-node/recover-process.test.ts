@@ -12,5 +12,8 @@ it.skipIf(!directory)("fresh process recovers the fictional committed original",
   h.deps.loadJob = async () => { throw new Error("No regeneration on recovery"); };
   const result = await h.runtime.recover(request(), expected.jobId);
   expect(result?.length).toBe(expected.reportLength); expect(sha256(result!)).toBe(expected.reportSha256);
+  // A renderer upgrade must not mint another report for this already committed period.
+  h.deps.loadJob = async id => h.store.state.jobs[id]?.job ?? null;
+  expect((await h.runtime.run(request(), expected.jobId)).reportSha256).toBe(expected.reportSha256);
   writeFileSync(join(directory!, "fresh-process-report.md"), result!);
 });

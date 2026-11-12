@@ -292,3 +292,11 @@ Prepared a filled hypothetical research/default boundary sample in the actual pa
 - Implement conditional Next/Node capture/admission/report/recovery against explicit trusted runtime/custody contracts; default-off routes do not accept posted evidence. Keep the Python provenance policy and original artifacts unchanged.
 - Port deterministic history/projection comparison semantics with distinct source and custody hashes, fictional evidence labels, explicit unknown/stale/incomplete outcomes and original-byte recovery.
 - Add synthetic golden parity and security/recovery regressions, including a separate Node recovery process. Independent review corrected wrong-job index substitution and stalled-body admission. Production attestation, storage, Node collection, identity/rights and scheduling are still unimplemented/unbound; no monitoring, payment or delivery activation.
+
+## 2026-11-12 — Candidate executable Node source collection
+
+- Replace collection placeholder with actual bounded Node transport, robots decisions, response observations and strict static projections; connect through runtime admission and stored report recovery using synthetic loopback HTTP.
+- Add v2 predecessor-bound receipts while preserving v1 originals, honest unknown/304 semantics and source/robots host cooldowns across periods and hosts.
+- Validate malformed/oversized/redirected/timed-out responses and meaningful dated section changes. Preserve all hosted authority/storage/rights, collection, scheduling and commercial activation gates; no real monitored-source fetch or payment.
+
+- Version future Node report rendering to prioritize the latest complete changed projection, with balanced before/after quotes; retain old history evidence and frozen original bytes.

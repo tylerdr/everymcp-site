@@ -36,3 +36,10 @@
 - Fictional golden parity and fresh-process original-byte recovery exercise the actual Node producer, not hosted monitoring.
 - Deployment-bound writer authentication, immutable production custody, Node collector and recurring-rights bindings remain unimplemented; Vercel OIDC project claims alone are insufficient.
 - No collection, schedule, provider/customer/payment action, recurring offer publication or production activation. Reserved PR30/33/35 and prior denials remain intact.
+
+## 2026-11-12 — Executable collector source candidate
+- Node collector/projection now implemented and exercised through real loopback HTTP → custody → useful report → separate-process original recovery.
+- Pinned transport and conservative robots restrictions remain bounded; unknown content never becomes unchanged, and cooldowns survive host switches.
+- Original v1 report bytes still recover unchanged; Python evidence/source remains untouched.
+- Hosted writer authority, custody, identity/recurring rights and scheduling remain unbound. No live source, customer/payment action or monitoring revenue proved.
+- Latest captured change now receives balanced preview allowance; older evidence and immutable prior reports remain intact.

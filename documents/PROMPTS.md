@@ -216,3 +216,11 @@ Scope preserves retained v1 receipts/renderer, bounded excerpts, independent rev
 Coordinator direction: “Proceed with bounded source redesign to a genuinely verifiable Vercel/Next runtime receipt, independent review, no collection/scheduling/setup or activation. Preserve existing evidence without asserting provenance equivalence; inspect current owner/PR overlap first.”
 
 Implement and review a separately versioned conditional Node admission/report/recovery path using synthetic inputs only. Preserve canonical Actions evidence, disabled Actions, prior denials, original Python renderers/artifacts and reserved PR30/33/35. No hosted attestation, storage, collector, credential, service or rights setup is authorized by this source assignment.
+
+## 2026-11-12 — Executable bounded Node collector continuation
+
+Coordinator directs this same PR36 owner to implement a real bounded Node collector connected through admission, report construction and original recovery using synthetic loopback HTTP fixtures. Independently review security before implementation and the final diff before publication. Preserve reserved PR30/33/35, old Python evidence and the disabled factory. No real monitored-source fetching, Actions, schedule, services/credentials/SQL, customer/provider/payment action, price/term change or activation.
+
+## 2026-11-12 — Latest-change buyer-value correction
+
+Coordinator identifies oldest-first preview budgeting in PR36: older full-history comparisons can exhaust the24-word quote allowance before the latest change. Version future rendering to prioritize the newest complete changed projection with balanced before/after excerpts and a clear Latest captured change summary. Keep historical evidence, unknown/stale limits and exact stored originals. Prove Node 21 → 22 remains readable after older periods and independently review the final source before publication.

@@ -3,8 +3,12 @@ import { z } from "zod";
 import { buildNodeHistory, renderNodeHistory, type NodeSnapshot } from "./history";
 import { canonicalJson, inventoryDigest, inventorySourceUrls, MAX_SOURCE_BYTES, parseCanonical, sha256, timestamp, validateSourceReport, type SourceReport } from "./source-contract";
 
-export const RECEIPT_POLICY = "vercel-next-custody-v1";
-export const REPORT_POLICY = "source-receipt-history-node-v1";
+export const LEGACY_RECEIPT_POLICY = "vercel-next-custody-v1";
+export const RECEIPT_POLICY = "vercel-next-custody-v2";
+export const LEGACY_REPORT_POLICY = "source-receipt-history-node-v1";
+export const REPORT_POLICY = "source-receipt-history-node-v2";
+// Freeze period identity across renderer upgrades: an existing original must always win.
+const JOB_IDENTITY_RENDERER_SEED = LEGACY_REPORT_POLICY;
 export const MAX_REPORT_BYTES = 2 * 1024 * 1024;
 const hash = z.string().regex(/^[a-f0-9]{64}$/);
 const date = z.string().refine((value) => { try { timestamp(value); return true; } catch { return false; } });
@@ -17,9 +21,9 @@ export type WorkerPrincipal = { scope: Scope; workerKey: string };
 const jobSchema = z.object({ scope: scopeSchema, ownerKey: hash, watchlistId: hash, version: z.number().int().min(1).max(2147483647), slugs: z.array(z.string().regex(/^[a-z0-9][a-z0-9._-]{0,100}$/)).min(1).max(100), periodStart: date, periodEnd: date, kind: z.enum(["capture", "report"]), sourceUrls: z.array(z.string()).max(2), receiptIds: z.array(hash).max(32) }).strict();
 export type Job = z.infer<typeof jobSchema>;
 export type Rights = { scope: Scope; ownerKey: string; watchlistId: string; version: number; periodStart: string; periodEnd: string; action: "generate" | "recover"; decision: "active" | "denied" | "unknown" };
-const startSchema = z.object({ schemaVersion: z.literal(1), policy: z.literal(RECEIPT_POLICY), executionId: z.string().uuid(), nonce: z.string().uuid(), job: jobSchema, jobId: hash, inventorySha256: hash, runtime: runtimeSchema, evidenceClass: z.enum(["synthetic-fixture", "server-collection"]), startedAt: date }).strict();
+const startSchema = z.object({ schemaVersion: z.literal(1), policy: z.enum([LEGACY_RECEIPT_POLICY, RECEIPT_POLICY]), executionId: z.string().uuid(), nonce: z.string().uuid(), job: jobSchema, jobId: hash, inventorySha256: hash, runtime: runtimeSchema, evidenceClass: z.enum(["synthetic-fixture", "server-collection"]), startedAt: date }).strict();
 export type ExecutionStart = z.infer<typeof startSchema>;
-const receiptSchema = z.object({ schemaVersion: z.literal(1), policy: z.literal(RECEIPT_POLICY), executionId: z.string().uuid(), nonce: z.string().uuid(), jobId: hash, inventorySha256: hash, runtime: runtimeSchema, evidenceClass: z.enum(["synthetic-fixture", "server-collection"]), stage: z.enum(["capture", "report"]), startedAt: date, completedAt: date, sourceSha256: hash.nullable(), reportSha256: hash.nullable(), reportLength: z.number().int().min(0).max(MAX_REPORT_BYTES), reportPolicy: z.literal(REPORT_POLICY).nullable(), inputReceiptIds: z.array(hash).max(32) }).strict();
+const receiptSchema = z.object({ schemaVersion: z.literal(1), policy: z.enum([LEGACY_RECEIPT_POLICY, RECEIPT_POLICY]), executionId: z.string().uuid(), nonce: z.string().uuid(), jobId: hash, inventorySha256: hash, runtime: runtimeSchema, evidenceClass: z.enum(["synthetic-fixture", "server-collection"]), stage: z.enum(["capture", "report"]), startedAt: date, completedAt: date, sourceSha256: hash.nullable(), reportSha256: hash.nullable(), reportLength: z.number().int().min(0).max(MAX_REPORT_BYTES), reportPolicy: z.enum([LEGACY_REPORT_POLICY, REPORT_POLICY]).nullable(), inputReceiptIds: z.array(hash).max(32) }).strict();
 export type RuntimeReceipt = z.infer<typeof receiptSchema>;
 export type OriginalExecution = { start: ExecutionStart; status: "completed"; receiptBytes: Buffer; sourceBytes: Buffer | null; reportBytes: Buffer | null };
 export type JobCommit = { jobId: string; receiptId: string; job: Job };
@@ -35,6 +39,9 @@ export interface CustodyStore {
   getJob(jobId: string): Promise<JobCommit | null>;
   commitJobIfAbsent(commit: JobCommit): Promise<JobCommit>;
 }
+export type CollectorContext = { inventory: { catalog: unknown[]; curated: unknown[] }; previous: SourceReport | null };
+export type CollectorLimits = { maxSourceAttempts: 2; maxRobotsRequests: 1; deadline: string; signal: AbortSignal };
+export type SourceCollector = ((job: Job, limits: CollectorLimits, context: CollectorContext) => Promise<unknown>) & { readonly evidenceClass?: "synthetic-fixture" | "server-collection" };
 export type RuntimeDependencies = {
   scope: Scope;
   evidenceClass: "synthetic-fixture" | "server-collection";
@@ -47,7 +54,7 @@ export type RuntimeDependencies = {
   // independent protected custody/provider evidence. OIDC project claims + env vars are insufficient.
   verifyExecutionWriter(start: ExecutionStart, completedAt: string): Promise<boolean>;
   loadInventory(): Promise<{ catalog: unknown[]; curated: unknown[] }>;
-  collectCanonicalSources(job: Job, limits: { maxSourceAttempts: 2; maxRobotsRequests: 1; deadline: string; signal: AbortSignal }): Promise<unknown>;
+  collectCanonicalSources: SourceCollector;
   store: CustodyStore;
   now(): Date;
 };
@@ -57,12 +64,12 @@ const same = (a: unknown, b: unknown) => canonicalJson(a).equals(canonicalJson(b
 function copy<T>(value: T): T { return JSON.parse(canonicalJson(value).toString()) as T; }
 export function jobIdentity(job: Job): string {
   const { scope, ownerKey, watchlistId, version, slugs, periodStart, periodEnd, kind } = jobSchema.parse(job);
-  return sha256(canonicalJson({ scope, ownerKey, watchlistId, version, slugs, periodStart, periodEnd, kind, reportPolicy: REPORT_POLICY }));
+  return sha256(canonicalJson({ scope, ownerKey, watchlistId, version, slugs, periodStart, periodEnd, kind, reportPolicy: JOB_IDENTITY_RENDERER_SEED }));
 }
 function checkJob(job: Job, now: string) {
   jobSchema.parse(job);
   if (!same(job.slugs, [...new Set(job.slugs)].sort()) || timestamp(job.periodStart) >= timestamp(job.periodEnd) || timestamp(job.periodEnd) > timestamp(now) || timestamp(job.periodEnd) - timestamp(job.periodStart) > 90 * 86400000) throw new MonitoringUnavailable("Invalid canonical job");
-  if (job.kind === "capture" && (!job.sourceUrls.length || job.receiptIds.length || new Set(job.sourceUrls).size !== job.sourceUrls.length) || job.kind === "report" && (!job.receiptIds.length || job.sourceUrls.length || new Set(job.receiptIds).size !== job.receiptIds.length)) throw new MonitoringUnavailable("Invalid stage inputs");
+  if (job.kind === "capture" && (!job.sourceUrls.length || job.receiptIds.length > 1 || new Set(job.sourceUrls).size !== job.sourceUrls.length) || job.kind === "report" && (!job.receiptIds.length || job.sourceUrls.length || new Set(job.receiptIds).size !== job.receiptIds.length)) throw new MonitoringUnavailable("Invalid stage inputs");
 }
 function now(deps: RuntimeDependencies): string {
   const result = deps.now(); if (!(result instanceof Date) || !Number.isFinite(result.getTime())) throw new MonitoringUnavailable("Clock unavailable");
@@ -94,18 +101,19 @@ export async function admitRuntimeReceipt(deps: RuntimeDependencies, receiptId: 
   if (!original || original.status !== "completed") throw new MonitoringUnavailable("Original execution unavailable");
   const start = startSchema.parse(original.start), receipt = receiptSchema.parse(parseCanonical(original.receiptBytes, 65536));
   if (sha256(original.receiptBytes) !== receiptId || !same(start.job.scope, job.scope) || start.job.ownerKey !== job.ownerKey || start.job.watchlistId !== job.watchlistId || start.job.version > job.version) throw new MonitoringDenied("Receipt scope mismatch");
-  if (start.jobId !== jobIdentity(start.job) || receipt.jobId !== start.jobId || receipt.executionId !== start.executionId || receipt.nonce !== start.nonce || receipt.stage !== start.job.kind || receipt.startedAt !== start.startedAt || receipt.inventorySha256 !== start.inventorySha256 || !same(receipt.runtime, start.runtime) || receipt.evidenceClass !== start.evidenceClass || receipt.evidenceClass !== deps.evidenceClass || !same(receipt.inputReceiptIds, start.job.receiptIds)) throw new MonitoringUnavailable("Execution cross-binding mismatch");
+  if (start.policy !== receipt.policy || start.jobId !== jobIdentity(start.job) || receipt.jobId !== start.jobId || receipt.executionId !== start.executionId || receipt.nonce !== start.nonce || receipt.stage !== start.job.kind || receipt.startedAt !== start.startedAt || receipt.inventorySha256 !== start.inventorySha256 || !same(receipt.runtime, start.runtime) || receipt.evidenceClass !== start.evidenceClass || receipt.evidenceClass !== deps.evidenceClass || !same(receipt.inputReceiptIds, start.job.receiptIds)) throw new MonitoringUnavailable("Execution cross-binding mismatch");
   checkJob(start.job, start.startedAt);
+  if (start.policy === LEGACY_RECEIPT_POLICY && start.job.kind === "capture" && start.job.receiptIds.length) throw new MonitoringUnavailable("Legacy capture cannot have predecessor inputs");
   const begin = timestamp(start.startedAt), end = timestamp(receipt.completedAt), current = timestamp(now(deps));
   if (begin > end || end > current || end - begin > (receipt.stage === "capture" ? 30000 : 60000) || begin < timestamp(start.runtime.validFrom) || end > timestamp(start.runtime.validUntil)) throw new MonitoringUnavailable("Invalid execution interval");
   if (start.runtime.authorityClass === "synthetic-fixture" && (deps.evidenceClass !== "synthetic-fixture" || deps.scope.mode !== "test") || !await deps.verifyExecutionWriter(copy(start), receipt.completedAt)) throw new MonitoringUnavailable("Deployment-bound writer not verified");
   if (start.inventorySha256 !== inventoryDigest(inventory.catalog, inventory.curated)) throw new MonitoringUnavailable("Source inventory changed");
   let source: SourceReport | null = null;
   if (receipt.stage === "capture") {
-    if (!original.sourceBytes || original.reportBytes !== null || receipt.reportSha256 !== null || receipt.reportLength !== 0 || receipt.reportPolicy !== null || receipt.inputReceiptIds.length || sha256(original.sourceBytes) !== receipt.sourceSha256) throw new MonitoringUnavailable("Capture original mismatch");
+    if (!original.sourceBytes || original.reportBytes !== null || receipt.reportSha256 !== null || receipt.reportLength !== 0 || receipt.reportPolicy !== null || receipt.inputReceiptIds.length > 1 || sha256(original.sourceBytes) !== receipt.sourceSha256) throw new MonitoringUnavailable("Capture original mismatch");
     source = validateSourceReport(parseCanonical(original.sourceBytes), inventory.catalog, inventory.curated);
     checkSourceWindow(source, start, receipt.completedAt);
-  } else if (original.sourceBytes !== null || receipt.sourceSha256 !== null || !original.reportBytes || original.reportBytes.length > MAX_REPORT_BYTES || original.reportBytes.length !== receipt.reportLength || sha256(original.reportBytes) !== receipt.reportSha256 || receipt.reportPolicy !== REPORT_POLICY) throw new MonitoringUnavailable("Report original mismatch");
+  } else if (original.sourceBytes !== null || receipt.sourceSha256 !== null || !original.reportBytes || original.reportBytes.length > MAX_REPORT_BYTES || original.reportBytes.length !== receipt.reportLength || sha256(original.reportBytes) !== receipt.reportSha256 || ![LEGACY_REPORT_POLICY, REPORT_POLICY].includes(receipt.reportPolicy || "")) throw new MonitoringUnavailable("Report original mismatch");
   return { receipt, original, source };
 }
 
@@ -121,7 +129,7 @@ export function createMonitoringRuntime(deps: RuntimeDependencies) {
       if (!original) throw new MonitoringUnavailable("Report unavailable");
       const receipt = receiptSchema.parse(parseCanonical(original.receiptBytes, 65536));
       const start = startSchema.parse(original.start);
-      if (original.status !== "completed" || sha256(original.receiptBytes) !== commit.receiptId || receipt.stage !== "report" || receipt.jobId !== commit.jobId || !same(start.job, commit.job) || !same(receipt.runtime, start.runtime) || receipt.executionId !== start.executionId || receipt.nonce !== start.nonce || receipt.startedAt !== start.startedAt || receipt.inventorySha256 !== start.inventorySha256 || !same(receipt.inputReceiptIds, start.job.receiptIds) || receipt.evidenceClass !== deps.evidenceClass || receipt.evidenceClass !== start.evidenceClass || receipt.reportPolicy !== REPORT_POLICY || receipt.sourceSha256 !== null || original.sourceBytes !== null || !original.reportBytes || original.reportBytes.length !== receipt.reportLength || original.reportBytes.length > MAX_REPORT_BYTES || sha256(original.reportBytes) !== receipt.reportSha256) throw new MonitoringUnavailable("Stored report failed integrity checks");
+      if (original.status !== "completed" || start.policy !== receipt.policy || sha256(original.receiptBytes) !== commit.receiptId || receipt.stage !== "report" || receipt.jobId !== commit.jobId || !same(start.job, commit.job) || !same(receipt.runtime, start.runtime) || receipt.executionId !== start.executionId || receipt.nonce !== start.nonce || receipt.startedAt !== start.startedAt || receipt.inventorySha256 !== start.inventorySha256 || !same(receipt.inputReceiptIds, start.job.receiptIds) || receipt.evidenceClass !== deps.evidenceClass || receipt.evidenceClass !== start.evidenceClass || ![LEGACY_REPORT_POLICY, REPORT_POLICY].includes(receipt.reportPolicy || "") || receipt.sourceSha256 !== null || original.sourceBytes !== null || !original.reportBytes || original.reportBytes.length !== receipt.reportLength || original.reportBytes.length > MAX_REPORT_BYTES || sha256(original.reportBytes) !== receipt.reportSha256) throw new MonitoringUnavailable("Stored report failed integrity checks");
       checkJob(start.job, start.startedAt);
       const begin = timestamp(start.startedAt), end = timestamp(receipt.completedAt);
       if (start.jobId !== commit.jobId || end < begin || end - begin > 60000 || end > timestamp(now(deps)) || begin < timestamp(start.runtime.validFrom) || end > timestamp(start.runtime.validUntil) || start.runtime.authorityClass === "synthetic-fixture" && (deps.evidenceClass !== "synthetic-fixture" || deps.scope.mode !== "test") || !await deps.verifyExecutionWriter(copy(start), receipt.completedAt)) throw new MonitoringUnavailable("Stored writer authorization unavailable");
@@ -153,11 +161,19 @@ export function createMonitoringRuntime(deps: RuntimeDependencies) {
     await deps.store.beginExecution(copy(start));
     let sourceBytes: Buffer | null = null, reportBytes: Buffer | null = null;
     if (job.kind === "capture") {
+      const collectorClass = deps.collectCanonicalSources.evidenceClass;
+      if (collectorClass && collectorClass !== deps.evidenceClass || deps.evidenceClass === "server-collection" && collectorClass !== "server-collection") throw new MonitoringUnavailable("Collector evidence class unavailable or mismatched");
+      let previous: SourceReport | null = null;
+      if (job.receiptIds.length) {
+        const prior = await admitRuntimeReceipt(deps, job.receiptIds[0], job, inventory);
+        if (!prior.source || prior.receipt.stage !== "capture" || timestamp(prior.receipt.completedAt) >= timestamp(startedAt)) throw new MonitoringUnavailable("Invalid capture predecessor");
+        previous = prior.source;
+      }
       const controller = new AbortController();
       let timer: ReturnType<typeof setTimeout> | undefined;
       const expired = new Promise<never>((_resolve, reject) => { timer = setTimeout(() => { controller.abort(); reject(new MonitoringUnavailable("Capture deadline exceeded")); }, 30000); });
       let payload: unknown;
-      try { payload = await Promise.race([deps.collectCanonicalSources(copy(job), { maxSourceAttempts: 2, maxRobotsRequests: 1, deadline: new Date(timestamp(startedAt) + 30000).toISOString(), signal: controller.signal }), expired]); }
+      try { payload = await Promise.race([deps.collectCanonicalSources(copy(job), { maxSourceAttempts: 2, maxRobotsRequests: 1, deadline: new Date(timestamp(startedAt) + 30000).toISOString(), signal: controller.signal }, { inventory: copy(inventory), previous: previous && copy(previous) }), expired]); }
       finally { clearTimeout(timer); controller.abort(); }
       const source = validateSourceReport(payload, inventory.catalog, inventory.curated);
       sourceBytes = canonicalJson(source);
@@ -170,7 +186,7 @@ export function createMonitoringRuntime(deps: RuntimeDependencies) {
         const admitted = await admitRuntimeReceipt(deps, receiptId, job, inventory);
         if (!admitted.source || admitted.receipt.stage !== "capture" || timestamp(admitted.receipt.completedAt) > timestamp(job.periodEnd) || executions.has(admitted.receipt.executionId)) throw new MonitoringUnavailable("Invalid/duplicate capture receipt");
         executions.add(admitted.receipt.executionId);
-        snapshots.push({ report: admitted.source, evidence: { receiptSha256: receiptId, sourceSha256: admitted.receipt.sourceSha256!, executionId: admitted.receipt.executionId, deploymentId: admitted.receipt.runtime.deploymentId, gitSha: admitted.receipt.runtime.gitSha, startedAt: admitted.receipt.startedAt, completedAt: admitted.receipt.completedAt, origin: RECEIPT_POLICY, evidenceClass: admitted.receipt.evidenceClass } });
+        snapshots.push({ report: admitted.source, evidence: { receiptSha256: receiptId, sourceSha256: admitted.receipt.sourceSha256!, executionId: admitted.receipt.executionId, deploymentId: admitted.receipt.runtime.deploymentId, gitSha: admitted.receipt.runtime.gitSha, startedAt: admitted.receipt.startedAt, completedAt: admitted.receipt.completedAt, origin: admitted.receipt.policy, evidenceClass: admitted.receipt.evidenceClass } });
       }
       reportBytes = renderNodeHistory(buildNodeHistory(snapshots, job.periodEnd, inventory.catalog, inventory.curated, job.slugs));
       if (reportBytes.length > MAX_REPORT_BYTES) throw new MonitoringUnavailable("Report byte budget exceeded");

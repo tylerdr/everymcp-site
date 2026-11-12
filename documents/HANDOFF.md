@@ -1,3 +1,13 @@
+# PR36 executable Node collector continuation — 2026-11-12
+
+The source now contains a real bounded Node HTTPS collector, conservative robots handling and strict static-document projection, wired through the existing runtime in actual loopback HTTP → receipt → meaningful report → persisted original → fresh-process recovery tests. `vercel-next-custody-v2` binds an independently admitted predecessor capture; original v1 receipt/report recovery remains supported. No live source, public DNS/TLS, provider or hosted writer attestation was exercised. Production factory remains null.
+
+Future reports also use a versioned latest-change summary: the unchanged 24-word source budget gives 12 words each to before/after of the newest complete changed projection. Older history keeps dates/hashes/citations, later unknowns remain visible, and frozen v1 rendering/original-period retry is preserved.
+
+Independent review corrected robots-rate-limit continuity: active cooldown evidence now survives another host's intervening capture, including truncated robots429. See [NODE-SOURCE-COLLECTOR.md](NODE-SOURCE-COLLECTOR.md) for exact behavior, conservative parser bounds and remaining integration. Production writer authentication, trusted custody and owner/recurring-rights adapters still require actual implementations; the collector itself is no longer a placeholder. GitHub Actions, PR30/33/35 source ownership, held permissions/SQL and all activation/commercial boundaries remain unchanged. Final commit/Preview and source-check receipts are in the PR and lane artifacts.
+
+---
+
 # PR36 separate Node runtime continuation — 2026-11-12
 
 The existing Next application now has real Node orchestration, source receipt validation, history/report construction and immutable recovery against injected contracts. The origin is separately versioned `vercel-next-custody-v1`, not a relabeled Actions/manual receipt. `getMonitoringRuntime()` remains null; both new APIs return private/no-store 503. Production deployment-bound writer authentication, trusted store, Node collector and current-rights bindings remain unimplemented. See [MONITORING-NODE-RUNTIME.md](MONITORING-NODE-RUNTIME.md) for the precise contract, limits and next hosted acceptance; no project-only OIDC or environment metadata is misrepresented as signed source evidence.

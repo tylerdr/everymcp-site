@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { writeFileSync } from "node:fs";
+import { join } from "node:path";
 import { buildNodeHistory, compareNodeDocuments, NODE_HISTORY_POLICY, renderNodeHistory, type NodeSnapshot } from "../lib/monitoring/history";
 import { canonicalJson, isDue, sha256, type SourceReport } from "../lib/monitoring/source-contract";
 
@@ -182,15 +184,20 @@ describe("bounded Node source history", () => {
     expect(renderNodeHistory(history).toString()).toContain("Current capture: not_captured (no_observation)");
   });
 
-  it("renders bounded section previews once per shared URL across every event and side", () => {
+  it("prioritizes the latest complete change with balanced previews and retains older evidence", () => {
     const snapshots: NodeSnapshot[] = [];
     for (let day = 1; day <= 4; day++) snapshots.push(snapshot(day, { previous: snapshots[day - 2], body: `changed body ${day}`, capture: true, excerpt: `Node ${18 + day} requires this fictional setup command and configuration before running` }));
     const history = build(snapshots), text = renderNodeHistory(history).toString();
+    if (process.env.EVERYMCP_RENDERER_EVIDENCE_DIR) writeFileSync(join(process.env.EVERYMCP_RENDERER_EVIDENCE_DIR, "latest-change-example.md"), text);
     const quotes = [...text.matchAll(/preview: “(.*?)”/g)].map(match => match[1]);
     expect(quotes.reduce((count, quote) => count + [...quote.matchAll(/\S+/g)].length, 0)).toBeLessThanOrEqual(24);
-    expect(quotes.join(" ")).toContain("Node 19"); expect(quotes.join(" ")).toContain("Node 20");
-    expect(text.match(/^### /gm)).toHaveLength(1);
-    expect(text).toContain("preview omitted: quote budget or capture limit.");
+    expect(quotes.join(" ")).toContain("Node 21"); expect(quotes.join(" ")).toContain("Node 22");
+    expect(quotes.join(" ")).not.toContain("Node 19"); expect(quotes.join(" ")).not.toContain("Node 20");
+    expect(text).toContain("## Latest captured change");
+    expect(text).toContain("Latest captured change: 2026-11-03T00:00:01Z → 2026-11-04T00:00:01Z");
+    for (const side of ["Before", "After"]) { const sideQuotes = [...text.matchAll(new RegExp(side + " (?:heading|excerpt) preview: “(.*?)”", "g"))]; expect(sideQuotes.reduce((n, match) => n + (match[1].match(/\S+/g) || []).length, 0)).toBeLessThanOrEqual(12); }
+    expect(text.match(/^### /gm)).toHaveLength(2);
+    expect(text).toContain("previews omitted here; the latest complete captured change receives the source quote budget above.");
     expect(text).toContain("/documentProjection/sections/0");
     expect(text).toContain("section SHA-256");
     expect(text).toContain("vercel-next-custody-v1");
@@ -204,6 +211,37 @@ describe("bounded Node source history", () => {
     expect(text).toContain(`](<${URL}>)`);
     const wrong = clone(history); wrong.historyPolicyVersion = "source-receipt-history-v2" as typeof NODE_HISTORY_POLICY;
     expect(() => renderNodeHistory(wrong)).toThrow(/policy/);
+  });
+
+  it("keeps the latest historical change readable after a newer unknown or noise-only check", () => {
+    const snapshots: NodeSnapshot[] = [];
+    for (let day = 1; day <= 4; day++) snapshots.push(snapshot(day, { previous: snapshots[day - 2], body: `fictional body ${day}`, capture: true, excerpt: `Node ${18 + day} requires the fictional setup command` }));
+    const unknown = snapshot(5, { previous: snapshots[3], status: 503 });
+    const unknownText = renderNodeHistory(build([...snapshots, unknown])).toString();
+    expect(unknownText).toContain("Latest observation: unknown at 2026-11-05T00:00:01Z");
+    expect(unknownText).toContain("Latest captured change: 2026-11-03T00:00:01Z → 2026-11-04T00:00:01Z");
+    expect(unknownText).toContain("This comparison predates the latest observation above");
+    const noise = snapshot(6, { previous: unknown, body: "different fictional raw bytes", capture: true, excerpt: "Node 22 requires the fictional setup command" });
+    const noiseText = renderNodeHistory(build([...snapshots, unknown, noise])).toString();
+    expect(noiseText).toContain("Latest captured change: 2026-11-03T00:00:01Z → 2026-11-04T00:00:01Z");
+    expect(noiseText).toContain("Captured representation unchanged; other differences unclassified.");
+    expect(noiseText).toContain("Latest observation: reachable at 2026-11-06T00:00:01Z");
+  });
+
+  it("shares separate before/after budgets across changed sections while preserving all pointers", () => {
+    const one = snapshot(1, { capture: true, excerpt: "First section old setup." });
+    const two = snapshot(2, { previous: one, capture: true, body: "new raw bytes", excerpt: "First section new setup." });
+    for (const [value, word] of [[one, "old"], [two, "new"]] as const) {
+      const observation = value.report.sources[0].observation!, p = observation.documentProjection!;
+      p.sections.push({ id: `${sha256("second")}:1`, heading: "Second", headingTruncated: false, excerpt: `Second section ${word} setup.`, excerptTruncated: false, contentHash: sha256(word) });
+      p.projectionHash = projectionDigest({ sections: p.sections.map(({id,contentHash}) => ({id,contentHash})), omissions: p.omissions });
+      value.report.sources[0].lastSuccessfulObservation = clone(observation); rehash(value);
+    }
+    const text = renderNodeHistory(build([one,two])).toString();
+    for (const side of ["Before", "After"]) { const quotes = [...text.matchAll(new RegExp(side + " (?:heading|excerpt) preview: “(.*?)”", "g"))]; expect(quotes.reduce((n,m) => n + (m[1].match(/\S+/g) || []).length, 0)).toBeLessThanOrEqual(12); }
+    expect(text).toContain("First section old setup"); expect(text).toContain("First section new setup");
+    expect(text).toContain("Second section old setup"); expect(text).toContain("Second section new setup");
+    expect(text).toContain("/documentProjection/sections/0"); expect(text).toContain("/documentProjection/sections/1");
   });
 
   it("compares section hashes, additions/removals and equal captures without claiming semantic equality", () => {

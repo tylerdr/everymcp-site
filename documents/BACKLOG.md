@@ -132,5 +132,12 @@
 - [x] Separate bounded Node receipt/admission, report construction and immutable recovery from canonical Actions evidence; keep routes disabled and old Python artifacts untouched.
 - [x] Synthetic cross-language history parity, tamper/replay/index substitution and fresh-process original recovery; independent trust-model/source review.
 - [ ] Implement independently verifiable deployment-bound writer authentication and approved immutable custody through existing owners; documented Vercel project/environment OIDC alone is insufficient.
-- [ ] Implement/review the bounded Node collector/projection adapter; current source adapter is injected and no collection has occurred.
+- [x] Implement/review bounded Node collector/projection; actual loopback HTTP runs through receipt/report/fresh-process recovery. No real monitored-source collection has occurred.
 - [ ] Obtain exact current recurring generation/recovery rights and approved hosted two-period/payment lifecycle acceptance. No recurring offer or activation is established.
+
+### PR36 executable collector continuation — 2026-11-12
+- [x] Bounded pinned-address HTTPS transport, conservative robots policy, strict Python-compatible projection subset and v2 admitted-predecessor continuity.
+- [x] Preserve unknown/incomplete/source success and all-host robots cooldown evidence; independent security review and synthetic original-byte recovery.
+- [ ] Existing owners implement writer authentication, trusted custody and current owner/recurring rights; then wire the implemented collector.
+- [ ] Reconcile monitoring test command into the shared package/build owner before activation. No package/commerce/lead files changed in this lane.
+- [x] Version future reports to prioritize latest complete changed projection within balanced24-word source budget; preserve old renderer/original-period retry and Node 21 → 22 evidence.

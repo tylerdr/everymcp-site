@@ -104,7 +104,7 @@ export function normalizeSourceUrl(raw: unknown): string {
   }
   return "https://" + url.hostname + path;
 }
-function inventory(catalog: unknown[], curated: unknown[]) {
+export function sourceInventory(catalog: unknown[], curated: unknown[]) {
   const reviewed = new Map(curated.map((item) => { const row = object(item); return [row.slug, row]; }));
   const listings: SourceReport["listings"] = [], rejected: SourceReport["rejectedInputs"] = [];
   const sources = new Map<string, { url: string; priority: boolean; relationships: Relationship[] }>();
@@ -129,11 +129,11 @@ function inventory(catalog: unknown[], curated: unknown[]) {
   return { listings, sources, rejected };
 }
 export function inventoryDigest(catalog: unknown[], curated: unknown[]): string {
-  const items = inventory(catalog, curated);
+  const items = sourceInventory(catalog, curated);
   return sha256(canonicalJson({ listings: items.listings, sources: [...items.sources.values()].sort((a, b) => a.url < b.url ? -1 : 1), rejected: items.rejected }));
 }
 export function inventorySourceUrls(catalog: unknown[], curated: unknown[], slugs: string[]): string[] {
-  return [...inventory(catalog, curated).sources.values()].filter((s) => s.relationships.some((r) => slugs.includes(r.slug))).map((s) => s.url).sort();
+  return [...sourceInventory(catalog, curated).sources.values()].filter((s) => s.relationships.some((r) => slugs.includes(r.slug))).map((s) => s.url).sort();
 }
 export function validateProjection(p: DocumentProjection, obs: Observation, source: Pick<Source, "url" | "relationships">) {
   const raw = (value: unknown) => canonicalJson(value).subarray(0, -1);
@@ -154,7 +154,7 @@ export function validateProjection(p: DocumentProjection, obs: Observation, sour
   let words = 0;
   for (const section of p.sections) for (const field of [section.heading, section.excerpt]) {
     if (/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f\u202a-\u202e\u2066-\u2069]/.test(field)) throw new Error("Unsafe fragment");
-    words += (field.match(/[^\s\u0085]+/gu) || []).length;
+    words += (field.match(/[^\u0009-\u000d\u001c-\u0020\u0085\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000]+/gu) || []).length;
   }
   if (words > 24 || p.projectionHash !== sha256(raw({ sections: p.sections.map(({ id, contentHash }) => ({ id, contentHash })), omissions: p.omissions }))) throw new Error("Projection digest/quote limit");
 }
@@ -173,7 +173,7 @@ function validateObservation(obs: Observation, source: Source, generated: number
 }
 export function validateSourceReport(value: unknown, catalog: unknown[], curated: unknown[]): SourceReport {
   if (canonicalJson(value).length > MAX_SOURCE_BYTES || !matches(value, schema)) throw new Error("Source receipt does not match pinned schema");
-  const report = value as SourceReport, expected = inventory(catalog, curated), generated = timestamp(report.generatedAt);
+  const report = value as SourceReport, expected = sourceInventory(catalog, curated), generated = timestamp(report.generatedAt);
   if (!canonicalJson(report.listings).equals(canonicalJson(expected.listings)) || !canonicalJson(report.rejectedInputs).equals(canonicalJson(expected.rejected)) || report.sources.length !== expected.sources.size || new Set(report.sources.map((s) => s.url)).size !== expected.sources.size) throw new Error("Receipt inventory mismatch");
   const counts: Record<string, number> = {}; let stale = 0, attempts = 0, received = 0;
   for (const source of report.sources) {

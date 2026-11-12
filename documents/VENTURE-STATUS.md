@@ -1,3 +1,13 @@
+# EveryMCP venture status — 2026-11-12 monitoring candidate
+
+- Main remains PR34 `242f1450`; PR35 reviewed leadfix remains held after its denied retry. PR30/33 and private commerce/store ownership are unchanged.
+- New branch `feature/monitoring-watchlist-reports-20261112` adds useful source-watchlist change history, evidence pointers and immutable local reports with exact-byte fresh-process recovery.
+-16 focused history cases and47 related source cases passed across initial run plus one missing-directory prerequisite recheck; lint/types and139-test/756-page app build passed. Independent review found no blocking issue.
+- Only the real October4 manual receipt is replayed; new multi-run changes are synthetic tests. No live monitoring/compatibility/downtime, production durability, paid delivery or MRR claim.
+- Next: exact draft/Preview and owner-approved scheduler/store/Auth/recurring-rights/private-delivery acceptance. Concrete payment→delivery→fresh-session recovery→reversal packet is in documents/MONITORING-ACCEPTANCE.md. No provider/SQL/credential/customer-send/payment activity.
+
+## Historical status
+
 # EveryMCP venture status — 2026-10-11
 
 - Reviewed PR27/PR28 production2c8d7fb remains READY; free planner,642sitemapURLs/616listingroutes and closedcheckout preserved.

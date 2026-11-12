@@ -2,6 +2,12 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-11-12 — Provider-free watchlist history and recoverable reports
+
+Prepared on `feature/monitoring-watchlist-reports-20261112` from PR34 main242f1450. New offline report generation admits independently verified source-receipt/execution inputs, retains complete selected-slug coverage, compares dated conclusive availability and successful body hashes, and preserves unknowns and unresolved findings. Immutable content-addressed bundles support concurrent idempotent publication and exact-byte recovery in a fresh process. No existing collector, workflow, catalog, payment/Auth or PR30/33/35 runtime source is changed.
+
+Sixteen focused history cases pass. Related source tests covered47 cases (one pre-existing missing operational-directory prerequisite passed after setup/focused recheck); lint, standalone types and the full application build pass (139 tests,756 pages). Independent review found no blocking issue. A reproducible actual-receipt example and an actionable subscription payment→delivery→fresh-session recovery→reversal acceptance packet separate historical evidence and synthetic tests from production. No live monitoring, automatic delivery, recurring price, provider/SQL/configuration, charge or MRR claim.
+
 ## 2026-10-03 — Apply the repository's shadcn UI requirement
 
 Root review required the planner controls to follow AGENTS.md. The repository had no shadcn components or utility setup, so this focused addition introduces the official new-york Button and NativeSelect source, a cn utility, components.json, and theme tokens compatible with the existing Tailwind 3 stack. The planner uses NativeSelect/NativeSelectOption, the submit and copy actions use Button, and the starter handoff uses Button asChild around its semantic link.

@@ -173,3 +173,10 @@ Email confirmation codes provide first-time onboarding and sign-in through one f
 A dedicated NOINHERIT role is insufficient when PUBLIC grants expose other-product relations. Every receipt transaction must deny external effective table/column/sequence access, external schema CREATE, role memberships and callable user SECURITY DEFINER routines before reading/writing receipts. The app does not repair ACLs. Current shared Sprinter Website candidate fails; actual isolated login/database proof remains required. Return-page metadata reports status without assuming checkout completion.
 
 Checkout request admission (2026-10-23): maximum2048rawbytes and3seconds to complete JSON, before binding/account/store/provider work. Malformed, oversized, stalled and invalid UTF-8 requests refuse400. Existing authenticated valid checkout contract is unchanged.
+
+
+### Provider-free recurring-monitoring report stage (2026-11-12 candidate)
+
+A deterministic offline stage accepts bounded, independently verified public-source receipts and a stable-slug watchlist. It emits dated baseline, source-missing/recovery, inconclusive and complete-body-change evidence with both comparison pointers; repeated cached evidence does not become a new check. Explicit as-of freshness, distinct source coverage, previous success and unresolved findings remain visible. Content-addressed bundles support immutable local publication and original-byte recovery after process restart, without reading a newer catalog.
+
+This is the report-generation/recovery stage for a future automated subscription product. No new recurring offer or price, subscription entitlement, production storage, tenant boundary, scheduler, live collector or customer delivery is activated. Source HTTP checks do not establish MCP compatibility, uptime, outage duration, security or tool behavior. Current actual evidence is one historical manual collection; multi-run tests are synthetic. See SOURCE-HISTORY.md and MONITORING-ACCEPTANCE.md for exact behavior, limits and acceptance ownership. Existing one-time-kit commerce and provider gates are unchanged.

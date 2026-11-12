@@ -98,3 +98,16 @@
 - [ ] Shared infrastructure owner: install/postcheck reviewed product-only receipt store under current actual metadata/action scope, then separately bind dedicated credentials and exact Preview configuration.
 - [ ] Hosted: controlled Auth principals, genuine sandbox webhook/original-download/reload/recovery/refund and owner-isolation acceptance; Production stays closed.
 - [ ] Commercial owner: verified support contact/owner, refund-request process, capacity and backend acquisition event receipts before paid launch. Prepare existing campaign drafts for authorized distribution only.
+
+
+## 2026-11-12 — Recurring monitoring report stage
+
+- [x] Add provider-free validated receipt history for complete or selected stable-slug watchlists; preserve inconclusive/cached/stale evidence and both sides of source-change comparisons.
+- [x] Implement immutable report bundles and exact-byte fresh-process recovery; validate conflicts, corruption, symlinks and concurrent publication.
+- [x] Pass16 focused history cases,47 related source cases with one operational-directory prerequisite recheck, lint/types and139-test/756-page application build; independent implementation review found no blocking issue.
+- [x] Replay the one actual historical receipt without inventing new collection; document concrete recurring acceptance and ownership packet.
+- [ ] Exact draft/Preview source publication and release disposition. Application deployment is not standalone Python runtime acceptance.
+- [ ] Runtime owner: approve named scheduler/cadence/budget and prove two actual scheduled runs plus missed-run recovery; Actions remain disabled.
+- [ ] Existing store/Auth/commerce owners: resolve isolated private-store and identity gates, recurring product/period rights and controlled sandbox payment→delivery→fresh-session recovery→refund/dispute/reversal acceptance.
+- [ ] Product/delivery owner: approve deterministic private subscriber reporting policy, retention and any separate notification trial; no per-customer manual fulfillment or invented SLA.
+- [ ] PR35 release remains denied; do not retry on current evidence. PR33 writer uncertainty and PR30 custody remain unchanged.

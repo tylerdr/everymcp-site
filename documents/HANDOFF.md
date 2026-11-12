@@ -1,3 +1,27 @@
+# EveryMCP — November 12 monitoring report stage
+
+## Current source and ownership
+
+Current main remains `242f1450cb31f2a6038c180abdbf46ce53fca782` (PR34). New branch `feature/monitoring-watchlist-reports-20261112` contains the provider-free receipt-history/report stage only. PR35 lead recovery remains held at `546d7250b81aef41035b084696499e853c1b1ddf` after the one newly authorized merge retry was denied; do not repeat that merge or native production-browser attempt. PR33's reserved branch/original writer uncertainty and PR30 revenue reconciliation are untouched. Shared commerce, Auth, private SQL-transfer/installation and affiliate decisions retain their existing owners and holds.
+
+## Completed functional slice
+
+`scripts/source_receipt_history.py` compares validated source-monitor receipts for selected stable catalog slugs, producing evidence-linked baseline, missing/recovery, inconclusive and complete-body-change results. Cached observations do not become new checks; prior success, both comparison pointers and unresolved findings survive unknown/recovery states. Output is deterministic, content-addressed and immutable; a fresh process recovers original Markdown bytes after integrity checks. This local Linux filesystem adapter is not the production paid store, tenant boundary or delivery service.
+
+Sixteen focused history tests pass, including malicious/conflicting input, full historical coverage, shared Neon identity, unknown-between-successes, actual 304, concurrent writes and fresh-process/corrupt-bundle recovery. The related source-monitor/import suite covered 47 cases: 46 passed initially; one existing test required `tmp/source-monitor` to exist, then passed on focused recheck after creating that operational directory. No existing test source was changed. Repository lint, standalone TypeScript and the full application build pass (139 tests, existing contracts, 756 pages). Independent read-only review found no blocking issue in the implementation, tests and acceptance contract; final exact source/Preview receipts belong to this PR.
+
+The executable example replays only the real October 4 manual collection: no new checks or live transitions are claimed. The selected RevenueCat/Heap example contains five stale source observations as of November 12 (two missing-at-check and three reachable). Synthetic multi-run transitions are tests only. HTTP source observations do not establish MCP compatibility, tool behavior, security, uptime, outage duration or current availability.
+
+## Minimum next production and revenue action
+
+Use [SOURCE-HISTORY.md](SOURCE-HISTORY.md) for build/recovery and [MONITORING-ACCEPTANCE.md](MONITORING-ACCEPTANCE.md) for the exact runtime, storage, identity, recurring-offer/payment and private-delivery acceptance packet. Source readiness can be reviewed and automatically built without activating those dependencies. The Vercel application build is not proof that this standalone Python stage runs in production. GitHub Actions remain disabled; no scheduler, collection, notification, customer record, provider, database, payment or paid activation was used.
+
+The responsible owners must supply an approved scheduler/cadence budget, the existing eligible isolated store/Auth installation/binding acceptance, recurring product/price/lifecycle rights, a bounded named-sandbox payment/recovery/reversal trial and an automatic private-report delivery policy. Preserve review for public catalog/capability changes while approving deterministic private raw-observation delivery once, so fulfillment does not require an operator per report. Existing one-time $49 checkout remains closed; it is not subscription MRR. Cash and monitoring revenue are unproved. No Vault/Mac writes.
+
+The October 29 handoff below is historical context, not current main, deployment or release authority.
+
+---
+
 # EveryMCP — October 29 source and revenue-readiness handoff
 
 ## Current source and release state

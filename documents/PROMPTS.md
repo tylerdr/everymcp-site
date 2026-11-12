@@ -194,3 +194,8 @@ Resume in the same cloud environment after workspace maintenance; inspect curren
 
 ## 2026-10-29 — Reconnected revenue-readiness continuation
 User asks to review latest production/source, continue after Stripe reconnect, and drive toward meaningful revenue. Preserve root-owned publication, shared SQL installation and credential/provider boundaries. Prepare a useful paid-packet sample and source handoff while hosted acceptance dependencies remain unresolved; do not send campaigns or charge a live card.
+
+
+## 2026-11-12 — Recurring monitoring core, provider-free report stage
+
+Parent directs this existing lane to move beyond the held PR35 lead release toward automated evidence-backed MCP monitoring, durable delivery and customer recovery without manual fulfillment. PR35's denied merge is not retried. Complete the highest-value provider-free capability in a new current-main branch: deterministic watchlist reports comparing validated source receipts, explicit unknown/stale/cached evidence, immutable local report bundles and exact-byte recovery. Preserve PR30/33/35 source custody, private SQL-transfer/installation holds, affiliate account/terms decisions, provider/payment/customer-data/security boundaries and disabled GitHub Actions. Finish focused tests, independent review and an actionable paid-monitoring acceptance plan; no new subscription offer, provider calls, live collection, customer sends, paid activation or claims of actual recurring revenue.

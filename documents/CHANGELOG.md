@@ -280,3 +280,9 @@ Recovered exact51b0c7f from saved packet after scratch pruning. Checkout JSON no
 
 ## 2026-10-29 — Source-only worked sample and current-main reconciliation
 Prepared a filled hypothetical research/default boundary sample in the actual paid artifact and pricing excerpt; corrected recovery copy to require availability, verified buyer account and current rights. Preserved immutable original custody and all payment gates. Combined current main's published guide/worksheet/discovery work with PR29 by clean local merge. Three new focused tests, standalone types and changed-file lint pass; independent review PASS. Source only, not a hosted release or paid receipt.
+
+## 2026-11-12 — Candidate bounded source document comparisons
+
+- Add source-v2 bounded static projections at the existing response-processing point, with strict identity/date/hash binding and explicit unsupported/incomplete outcomes.
+- Consume section changes in real history reports; preserve exact v1 recovery and current-rights checks. Captured excerpts are bounded and safely escaped; equality never implies unchanged unexamined content.
+- Validate fictional capture→receipt→report→fresh-process recovery and actual legacy-byte compatibility; 73 related Python tests, lint and TypeScript pass. No collection/activation or recurring offer publication.

@@ -1,5 +1,7 @@
 # Source watchlist history and exact report recovery
 
+New reports use `source-receipt-history-v2` and include [bounded document comparisons](SOURCE-DOCUMENT-PROJECTION.md) when admitted v2 captures exist. Legacy inputs explicitly remain `not_captured`. The retained example below is the exact v1 report and remains a recovery compatibility fixture; generating it with the current producer adds the v2 comparison-availability section. V1 recovery retains the original renderer and bytes.
+
 The offline history stage converts admitted source-monitor receipts into a report for selected catalog slugs. It makes no network requests, calls no MCP methods, sends no notifications, changes no catalog and accepts no customer or payment data. Collection, execution provenance, publication, payment and tenant access remain separate boundaries. See [the monitoring acceptance packet](MONITORING-ACCEPTANCE.md) for the production path and unresolved gates.
 
 ## Run the existing historical example

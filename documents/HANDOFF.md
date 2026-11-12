@@ -1,3 +1,9 @@
+# PR36 document projection continuation — 2026-11-12
+
+The assigned capture/schema/importer extension now feeds the real history producer with bounded, source-bound static document sections. Fictional Node 18 → Node 20 input produces dated old/new previews and section/receipt pointers; normalized equality explicitly leaves other differences unclassified. V1 receipts/cache/rendering/job recovery remain supported. Current production binding stays None, all activation holds remain, and PR30/33/35 are untouched.
+
+See SOURCE-DOCUMENT-PROJECTION.md for the contract and exact evidence: 73 relevant Python tests, lint and TypeScript pass; independent source review is recorded in the lane. The fictional standalone original and fresh-process recovery are 6,718 bytes / SHA-256 9677ce1dad46e84f8e54529749de244a0bc026f16675e70a2d2827040c811d88. The historical v1 original still recovers 4,861 bytes / SHA-256 187072dc5ef9342e21c415bf29ee4b97e5e430763e72a68d031f788b67c33237. Two genuine authorized source captures and hosted private runtime/payment delivery remain unproved. The next automatic Preview is application-build evidence only.
+
 # EveryMCP — November 12 default-off workflow continuation
 
 PR36 now also contains an internal monitoring worker around the reviewed report engine. `get_production_binding()` remains unconditionally `None`; no route, environment opt-in, hosted adapter, schedule, collection, customer send or payment is added. Existing kit-specific Auth, ownership, store and commerce code remains untouched. PR30/33/35 and their holds are preserved.

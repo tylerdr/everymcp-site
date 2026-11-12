@@ -204,3 +204,9 @@ Parent directs this existing lane to move beyond the held PR35 lead release towa
 ## 2026-11-12 — Default-off monitoring workflow integration
 
 Parent confirms PR36 publication and directs continuing the recurring workflow: reconcile existing scheduler/storage/Auth/delivery ownership, implement the narrowest useful default-off integration, and prove a provider-free end-to-end report→immutable persistence→original recovery path with missing/stale evidence. Add only an internal worker and local acceptance adapter around the existing report engine; keep production binding absent and delegate authoritative identity/recurring rights/storage to existing owners. Do not treat monitoring as a Starter Kit purchase, duplicate shared commerce infrastructure, execute held SQL, change hosted security/configuration, call paid providers or send customer data. Return the full nonsecret runtime/offer/payment decision packet inline; Preview is not hosted monitoring or MRR.
+
+## 2026-11-12 — Coordinated capture-contract extension
+
+Coordinator instruction (excerpt): “implement the smallest versioned bounded projection at the point where the existing collector already holds response bytes, update the schema/importer coherently, and consume it in PR36's real history/report producer. This is CODE ONLY.”
+
+Scope preserves retained v1 receipts/renderer, bounded excerpts, independent review, current source custody and all existing activation holds. No live collection or new dependency installation.

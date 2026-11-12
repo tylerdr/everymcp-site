@@ -24,3 +24,9 @@
 - Corrected84320cd independently accepted DISABLED source only;127tests/standalone types/lint/756build and actual controlled React/server browser pass.0actual provider/DB/credentials/emails, one mockedcheckout,0pageerrors.
 - Remaining holds are exact seller/test, isolated store/ACL/headroom/role, fixedAuthsignup/code-template/SMTP approvals, approved preview/config and real bounded payment/event/fault/owner isolation plus separately authorized signup/mail proof. No remaining intentional UI implementation gap.
 - Parent owns resource/login/release coordination. NoSQL/config/security/payment/mail/secret/spend orPR29productionrelease/activation; privateSQLproposalunapplied and$0conditional reuse unproved.
+
+## 2026-11-12 — PR36 capture extension candidate
+
+- Source/receipt/report integration now localizes bounded static document changes with source references and dated before/after previews.
+- 73 relevant Python tests, lint and TypeScript pass; legacy original bytes and fresh-process fictional recovery remain exact.
+- No live captures, scheduler/provider/config changes, paid activation or cash claim; two genuine capture periods remain required.

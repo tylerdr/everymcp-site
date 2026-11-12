@@ -121,3 +121,9 @@
 - [x] Return exact nonsecret owner/runtime/recurring-offer/payment decision packet in MONITORING-WORKFLOW.md.
 - [ ] Parent route authoritative worker/owner, canonical watchlist, recurring rights, verified source ingestion and production-store adapters to existing owners; no parallel SQL/Auth/commerce writer.
 - [ ] Approve private automated inbox delivery and perform the bounded genuine sandbox payment→report→fresh-session recovery→reversal sequence before intake. No report-level Tyler fulfillment.
+
+## 2026-11-12 — Bounded capture contract
+
+- [x] Add versioned bounded document projections, coherent receipt admission and real report comparison; preserve legacy renderer/job recovery.
+- [x] Exercise meaningful/noise/incomplete/stale/identity cases with fictional responses and real local persistence/recovery.
+- [ ] After separate runtime/collection authorization, accept two genuine same-identity document captures; do not relabel fictional run metadata as observed monitoring.

@@ -185,3 +185,7 @@ This is the report-generation/recovery stage for a future automated subscription
 ### Default-off monitoring orchestration seam (2026-11-12 candidate)
 
 An internal worker consumes server-derived watchlists and verified worker/owner/recurring-rights adapters. Stable scoped period jobs prepare and verify immutable report bytes before committing a recoverable index; retries and concurrent workers select one original. Fresh recovery checks current owner and exact report-period rights and never rebuilds the artifact. `get_production_binding()` remains absent, so no environment flag, route or schedule can activate it. A local fixture store/Auth/rights adapter exercises the real engine; production infrastructure, recurring commercial rights and hosted acceptance remain separately owned. Periods are full-history snapshots at their end, not a claim that all retained events are new.
+
+### Bounded static document comparison candidate (2026-11-12)
+
+`public-source-v2` records section hashes and bounded heading/excerpt previews from already-obtained eligible response bytes; it never executes content or follows extracted links. `source-receipt-history-v2` shows dated section changes and explicit unavailability, with normalized equality limited to the captured representation. Exact v1 report/job recovery is retained. Source identity changes refuse comparison. SOURCE-DOCUMENT-PROJECTION.md defines limits and normalization; all v2 multi-period evidence is fictional and the recurring offer remains unapproved/off.

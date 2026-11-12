@@ -13,6 +13,27 @@ from pathlib import Path
 import monitor_sources as monitor
 import import_source_receipt as receipt
 
+HISTORY_POLICY_VERSION = 'source-receipt-history-v2'
+SUPPORTED_POLICIES = ('source-receipt-history-v1', HISTORY_POLICY_VERSION)
+
+
+def compare_documents(before, after):
+    old, new = before.get('documentProjection'), after.get('documentProjection')
+    if old is None or new is None:
+        return {'state': 'unavailable', 'reason': 'not_captured', 'changes': []}
+    if old['state'] != 'captured' or new['state'] != 'captured':
+        return {'state': 'unavailable', 'reason': f"{old['reason']} / {new['reason']}", 'changes': []}
+    if (old['sourceUrl'], old['sourceIdentity'], old['profileVersion']) != (new['sourceUrl'], new['sourceIdentity'], new['profileVersion']):
+        raise ValueError('Changed source identity cannot be compared')
+    old_sections, new_sections = ({s['id']: s for s in p['sections']} for p in (old, new))
+    changes = []
+    for key in sorted(set(old_sections) | set(new_sections)):
+        kind = 'added' if key not in old_sections else 'removed' if key not in new_sections else 'changed' if old_sections[key]['contentHash'] != new_sections[key]['contentHash'] else None
+        if kind: changes.append({'sectionId': key, 'kind': kind})
+    return {'state': 'captured_representation_unchanged' if old['projectionHash'] == new['projectionHash'] else 'captured_representation_changed',
+            'reason': 'bounded_static_projection_only', 'changes': changes,
+            'beforeBodyObservedAt': old['bodyObservedAt'], 'afterBodyObservedAt': new['bodyObservedAt']}
+
 
 def load_history(manifest_path, as_of, slugs=None):
     manifest_path = Path(manifest_path)
@@ -97,6 +118,8 @@ def build_history(snapshots, as_of, catalog, curated, slugs=None):
             event = {'id': monitor.digest(receipt.canonical_bytes(identity)), 'kind': kind, **attempt}
             if before:
                 event.update(beforeObservation=before['observation'], beforeEvidence=before['evidence'])
+            if kind == 'source_body_changed':
+                event['documentComparison'] = compare_documents(before['observation'], obs)
             events.append(event)
         for attempt in attempts:
             obs = attempt['observation']; state = obs['state']
@@ -125,14 +148,14 @@ def build_history(snapshots, as_of, catalog, curated, slugs=None):
     summary = {'selectedSlugCount': len(selected), 'sourceCount': len(selected_rows), 'stateCounts': dict(sorted(Counter(row['state'] for row in selected_rows).items())), 'staleOrUnchecked': sum(row['freshnessAsOf'] != 'current' for row in selected_rows), 'datedObservationCount': sum(len(by_url[url]) for url in selected_urls), 'eventCounts': dict(sorted(Counter(event['kind'] for row in selected_rows for event in row['events']).items()))}
     refs = [{'receiptSha256': s['sha256'], 'headSha': s['headSha'], 'generatedAt': s['report']['generatedAt'], 'runUrl': s['execution']['run']['url'], 'jobUrl': s['execution']['job']['url']} for s in ordered]
     latest_report = ordered[-1]['report']
-    return {'schemaVersion': 1, 'historyPolicyVersion': 'source-receipt-history-v1', 'sourcePolicyVersion': latest_report['policyVersion'], 'asOf': as_of, 'selectedSlugs': sorted(selected), 'receipts': refs, 'summary': summary, 'publication': latest_report['publication'], 'assessment': latest_report['assessment'], 'inventoryFindings': latest_report['inventoryFindings'], 'entries': entries}
+    return {'schemaVersion': 2, 'historyPolicyVersion': HISTORY_POLICY_VERSION, 'sourcePolicyVersion': latest_report['policyVersion'], 'asOf': as_of, 'selectedSlugs': sorted(selected), 'receipts': refs, 'summary': summary, 'publication': latest_report['publication'], 'assessment': latest_report['assessment'], 'inventoryFindings': latest_report['inventoryFindings'], 'entries': entries}
 
 
 def markdown_text(value):
     return re.sub(r'([\\`*_{}\[\]()#+.!|<>-])', r'\\\1', str(value)).replace('\n', ' ').replace('\r', ' ')
 
 
-def render_history(report):
+def render_history_v1(report):
     summary = report['summary']
     lines = ['# Public source history', '', f"As of: {report['asOf']}", '',
              f"{summary['selectedSlugCount']} selected listings; {summary['sourceCount']} distinct source URLs; {summary['datedObservationCount']} distinct dated observations in {len(report['receipts'])} supplied receipts.",
@@ -160,6 +183,55 @@ def render_history(report):
                         lines.append(f"    Complete-body SHA-256 `{before['contentHash']}` → `{after['contentHash']}`. Inspect the source and your pinned revision before changing an integration; semantic impact is unknown.")
             for finding in source['reviewFindings']:
                 lines.append(f"  - Review required: {finding['kind']} ({finding['firstObservedAt']} to {finding['lastObservedAt']}).")
+        lines.append('')
+    return '\n'.join(lines).encode()
+
+
+def render_history(report):
+    policy = report.get('historyPolicyVersion')
+    if policy == 'source-receipt-history-v1': return render_history_v1(report)
+    if policy != HISTORY_POLICY_VERSION: raise ValueError('Unsupported history renderer policy')
+    lines = [render_history_v1(report).decode(), '## Captured document comparisons', '',
+             'Static source evidence, not a semantic or compatibility assessment. Sections include text and hashed attribute values/link destinations; scripts, styles and comments may be omitted. No linked destination is fetched.',
+             'Short excerpts are bounded previews, not necessarily the changed passage. Full-page text is not retained. Section matching uses heading identity/occurrence; renamed headings appear as removed/added. Section order or omitted-content categories can change without a matched-section change.',
+             'HTML tag/attribute names, attribute order and character-reference spelling normalize; text, numbers, commands, timestamps, attribute values and preformatted whitespace remain significant. Equal captured representation never establishes that all changes are incidental.', '']
+    sources = {s['url']: s for entry in report['entries'] for s in entry['sources']}
+    for url, source in sorted(sources.items()):
+        observation = source['observation'] or {}
+        projection = observation.get('documentProjection')
+        state = projection['state'] if projection else 'not_captured'
+        reason = projection['reason'] if projection else 'legacy_body_not_retained' if observation else 'no_observation'
+        lines += [f"### {url}", '', f"Current capture: {state} ({reason}); source freshness as of {report['asOf']}: {source['freshnessAsOf']}."]
+        if projection and projection['bodyObservedAt']:
+            lines.append(f"Body captured at {projection['bodyObservedAt']}; HTTP observation at {observation['checkedAt']}. Omitted material: {', '.join(projection['omissions']) or 'none recorded'}.")
+        budget = monitor.projection.MAX_WORDS  # One budget across all events/sides for this URL, even when shared by listings.
+        for event in source['events']:
+            if event['kind'] != 'source_body_changed': continue
+            comparison = event['documentComparison']
+            lines.append(f"- Comparison of {event['beforeObservation']['checkedAt']} → {event['observation']['checkedAt']}: {comparison['state']} ({comparison['reason']}).")
+            if comparison['state'] == 'unavailable':
+                lines.append('  No document-content conclusion is available; this is not evidence of unchanged content.')
+                continue
+            lines.append(f"  Original body capture dates: {comparison['beforeBodyObservedAt']} → {comparison['afterBodyObservedAt']}. Historical comparison only; current source state may differ.")
+            if comparison['state'] == 'captured_representation_unchanged':
+                lines.append('  Captured representation unchanged; other differences unclassified. Inspect the cited source before changing an integration.')
+                continue
+            lines.append('  Review the identified sections against your pinned configuration; this report does not determine the operational effect.')
+            for change in comparison['changes']:
+                lines.append(f"  - Section `{change['sectionId']}`: {change['kind']}.")
+                for side, obs_key, evidence_key in (('Before', 'beforeObservation', 'beforeEvidence'), ('After', 'observation', 'evidence')):
+                    p = event[obs_key]['documentProjection']
+                    section = next((s for s in p['sections'] if s['id'] == change['sectionId']), None)
+                    if section is None: continue
+                    evidence = event[evidence_key]
+                    pointer = evidence['pointer'] + '/documentProjection/sections/' + str(p['sections'].index(section))
+                    lines.append(f"    {side}: {evidence['jobUrl']} `{pointer}` · receipt `{evidence['receiptSha256']}` · section SHA-256 `{section['contentHash']}`.")
+                    for field in ('heading', 'excerpt'):
+                        quote, cut, used = monitor.projection.clip(section[field], budget); budget -= used
+                        if quote:
+                            lines.append(f"    {side} {field} preview: “{markdown_text(quote)}”" + (' [truncated]' if cut or section[field + 'Truncated'] else ''))
+                        elif section[field] or section[field + 'Truncated']:
+                            lines.append(f"    {side} {field} preview omitted: quote budget or capture limit.")
         lines.append('')
     return '\n'.join(lines).encode()
 

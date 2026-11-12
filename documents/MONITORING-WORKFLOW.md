@@ -35,7 +35,7 @@ The prepared artifact's Markdown hash and length must match the report the worke
 | Existing durable storage | `get(job_id)`, `prepare(report_dict)`, `commit_if_absent(CommittedReport)` and `read_bytes(Artifact)` with immutable original bytes, atomic index winner, scope/owner isolation, quota and restart proof | Test-only local filesystem implementation; no SQL or hosted resource changes |
 | Delivery/inbox | Authenticated customer inbox calls `recover`; notification failure must not remove recovery. Approve private deterministic raw-observation delivery independently of public catalog review | No inbox/notification binding or send; report remains review-required |
 
-The `CommittedReport` binds job ID, scope, owner key, watchlist ID/version/slugs, period, report policy and artifact identity/hash/length. These private delivery records are distinct from the body-free public-source report. A production adapter must preserve these relationships transactionally; the interface is not a SQL installation proposal. Do not log full private records or authentication context in public receipts.
+The `CommittedReport` binds job ID, scope, owner key, watchlist ID/version/slugs, period, report policy and artifact identity/hash/length. These private delivery records are distinct from the public-source report. V1 source receipts are body-free; the [v2 document projection](SOURCE-DOCUMENT-PROJECTION.md) adds bounded excerpts alongside hashes. A production adapter must preserve these relationships transactionally; the interface is not a SQL installation proposal. Do not log full private records or authentication context in public receipts.
 
 ## Reproducible provider-free acceptance
 

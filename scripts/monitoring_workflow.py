@@ -8,7 +8,7 @@ import re
 
 import source_receipt_history as history
 
-HISTORY_POLICY_VERSION = 'source-receipt-history-v1'
+HISTORY_POLICY_VERSION = history.HISTORY_POLICY_VERSION
 MAX_REPORT_BYTES = 16 * 1024 * 1024
 HEX = re.compile(r'^[0-9a-f]{64}$')
 
@@ -127,8 +127,9 @@ def _slugs(slugs):
     return isinstance(slugs, tuple) and 1 <= len(slugs) <= 100 and all(isinstance(x, str) and re.fullmatch(r'[a-z0-9][a-z0-9._-]{0,100}', x) for x in slugs) and tuple(sorted(set(slugs))) == slugs
 
 
-def job_identity(scope, owner_key, job):
-    data = {'scope': {'account_id': scope.account_id, 'mode': scope.mode, 'product_key': scope.product_key}, 'owner_key': owner_key, 'watchlist_id': job.watchlist_id, 'version': job.watchlist_version, 'period_start': job.period_start, 'period_end': job.period_end, 'history_policy_version': HISTORY_POLICY_VERSION}
+def job_identity(scope, owner_key, job, policy=HISTORY_POLICY_VERSION):
+    if policy not in history.SUPPORTED_POLICIES: raise InvalidJob('Unsupported history policy')
+    data = {'scope': {'account_id': scope.account_id, 'mode': scope.mode, 'product_key': scope.product_key}, 'owner_key': owner_key, 'watchlist_id': job.watchlist_id, 'version': job.watchlist_version, 'period_start': job.period_start, 'period_end': job.period_end, 'history_policy_version': policy}
     return hashlib.sha256(json.dumps(data, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
 
 
@@ -150,11 +151,11 @@ class MonitoringWorker:
         except Exception as exc: raise Unavailable('Store unavailable') from exc
 
     def _validate_record(self, record, job_id):
-        if not isinstance(record, CommittedReport) or not _scope(record.scope) or not _hex(record.owner_key) or not _slugs(record.slugs) or record.history_policy_version != HISTORY_POLICY_VERSION or not isinstance(record.artifact, Artifact) or not _hex(record.artifact.bundle_id) or not _hex(record.artifact.sha256) or type(record.artifact.length) is not int or not 0 <= record.artifact.length <= MAX_REPORT_BYTES: raise Unavailable('Invalid stored report')
+        if not isinstance(record, CommittedReport) or not _scope(record.scope) or not _hex(record.owner_key) or not _slugs(record.slugs) or record.history_policy_version not in history.SUPPORTED_POLICIES or not isinstance(record.artifact, Artifact) or not _hex(record.artifact.bundle_id) or not _hex(record.artifact.sha256) or type(record.artifact.length) is not int or not 0 <= record.artifact.length <= MAX_REPORT_BYTES: raise Unavailable('Invalid stored report')
         job = PeriodJob(record.watchlist_id, record.version, record.period_start, record.period_end)
         try: _job(job, self.now())
         except Exception as exc: raise Unavailable('Invalid stored report') from exc
-        if record.job_id != job_id or job_identity(record.scope, record.owner_key, job) != job_id: raise Unavailable('Invalid stored report')
+        if record.job_id != job_id or job_identity(record.scope, record.owner_key, job, record.history_policy_version) != job_id: raise Unavailable('Invalid stored report')
         return job
 
     def _read(self, artifact):
@@ -179,6 +180,10 @@ class MonitoringWorker:
         if not self._rights(watch.owner_key, job, 'generate'): raise AccessDenied('Access denied')
         job_id = job_identity(self.scope, watch.owner_key, job)
         existing = self._get(job_id)
+        if existing is None:
+            legacy_id = job_identity(self.scope, watch.owner_key, job, 'source-receipt-history-v1')
+            existing = self._get(legacy_id)
+            if existing is not None: job_id = legacy_id
         if existing is not None:
             self._validate_record(existing, job_id)
             if existing.scope != self.scope or existing.owner_key != watch.owner_key or existing.slugs != watch.slugs: raise Unavailable('Stored report conflict')

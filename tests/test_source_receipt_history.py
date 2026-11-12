@@ -30,7 +30,7 @@ class ReceiptHistoryTests(unittest.TestCase):
         cls.curated = importer.strict_json((ROOT / 'data/listing-evidence.json').read_bytes())
         cls.listings, cls.inventory, cls.rejected = monitor.inventory(cls.catalog, cls.curated)
 
-    def snap(self, day, changes=None, previous=None):
+    def snap(self, day, changes=None, previous=None, *, headers=None, capture=False):
         """Generate explicitly synthetic receipts via real collector schema/cache rules."""
         changes = changes or {}
         cache = {} if previous is None else {
@@ -40,7 +40,7 @@ class ReceiptHistoryTests(unittest.TestCase):
         stamp = f'2026-11-{day:02d}T00:00:01Z'
         for url, (status, body) in changes.items():
             prior = cache.get(url, {})
-            cache[url] = monitor.update_cache(prior, monitor.observe(status, {}, body, prior, stamp))
+            cache[url] = monitor.update_cache(prior, monitor.observe(status, headers or {}, body, prior, stamp, **({'source': self.inventory[url]} if capture else {})))
         skipped = {url: 'fresh_cache' if url in cache and not monitor.is_due(source, cache[url]['observation'], monitor.parse_date(stamp), 7) else 'run_budget' for url, source in self.inventory.items() if url not in changes}
         metrics = {'requests': len(changes), 'robotsRequests': 0, 'receivedBytes': sum(cache[url]['observation']['receivedBytes'] for url in changes), 'durationMs': 0}
         report = monitor.build_report(self.listings, self.inventory, self.rejected, cache, f'2026-11-{day:02d}T00:00:02Z', len(changes), 'check', skipped, 7, metrics=metrics)

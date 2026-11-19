@@ -39,12 +39,13 @@ export class FictionalControl {
     else if (sql===CONTROL_SQL.mutation) rows=[...state.versions.entries()].filter(([k,v])=>k.startsWith(JSON.stringify([...scope,owner]).slice(0,-1)+',') && v.mutation_id===values[4]).map(([,v])=>({...v}));
     else if ([CONTROL_SQL.insertVersion,CONTROL_SQL.insertHead,CONTROL_SQL.advanceHead].includes(sql as never) && access!=='configure') throw Object.assign(new Error('Denied'),{code:'42501'});
     else if (sql===CONTROL_SQL.insertJob && access!=='produce') throw Object.assign(new Error('Denied'),{code:'42501'});
-    else if ([CONTROL_SQL.binding,CONTROL_SQL.job].includes(sql as never) && access==='configure') throw Object.assign(new Error('Denied'),{code:'42501'});
+    else if ([CONTROL_SQL.binding,CONTROL_SQL.job,CONTROL_SQL.ownedJobs].includes(sql as never) && access==='configure') throw Object.assign(new Error('Denied'),{code:'42501'});
     else if (sql===CONTROL_SQL.insertVersion) { const k=key([...scope,owner,values[5]]); if(!state.versions.has(k)) state.versions.set(k,{owner_key:owner,watchlist_id:values[4],version:values[5],mutation_id:values[6],request_sha256:values[7],config_sha256:values[8],config_bytes:values[9],writer_role:'everymcp_monitor_configurator'}); }
     else if (sql===CONTROL_SQL.insertHead) { const k=key([...scope,owner]); if(!state.heads.has(k)) state.heads.set(k,{owner_key:owner,watchlist_id:values[4],current_version:values[5],writer_role:'everymcp_monitor_configurator'}); }
     else if (sql===CONTROL_SQL.advanceHead) { const r=state.heads.get(key([...scope,owner])); if(r && r.watchlist_id===values[4] && r.current_version===values[6]) r.current_version=values[5]; }
     else if (sql===CONTROL_SQL.binding) { rows=get(state.bindings,[...scope,owner]); if(model.duplicateBinding && rows.length) rows.push({...rows[0],subscription_id:'sub_conflicting'}); }
     else if (sql===CONTROL_SQL.job) rows=get(state.jobs,[...scope,owner]);
+    else if (sql===CONTROL_SQL.ownedJobs) rows=[...state.jobs.entries()].filter(([k,v])=>k.startsWith(JSON.stringify(scope).slice(0,-1)+',') && v.owner_key===owner && String(v.job_id)>String(values[4])).map(([,v])=>({...v})).sort((a,b)=>String(a.job_id)<String(b.job_id)?-1:1).slice(0,2);
     else if (sql===CONTROL_SQL.insertJob) { const k=key([...scope,values[6]]); if(!state.jobs.has(k)) state.jobs.set(k,{owner_key:owner,watchlist_id:values[4],version:values[5],job_id:values[6],job_sha256:values[7],job_bytes:values[8],writer_role:'everymcp_monitor_job_writer'}); }
     else if (![CONTROL_SQL.begin,CONTROL_SQL.settings,CONTROL_SQL.commit,CONTROL_SQL.rollback].includes(sql as never)) throw new Error('Unexpected fixture query');
     return { rows };

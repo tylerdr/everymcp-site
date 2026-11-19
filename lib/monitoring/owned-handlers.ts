@@ -1,6 +1,7 @@
 import { z } from "zod";
-import { MonitoringDenied, type Principal, type Scope } from "./runtime";
-import { controlEqual, WatchlistConflict, type Watchlist } from "./control-contract";
+import { MAX_REPORT_BYTES, MonitoringDenied, MonitoringUnavailable, type Principal, type Scope } from "./runtime";
+import { controlEqual, MonitoringCursorUnavailable, WatchlistConflict, type Watchlist } from "./control-contract";
+import { sha256 } from "./source-contract";
 import { WatchlistSelectionError } from "./watchlist-selection";
 import type { createOwnedMonitoringWorkflow } from "./owned-workflow";
 const headers = { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" };
@@ -33,6 +34,27 @@ export function createOwnedMonitoringHandlers(config: { origin: string; scope: S
     return Response.json({ error: error instanceof MonitoringDenied ? "Access denied" : error instanceof WatchlistConflict ? "Watchlist changed; reload and review your selection" : error instanceof SyntaxError || error instanceof z.ZodError ? "Invalid monitoring request" : "Monitoring unavailable" }, { status: error instanceof MonitoringDenied ? 403 : error instanceof WatchlistConflict ? 409 : error instanceof SyntaxError || error instanceof z.ZodError ? 400 : 503, headers });
   };
   return {
+    async GETReports(request: Request) {
+      try {
+        if (request.headers.has("origin") && request.headers.get("origin") !== config.origin || ![null, "same-origin", "none"].includes(request.headers.get("sec-fetch-site"))) throw new MonitoringDenied("Same-origin request required");
+        const key = await owner(request), params = new URL(request.url).searchParams;
+        if ([...params.keys()].some(name => name !== "after") || params.getAll("after").length > 1 || params.has("after") && !/^[a-f0-9]{64}$/.test(params.get("after")!)) throw new SyntaxError("Invalid cursor");
+        const rows = await config.workflow.reportCandidates(key, params.get("after")), row = rows[0];
+        const reports = [];
+        // A plan is not proof of delivery. Reuse authenticated recovery and all fresh rights checks.
+        if (row?.job.kind === "report") {
+          const bytes = await config.recover(request, row.jobId);
+          if (bytes !== null) {
+            if (!Buffer.isBuffer(bytes) || !bytes.length || bytes.length > MAX_REPORT_BYTES) throw new MonitoringUnavailable("Report unavailable");
+            reports.push({ jobId: row.jobId, watchlistVersion: row.job.version, slugs: row.job.slugs, periodStart: row.job.periodStart, periodEnd: row.job.periodEnd, reportSha256: sha256(bytes), reportLength: bytes.length });
+          }
+        }
+        return Response.json({ reports, nextCursor: rows.length === 2 ? row.jobId : null, ordering: "job_id_ascending", pageState: reports.length ? "report_available" : "no_recoverable_report_on_this_page", access: "checked_now_and_again_on_download" }, { headers });
+      } catch (error) {
+        if (error instanceof MonitoringCursorUnavailable) return Response.json({ error: "Report navigation unavailable" }, { status: 404, headers });
+        return errorResponse(error);
+      }
+    },
     async GET(request: Request) {
       try { return Response.json({ watchlist: publicWatchlist(await config.workflow.current(await owner(request))) }, { headers }); } catch (error) { return errorResponse(error); }
     },

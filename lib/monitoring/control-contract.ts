@@ -27,9 +27,12 @@ export interface MonitoringControlStore {
   saveWatchlist(input: SaveWatchlist): Promise<Watchlist>;
   getBinding(ownerKey: string): Promise<BillingBinding | null>;
   getCanonicalJob(id: string): Promise<CanonicalJob | null>;
+  /** One owned job plus one lookahead, ordered by ID rather than date. */
+  listOwnedJobs(ownerKey: string, after: string | null): Promise<CanonicalJob[]>;
   putCanonicalJob(record: CanonicalJob): Promise<CanonicalJob>;
 }
 export class WatchlistConflict extends Error {}
+export class MonitoringCursorUnavailable extends Error {}
 export const controlEqual = (a: unknown, b: unknown) => canonicalJson(a).equals(canonicalJson(b));
 export function ownedWatchlistId(scope: Scope, ownerKey: string): string { return sha256(canonicalJson([CONTROL_POLICY, scopeSchema.parse(scope), controlHash.parse(ownerKey)])); }
 export function watchlistRequestHash(input: SaveWatchlist): string {

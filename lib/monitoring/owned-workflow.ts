@@ -132,5 +132,16 @@ export function createOwnedMonitoringWorkflow(input: Dependencies) {
     if (!same(winner.job, job) || (await currentRights(winner.job, "generate")).decision !== "active") throw unavailable();
     return { state: "ready" as const, jobId: winner.jobId, coverage: winner.coverage };
   }
-  return { configure, current, prepare, loadJob, currentRights };
+  async function reportCandidates(owner: string, after: string | null) {
+    controlHash.parse(owner); if (after !== null) controlHash.parse(after);
+    const rows = await input.control.listOwnedJobs(owner, after);
+    if (rows.length > 2) throw unavailable();
+    let last = after ?? "";
+    return rows.map(value => {
+      const row = validateCanonicalJob(value, scope);
+      if (row.job.ownerKey !== owner || row.jobId <= last) throw unavailable();
+      last = row.jobId; return copy(row);
+    });
+  }
+  return { configure, current, prepare, loadJob, currentRights, reportCandidates };
 }

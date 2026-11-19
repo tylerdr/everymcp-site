@@ -4,7 +4,7 @@ import { MonitoringUnavailable, scopeSchema, type Scope } from './runtime';
 import { canonicalJson, parseCanonical, sha256 } from './source-contract';
 import { checkServiceJob } from './service-records';
 import { CONTROL_ACCESS_SQL, CONTROL_DEFINITION_SQL } from './control-postgres-policy';
-import { controlHash, controlEqual, ownedWatchlistId, watchlistInputSchema, watchlistRequestHash, validateWatchlist, validateCanonicalJob, billingBindingSchema, WatchlistConflict, type MonitoringControlStore, type ControlAccess, type SaveWatchlist, type Watchlist, type CanonicalJob } from './control-contract';
+import { controlHash, controlEqual, ownedWatchlistId, watchlistInputSchema, watchlistRequestHash, validateWatchlist, validateCanonicalJob, billingBindingSchema, WatchlistConflict, MonitoringCursorUnavailable, type MonitoringControlStore, type ControlAccess, type SaveWatchlist, type Watchlist, type CanonicalJob } from './control-contract';
 
 const LIMIT = 65536;
 const unavailable = () => new MonitoringUnavailable('Monitoring control unavailable');
@@ -19,6 +19,7 @@ export const CONTROL_SQL = {
  advanceHead: `UPDATE everymcp_monitor_control.watchlist_heads SET current_version=$6 WHERE ${prefix} AND owner_key=$4 AND watchlist_id=$5 AND current_version=$7`,
  binding: `SELECT owner_key,customer_id,subscription_id,enabled FROM everymcp_monitor_control.billing_bindings WHERE ${prefix} AND owner_key=$4`,
  job: `SELECT owner_key,watchlist_id,version,job_id,job_sha256,writer_role::text,CASE WHEN octet_length(job_bytes)<=65536 THEN job_bytes END AS job_bytes FROM everymcp_monitor_control.canonical_jobs WHERE ${prefix} AND job_id=$4`,
+ ownedJobs: `SELECT owner_key,watchlist_id,version,job_id,job_sha256,writer_role::text,CASE WHEN octet_length(job_bytes)<=65536 THEN job_bytes END AS job_bytes FROM everymcp_monitor_control.canonical_jobs WHERE ${prefix} AND owner_key=$4 AND job_id COLLATE "C">$5 ORDER BY job_id COLLATE "C" ASC LIMIT 2`,
  insertJob: 'INSERT INTO everymcp_monitor_control.canonical_jobs (account_id,mode,product_key,owner_key,watchlist_id,version,job_id,job_sha256,job_bytes) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) ON CONFLICT DO NOTHING',
 } as const;
 export type ControlPostgresConfiguration = { scope: Scope; access: ControlAccess; expectedDefinitionSha256: string };
@@ -50,7 +51,7 @@ export class PostgresMonitoringControlStore implements MonitoringControlStore {
     const result = await fn(client); await client.query(CONTROL_SQL.commit); return result;
    } catch (error) {
     discard = error instanceof Error ? error : unavailable(); await client.query(CONTROL_SQL.rollback).catch(() => {});
-    if (error instanceof WatchlistConflict) throw error;
+    if (error instanceof WatchlistConflict || error instanceof MonitoringCursorUnavailable) throw error;
     const code = (error as {code?: unknown} | null)?.code;
     if (attempt >= 2 || (code !== '40001' && code !== '40P01')) throw unavailable();
    } finally { client.release(discard); }
@@ -95,14 +96,31 @@ export class PostgresMonitoringControlStore implements MonitoringControlStore {
   if (value.ownerKey!==owner) throw unavailable(); return value;
  }
  async getBinding(ownerKey: string) { if (this.access === 'configure') throw unavailable(); const owner=controlHash.parse(ownerKey); return this.transaction(c=>this.readBinding(c,owner)); }
- private async readJob(c: SqlClient,id: string): Promise<CanonicalJob | null> {
-  const row=one((await c.query(CONTROL_SQL.job,[...this.params(),id])).rows); if (!row) return null;
+ private decodeJob(row: Record<string,unknown>,id: string): CanonicalJob {
   const raw=bytes(row.job_bytes), job=validateCanonicalJob(parseCanonical(raw,LIMIT),this.scope);
   checkServiceJob(job.job,job.createdAt);
   if (Date.parse(job.createdAt)<Date.parse(job.job.periodEnd) || Date.parse(job.expiresAt)>Date.parse(job.job.periodEnd)+86400000) throw unavailable();
   if (!raw.equals(encoded(job)) || row.job_sha256!==sha256(raw) || row.job_id!==id || job.jobId!==id || row.owner_key!==job.job.ownerKey || row.watchlist_id!==job.job.watchlistId || row.version!==job.job.version || row.writer_role!=='everymcp_monitor_job_writer') throw unavailable(); return job;
  }
+ private async readJob(c: SqlClient,id: string): Promise<CanonicalJob | null> {
+  const row=one((await c.query(CONTROL_SQL.job,[...this.params(),id])).rows); return row ? this.decodeJob(row,id) : null;
+ }
  async getCanonicalJob(id: string) { if (this.access === 'configure') throw unavailable(); controlHash.parse(id); return this.transaction(c=>this.readJob(c,id)); }
+ async listOwnedJobs(ownerKey: string, after: string | null) {
+  if (this.access === 'configure') throw unavailable();
+  const owner=controlHash.parse(ownerKey), cursor=after === null ? null : controlHash.parse(after);
+  return this.transaction(async c=>{
+   if (cursor) { const previous=await this.readJob(c,cursor); if (!previous || previous.job.ownerKey!==owner) throw new MonitoringCursorUnavailable('Report navigation unavailable'); }
+   const rows=(await c.query(CONTROL_SQL.ownedJobs,[...this.params(),owner,cursor ?? ''])).rows;
+   if (rows.length>2) throw unavailable();
+   let last=cursor ?? '';
+   return rows.map(row=>{
+    const id=controlHash.parse(row.job_id), value=this.decodeJob(row,id);
+    if (value.job.ownerKey!==owner || id<=last) throw unavailable();
+    last=id; return value;
+   });
+  });
+ }
  async putCanonicalJob(input: CanonicalJob) {
   this.require('produce'); const value=validateCanonicalJob(input,this.scope), raw=encoded(value);
   checkServiceJob(value.job,value.createdAt);

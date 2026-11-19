@@ -23,8 +23,8 @@ export function WebRetrievalActions({ kind }: { kind: Resource }) {
   const offer = kind === "offer";
   return (
     <Button asChild variant={offer ? "default" : "outline"} className={cn("h-auto whitespace-normal py-3", !offer && "text-foreground")}>
-      <Link href={offer ? "/pricing#kit-preview" : "/plan"} onClick={() => recordIntent(kind)}>
-        {offer ? "Review the starter kit sample and price" : "Build a free starting stack"}
+      <Link href={offer ? "/pricing#kit-preview" : "/plan?goal=research"} onClick={() => recordIntent(kind)}>
+        {offer ? "Review the starter kit sample and price" : "See a free research stack with Fetch"}
       </Link>
     </Button>
   );

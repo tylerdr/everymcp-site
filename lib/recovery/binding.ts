@@ -10,6 +10,7 @@ import { PostgresStore } from "./postgres-store";
 import { stripeNoticeVerifier, stripeNoticeResolver } from "./stripe-notice";
 import { supabaseOwner, type Principal } from "./owner";
 import { receiptAuthProject, receiptPoolConfiguration } from "./database-config";
+import { previewBuyerAllowed } from "@/lib/buyer/preview-eligibility";
 
 // Production is source-disabled. Explicit preview opt-in is confined to the
 // named sandbox and a platform-owned preview origin; store checks still apply.
@@ -114,7 +115,13 @@ export function getStarterBinding(): StarterBinding | null {
   try {
     const scope: Scope = { accountId: stripe.accountId, mode: stripe.mode };
     const pool = new Pool(poolConfiguration);
-    const authenticate = supabaseOwner(scope, project, publicKey);
+    const verifyOwner = supabaseOwner(scope, project, publicKey);
+    // Share this policy with every owner path, including recovery handlers.
+    // Read eligibility per request so a cached binding cannot retain old access.
+    const authenticate = previewRecoveryEnabled() ? async (request: Request) => {
+      const principal = await verifyOwner(request);
+      return principal && previewBuyerAllowed(principal.email) ? principal : null;
+    } : verifyOwner;
     const store = new PostgresStore(pool, scope);
     binding = createStarterBinding({ scope, authProject: project, store, authenticate, verifyPurchase: purchaseReader(scope, project, verifyPaidSession, buildStarterKit, store), verifyAccount: async () => await verifyStripeAccount(stripe) === "valid", verifyNotice: stripeNoticeVerifier(signingSecret, scope), resolveNotice: stripeNoticeResolver(stripe.client, scope) });
     return binding;

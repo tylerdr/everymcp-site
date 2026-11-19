@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
-import { getStarterBinding } from "@/lib/recovery/binding";
+import { getStarterBinding, previewRecoveryEnabled } from "@/lib/recovery/binding";
+import { previewBuyerAllowed } from "./preview-eligibility";
 import { safeBuyerReturn } from "./context";
 import { clearBuyerCookie, sameOriginMutation, sessionCookie } from "./session";
 import type { Principal } from "@/lib/recovery/owner";
@@ -22,24 +23,34 @@ async function body(request: Request) {
   const text = Buffer.concat(chunks).toString("utf8");
   try { return JSON.parse(text) as {email?: unknown;code?: unknown;returnTo?: unknown}; } catch { return null; }
 }
-export function createBuyerAuth(adapters: AuthAdapters) {
+export function createBuyerAuth(adapters: AuthAdapters, eligible?: (email: string) => boolean) {
   return {
     async requestCode(request: Request) {
-      const value = await body(request); if (!emailValid(value?.email)) return json({error:"Enter a valid email address."},400);
-      try { if (!await adapters.requestCode(value.email)) return json({error:"Email verification is unavailable. Retry later."},503); }
-      catch { return json({error:"Email verification is unavailable. Retry later."},503); }
+      const value = await body(request);
+      const email = eligible && typeof value?.email === "string" ? value.email.trim().toLowerCase() : value?.email;
+      if (!emailValid(email)) return json({error:"Enter a valid email address."},400);
+      // Sandbox replies hide both eligibility and provider availability.
+      try {
+        if (!eligible || eligible(email)) {
+          const sent = await adapters.requestCode(email);
+          if (!eligible && !sent) return json({error:"Email verification is unavailable. Retry later."},503);
+        }
+      } catch { if (!eligible) return json({error:"Email verification is unavailable. Retry later."},503); }
       // Generic response does not reveal whether an account already exists.
       return json({message:"If email delivery is available, check your inbox for the confirmation code."});
     },
     async verifyCode(request: Request) {
-      const value = await body(request); if (!emailValid(value?.email) || typeof value?.code !== "string" || !/^\d{6,10}$/.test(value.code)) return json({error:"Enter your email and confirmation code."},400);
+      const value = await body(request);
+      const email = eligible && typeof value?.email === "string" ? value.email.trim().toLowerCase() : value?.email;
+      if (!emailValid(email) || typeof value?.code !== "string" || !/^\d{6,10}$/.test(value.code)) return json({error:"Enter your email and confirmation code."},400);
       try {
-        const session = await adapters.verifyCode(value.email,value.code);
+        if (eligible && !eligible(email)) return json({error:"The code is invalid or expired. Request a new code."},401);
+        const session = await adapters.verifyCode(email,value.code);
         if (!session) return json({error:"The code is invalid or expired. Request a new code."},401);
         // Never grant rights from the verify payload/user metadata alone. Reuse the
         // canonical fixed-project, current-user, confirmed-email owner adapter.
         const principal = await adapters.authenticate(new Request(request.url,{headers:{Authorization:"Bearer " + session.accessToken}}));
-        if (!principal || principal.email.toLowerCase() !== value.email.toLowerCase()) return json({error:"Email verification could not be confirmed. Sign in again."},401);
+        if (!principal || principal.email.trim().toLowerCase() !== email.toLowerCase()) return json({error:"Email verification could not be confirmed. Sign in again."},401);
         return json({returnTo:safeBuyerReturn(value.returnTo)},200,{"Set-Cookie":sessionCookie(session.accessToken,session.expiresIn)});
       } catch { return json({error:"Verification is temporarily unavailable. Retry later."},503); }
     },
@@ -55,9 +66,9 @@ export function getBuyerAuth(): ReturnType<typeof createBuyerAuth> | null {
   const project = process.env.EVERYMCP_AUTH_PROJECT, key = process.env.EVERYMCP_AUTH_PUBLISHABLE_KEY;
   if (!project || !/^[a-z]{20}$/.test(project) || !key?.startsWith("sb_publishable_")) return null;
   const client = createClient(`https://${project}.supabase.co`,key,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false},global:{fetch:(url,init)=>fetch(url,{...init,redirect:"error",signal:AbortSignal.timeout(5000)})}});
-  return supabaseBuyerAuth(client,binding.authenticate);
+  return supabaseBuyerAuth(client,binding.authenticate,previewRecoveryEnabled() ? previewBuyerAllowed : undefined);
 }
-export function supabaseBuyerAuth(client: Pick<ReturnType<typeof createClient>, "auth">, authenticate: AuthAdapters["authenticate"]) {
+export function supabaseBuyerAuth(client: Pick<ReturnType<typeof createClient>, "auth">, authenticate: AuthAdapters["authenticate"], eligible?: (email: string) => boolean) {
   return createBuyerAuth({authenticate,requestCode:async(email)=>{
     const {error}=await client.auth.signInWithOtp({email,options:{shouldCreateUser:true}});return !error;
   },verifyCode:async(email,token)=>{
@@ -68,7 +79,7 @@ export function supabaseBuyerAuth(client: Pick<ReturnType<typeof createClient>, 
     }
     if (!data.session) throw new Error("Email verification unavailable");
     return {accessToken:data.session.access_token,expiresIn:Math.min(data.session.expires_in, (data.session.expires_at || 0)-Math.floor(Date.now()/1000))};
-  }});
+  }},eligible);
 }
 
 export const buyerUnavailable = () => json({error:"Buyer sign-in setup is pending. No payment was taken."},503);

@@ -1,3 +1,167 @@
+# PR36 compatibility evidence gate — 2026-11-12
+
+The frozen private experiment exposed an evidence gap: full-text supporting quotations were absent from retained previews. This continuation implements only a pure offline complete-document evidence gate, not an impact classifier. It verifies independently selected signed capture originals, canonical full scope and chronology, service capture admission, complete raw-body hash/length and exact projection reconstruction. Bounded UTF8 quotations must match source byte spans within one 24-word/source budget across phases and profile steps. Missing complete evidence abstains; workflow relevance, contract impact and runtime compatibility stay unassessed/unverified.
+
+The contract/source are frozen before fresh held-out evaluation in [the exact receipt](evidence/monitoring-compatibility-evidence-20261112.json) and [contract documentation](MONITORING-COMPATIBILITY-EVIDENCE.md). Independent review caught and fixed whole-report admission and mutable assessment isolation; their pre-fix failures are retained separately. Final 6 suites / 69 tests, TypeScript and repository lint pass. All fixtures are fictional and independent of the private experiment. No old receipt, collector, renderer, custody, Auth/rights, route or commercial behavior changed. Automatic exact-head Vercel Preview is the remaining publication build gate; its result is reported on PR36 without claiming runtime activation.
+
+Next: fresh held-out evidence admission/abstention evaluation under the frozen contract. Current retained originals alone cannot provide complete bodies. A later separately reviewed capture/custody decision and a defensible impact algorithm are still required; no new retention or financial policy was selected. PR30/33/35 and main remain unchanged. Native UID-map restriction remains no-retry/no-alternative-runner; hosted SQL, real collection, provider/payment/customer actions, schedule, merge and activation remain unrun.
+
+---
+
+## Retained previous source receipt
+
+# PR36 actual-catalog qualification — 2026-11-12
+
+Offline qualification of all 616 routes and 189,420 unordered pairs finds 614 eligible single listings and 184,528 eligible pairs under the unchanged two-total-URL/one-host cap. RevenueCat and Hotjar each retain three canonical URLs on two hosts and remain unsupported. No normalization rejection exists in the current catalog. The actual handler now returns explicit 422 reasons/counts for unsupported selections instead of misleading stale-edit 409 guidance; true stale edits and exact mutation replay retain their behavior. See [MONITORING-CATALOG-QUALIFICATION.md](MONITORING-CATALOG-QUALIFICATION.md).
+
+183 tests across 22 focused suites, TypeScript and lint pass; independent design/source review passed. Actual full-catalog Filesystem+Memory and iCloud selections traverse fictional loopback capture, real adapters with modeled SQL/provider responses, baseline/unchanged/changed/unknown reports and identical public-key-only fresh-process recovery. Cursor and duplicate-ID Neon routes also retain their one-source scope. The initial test-model byte-by-byte cloning bottleneck was corrected only in the fixture, with clone independence and unchanged-file-format tests; native performance/durability is not inferred. Exact hashes and failure distinctions are in [the receipt](evidence/monitoring-catalog-qualification-20261112.json).
+
+The alternative [90-day earned-original recovery policy](MONITORING-RECOVERY-POLICY-ALTERNATIVE.md) is for review only. No cancellation, retention, financial, price or existing-original policy changed. Next decision: accept that separately versioned proposal, including invoice-wide partial refund/credit denial and a separate deletion plan, or retain the current disabled current-paid policy. Hosted enrollment/bindings, native acceptance and genuine source/payment/delivery lifecycle gates remain unresolved. No native retry/alternative runner, external collection, setup, credentials, activation or merge occurred; PR30/33/35/main remain unchanged. Exact commit/automatic Preview receipt accompanies PR36 publication.
+
+---
+
+## Retained previous source receipt
+
+# PR36 owned monitoring workflow — 2026-11-12
+
+Owned watchlist configuration now connects to canonical bounded jobs, fresh recurring-rights verification and exact signed-report recovery. The actual handler factory derives current owner, rejects client ownership/paid/URL inputs and cross-origin mutations, persists immutable versions/CAS/mutation replays, and selects server inventory/period/receipt identities. Protected enrollment is read only to runtime roles; no kit purchase becomes a subscription. See [MONITORING-OWNED-WORKFLOW.md](MONITORING-OWNED-WORKFLOW.md).
+
+A real installed-SDK adapter checks current recurring invoice/payment/charge/reversal relationships and the original invoice during recovery, using bounded fresh GETs. Its explicit current-paid-subscription-v1 policy is a draft requiring commercial acceptance before activation: current paid subscription is required even for historical recovery. Product/price/cadence and enrollment remain unconfigured. Unsupported/ambiguous evidence is unknown, not proof of nonpayment.
+
+The new owned receipt/report versions include immutable period coverage and clear changed/unchanged/unknown/baseline assessments. Earlier Python/GitHub, Node-v1/v2 and service-v1 original bytes/policies remain preserved. Source custody now also binds exact canonical job/inventory at admission and retrieval; expiry/version changes stop new generation while historical recovery uses its original job/version plus fresh rights.
+
+21 focused suites / 173 tests pass, including actual loopback collection → real SQL adapters against fictional transaction models → installed Stripe SDK with no-socket fictional responses → signed report → public-key-only fresh-process recovery after signer issuance expiry and simulated renewal. Original/recovered report: 12,556 bytes, SHA256 `bf7bde548ba2f1b209ed9a8d0c9a4b71e0ee550bc64d552b6dcbe3dbb135c5a7`; expected four periods, three admitted, November 8 gap retained. Source evidence is [recorded separately](evidence/monitoring-owned-workflow-20261112.json) from unrun native/hosted acceptance. Final independent review, exact remote commit and automatic Preview evidence accompany PR36.
+
+Next gates: accepted recurring generation/recovery/reversal/retention policy and product identity; trusted enrollment integration by the commerce owner; approved control/custody/Auth/key/producer targets and native installation acceptance; then controlled two-period hosted collection, private delivery and genuine sandbox payment/refund/dispute/reversal acceptance. None is configured or claimed here. The prior UID-map failure remains a no-retry/no-alternative-runner hold; SQL proposal is unapplied and rollback-only. No merge, price/terms publication, collection, provider/account access, payment, email, native SQL or Vault/Mac write. PR30/33/35 and main242f1450 remain unchanged; prior PR36 headab70d47 was freshly reconciled.
+
+---
+
+## Retained earlier source and native receipts
+
+# PR36 authenticated service-recorded monitoring — 2026-11-12
+
+The approved distinct service origin now connects actual producer bearer authentication and Ed25519 start/completion signing to the existing Node collector, strict admission, immutable SQL adapter, useful versioned report and public-key-only recovery. It authenticates service assertions, never platform/build/fetch truth. Legacy Python/GitHub and Node-v1/v2 verification and original bytes remain preserved; no permissive fallback was introduced. See [MONITORING-SERVICE-RECORDED.md](MONITORING-SERVICE-RECORDED.md).
+
+Independent design/source review passed after strict single-public-PEM parsing was added. 133 focused tests across 17 suites pass, including 20 new service cases and fresh-process recovery after issuance expiry, plus TypeScript and repository lint. The fictional loopback/SQL-model report and recovered original are both 9,640 bytes, SHA256 `9936364be394f4f9f58e74724dc794ed6628e88e1d61da25c321675feabfcb55`. Its retained [acceptance receipt](evidence/monitoring-service-recorded-20261112.json) distinguishes source evidence from native/hosted evidence. Final exact remote/automatic Preview receipts belong to PR36.
+
+Next coherent source integration: canonical watchlist/job ownership and server-derived recurring rights, with the established owner namespace. Commerce/identity owners must resolve generation versus recovery lifecycle, version/period ownership and quotas; one-time kit payment is not recurring entitlement. Hosted target/fingerprint, key custody/rotation, approved producer invocation, SQL/Auth binding, two genuine collection periods and payment/delivery lifecycle acceptance remain unbound or unrun. The production factory remains null; no services, keys, grants, prices or terms were configured.
+
+The namespace failure below is unchanged: no retry, alternate runner, engine acquisition or SQL. PR30/33/35 and existing genuine/legacy artifacts remain untouched. Main242f1450 and PR36's prior798d4be were freshly reconciled before publication. This is draft source publication only: no merge, production activation, live monitoring, provider use or revenue claim. No Mac/Vault writes.
+
+---
+
+## Retained native outcome
+
+# PR36 native custody attempt stopped — 2026-11-12
+
+One authorized run of exact reviewed c69b636e40b5e5c318a0c445bbaa9de15aae7590 exited1 at the initial unshare probe: cannot open /proc/self/uid_map, Read-only file system. No task directory, package download, engine, SQL or native test execution occurred. No retry, fallback, escalation or settings change. The single attempt is consumed.
+
+[MONITORING-NATIVE-OUTCOME.md](MONITORING-NATIVE-OUTCOME.md) and its structured evidence distinguish actual failure from all unrun native cases. Independent point-in-time cleanup verification found no task artifacts or visible PostgreSQL/unshare processes; no cleanup mutation was required. Prior source/original receipts remain intact. The1GiB RSS/disk watchdogs remain soft and were never reached.
+
+Native acceptance needs a separately approved compliant execution boundary and new bounded-run authorization; none is selected here. Hosted bindings, independent deployment witness, canonical watchlists and recurring rights remain unresolved. This update publishes nonsecret outcome documentation only to draft PR36. No merge, production activation or revenue claim; PR30/33/35 remain reserved and unchanged.
+
+---
+
+## Retained preparation and implementation receipts
+
+# PR36 native custody acceptance preparation — 2026-11-12
+
+Prepared, not executed: a pinned PostgreSQL17.11 extraction/isolation controller and native tests against the actual SQL adapter/runtime. The exact one-run approval packet is [MONITORING-NATIVE-APPROVAL.md](MONITORING-NATIVE-APPROVAL.md). No engine acquisition, namespace probe, SQL, hosted selection, configuration or activation occurred. Source-only helper tests and skipped native gating are distinct from native acceptance.
+
+The native fixture covers clean defaults, PUBLIC definer/readable-table (including denying RLS)/legacy CREATE refusal, unrelated-role grants and foreign USAGE/invoker allowance, direct login versus SET ROLE/NOLOGIN, grants/RLS/hash/FK negatives, real SERIALIZABLE contenders, injected lost COMMIT acknowledgement and clean-restart exact original recovery. It checkpoints typed nonsecret catalog/SQLSTATE diagnostics before assertions. The actual recovery adapter must refuse ambient PUBLIC capability before fingerprint/custody reads even though the schema fingerprint is unchanged. These cases remain unrun until approval.
+
+An existing PostgreSQL15+ database may already qualify; a dedicated database is not inherently required. The guard remains deny-only. Hosted login/scope/fingerprint acceptance and independent deployment execution witness remain unresolved. Vercel OIDC/KMS project labels, a database role and caller metadata do not establish report provenance. See the packet for the precise next witness decision and resource limits.
+
+Current remote baseline main242f1450 / PR36 8c5a682 was reconciled; reserved PR30/33/35 unchanged. This update touches only fixture source and lane documentation. No production runtime or original/renderer is changed. The apt metadata read received EACCES for its protected retries config; no retry or installation occurred. Private SQL/access and Actions holds remain intact. Final reviewed head, draft/Preview and source-check receipts belong to the PR/lane delivery receipt; READY is application-build evidence only.
+
+---
+
+## Retained previous implementation receipts
+
+# PR36 protected PostgreSQL custody continuation — 2026-11-12
+
+The existing Node runtime now has a real parameterized PostgreSQL custody adapter: separate producer/recovery roles, append-only execution starts and completed originals, immutable scoped period commits, exact bytes/hash/owner binding and verified CAS winners. Transactions inspect actual session/role privileges, protected scope binding and an independently reviewed definition fingerprint before data access. A lost COMMIT acknowledgement is not automatically retried. Current owner and rights checks remain at retrieval; database identity is never called Vercel attestation.
+
+The private schema/grant/FORCE-RLS proposal is unapplied, rollback-only, with NOLOGIN placeholders and no scope bindings. No hosted project, SQL installation, credential or account/customer access occurred. Native syntax/RLS/grants/isolation/restart acceptance remains unrun. Independent source review passed after adding explicit rejection of rewrite rules and inherited tables. Shared kit/Auth/commerce and reserved PR30/33/35 are untouched.
+
+44 focused tests, a separate adapter recovery process and two retained legacy-original checks pass, along with TypeScript/lint. The fictional SQL-backed original/recovery is 9,201 bytes / SHA256 797198ee74396d2ee9b5b1584dc8d2f504eb0d0fa2d40969057132c20292e005. The test SQL server models responses; it is not PostgreSQL or a production filesystem store. Existing legacy artifacts remain byte-identical. Exact draft/Preview evidence belongs to the PR/lane receipt.
+
+[MONITORING-POSTGRES-CUSTODY.md](MONITORING-POSTGRES-CUSTODY.md) gives the concrete next decision: a disposable local fixture can be approved before any hosted target is chosen; hosted target/fingerprint/scope selection remains separately owned. Deployment writer verification, canonical owner/watchlist/job creation, recurring rights and retention/quota remain unimplemented/unbound. Production factory stays null; no collection, Actions, payments or activation.
+
+---
+
+# PR36 monitoring owner binding continuation — 2026-11-12
+
+The real owner-authentication seam now calls the established Supabase current-user protocol under fixed server configuration, with a monitoring-specific identity namespace, strict eligibility and bounded request/body processing. It rejects competing credentials and never uses metadata, kit rights, caller owner IDs or email as ownership authority. Shared Auth/kit/store/commerce and PR30/33/35 are untouched; the production factory remains null.
+
+The actual recovery route now has source acceptance through this adapter: same-owner new-session exact original, owner-B denial, current rights denial/unknown/revocation, Auth outage and no regeneration. 28 focused tests plus a separate recovery process pass. The fictional original/recovered report is6,068bytes, SHA256 bb79833b4eec8061142fe571833bf7daf79fc766ab4cb53ae84fd1ea30d6fb2d. TypeScript and lint pass; independent design/source review found no blocker. Exact publication/Preview receipts are retained in the PR and lane artifacts.
+
+[MONITORING-OWNER-BINDING.md](MONITORING-OWNER-BINDING.md) records the concrete implementation and smallest next binding decision: existing owner confirms monitoring scope/Auth project and maps canonical watchlists to this namespace. Persistent monitoring custody, independent deployment writer authorization, recurring period rights and hosted controlled-principal acceptance remain missing. No account/customer rows, real Auth, collection, SQL, credential setup, payment or email were accessed. Existing private-store/permissions and activation holds remain intact.
+
+---
+
+# PR36 executable Node collector continuation — 2026-11-12
+
+The source now contains a real bounded Node HTTPS collector, conservative robots handling and strict static-document projection, wired through the existing runtime in actual loopback HTTP → receipt → meaningful report → persisted original → fresh-process recovery tests. `vercel-next-custody-v2` binds an independently admitted predecessor capture; original v1 receipt/report recovery remains supported. No live source, public DNS/TLS, provider or hosted writer attestation was exercised. Production factory remains null.
+
+Future reports also use a versioned latest-change summary: the unchanged 24-word source budget gives 12 words each to before/after of the newest complete changed projection. Older history keeps dates/hashes/citations, later unknowns remain visible, and frozen v1 rendering/original-period retry is preserved.
+
+Independent review corrected robots-rate-limit continuity: active cooldown evidence now survives another host's intervening capture, including truncated robots429. See [NODE-SOURCE-COLLECTOR.md](NODE-SOURCE-COLLECTOR.md) for exact behavior, conservative parser bounds and remaining integration. Production writer authentication, trusted custody and owner/recurring-rights adapters still require actual implementations; the collector itself is no longer a placeholder. GitHub Actions, PR30/33/35 source ownership, held permissions/SQL and all activation/commercial boundaries remain unchanged. Final commit/Preview and source-check receipts are in the PR and lane artifacts.
+
+---
+
+# PR36 separate Node runtime continuation — 2026-11-12
+
+The existing Next application now has real Node orchestration, source receipt validation, history/report construction and immutable recovery against injected contracts. The origin is separately versioned `vercel-next-custody-v1`, not a relabeled Actions/manual receipt. `getMonitoringRuntime()` remains null; both new APIs return private/no-store 503. Production deployment-bound writer authentication, trusted store, Node collector and current-rights bindings remain unimplemented. See [MONITORING-NODE-RUNTIME.md](MONITORING-NODE-RUNTIME.md) for the precise contract, limits and next hosted acceptance; no project-only OIDC or environment metadata is misrepresented as signed source evidence.
+
+The fictional golden inputs match Python canonical hashes and useful event/section semantics. Real Node report production and a separate process recover identical original bytes. Tests also cover tampering, replay, nonce/execution uniqueness, wrong-job indexes, deadline bounds, concurrent/lost-ack retry and current-rights checks. Independent review found and corrected binding/deadline gaps. Final exact-commit test/build evidence is recorded in the PR/lane receipt. Existing Python code, genuine source artifacts and v1/v2 render/recovery bytes are unchanged in this continuation. PR30/33/35, disabled Actions, held SQL/permissions operations and all collection/activation boundaries remain intact.
+
+---
+
+# PR36 document projection continuation — 2026-11-12
+
+The assigned capture/schema/importer extension now feeds the real history producer with bounded, source-bound static document sections. Fictional Node 18 → Node 20 input produces dated old/new previews and section/receipt pointers; normalized equality explicitly leaves other differences unclassified. V1 receipts/cache/rendering/job recovery remain supported. Current production binding stays None, all activation holds remain, and PR30/33/35 are untouched.
+
+See SOURCE-DOCUMENT-PROJECTION.md for the contract and exact evidence: 73 relevant Python tests, lint and TypeScript pass; independent source review is recorded in the lane. The fictional standalone original and fresh-process recovery are 6,718 bytes / SHA-256 9677ce1dad46e84f8e54529749de244a0bc026f16675e70a2d2827040c811d88. The historical v1 original still recovers 4,861 bytes / SHA-256 187072dc5ef9342e21c415bf29ee4b97e5e430763e72a68d031f788b67c33237. Two genuine authorized source captures and hosted private runtime/payment delivery remain unproved. The next automatic Preview is application-build evidence only.
+
+# EveryMCP — November 12 default-off workflow continuation
+
+PR36 now also contains an internal monitoring worker around the reviewed report engine. `get_production_binding()` remains unconditionally `None`; no route, environment opt-in, hosted adapter, schedule, collection, customer send or payment is added. Existing kit-specific Auth, ownership, store and commerce code remains untouched. PR30/33/35 and their holds are preserved.
+
+Fifteen focused workflow cases pass: historical and synthetic source reports through real local persistence, prepare-before-index checks, three-process convergence, concurrent differing candidates returning one original, crash/lost-response retry, fresh-process original recovery, owner/scope denial, revoked/unknown rights, corrupted storage and changed-input retry without rebuilding. Independent read-only review found no blocking issue in the worker/test adapter/tests. The real local historical result is4861bytes, SHA256 `187072dc5ef9342e21c415bf29ee4b97e5e430763e72a68d031f788b67c33237`, with five explicitly stale sources (two missing at check, three reachable). Identity, recurring rights and local index are fixtures, not hosted customer acceptance.
+
+The worker period identifies a full-history as-of snapshot, not exclusively new events within that window. The index is a trusted injected store boundary, not an authenticated local database. Rights are authoritative at check time, not an instantaneous revocation guarantee across a remote check and response. Generation and historical recovery policy remain separate owner decisions.
+
+[MONITORING-WORKFLOW.md](MONITORING-WORKFLOW.md) contains exact existing-owner adapter interfaces and the complete nonsecret activation/recurring-offer/payment packet: named Python/Linux scheduler/runtime budget; approved isolated store/Auth installation and controlled-principal scope; exact monthly offer/cap/cadence/retention/support/cancellation/refund rights; confirmed monitoring seller/test context; bounded genuine sandbox lifecycle cases; and deterministic private-inbox delivery policy. Parent must route the existing owners; this lane does not infer vacant custody from inactive branches. No hosted integration or recurring MRR is established by a Vercel application build.
+
+The earlier report-stage notes below retain their executed checks. Existing application code and package/dependency composition remain unchanged; later exact-head Vercel evidence must be recorded separately from the Python fixture run.
+
+---
+
+# EveryMCP — November 12 monitoring report stage
+
+## Current source and ownership
+
+Current main remains `242f1450cb31f2a6038c180abdbf46ce53fca782` (PR34). New branch `feature/monitoring-watchlist-reports-20261112` contains the provider-free receipt-history/report stage only. PR35 lead recovery remains held at `546d7250b81aef41035b084696499e853c1b1ddf` after the one newly authorized merge retry was denied; do not repeat that merge or native production-browser attempt. PR33's reserved branch/original writer uncertainty and PR30 revenue reconciliation are untouched. Shared commerce, Auth, private SQL-transfer/installation and affiliate decisions retain their existing owners and holds.
+
+## Completed functional slice
+
+`scripts/source_receipt_history.py` compares validated source-monitor receipts for selected stable catalog slugs, producing evidence-linked baseline, missing/recovery, inconclusive and complete-body-change results. Cached observations do not become new checks; prior success, both comparison pointers and unresolved findings survive unknown/recovery states. Output is deterministic, content-addressed and immutable; a fresh process recovers original Markdown bytes after integrity checks. This local Linux filesystem adapter is not the production paid store, tenant boundary or delivery service.
+
+Sixteen focused history tests pass, including malicious/conflicting input, full historical coverage, shared Neon identity, unknown-between-successes, synthetic dated 304, concurrent writes and fresh-process/corrupt-bundle recovery. The related source-monitor/import suite covered 47 cases: 46 passed initially; one existing test required `tmp/source-monitor` to exist, then passed on focused recheck after creating that operational directory. No existing test source was changed. Repository lint, standalone TypeScript and the full application build pass (139 tests, existing contracts, 756 pages). Independent read-only review found no blocking issue in the implementation, tests and acceptance contract; final exact source/Preview receipts belong to this PR.
+
+The executable example replays only the real October 4 manual collection: no new checks or live transitions are claimed. The selected RevenueCat/Heap example contains five stale source observations as of November 12 (two missing-at-check and three reachable). Synthetic multi-run transitions are tests only. HTTP source observations do not establish MCP compatibility, tool behavior, security, uptime, outage duration or current availability.
+
+## Minimum next production and revenue action
+
+Use [SOURCE-HISTORY.md](SOURCE-HISTORY.md) for build/recovery and [MONITORING-ACCEPTANCE.md](MONITORING-ACCEPTANCE.md) for the exact runtime, storage, identity, recurring-offer/payment and private-delivery acceptance packet. Source readiness can be reviewed and automatically built without activating those dependencies. The Vercel application build is not proof that this standalone Python stage runs in production. GitHub Actions remain disabled; no scheduler, collection, notification, customer record, provider, database, payment or paid activation was used.
+
+The responsible owners must supply an approved scheduler/cadence budget, the existing eligible isolated store/Auth installation/binding acceptance, recurring product/price/lifecycle rights, a bounded named-sandbox payment/recovery/reversal trial and an automatic private-report delivery policy. Preserve review for public catalog/capability changes while approving deterministic private raw-observation delivery once, so fulfillment does not require an operator per report. Existing one-time $49 checkout remains closed; it is not subscription MRR. Cash and monitoring revenue are unproved. No Vault/Mac writes.
+
+The October 29 handoff below is historical context, not current main, deployment or release authority.
+
+---
+
 # EveryMCP — October 29 source and revenue-readiness handoff
 
 ## Current source and release state

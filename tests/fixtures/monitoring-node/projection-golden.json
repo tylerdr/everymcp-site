@@ -1,0 +1,1081 @@
+{
+  "source": {
+    "url": "https://github.com/fictional/projection-fixture",
+    "relationships": [
+      {
+        "id": "fictional",
+        "slug": "fictional-projection",
+        "role": "indexed_repository",
+        "identityEvidence": "unknown",
+        "curatedCheckedAt": null,
+        "basis": "unknown"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "base",
+      "body": "<html><body><h1>Requirements</h1><p>Node 18 required.</p><pre>npm install example@1\n  --save</pre><a href=\"/v1\" title=\"Guide\">Setup &amp; usage</a></body></html>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "bea4db670b21b3bf597a030d00d5188ca3f48009e99b69e91b6bbf4e1b0b95d1",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 161,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "bea4db670b21b3bf597a030d00d5188ca3f48009e99b69e91b6bbf4e1b0b95d1",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "467da97b7f4539ca8eede4d09d3b59ed35aa5d7514322883af32cd7e326d07bb",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "",
+            "excerptTruncated": false,
+            "contentHash": "89e1c64d4e7c0611e6698402dd314f741c400e251e4aa20a493d36265462c936"
+          },
+          {
+            "id": "e50ea20e523b99228763d5ef540305db8397c36ad5efa3e574bd1d5e47c9f24e:1",
+            "heading": "Requirements",
+            "headingTruncated": false,
+            "excerpt": "Node 18 required.npm install example@1\n  --saveSetup & usage",
+            "excerptTruncated": false,
+            "contentHash": "cd4803e8ea943ac6bb2028c7bfed7e8feab77fd0f0ccc3276ff50357f1a2bc4e"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "syntax-noise",
+      "body": "<html><body><h1>Requirements</h1><p>Node 18 required.</p><pre>npm install example@1\n  --save</pre><a title='Guide' href='/v1'>Setup &#38; usage</a></body></html>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "d571bfaa003037d7393ed4ef7b1eba63ea795815c9e973ece5455cb51e1ba908",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 161,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "d571bfaa003037d7393ed4ef7b1eba63ea795815c9e973ece5455cb51e1ba908",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "467da97b7f4539ca8eede4d09d3b59ed35aa5d7514322883af32cd7e326d07bb",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "",
+            "excerptTruncated": false,
+            "contentHash": "89e1c64d4e7c0611e6698402dd314f741c400e251e4aa20a493d36265462c936"
+          },
+          {
+            "id": "e50ea20e523b99228763d5ef540305db8397c36ad5efa3e574bd1d5e47c9f24e:1",
+            "heading": "Requirements",
+            "headingTruncated": false,
+            "excerpt": "Node 18 required.npm install example@1\n  --saveSetup & usage",
+            "excerptTruncated": false,
+            "contentHash": "cd4803e8ea943ac6bb2028c7bfed7e8feab77fd0f0ccc3276ff50357f1a2bc4e"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "number",
+      "body": "<html><body><h1>Requirements</h1><p>Node 20 required.</p><pre>npm install example@1\n  --save</pre><a href=\"/v1\" title=\"Guide\">Setup &amp; usage</a></body></html>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "a4dc50ba518c70b8b3704d2214bad8c80e87eed00fee68c7621e37515bba6249",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 161,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "a4dc50ba518c70b8b3704d2214bad8c80e87eed00fee68c7621e37515bba6249",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "9b5aafcfd78a6b65ca31944d6a45e43ae1fe6ed957dacc4b2efdf7f2f465fbfd",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "",
+            "excerptTruncated": false,
+            "contentHash": "89e1c64d4e7c0611e6698402dd314f741c400e251e4aa20a493d36265462c936"
+          },
+          {
+            "id": "e50ea20e523b99228763d5ef540305db8397c36ad5efa3e574bd1d5e47c9f24e:1",
+            "heading": "Requirements",
+            "headingTruncated": false,
+            "excerpt": "Node 20 required.npm install example@1\n  --saveSetup & usage",
+            "excerptTruncated": false,
+            "contentHash": "b7e64546f3226e1e17142d82458fb50be79a4f04b669bb430b005cb21bff876f"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "version",
+      "body": "<html><body><h1>Requirements</h1><p>Node 18 required.</p><pre>npm install example@2\n  --save</pre><a href=\"/v1\" title=\"Guide\">Setup &amp; usage</a></body></html>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "9a5eb60a1cb38a7bebb08cd56f23bc51e0ecb175bb037caad9e81b964ba90e2f",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 161,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "9a5eb60a1cb38a7bebb08cd56f23bc51e0ecb175bb037caad9e81b964ba90e2f",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "7e4b10e3d934f711f302a36b210ff54f7670a6eb062fc61723f9c79d08ae3bb4",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "",
+            "excerptTruncated": false,
+            "contentHash": "89e1c64d4e7c0611e6698402dd314f741c400e251e4aa20a493d36265462c936"
+          },
+          {
+            "id": "e50ea20e523b99228763d5ef540305db8397c36ad5efa3e574bd1d5e47c9f24e:1",
+            "heading": "Requirements",
+            "headingTruncated": false,
+            "excerpt": "Node 18 required.npm install example@2\n  --saveSetup & usage",
+            "excerptTruncated": false,
+            "contentHash": "5767bae8af265b60e2323a375022fabb0e9621e4fc28e0e492c1d59457ba1014"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "link",
+      "body": "<html><body><h1>Requirements</h1><p>Node 18 required.</p><pre>npm install example@1\n  --save</pre><a href=\"/v2\" title=\"Guide\">Setup &amp; usage</a></body></html>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "3e77c7a57ae2c414dd840b3e24755722ea17e6f6dc0936b5916edf32fff56d3d",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 161,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "3e77c7a57ae2c414dd840b3e24755722ea17e6f6dc0936b5916edf32fff56d3d",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "8e00a99dad5f1a4cf1df86927f4c255ad0718f1adc01a0809c210b96f22467e4",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "",
+            "excerptTruncated": false,
+            "contentHash": "89e1c64d4e7c0611e6698402dd314f741c400e251e4aa20a493d36265462c936"
+          },
+          {
+            "id": "e50ea20e523b99228763d5ef540305db8397c36ad5efa3e574bd1d5e47c9f24e:1",
+            "heading": "Requirements",
+            "headingTruncated": false,
+            "excerpt": "Node 18 required.npm install example@1\n  --saveSetup & usage",
+            "excerptTruncated": false,
+            "contentHash": "e07082d422276883bdd914d4998e041d80ae65af2976c2715dade984dbfc925b"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "pre-space",
+      "body": "<html><body><h1>Requirements</h1><p>Node 18 required.</p><pre>npm install example@1\n --save</pre><a href=\"/v1\" title=\"Guide\">Setup &amp; usage</a></body></html>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "482fa5286232ed2fa15d3cbdb98544ec94780330a42bd5de289c2136d7630dad",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 160,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "482fa5286232ed2fa15d3cbdb98544ec94780330a42bd5de289c2136d7630dad",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "ecbb62c269b44c5906e4d803f6243344c28b35aa4809f033bfa2db6f43602f25",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "",
+            "excerptTruncated": false,
+            "contentHash": "89e1c64d4e7c0611e6698402dd314f741c400e251e4aa20a493d36265462c936"
+          },
+          {
+            "id": "e50ea20e523b99228763d5ef540305db8397c36ad5efa3e574bd1d5e47c9f24e:1",
+            "heading": "Requirements",
+            "headingTruncated": false,
+            "excerpt": "Node 18 required.npm install example@1\n --saveSetup & usage",
+            "excerptTruncated": false,
+            "contentHash": "099ff094fbf5e237bb02d89b33daec2dca4187ddfab5cd287f8b0194d2925905"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "timestamp",
+      "body": "<html><body><h1>Requirements</h1><p>2026-11-12 Node 18 required.</p><pre>npm install example@1\n  --save</pre><a href=\"/v1\" title=\"Guide\">Setup &amp; usage</a></body></html>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "c4af7513056c6947110c3be6f75045e9e1d50927648dd597f3a149639a015085",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 172,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "c4af7513056c6947110c3be6f75045e9e1d50927648dd597f3a149639a015085",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "aabbb3f80dd38aa644f9288fab6dd5f95daa7973537db6ba79576f537ff73ac8",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "",
+            "excerptTruncated": false,
+            "contentHash": "89e1c64d4e7c0611e6698402dd314f741c400e251e4aa20a493d36265462c936"
+          },
+          {
+            "id": "e50ea20e523b99228763d5ef540305db8397c36ad5efa3e574bd1d5e47c9f24e:1",
+            "heading": "Requirements",
+            "headingTruncated": false,
+            "excerpt": "2026-11-12 Node 18 required.npm install example@1\n  --saveSetup & usage",
+            "excerptTruncated": false,
+            "contentHash": "11535252d7a3620162105d5ed7d5a9d4f2766053f76f418a21161598e152c42c"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "comment-splits-text",
+      "body": "<p>first<!-- omitted -->second</p>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "8fc5182c614809f0eb0f611eb95b09fe6893d66d68b3eb341c7380f64544f1f4",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 34,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "8fc5182c614809f0eb0f611eb95b09fe6893d66d68b3eb341c7380f64544f1f4",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "3927a5705b8a1e7e169a0437fffc991785dddec33236323be5287aa3f969e15a",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "firstsecond",
+            "excerptTruncated": false,
+            "contentHash": "05ade34af3d084de50266b0405ac881501d9429f3c47719c6c942881ff612d3f"
+          }
+        ],
+        "omissions": [
+          "comment"
+        ]
+      }
+    },
+    {
+      "name": "declaration-omissions",
+      "body": "<!DOCTYPE html><html><body><p>yes</p><script>a<b && value</script><style>body{color:red}</style></body></html>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "f729429fae77843d0ad60e916d85a22651f35ebf980aa93d36c015efd39abaf5",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 110,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "f729429fae77843d0ad60e916d85a22651f35ebf980aa93d36c015efd39abaf5",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "ae2a62ccda63fdae7c00fc0adae4dd0e5d3284ff675ff9262b215ce9d4873c8d",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "yes",
+            "excerptTruncated": false,
+            "contentHash": "e4772ba5530ed2236af73ec452b9957cb0db2c646b269970ce47db0ce7e327b6"
+          }
+        ],
+        "omissions": [
+          "declaration",
+          "script",
+          "style"
+        ]
+      }
+    },
+    {
+      "name": "nested-title",
+      "body": "<h1><span>Nested title</span></h1><pre>  a\n b</pre>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "aab1db6ad1117086083b88d2d7bf0617a4e78357d333c41ae7a22901466e9d94",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 51,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "aab1db6ad1117086083b88d2d7bf0617a4e78357d333c41ae7a22901466e9d94",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "e5915e9e9f565a8609d713f090ebfa3b726a447380b40fcdc875c0244a047cc9",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "",
+            "excerptTruncated": false,
+            "contentHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          {
+            "id": "efa0447c4e1547dc36a3116b7134b6e68fecdfafabc36b6cd8c533553933b243:1",
+            "heading": "Nested title",
+            "headingTruncated": false,
+            "excerpt": "  a\n b",
+            "excerptTruncated": false,
+            "contentHash": "fb5dfff58d388fc8df0663e9f9d077f7ae148920db18e4319cdfd0c64fef4410"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "unicode-entities",
+      "body": "<p title=\"&copy; &#x1f642;\">Caf&eacute; &#128; &#x1F642; &NotEqualTilde; &unknown;</p>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "d1c806c02145d0822a74013d7e8334f54f4fdea3f789a8a08e58b18affaa94bd",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 86,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "d1c806c02145d0822a74013d7e8334f54f4fdea3f789a8a08e58b18affaa94bd",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "8924a14cd30cb6db44779725bc6225fc25dfae4a79de36aa0a732cafccf7a919",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "Caf\u00e9 \u20ac \ud83d\ude42 \u2242\u0338 &unknown;",
+            "excerptTruncated": false,
+            "contentHash": "8c7559a76add6f3a865d2fca01bd515ac0a75132ff1831c5ad40adbdc98f031d"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "boolean-unquoted",
+      "body": "<p hidden data-count=12>value<br/>next</p>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "c7d65a0069e1fb643a09483bd78f79bef7d26868522f88bd2fa2ecd0ae23fc2f",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 42,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "c7d65a0069e1fb643a09483bd78f79bef7d26868522f88bd2fa2ecd0ae23fc2f",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "aae24eeca11e36537914355f6339b2f096faad43d66aa1c9136080c69f8cc5af",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "valuenext",
+            "excerptTruncated": false,
+            "contentHash": "207b0bb0a8b4ffc018196bc09bfd6561205f1fc892baaaf97ce289a40d13533a"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "case-crlf",
+      "body": "<HTML><BODY><P TITLE=\"x\r\ny\">x\r\ny</P></BODY></HTML>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "d74b705cc3d3577883c43ce638e4c3c1684d4019c59eefecd797ed0348dc3276",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 50,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "d74b705cc3d3577883c43ce638e4c3c1684d4019c59eefecd797ed0348dc3276",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "c5d1fb65e32ed75b4c65e54a99d3707192442cd79535dd7e09ee9798c90def6a",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "x\r\ny",
+            "excerptTruncated": false,
+            "contentHash": "8b3626710be077e6e8b6230988a3e32d4aaa8a35ee33fc55f5d705e9ee9d1ec9"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "duplicate-heading",
+      "body": "<h1>Same</h1><p>one</p><h1>Same</h1><p>two</p>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "12fc66b6b4c1f16b4df3d8e593b622c7a2ade0b1d672bc0ddb34f37cbd1e38b3",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 46,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "12fc66b6b4c1f16b4df3d8e593b622c7a2ade0b1d672bc0ddb34f37cbd1e38b3",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "c5584e8da15d31858f977dbc741556eb04a80fc0488c7bb248dfef258ee02bab",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "",
+            "excerptTruncated": false,
+            "contentHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          {
+            "id": "c822be22c9c96cd82e3bf63d59399f3d290ef1d18bac84da95a60e9512d5f9e7:1",
+            "heading": "Same",
+            "headingTruncated": false,
+            "excerpt": "one",
+            "excerptTruncated": false,
+            "contentHash": "b2fe1b37492001989c2d7c3ed880577d169011d4c1a856c44e3d624d9c254521"
+          },
+          {
+            "id": "c822be22c9c96cd82e3bf63d59399f3d290ef1d18bac84da95a60e9512d5f9e7:2",
+            "heading": "Same",
+            "headingTruncated": false,
+            "excerpt": "two",
+            "excerptTruncated": false,
+            "contentHash": "c32b0db417368d5b829265f74a852d8983222f8d5da1276ec58162f4e416675d"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "empty",
+      "body": "<p> </p>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "a81ced9f4a932e0d99413b8e5649a45181c30152e4a73a2023c226a6b26fe160",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 8,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "unsupported",
+        "reason": "empty_document",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "a81ced9f4a932e0d99413b8e5649a45181c30152e4a73a2023c226a6b26fe160",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": null,
+        "sections": [],
+        "omissions": []
+      }
+    },
+    {
+      "name": "malformed",
+      "body": "<p>unclosed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "2fa4fc5b720f3e514fd51a986d06096d30d6de0b111fec9d9347ca6037aa88f3",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 11,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "unsupported",
+        "reason": "malformed_markup",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "2fa4fc5b720f3e514fd51a986d06096d30d6de0b111fec9d9347ca6037aa88f3",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": null,
+        "sections": [],
+        "omissions": []
+      }
+    },
+    {
+      "name": "duplicate-attribute",
+      "body": "<p a=\"1\" A=\"2\">invalid</p>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "b5ab163abefa99059a8d7ee07a68336946046d3ef7b9fc49f50e513a0c1dd06b",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 26,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "unsupported",
+        "reason": "malformed_markup",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "b5ab163abefa99059a8d7ee07a68336946046d3ef7b9fc49f50e513a0c1dd06b",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": null,
+        "sections": [],
+        "omissions": []
+      }
+    },
+    {
+      "name": "truncated-comment",
+      "body": "<p>x</p><!--unfinished",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "a0498cbe33c9dc62c132cc1b7805da3ea47140e21bb7f1ce1f0b7ab7f8cd0dad",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 22,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "unsupported",
+        "reason": "malformed_markup",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "a0498cbe33c9dc62c132cc1b7805da3ea47140e21bb7f1ce1f0b7ab7f8cd0dad",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": null,
+        "sections": [],
+        "omissions": []
+      }
+    },
+    {
+      "name": "unsafe-entity",
+      "body": "<p>&#x202e;</p>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "cc989cd3b7b8c3b97486e90cb3cc067dab073278183ca477479da08bc75568cd",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 15,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "unsupported",
+        "reason": "malformed_markup",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "cc989cd3b7b8c3b97486e90cb3cc067dab073278183ca477479da08bc75568cd",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": null,
+        "sections": [],
+        "omissions": []
+      }
+    },
+    {
+      "name": "bom",
+      "body": "\ufeff<p>body</p>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "7d46e0afb75ad23bb169a47f216c1da0c95ecefee90c141000cacbcc321bd1fd",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 14,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "7d46e0afb75ad23bb169a47f216c1da0c95ecefee90c141000cacbcc321bd1fd",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "d1ee3f7b39ca4a64deffc67a7f5df9c4ee8cc36fa2f6407d6301a8b3c2fdce58",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "\ufeffbody",
+            "excerptTruncated": false,
+            "contentHash": "9011cde2dfc82cfc675c81772af26b063e1f8729d333a18d957004786c786783"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "nel",
+      "body": "<p>first\u0085second</p>",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "d5db6d3f3e4ad8ba06981b5a24805b6d5fc6a16adb64fccb67f2b74dd77eaf9a",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 20,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "d5db6d3f3e4ad8ba06981b5a24805b6d5fc6a16adb64fccb67f2b74dd77eaf9a",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/html",
+        "projectionHash": "c0028853a0ed26fb3d462fd8733d8f87f62c3f8c8218de60dda6d33e4b8911f4",
+        "sections": [
+          {
+            "id": "ff4f77247f2a86e1caf87613cdd369b7095a5dd3f5207bfcd7bcce6e97a583f9:1",
+            "heading": "preamble",
+            "headingTruncated": false,
+            "excerpt": "first\u0085second",
+            "excerptTruncated": false,
+            "contentHash": "2edf32da07029cf9762956d5fb7b3a7358cf677b4948ff33236e75cac55e79a4"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "plain",
+      "body": "a  b\n c",
+      "headers": {
+        "content-type": "text/plain"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "4f922ad598c7b7a7397606fb1623c8dab64efeed12be3a861dc686700ce97eb5",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 7,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "4f922ad598c7b7a7397606fb1623c8dab64efeed12be3a861dc686700ce97eb5",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/plain",
+        "projectionHash": "1e97b734758de78485b251272c70075dafa3302e4fe49a52bad834421032f23e",
+        "sections": [
+          {
+            "id": "b10a66e4e878a68335397d95c425fe026b6e4a90ecae7af38d70e25e2f7f5bb2:1",
+            "heading": "document",
+            "headingTruncated": false,
+            "excerpt": "a  b\n c",
+            "excerptTruncated": false,
+            "contentHash": "7e5f82a8746473284dc66d372397a2430f04a0f0acbd2ade206342d4fa160b49"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "markdown",
+      "body": "# Install\n```sh\nnpm install x@1\n```",
+      "headers": {
+        "content-type": "text/markdown"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "98681502147fa128c90fd8910373fe503c65ab1765df65d97701fa37f8a047ee",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 35,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "captured",
+        "reason": "complete_static_projection",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "98681502147fa128c90fd8910373fe503c65ab1765df65d97701fa37f8a047ee",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/markdown",
+        "projectionHash": "81d11fd80553f57e9c12971363c9357053336bc135900c0735083aa9f39b7a88",
+        "sections": [
+          {
+            "id": "b10a66e4e878a68335397d95c425fe026b6e4a90ecae7af38d70e25e2f7f5bb2:1",
+            "heading": "document",
+            "headingTruncated": false,
+            "excerpt": "# Install\n```sh\nnpm install x@1\n```",
+            "excerptTruncated": false,
+            "contentHash": "e6c50d0bc015f723f3eec1102d8de5d498d9f0be3ddc6083241fcf4d45b4e606"
+          }
+        ],
+        "omissions": []
+      }
+    },
+    {
+      "name": "blank",
+      "body": " \n\u0085",
+      "headers": {
+        "content-type": "text/plain"
+      },
+      "observation": {
+        "checkedAt": "2026-11-12T00:00:01Z",
+        "httpStatus": 200,
+        "state": "reachable",
+        "reason": "http_success",
+        "contentHash": "2e25b157b1f183642573cff19a392342b9abaa9ba4fc72fdbe4f74d8e400b4d4",
+        "etag": null,
+        "lastModified": null,
+        "bodyComplete": true,
+        "evidenceType": "observed_http",
+        "retryAfterSeconds": null,
+        "receivedBytes": 4,
+        "durationMs": 0
+      },
+      "expected": {
+        "profileVersion": "static-document-v1",
+        "state": "unsupported",
+        "reason": "empty_document",
+        "sourceUrl": "https://github.com/fictional/projection-fixture",
+        "sourceIdentity": "6813554c9dd1a39ce13555744624a564b3ece03647341ad1e3e8f60308fce2bd",
+        "bodyHash": "2e25b157b1f183642573cff19a392342b9abaa9ba4fc72fdbe4f74d8e400b4d4",
+        "bodyObservedAt": "2026-11-12T00:00:01Z",
+        "mediaType": "text/plain",
+        "projectionHash": null,
+        "sections": [],
+        "omissions": []
+      }
+    }
+  ]
+}

@@ -98,3 +98,100 @@
 - [ ] Shared infrastructure owner: install/postcheck reviewed product-only receipt store under current actual metadata/action scope, then separately bind dedicated credentials and exact Preview configuration.
 - [ ] Hosted: controlled Auth principals, genuine sandbox webhook/original-download/reload/recovery/refund and owner-isolation acceptance; Production stays closed.
 - [ ] Commercial owner: verified support contact/owner, refund-request process, capacity and backend acquisition event receipts before paid launch. Prepare existing campaign drafts for authorized distribution only.
+
+
+## 2026-11-12 — Service-recorded source continuation
+
+- [x] Implement the separately approved service origin with authenticated producer, domain-separated signatures, public-only verification, strict origin codecs and immutable original recovery. Preserve prior evidence policy and bytes.
+- [x] Exercise actual loopback collector/admission/SQL adapter/report/fresh-process recovery; 133 monitoring tests and TS/lint pass. Native/hosted evidence remains separate.
+- [ ] Integrate canonical server-owned watchlist/version/period jobs and authoritative recurring lifecycle rights after the responsible commerce/identity owners resolve the exact policy. Do not derive monitoring rights from kit payment.
+- [ ] Bind reviewed service keys/producer invocation, existing Auth/scope and eligible private custody only under separate hosted setup authority. No real keys or settings are created by source tests.
+- [ ] Resolve the retained namespace restriction before any further native execution. Do not retry or prepare another runner under this assignment.
+
+## 2026-11-12 — Recurring monitoring report stage
+
+- [x] Add provider-free validated receipt history for complete or selected stable-slug watchlists; preserve inconclusive/cached/stale evidence and both sides of source-change comparisons.
+- [x] Implement immutable report bundles and exact-byte fresh-process recovery; validate conflicts, corruption, symlinks and concurrent publication.
+- [x] Pass16 focused history cases,47 related source cases with one operational-directory prerequisite recheck, lint/types and139-test/756-page application build; independent implementation review found no blocking issue.
+- [x] Replay the one actual historical receipt without inventing new collection; document concrete recurring acceptance and ownership packet.
+- [ ] Exact draft/Preview source publication and release disposition. Application deployment is not standalone Python runtime acceptance.
+- [ ] Runtime owner: approve named scheduler/cadence/budget and prove two actual scheduled runs plus missed-run recovery; Actions remain disabled.
+- [ ] Existing store/Auth/commerce owners: resolve isolated private-store and identity gates, recurring product/period rights and controlled sandbox payment→delivery→fresh-session recovery→refund/dispute/reversal acceptance.
+- [ ] Product/delivery owner: approve deterministic private subscriber reporting policy, retention and any separate notification trial; no per-customer manual fulfillment or invented SLA.
+- [ ] PR35 release remains denied; do not retry on current evidence. PR33 writer uncertainty and PR30 custody remain unchanged.
+
+
+## 2026-11-12 — Default-off monitoring workflow continuation
+
+- [x] Reconcile existing kit-specific owner/receipt boundaries; keep collector, Auth, payment and production-store code untouched.
+- [x] Add internal worker with injected owner adapters, stable period identity, current generation/recovery rights, original-byte binding and prepare-before-index behavior; no production binding or environment enablement.
+- [x] Prove15 local workflow cases and obtain independent review; preserve fixture versus historical versus hosted evidence distinctions.
+- [x] Return exact nonsecret owner/runtime/recurring-offer/payment decision packet in MONITORING-WORKFLOW.md.
+- [ ] Parent route authoritative worker/owner, canonical watchlist, recurring rights, verified source ingestion and production-store adapters to existing owners; no parallel SQL/Auth/commerce writer.
+- [ ] Approve private automated inbox delivery and perform the bounded genuine sandbox payment→report→fresh-session recovery→reversal sequence before intake. No report-level Tyler fulfillment.
+
+## 2026-11-12 — Bounded capture contract
+
+- [x] Add versioned bounded document projections, coherent receipt admission and real report comparison; preserve legacy renderer/job recovery.
+- [x] Exercise meaningful/noise/incomplete/stale/identity cases with fictional responses and real local persistence/recovery.
+- [ ] After separate runtime/collection authorization, accept two genuine same-identity document captures; do not relabel fictional run metadata as observed monitoring.
+
+### PR36 Node runtime redesign — 2026-11-12
+- [x] Separate bounded Node receipt/admission, report construction and immutable recovery from canonical Actions evidence; keep routes disabled and old Python artifacts untouched.
+- [x] Synthetic cross-language history parity, tamper/replay/index substitution and fresh-process original recovery; independent trust-model/source review.
+- [ ] Implement independently verifiable deployment-bound writer authentication and approved immutable custody through existing owners; documented Vercel project/environment OIDC alone is insufficient.
+- [x] Implement/review bounded Node collector/projection; actual loopback HTTP runs through receipt/report/fresh-process recovery. No real monitored-source collection has occurred.
+- [ ] Obtain exact current recurring generation/recovery rights and approved hosted two-period/payment lifecycle acceptance. No recurring offer or activation is established.
+
+### PR36 executable collector continuation — 2026-11-12
+- [x] Bounded pinned-address HTTPS transport, conservative robots policy, strict Python-compatible projection subset and v2 admitted-predecessor continuity.
+- [x] Preserve unknown/incomplete/source success and all-host robots cooldown evidence; independent security review and synthetic original-byte recovery.
+- [ ] Existing owners implement writer authentication, trusted custody and current owner/recurring rights; then wire the implemented collector.
+- [ ] Reconcile monitoring test command into the shared package/build owner before activation. No package/commerce/lead files changed in this lane.
+- [x] Version future reports to prioritize latest complete changed projection within balanced24-word source budget; preserve old renderer/original-period retry and Node 21 → 22 evidence.
+
+
+### PR36 monitoring owner adapter — 2026-11-12
+- [x] Implement separately namespaced authoritative owner verification using the existing Supabase current-user protocol; reject ambiguous credentials, malformed/unavailable identity and metadata-derived authority.
+- [x] Verify actual private recovery route, current rights and original-byte fresh-session/separate-process recovery with fictional Auth/custody; independent design/source review.
+- [ ] Existing Auth/store/commerce owner: confirm monitoring account/mode/product/project binding and canonical watchlist owner mapping. Identity is implemented but unbound; dedicated persistent custody, deployment writer authority and recurring rights still require implementation/acceptance. See MONITORING-OWNER-BINDING.md.
+
+
+### PR36 protected PostgreSQL custody — 2026-11-12
+- [x] Implement actual SQL custody adapter, scoped producer/read roles, immutable originals and period CAS, bounded acknowledged-abort retries and uncertain-COMMIT refusal.
+- [x] Prepare unapplied private-schema/grant/RLS proposal with independent expected definition fingerprint; exercise real runtime/owner/recovery handlers through fictional SQL responses and retained legacy originals.
+- [ ] Approve the bounded disposable local native fixture independently of hosted target selection (MONITORING-NATIVE-APPROVAL.md). Hosted owner must separately select an eligible target and review actual fingerprint/login/scope before binding. Proposal stays rollback-only with NOLOGIN placeholders and no scope records.
+- [ ] Implement independent deployment-writer authentication and canonical owner/watchlist/job creation; confirm recurring rights and storage retention/quota. These are not supplied by a database role, Auth user or kit payment. See MONITORING-POSTGRES-CUSTODY.md.
+
+
+### Native custody source-contract preparation — 2026-11-12
+- [x] Prepare pinned17.11 acquisition/isolation/cleanup controller, explicit approval packet and actual adapter/native fixture source; no execution.
+- [x] Clarify five ambient-PUBLIC states and direct-login identity, unchanged-schema recovery interruption, and no categorical foreign-USAGE/invoker prohibition.
+- [x] Obtain one-run approval and invoke exact c69b636 once; retain failure/cleanup evidence. Initial unshare failed opening read-only /proc/self/uid_map before acquisition; no native SQL/SQLSTATE or tests occurred.
+- [ ] Native acceptance remains blocked. No retry is authorized; require separately reviewed compliant execution boundary and new one-run authority. Do not weaken restrictions or switch routes.
+- [ ] Existing platform owner: approve an independent deployment/execution witness binding approved SHA, nonce, job/scope and result digests; OIDC/KMS project labels and DB credentials alone are insufficient.
+
+
+## 2026-11-12 — Owned monitoring workflow continuation
+
+- [x] Implement authenticated owned configuration with immutable versions, CAS and exact mutation recovery across catalog drift; canonical source/period/job selection and expiry/version refusal.
+- [x] Implement real SDK-backed recurring rights with protected enrollment and independent original-invoice reversal checks; retain explicit draft policy and fail-closed unsupported states.
+- [x] Persist expected-period coverage in separately versioned signed originals; exercise changed/unchanged/unknown output and fresh-process recovery. 173 focused tests pass.
+- [ ] Commerce owner: accept/revise recurring generation/recovery/cancellation/reversal/retention policy and configure actual product/price; implement trusted owner/customer/subscription enrollment. Do not infer this from kit payments or metadata.
+- [ ] Approve and verify exact control/custody/Auth/key/producer bindings plus native installation acceptance before any activation. UID-map restriction still forbids retry/alternative native execution.
+- [ ] Bind owner UX/routes and controlled scheduler/delivery only after those gates; then two genuine periods and authentic sandbox lifecycle acceptance. No payment readiness claim from fixtures.
+
+
+## 2026-11-12 — Actual catalog qualification
+
+- [x] Qualify all 616 distinct routes and 189,420 unordered pairs offline through the same server qualifier used for configuration; retain all references and explicit unsupported cohorts.
+- [x] Correct misleading stale-edit errors for unsupported selection to 422 with safe reasons/counts; prove actual-catalog full-inventory synthetic reports and exact fresh-process recovery. 183 focused tests pass.
+- [ ] Review the alternative 90-day earned-original recovery policy, including original-invoice reversal semantics and separate retention/deletion requirements; do not implement or publish terms until selected.
+- [ ] RevenueCat/Hotjar remain outside the approved source cap. Supporting full scope requires a separate multi-job coverage/aggregation design, not omitted references or expanded per-job bounds.
+
+
+### PR36 compatibility evidence qualification — 2026-11-12
+- [x] Freeze and independently review the bounded complete-document evidence gate; 69 focused tests including 21 new admission/abstention/security cases pass.
+- [x] Preserve private frozen experiment, old receipt policies/originals and reserved PR30/33/35 source.
+- [ ] Evaluate fresh held-out evidence requests under the frozen contract. No impact classifier exists yet.
+- [ ] Separately decide/review lawful bounded full-body availability and custody/current-rights integration before deriving semantic workflow impact. No new collection/retention mechanism is selected.

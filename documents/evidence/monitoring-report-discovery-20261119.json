@@ -1,0 +1,80 @@
+{
+  "kind": "fictional-source-acceptance",
+  "date": "2026-11-19",
+  "base": "80bab673e21b8278f99c002bf9c67dcadac7715c",
+  "sourceSha256": {
+    "lib/monitoring/control-contract.ts": "20083f030d1bde3cdf54b7942aab516f565d0e22da3e209457c9614f59c72ae1",
+    "lib/monitoring/control-postgres.ts": "a3f173607ac4dde7c49d71bbbece6b96df5d41366ca0e643a9ae74a312370f47",
+    "lib/monitoring/owned-handlers.ts": "ef36c437f2e74e83d5c69d214f6c0de776c95508e5814ba21eb99c799b05274d",
+    "lib/monitoring/owned-workflow.ts": "35c97789da3195b0b7b3a5feb66e80c1635f504f950f65a2b8ee3afbb2bbc4bc",
+    "tests/fixtures/monitoring-node/control-postgres-fixture.ts": "40ac8369bca3cab3ebfd7532f41f8aad1536f314ec4f93c4335e105ba19e8344",
+    "tests/fixtures/monitoring-node/discovery-recover-process.test.ts": "9de381d9b07e8d857720ca21798e02d008143bdac0f179bf9a7d86b3a75e08f1",
+    "tests/monitoring-report-discovery.test.ts": "c2d28f9f2d2cabee12a7f223ac8993b7f7ed7db56a4d3b3f160faba0836837dc",
+    "documents/MONITORING-REPORT-DISCOVERY.md": "325a10b5954fe699f7bf97543c175a58fed1653e7446521e8c5ce81f3db6d859"
+  },
+  "newSuite": {
+    "passed": 7,
+    "failed": 0,
+    "durationSeconds": 13.11,
+    "childFreshProcess": "passed; expected input has digest/length, no job ID; discovered/downloaded bytes equal original"
+  },
+  "existingChecks": {
+    "fourSuitesTogether": {
+      "passed": 14
+    },
+    "ownedWorkflowSequential": {
+      "passed": 9,
+      "timedOut": 1
+    },
+    "ownedWorkflowIsolatedTimedOutCase": {
+      "passed": 1,
+      "durationSeconds": 6.52,
+      "unchangedTimeoutSeconds": 15
+    }
+  },
+  "initialFailures": [
+    {
+      "kind": "expected_pre_fix_regression",
+      "detail": "GETReports absent on unchanged base; failed before runtime change"
+    },
+    {
+      "kind": "test_syntax",
+      "detail": "extra closing brace in new fixture; corrected"
+    },
+    {
+      "kind": "test_typing",
+      "detail": "spy variable passed where callable recovery required; corrected to instrumented runtime method"
+    },
+    {
+      "kind": "wall_clock_timeouts",
+      "detail": "shifting 5/10/15-second failures in grouped runs; scheduling contention suspected, not measured; prior tool logs retained in conversation; no runtime deadline changed"
+    }
+  ],
+  "newFixtureBudgetsSeconds": {
+    "case": 30,
+    "freshProcessParent": 90,
+    "freshProcessChild": 60
+  },
+  "typecheck": "pass",
+  "lint": "pass",
+  "independentReview": "design and final source/security pass; fixture timing adjustment accepted; no performance claim",
+  "frozenSha256": {
+    "lib/monitoring/compatibility-evidence.ts": "3c2f48fa2501394ae0635a5c0ab036333289ab3ef07838857ecbfd0938053748",
+    "documents/compatibility-evidence-contract-v1.json": "51d94c783f1968532ec87c9cff791bdf156681f6ef4dd6f134b88e6ae2d2186d",
+    "lib/monitoring/memory-document-admission.ts": "8b6e77bf4f523231ad1855242ca49ffa721a34e3e1c13d0604f14660a9c7ef74"
+  },
+  "notEstablished": [
+    "native PostgreSQL/query performance",
+    "hosted Auth/rights/custody",
+    "real source capture",
+    "subscription enrollment/payment/renewal/refund/dispute",
+    "hosted owner UI or route activation",
+    "actual customers, collections or MRR"
+  ],
+  "productionUnchanged": {
+    "sha": "242f1450cb31f2a6038c180abdbf46ce53fca782",
+    "deployment": "dpl_EZqgEYBRXSqBKpT8W693vhGxoC23",
+    "url": "https://everymcp.com"
+  },
+  "automaticPreview": "pending source publication; exact receipt in final handoff; no manual deployment or Actions"
+}

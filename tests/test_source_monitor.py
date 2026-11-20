@@ -10,6 +10,7 @@ from pathlib import Path
 from unittest.mock import Mock, patch
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
 spec = importlib.util.spec_from_file_location("monitor", ROOT / "scripts/monitor_sources.py")
 monitor = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(monitor)
@@ -26,6 +27,10 @@ def robots_fixture(text="User-agent: *\nAllow: /\n"):
     return {host: {"checkedAt": monitor.stamp(), "httpStatus": 200, "state": "available", "text": text,
                    "contentHash": monitor.digest(text.encode()), "receivedBytes": len(text), "durationMs": 0}
             for host in monitor.ALLOWED_HOSTS}
+
+
+def source_fixture(url, priority=False):
+    return {'url': url, 'priority': priority, 'relationships': []}
 
 
 class SourceMonitorTests(unittest.TestCase):
@@ -127,7 +132,7 @@ class SourceMonitorTests(unittest.TestCase):
         self.assertTrue(all(x["resolution"] == "review_required" for x in recovered["reviewFindings"]))
 
     def test_budget_and_host_backoff_limit_actual_coverage(self):
-        sources = {URL: {"priority": False}, URL+"2": {"priority": False}, "https://docs.cursor.com/en/context/mcp": {"priority": False}}
+        sources = {url: source_fixture(url) for url in (URL, URL+"2", "https://docs.cursor.com/en/context/mcp")}
         fetch = Mock(return_value=(403, {}, b""))
         cache, attempts, skipped = monitor.run_checks(sources, {}, 1, 1200, 7, robot_policies=robots_fixture(), fetch=fetch, wait=lambda _: None)
         self.assertEqual(attempts, 1)
@@ -143,7 +148,7 @@ class SourceMonitorTests(unittest.TestCase):
         cached = cached_success()
         for key in ("observation", "lastSuccessfulObservation"):
             cached[key]["checkedAt"] = monitor.stamp(now - timedelta(hours=25))
-        sources = {URL: {"priority": True}, URL+"2": {"priority": True}, URL+"3": {"priority": False}}
+        sources = {url: source_fixture(url, url != URL+"3") for url in (URL, URL+"2", URL+"3")}
         cache = {url: copy.deepcopy(cached) for url in sources}
         tick = [0.0]
         pauses = []
@@ -157,7 +162,7 @@ class SourceMonitorTests(unittest.TestCase):
     def test_cache_validation_fails_closed_and_immutable_runs_do_not_overwrite(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory)/"cache.json"
-            data = {"schemaVersion": 1, "policyVersion": monitor.POLICY_VERSION, "sources": {URL: cached_success()}}
+            data = {"schemaVersion": 2, "policyVersion": monitor.POLICY_VERSION, "sources": {URL: cached_success()}}
             path.write_text(json.dumps(data)); self.assertIn(URL, monitor.read_cache(path, {URL: {}}))
             data["sources"][URL]["observation"]["credential"] = "secret"
             path.write_text(json.dumps(data))
@@ -195,14 +200,14 @@ class SourceMonitorTests(unittest.TestCase):
         cached["observation"]["httpStatus"] = 404
         self.assertFalse(monitor.valid_observation(cached["observation"]))
         fetch = Mock(side_effect=TimeoutError())
-        cache, attempts, _ = monitor.run_checks({URL: {"priority": False}}, {}, 1, 1200, 7, robot_policies=robots_fixture(), fetch=fetch)
+        cache, attempts, _ = monitor.run_checks({URL: source_fixture(URL)}, {}, 1, 1200, 7, robot_policies=robots_fixture(), fetch=fetch)
         self.assertEqual(cache[URL]["observation"]["reason"], "timeout")
         self.assertEqual(cache[URL]["observation"]["state"], "unknown")
         self.assertIsNone(cache[URL]["lastSuccessfulObservation"])
 
     def test_robots_wildcard_refuses_tree_without_fetching_it_and_honors_delay(self):
         tree = "https://github.com/modelcontextprotocol/servers/tree/main/src/memory"
-        sources = {URL: {"priority": False}, URL+"2": {"priority": False}, tree: {"priority": False}}
+        sources = {url: source_fixture(url) for url in (URL, URL+"2", tree)}
         fetch = Mock(return_value=(200, {}, b"source"))
         tick = [0.0]; pauses = []
         def wait(seconds): pauses.append(seconds); tick[0] += seconds
@@ -217,7 +222,7 @@ class SourceMonitorTests(unittest.TestCase):
     def test_robots_unknown_withholds_source_get_and_records_only_policy_request(self):
         fetch = Mock(return_value=(503, {}, b"unavailable"))
         metrics, policies = {}, {}
-        _, attempts, skipped = monitor.run_checks({URL: {"priority": False}}, {}, 120, 1200, 7,
+        _, attempts, skipped = monitor.run_checks({URL: source_fixture(URL)}, {}, 120, 1200, 7,
             fetch=fetch, wait=lambda _: None, robot_policies=policies, metrics=metrics)
         self.assertEqual(attempts, 0)
         self.assertEqual(skipped[URL], "robots_unknown")

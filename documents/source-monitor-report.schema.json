@@ -3,10 +3,16 @@
   "additionalProperties": false,
   "properties": {
     "schemaVersion": {
-      "const": 1
+      "enum": [
+        1,
+        2
+      ]
     },
     "policyVersion": {
-      "const": "public-source-v1"
+      "enum": [
+        "public-source-v1",
+        "public-source-v2"
+      ]
     },
     "generatedAt": {
       "type": "string",
@@ -204,8 +210,8 @@
     "robotsPolicies"
   ],
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://everymcp.com/schemas/source-monitor-report-v1",
-  "title": "EveryMCP public source observation report v1",
+  "$id": "https://everymcp.com/schemas/source-monitor-report",
+  "title": "EveryMCP public source observation report v1/v2",
   "$defs": {
     "observation": {
       "type": "object",
@@ -291,6 +297,9 @@
         "durationMs": {
           "type": "integer",
           "minimum": 0
+        },
+        "documentProjection": {
+          "$ref": "#/$defs/documentProjection"
         }
       },
       "required": [
@@ -575,6 +584,307 @@
         "jevEnabled",
         "paidProviderEnabled"
       ]
+    },
+    "observationV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "checkedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "httpStatus": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 100,
+          "maximum": 599
+        },
+        "state": {
+          "enum": [
+            "missing_at_check",
+            "reachable",
+            "unknown"
+          ]
+        },
+        "reason": {
+          "enum": [
+            "authentication_required",
+            "blocked",
+            "dns_failure",
+            "http_missing_at_check",
+            "http_success",
+            "http_unknown",
+            "network_or_policy_failure",
+            "not_modified",
+            "not_modified_without_prior_body",
+            "partial_or_oversized_body",
+            "rate_limited",
+            "redirect_not_followed",
+            "scanner_policy_refusal",
+            "server_error",
+            "timeout",
+            "tls_failure",
+            "transport_failure"
+          ]
+        },
+        "contentHash": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "etag": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lastModified": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bodyComplete": {
+          "type": "boolean"
+        },
+        "evidenceType": {
+          "const": "observed_http"
+        },
+        "retryAfterSeconds": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 60,
+          "maximum": 86400
+        },
+        "receivedBytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "checkedAt",
+        "httpStatus",
+        "state",
+        "reason",
+        "contentHash",
+        "etag",
+        "lastModified",
+        "bodyComplete",
+        "evidenceType",
+        "retryAfterSeconds",
+        "receivedBytes",
+        "durationMs"
+      ]
+    },
+    "documentProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "profileVersion": {
+          "const": "static-document-v1"
+        },
+        "state": {
+          "enum": [
+            "captured",
+            "incomplete",
+            "not_captured",
+            "unsupported"
+          ]
+        },
+        "reason": {
+          "enum": [
+            "body_unavailable",
+            "complete_static_projection",
+            "empty_document",
+            "invalid_utf8",
+            "legacy_body_not_retained",
+            "malformed_markup",
+            "projection_limit",
+            "unsafe_text",
+            "unsupported_charset",
+            "unsupported_encoding",
+            "unsupported_media_type"
+          ]
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri",
+          "maxLength": 2048
+        },
+        "sourceIdentity": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "bodyHash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bodyObservedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mediaType": {
+          "enum": [
+            null,
+            "text/html",
+            "text/markdown",
+            "text/plain"
+          ]
+        },
+        "projectionHash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sections": {
+          "type": "array",
+          "maxItems": 16,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}:[1-9][0-9]*$",
+                "maxLength": 70
+              },
+              "heading": {
+                "type": "string",
+                "maxLength": 160
+              },
+              "excerpt": {
+                "type": "string",
+                "maxLength": 160
+              },
+              "headingTruncated": {
+                "type": "boolean"
+              },
+              "excerptTruncated": {
+                "type": "boolean"
+              },
+              "contentHash": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            },
+            "required": [
+              "id",
+              "heading",
+              "excerpt",
+              "headingTruncated",
+              "excerptTruncated",
+              "contentHash"
+            ]
+          }
+        },
+        "omissions": {
+          "type": "array",
+          "uniqueItems": true,
+          "maxItems": 4,
+          "items": {
+            "enum": [
+              "comment",
+              "declaration",
+              "script",
+              "style"
+            ]
+          }
+        }
+      },
+      "required": [
+        "profileVersion",
+        "state",
+        "reason",
+        "sourceUrl",
+        "sourceIdentity",
+        "bodyHash",
+        "bodyObservedAt",
+        "mediaType",
+        "projectionHash",
+        "sections",
+        "omissions"
+      ]
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "schemaVersion": {
+            "const": 1
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "policyVersion": {
+            "const": "public-source-v1"
+          },
+          "sources": {
+            "items": {
+              "properties": {
+                "observation": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/observationV1"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "lastSuccessfulObservation": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/observationV1"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "policyVersion": {
+            "const": "public-source-v2"
+          }
+        }
+      }
+    }
+  ]
 }

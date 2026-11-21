@@ -101,7 +101,9 @@ const servers = [
     description:
       "Let agents look up the latest Next.js docs, React RFC discussions, or npm package changelogs during code generation. Keeps suggestions grounded in current APIs rather than stale training data.",
     use_cases: ["Docs lookup", "Package research", "Error debugging"],
-    npm: "mcp-server-brave-search",
+    npm: "@brave/brave-search-mcp-server",
+    setup: "https://github.com/brave/brave-search-mcp-server/blob/main/README.md",
+    plans: "https://api-dashboard.search.brave.com/app/plans",
   },
 ];
 
@@ -182,6 +184,12 @@ export default function MCPServersForNextjsReact() {
                   </code>
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed mb-4">{server.description}</p>
+                {server.setup && server.plans && (
+                  <p className="text-gray-400 text-sm mb-4">
+                    <a href={server.setup}>Brave’s setup guide</a>{" · "}
+                    <a href={server.plans}>Current Brave Search API plans</a>
+                  </p>
+                )}
                 <div className="flex flex-wrap gap-2">
                   {server.use_cases.map((uc) => (
                     <span

@@ -99,8 +99,7 @@ export default function MCPServersForWebSearch() {
               <li>Full web search with title, URL, and snippet results</li>
               <li>News search with recency filtering</li>
               <li>Image search</li>
-              <li>No query logging or user tracking</li>
-              <li>Free tier available (2,000 queries/month)</li>
+              <li>API key required. Check the <a href="https://api-dashboard.search.brave.com/app/plans">current Brave Search API plans</a> for pricing and limits.</li>
             </ul>
             <p>
               <strong>Best for:</strong> Privacy-conscious teams, general research workflows,
@@ -232,7 +231,7 @@ export default function MCPServersForWebSearch() {
             </p>
             <ul>
               <li>
-                <strong>Privacy-first:</strong> Brave Search — no tracking, clean API
+                <strong>General web search:</strong> Brave Search
               </li>
               <li>
                 <strong>Best result quality for agents:</strong> Tavily — built specifically for
@@ -250,52 +249,31 @@ export default function MCPServersForWebSearch() {
               </li>
             </ul>
             <p>
-              For most general-purpose agent workflows, starting with Brave Search (free tier) or
-              Tavily (AI-optimized) covers 90% of use cases.
+              Choose a search service based on the results your workflow needs, its data handling,
+              and the limits of your API plan.
             </p>
 
             <h2>How to Set Up a Web Search MCP Server</h2>
             <p>
-              The setup pattern is consistent across most web search MCP servers. Using Brave as an
-              example:
+              For Claude Desktop's local stdio setup, follow <a href="https://github.com/brave/brave-search-mcp-server/blob/main/README.md">Brave’s setup guide</a> and
+              check the <a href="https://api-dashboard.search.brave.com/app/plans">current Brave Search API plans</a>. In your private <code>claude_desktop_config.json</code>,
+              add the following entry. The example uses a placeholder. Keep the real key out of
+              shared files and version control.
             </p>
-            <ol>
-              <li>
-                Get a free API key at{" "}
-                <a
-                  href="https://brave.com/search/api/"
-                  className="underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  brave.com/search/api
-                </a>
-              </li>
-              <li>
-                Install the MCP server:{" "}
-                <code>npm install -g @modelcontextprotocol/server-brave-search</code>
-              </li>
-              <li>Add to your MCP config:</li>
-            </ol>
             <pre>
               <code>{`{
   "mcpServers": {
     "brave-search": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
-      "env": {
-        "BRAVE_API_KEY": "your-api-key-here"
-      }
+      "args": ["-y", "@brave/brave-search-mcp-server"],
+      "env": { "BRAVE_API_KEY": "YOUR_BRAVE_API_KEY" }
     }
   }
 }`}</code>
             </pre>
-            <ol start={4}>
-              <li>Restart your AI client and test with: "Search for the latest MCP server releases"</li>
-            </ol>
             <p>
-              The pattern is nearly identical for Tavily, Exa, and SerpAPI — just swap the package
-              name and API key environment variable.
+              Reload the client and confirm that the Brave Search tools appear before using them.
+              Other clients may require a different configuration file or environment syntax.
             </p>
 
             <h2>Security and Rate Limit Considerations</h2>

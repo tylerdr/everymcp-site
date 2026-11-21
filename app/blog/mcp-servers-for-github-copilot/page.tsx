@@ -94,31 +94,26 @@ export default function MCPServersForCopilotPage() {
             <h2 className="text-2xl font-bold text-white mb-4">How to Set Up MCP in VS Code</h2>
             <div className="bg-gray-900 rounded-xl p-6 border border-gray-800 mb-6">
               <p className="text-gray-300 text-sm leading-relaxed">
-                VS Code supports MCP servers via the{" "}
-                <span className="text-purple-400 font-medium">.vscode/mcp.json</span> config file
-                in your workspace, or globally via User Settings. Add a server once, and it's
-                available in every Copilot chat session.
+                In VS Code's Copilot harness, add this entry to the top-level <code>mcpServers</code> object
+                in <code>~/.copilot/mcp-config.json</code> (or under <code>$COPILOT_HOME</code>).
+                Set <code>BRAVE_API_KEY</code> in the environment of the host running Copilot.
               </p>
               <pre className="mt-4 text-sm text-green-400 overflow-x-auto">
-{`// .vscode/mcp.json
-{
-  "servers": {
-    "postgres": {
+{`{
+  "mcpServers": {
+    "brave-search": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-postgres"],
-      "env": {
-        "POSTGRES_CONNECTION_STRING": "postgresql://..."
-      }
+      "args": ["-y", "@brave/brave-search-mcp-server", "--transport", "stdio"],
+      "env": { "BRAVE_API_KEY": "\${BRAVE_API_KEY}" }
     }
   }
 }`}
               </pre>
             </div>
             <p className="text-gray-400 text-sm">
-              Each server entry specifies a transport type (stdio or http), the command to run, and
-              any environment variables. VS Code starts the server process when you open a Copilot
-              chat that needs it.
+              Check server and tool availability in your session. The editor-managed <code>.vscode/mcp.json</code> uses
+              <code> servers </code> and different environment references. See the <a href="https://code.visualstudio.com/docs/agents/reference/mcp-configuration">VS Code MCP configuration reference</a>.
             </p>
           </section>
 
@@ -191,14 +186,13 @@ export default function MCPServersForCopilotPage() {
                 <div className="flex items-start justify-between">
                   <div>
                     <h3 className="text-lg font-semibold text-white">Brave Search MCP</h3>
-                    <p className="text-purple-400 text-sm mt-0.5">@modelcontextprotocol/server-brave-search</p>
+                    <p className="text-purple-400 text-sm mt-0.5">@brave/brave-search-mcp-server</p>
                   </div>
                   <span className="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded-full border border-green-500/20">Official</span>
                 </div>
                 <p className="text-gray-400 text-sm mt-3 leading-relaxed">
-                  Real-time web search powered by Brave's independent index. Requires a free Brave
-                  Search API key. The go-to for adding web awareness to any MCP-compatible host.
-                  Works perfectly in VS Code + Copilot.
+                  Search the web through Brave's API using its publisher-maintained MCP server.
+                  See <a href="https://github.com/brave/brave-search-mcp-server/blob/main/README.md">Brave’s setup guide</a> and the <a href="https://api-dashboard.search.brave.com/app/plans">current Brave Search API plans</a>.
                 </p>
               </div>
 
@@ -328,7 +322,7 @@ export default function MCPServersForCopilotPage() {
             <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
               <ol className="space-y-3">
                 {[
-                  { n: 1, name: "Brave Search MCP", reason: "Real-time web lookups. Install first." },
+                  { n: 1, name: "Brave Search MCP", reason: "Web lookups when the project needs current sources." },
                   { n: 2, name: "GitHub MCP", reason: "Cross-repo navigation and PR management." },
                   { n: 3, name: "PostgreSQL or SQLite MCP", reason: "Database context for your specific stack." },
                   { n: 4, name: "Fetch MCP", reason: "Pull docs and APIs on demand." },

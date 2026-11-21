@@ -172,17 +172,27 @@ export default function MCPServersForGemini() {
                   <div className="flex items-start justify-between mb-3">
                     <div>
                       <h3 className="text-lg font-semibold text-white">Brave Search MCP</h3>
-                      <p className="text-sm text-blue-400">@modelcontextprotocol/server-brave-search</p>
+                      <p className="text-sm text-blue-400">@brave/brave-search-mcp-server</p>
                     </div>
                     <span className="px-2 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs rounded-full">
-                      Privacy-first
+                      Web search
                     </span>
                   </div>
                   <p className="text-gray-400 text-sm">
-                    Real-time web search via the Brave Search API. Explicit, controllable search calls
-                    as MCP tool invocations. Free tier available. Ideal when you want Gemini to search
-                    the web only when you tell it to — not opportunistically.
+                    For Gemini CLI, add the local server under <code>mcpServers</code> in <code>settings.json</code>.
+                    Set <code>BRAVE_API_KEY</code> in the shell that launches Gemini CLI and explicitly pass it in
+                    the server's <code>env</code> block. See the <a href="https://geminicli.com/docs/tools/mcp-server/">Gemini CLI MCP configuration guide</a>,
+                    {" "}<a href="https://github.com/brave/brave-search-mcp-server/blob/main/README.md">Brave’s setup guide</a> and the <a href="https://api-dashboard.search.brave.com/app/plans">current Brave Search API plans</a>.
                   </p>
+                  <pre className="mt-3 overflow-x-auto text-sm">{`{
+  "mcpServers": {
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@brave/brave-search-mcp-server", "--transport", "stdio"],
+      "env": { "BRAVE_API_KEY": "$BRAVE_API_KEY" }
+    }
+  }
+}`}</pre>
                 </div>
 
                 <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">

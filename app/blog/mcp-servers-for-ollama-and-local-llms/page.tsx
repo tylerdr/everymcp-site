@@ -141,21 +141,13 @@ export default function MCPServersForOllama() {
 
             <h3>3. Brave Search MCP Server</h3>
             <p>
-              Local models lack real-time knowledge. The <strong>Brave Search MCP server</strong>{" "}
-              connects your Ollama agent to live web search via Brave's privacy-focused API. Unlike
-              Google, Brave doesn't build an ad profile from your queries — a natural fit for
-              privacy-first setups.
+              Add live search through the MCP client that connects to your Ollama model.
+              Choose a client that supports local stdio servers and tool calling.
             </p>
             <ul>
-              <li>
-                <strong>Best for:</strong> Research agents, news summarization, fact-checking
-              </li>
-              <li>
-                <strong>Requires:</strong> Free Brave Search API key (2,000 queries/month free)
-              </li>
-              <li>
-                <strong>Install:</strong> <code>npx @modelcontextprotocol/server-brave-search</code>
-              </li>
+              <li>Launch <code>npx -y @brave/brave-search-mcp-server --transport stdio</code> from that client using <a href="https://github.com/brave/brave-search-mcp-server/blob/main/README.md">Brave’s setup guide</a>.</li>
+              <li>Supply <code>BRAVE_API_KEY</code> to the server process through the client's environment settings. Check the <a href="https://api-dashboard.search.brave.com/app/plans">current Brave Search API plans</a> before making requests.</li>
+              <li>For example, in Continue Agent mode, define the command and arguments under <code>mcpServers</code> in your <code>.continue/mcpServers/</code> configuration. Follow <a href="https://docs.continue.dev/customize/deep-dives/mcp">Continue's MCP and secrets instructions</a> for the <code>env</code> entry.</li>
             </ul>
 
             <h3>4. Puppeteer / Playwright MCP Server</h3>

@@ -175,7 +175,7 @@ export default function MCPServersForGemini() {
                       <p className="text-sm text-blue-400">@brave/brave-search-mcp-server</p>
                     </div>
                     <span className="px-2 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs rounded-full">
-                      Privacy-first
+                      Web search
                     </span>
                   </div>
                   <p className="text-gray-400 text-sm">
@@ -188,7 +188,7 @@ export default function MCPServersForGemini() {
   "mcpServers": {
     "brave-search": {
       "command": "npx",
-      "args": ["-y", "@brave/brave-search-mcp-server"],
+      "args": ["-y", "@brave/brave-search-mcp-server", "--transport", "stdio"],
       "env": { "BRAVE_API_KEY": "$BRAVE_API_KEY" }
     }
   }

@@ -104,7 +104,7 @@ export default function MCPServersForCopilotPage() {
     "brave-search": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@brave/brave-search-mcp-server"],
+      "args": ["-y", "@brave/brave-search-mcp-server", "--transport", "stdio"],
       "env": { "BRAVE_API_KEY": "\${BRAVE_API_KEY}" }
     }
   }

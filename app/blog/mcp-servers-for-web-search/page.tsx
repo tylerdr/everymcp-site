@@ -102,8 +102,12 @@ export default function MCPServersForWebSearch() {
               <li>API key required. Check the <a href="https://api-dashboard.search.brave.com/app/plans">current Brave Search API plans</a> for pricing and limits.</li>
             </ul>
             <p>
-              <strong>Best for:</strong> Privacy-conscious teams, general research workflows,
-              developers who want a clean API without Google rate limits.
+              <strong>Best for:</strong> General research workflows that need web, news, or image results.
+            </p>
+            <p>
+              Even when the MCP server runs on your machine, it sends search queries to Brave’s API.
+              Review the <a href="https://api-dashboard.search.brave.com/privacy-policy">Brave Search API Privacy Notice</a>
+              {" "}(updated November 3, 2026) before sending sensitive information.
             </p>
 
             <h3>2. Tavily MCP</h3>
@@ -265,7 +269,7 @@ export default function MCPServersForWebSearch() {
   "mcpServers": {
     "brave-search": {
       "command": "npx",
-      "args": ["-y", "@brave/brave-search-mcp-server"],
+      "args": ["-y", "@brave/brave-search-mcp-server", "--transport", "stdio"],
       "env": { "BRAVE_API_KEY": "YOUR_BRAVE_API_KEY" }
     }
   }

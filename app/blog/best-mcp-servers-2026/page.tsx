@@ -144,16 +144,14 @@ export default function BestMCPServers2026() {
                 <div className="border border-gray-800 rounded-xl p-6 bg-gray-900/50">
                   <div className="flex items-start justify-between mb-3">
                     <h3 className="text-lg font-semibold text-white">Brave Search MCP</h3>
-                    <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">Most Popular</span>
+                    <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">Publisher-maintained</span>
                   </div>
                   <p className="text-gray-400 text-sm mb-3">
-                    Privacy-first web search via the Brave Search API. Returns clean search results without tracking. Free tier available with 2,000 queries/month. The most widely deployed search MCP server in production environments.
+                    The <code>@brave/brave-search-mcp-server</code> package sends queries to the Brave Search API.
+                    Review <a href="https://github.com/brave/brave-search-mcp-server/blob/main/README.md">Brave’s setup guide</a>, the {" "}
+                    <a href="https://api-dashboard.search.brave.com/app/plans">current API plans</a> and the {" "}
+                    <a href="https://api-dashboard.search.brave.com/privacy-policy">API Privacy Notice</a>.
                   </p>
-                  <div className="flex items-center gap-4 text-xs text-gray-500">
-                    <span>✓ Free tier</span>
-                    <span>✓ No tracking</span>
-                    <span>✓ JSON results</span>
-                  </div>
                 </div>
 
                 <div className="border border-gray-800 rounded-xl p-6 bg-gray-900/50">

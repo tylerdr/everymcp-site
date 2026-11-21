@@ -157,9 +157,9 @@ export default function MCPServersForClaudePage() {
                   <span className="text-xs px-2 py-1 bg-green-500/10 text-green-400 border border-green-500/20 rounded-full">Official</span>
                 </div>
                 <p className="text-gray-400 text-sm mb-3">
-                  Official Brave Search integration. No tracking, strong privacy defaults, fast API
-                  responses. Free tier available with 2,000 queries/month. Best all-around search
-                  server for Claude.
+                  Brave maintains <code>@brave/brave-search-mcp-server</code>. It sends search queries to the Brave Search API.
+                  See <a href="https://github.com/brave/brave-search-mcp-server/blob/main/README.md">Brave’s setup guide</a> and the {" "}
+                  <a href="https://api-dashboard.search.brave.com/app/plans">current API plans</a>.
                 </p>
               </div>
 

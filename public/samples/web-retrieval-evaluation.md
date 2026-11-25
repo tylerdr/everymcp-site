@@ -84,13 +84,17 @@ Maintainer references reviewed for the guide:
 | What you need next | Where to continue |
 | --- | --- |
 | Evaluate one web page and record the result | Keep using this free worksheet. No purchase is required. |
-| Choose a general MCP starting stack | Use the free planner: https://everymcp.com/plan |
+| See where Fetch fits in a research stack | Open the free research plan: https://everymcp.com/plan?goal=research |
 | Turn your choice into a reusable team rollout packet | Review the optional MCP Integration Starter Kit sample below. |
 
 The optional kit combines a catalog-based selection matrix, a worked Filesystem
 client configuration, source and permission review prompts, and acceptance and
 rollback records in an editable Markdown packet. Its public sample shows a
 hypothetical boundary record; that is not evidence of a completed test.
+
+To compare the sample with your own decision, use the approved URL scope and
+expected output from section 2. Check whether the sample records who can run
+the test, what counts as acceptance, and when to roll back.
 
 Review the actual sample, price and current checkout availability:
 https://everymcp.com/pricing#kit-preview

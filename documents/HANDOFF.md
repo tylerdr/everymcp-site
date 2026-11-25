@@ -1,4 +1,26 @@
-# EveryMCP — October 29 source and revenue-readiness handoff
+# EveryMCP — November 12 lead recovery handoff
+
+## Current source and custody
+
+Main is `242f1450cb31f2a6038c180abdbf46ce53fca782`, the released PR34 worksheet next-step change. Its READY production is `dpl_EZqgEYBRXSqBKpT8W693vhGxoC23` on everymcp.com. The current recovery branch is `fix/lead-outcome-recovery-20261112`, based directly on that main. Parent explicitly assigned this new branch; PR33's original writer and any unpublished work remain unverified. The reserved PR33 branch `fix/lead-outcome-uncertainty-20261029` at `d6a728b05389ca905c219a1e84ed2aea86092dee` remains untouched. PR30 and all payment/auth/receipt code are also unchanged.
+
+## Candidate behavior and checks
+
+The three lead runtime files and `tests/lead-capture.test.ts` carry the narrow PR33 fix. A transport loss, timeout or transient provider failure now returns an unknown saved state (`saved: null`) instead of claiming nothing was saved or sent. The form retains entered details and offers the free methodology after an error. Unconfigured capture still makes no provider call. The current test command retains every newer test and the checkout-analytics check.
+
+The lost-response regression failed against unchanged main (`saved: false` instead of `null`) before applying the runtime fix. Afterward, 14 lead cases passed; lint, standalone TypeScript and the full build passed with 153 tests across 11 files, existing contract checks and 756 generated pages. Native local Chromium exercised both an unconfigured Next server and a synthetic loopback provider that saved before dropping the response: the error state retained inputs, the same-details retry confirmed the same synthetic key, and keyboard navigation reached the free methodology at mobile width without overflow or page errors. External browser requests were blocked. This is synthetic local behavior, not actual lead storage, email or revenue evidence.
+
+The existing normalized-email-plus-intent key remains unchanged. Distinct inquiries with the same email and intent share that key; this change neither introduces per-request durable identity nor guarantees exactly-once delivery. Real provider behavior remains separately unproved.
+
+## Release and buyer gates
+
+Next: independent review of the exact new composition, draft publication, automatic exact-head Vercel Preview, then normal expected-head release only if eligible. GitHub Actions remain disabled; use `[skip actions]`. Safe production acceptance is verified-TLS GETs of `/services`, `/methodology`, `/pricing`, the canonical worksheet and deployed client assets, correlated with the exact production SHA and aliases. It must not submit a production lead or call a real provider. Direct production Chromium previously failed certificate verification; do not bypass the warning or label locally served/proxied bytes direct browser acceptance. Native interaction evidence above is local only.
+
+Checkout remains closed. Provider binding, real lead/confirmation acceptance, durable paid delivery, controlled payment acceptance and commercial support/refund ownership are separate gates. No account, credential, SQL, provider configuration, customer record, external message, payment or paid activation changed. Existing private-store access/upload denials remain in force. The October 29 handoff below is retained as historical context; its old main/deployment and root-only release statements are not current source status.
+
+---
+
+# Historical October 29 source and revenue-readiness handoff
 
 ## Current source and release state
 

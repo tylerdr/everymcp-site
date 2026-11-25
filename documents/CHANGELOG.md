@@ -2,6 +2,14 @@
 
 *Append-only, newest first. Never edit old entries.*
 
+## 2026-11-12 — Recover honestly from an uncertain lead response
+
+Prepared on `fix/lead-outcome-recovery-20261112` from main `242f1450cb31f2a6038c180abdbf46ce53fca782`. This separate, explicitly assigned branch carries PR33's three narrow runtime changes and 14 lead tests while preserving current commerce code and every newer test command. PR33's original writer remains unverified and its reserved branch is untouched.
+
+Transport loss, timeouts and transient provider failures now expose an unknown saved state instead of asserting that nothing was saved or sent. Error recovery retains the user's input and offers a keyboard-accessible free methodology link. Existing normalized-email-plus-intent deduplication is unchanged and does not distinguish separate same-intent inquiries or guarantee exactly-once delivery.
+
+The lost-response regression failed on unchanged main and passed after the fix. Lint, standalone TypeScript and the full build passed (153 tests, existing contracts, 756 generated pages). Actual local Chromium verified a synthetic saved-then-lost response followed by same-key recovery, and unconfigured capture followed by free-resource navigation; external browser requests were blocked. Independent review, automatic Preview and release acceptance follow publication. No real lead/email/payment, provider binding or paid activation is claimed.
+
 ## 2026-10-03 — Apply the repository's shadcn UI requirement
 
 Root review required the planner controls to follow AGENTS.md. The repository had no shadcn components or utility setup, so this focused addition introduces the official new-york Button and NativeSelect source, a cn utility, components.json, and theme tokens compatible with the existing Tailwind 3 stack. The planner uses NativeSelect/NativeSelectOption, the submit and copy actions use Button, and the starter handoff uses Button asChild around its semantic link.

@@ -194,3 +194,7 @@ Resume in the same cloud environment after workspace maintenance; inspect curren
 
 ## 2026-10-29 — Reconnected revenue-readiness continuation
 User asks to review latest production/source, continue after Stripe reconnect, and drive toward meaningful revenue. Preserve root-owned publication, shared SQL installation and credential/provider boundaries. Prepare a useful paid-packet sample and source handoff while hosted acceptance dependencies remain unresolved; do not send campaigns or charge a live card.
+
+## 2026-11-12 — Separate current-main lead recovery ownership
+
+Parent assigns this lane sole ownership of a NEW current-main branch carrying the narrow PR33 lead-outcome uncertainty and free-methodology recovery fix. PR33's original writer remains unverified; its reserved branch and any unpublished work are not transferred or modified. Base is PR34 production 242f1450cb31f2a6038c180abdbf46ce53fca782. Carry only the three runtime files and lead tests; preserve all newer test commands and commerce source. Reconcile current documentation additively. Validate synthetic local lost-response/retry and unconfigured resource recovery, required exact-composition checks and independent review. Publish a draft; normal expected-head release may follow only after eligibility and safe production QA are established. No real leads, email, provider binding, payments, SQL, credentials or private-store uploads. Preserve prior denials.

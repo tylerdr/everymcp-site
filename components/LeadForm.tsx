@@ -1,6 +1,9 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { Button } from "@/components/ui/button";
+
+const UNCONFIRMED_MESSAGE = "We could not confirm whether your request was saved or follow-up was sent. Please retry with the same details.";
 
 type LeadFormProps = {
   compact?: boolean;
@@ -50,7 +53,7 @@ export function LeadForm({
 
       if (!response.ok || !payload.ok) {
         setStatus("error");
-        setError(payload.error || "Lead capture is temporarily unavailable. Please try again later.");
+        setError(payload.error || UNCONFIRMED_MESSAGE);
         return;
       }
 
@@ -58,7 +61,7 @@ export function LeadForm({
       setStatus("success");
     } catch {
       setStatus("error");
-      setError("Lead capture is temporarily unavailable. Please try again later.");
+      setError(UNCONFIRMED_MESSAGE);
     }
   }
 
@@ -101,7 +104,14 @@ export function LeadForm({
           <button type="submit" disabled={status === "submitting"} className="inline-flex rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:bg-sky disabled:cursor-not-allowed disabled:opacity-60">
             {status === "submitting" ? "Saving request…" : submitLabel}
           </button>
-          {status === "error" && error ? <p className="text-sm font-medium text-red-700" aria-live="polite">{error}</p> : null}
+          {status === "error" && error ? (
+            <div aria-live="polite" className="space-y-2">
+              <p className="text-sm font-medium text-destructive">{error}</p>
+              <Button asChild variant="link" className="px-0">
+                <a href="/methodology">Read the free methodology now →</a>
+              </Button>
+            </div>
+          ) : null}
         </form>
       )}
     </section>

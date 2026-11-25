@@ -1,0 +1,19 @@
+# Alternative for review: earned-original recovery for 90 days
+
+**Proposal only — not selected, implemented, published as terms, or activated.** The disabled `current-paid-subscription-v1` implementation still requires current paid rights for both generation and recovery. This proposal would need its own version and explicit approval; it must not reinterpret existing receipts or change the policy of an original already issued.
+
+Suggested decision: allow an authenticated original owner to download an earned original for **90 days from its first immutable report commit**, even after cancellation or expiry, subject to the original payment remaining valid. This fixed clock would not restart on download, renewal, cancellation, watchlist edit, retry, or key rotation. At `now >= retainUntil`, recovery would stop. Ninety days is a proposed finite retention boundary, not an approved promise of storage or perpetual access.
+
+| Action or condition | Proposed behavior |
+| --- | --- |
+| New capture and report generation | Require fresh verified active paid recurring rights for the exact canonical job period. Scheduled cancellation permits generation only through the paid period while still active; immediate cancellation, expiry, unpaid or ambiguous rights stop it. No backdating or new computation through recovery. |
+| Recover an earned original before its fixed deadline | Verify current authenticated ownership, original job/receipt/signature/bytes, immutable earning/payment binding and fresh original-payment status. Current subscription renewal or active status is not required. Watchlist pause/edit does not rewrite the original. |
+| Successful refund of the original payment, including partial refund | Deny every original bound to that invoice. This deliberately conservative invoice-wide rule is a decision to review; no proportional report entitlement is inferred. A refund of a different renewal does not revoke this original by itself. |
+| Issued original-invoice credit note, including a partial credit | Deny originals bound to that invoice. Void credit notes alone do not revoke rights. Do not infer restoration from a missing/partial provider result. |
+| Pending refund or open/lost dispute on the original charge | Suspend recovery. Unknown, incomplete or inconsistent evidence fails closed without claiming that the customer did not pay. |
+| Won/reversed dispute or canceled/failed refund | Permit recovery only after complete fresh provider evidence confirms the original settlement remains valid with no successful refund or issued credit. A status label alone is insufficient. If the adapter cannot establish that, return unavailable. |
+| Provider/Auth/custody outage or expired retention | Fail closed with a distinct unavailable/expired explanation. Do not regenerate, extend the deadline or substitute a different report. |
+
+Required source changes after a decision: a separately versioned earning/recovery contract; immutable trusted first-commit/deadline and original invoice/customer/owner bindings retained after cancellation; an original-payment verifier that does not require a current subscription; cancellation-safe enrollment records; and lifecycle tests including cross-owner denial, refund/dispute uncertainty and exact-byte recovery. A client timestamp, email, paid flag, kit purchase or unverified event cannot create these rights.
+
+Required operational decisions remain separate: the actual retention/deletion mechanism, customer/account deletion behavior, backup aging and applicable retention obligations. Existing runtime roles cannot delete immutable originals. Do not promise deletion at the cutoff or unlimited physical retention: both enforcement and deletion need separately reviewed source and approved storage procedures. No TTL, key, hosted project, credentials, subscription enrollment, price or customer-facing terms are changed by this document.

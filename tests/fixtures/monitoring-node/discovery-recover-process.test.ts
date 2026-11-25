@@ -1,0 +1,57 @@
+/** Fresh process: public verification keys and fictional SQL/Auth/billing only. No saved job ID. */
+import { expect, it } from "vitest";
+import { readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+import { createMonitoringOwner } from "../../../lib/monitoring/owner";
+import { createServiceVerifier } from "../../../lib/monitoring/service-authority";
+import { createOwnedMonitoringWorkflow } from "../../../lib/monitoring/owned-workflow";
+import { createOwnedServiceRuntime } from "../../../lib/monitoring/owned-runtime";
+import { createOwnedMonitoringHandlers } from "../../../lib/monitoring/owned-handlers";
+import { createRecurringRightsReader } from "../../../lib/monitoring/recurring-rights";
+import { PostgresMonitoringControlStore } from "../../../lib/monitoring/control-postgres";
+import { ServicePostgresCustodyStore } from "../../../lib/monitoring/service-postgres-store";
+import { sha256 } from "../../../lib/monitoring/source-contract";
+import { FictionalControl, DEFINITION } from "./control-postgres-fixture";
+import { FictionalPostgres, FICTIONAL_DEFINITION } from "./postgres-fixture";
+import { FictionalRecurringHttp, bill, START, END, config } from "./recurring-provider-fixture";
+import { SERVICE_VERIFICATION } from "./service-public-fixture";
+import { SCOPE } from "./runtime-fixture";
+import { OWNER_CONFIG, authResponse, ownerRequest } from "./owner-fixture";
+
+const directory = process.env.EVERYMCP_DISCOVERY_RECOVERY_DIR;
+it.skipIf(!directory)("discovers and downloads an old-version report after process/session loss with renewed rights", async () => {
+  const expected = JSON.parse(readFileSync(join(directory!, "expected.json"), "utf8")) as { reportSha256: string; reportLength: number };
+  expect(Object.keys(expected).sort()).toEqual(["reportLength", "reportSha256"]);
+  const snapshot = JSON.parse(readFileSync(join(directory!, "fictional-control.json"), "utf8"), (_key, value: unknown) => value && typeof value === "object" && "type" in value && value.type === "Buffer" && "data" in value && Array.isArray(value.data) ? Buffer.from(value.data) : value) as Record<"heads" | "versions" | "jobs" | "bindings", [string, Record<string, unknown>][] >;
+  const model = new FictionalControl(); for (const name of ["heads", "versions", "jobs", "bindings"] as const) for (const [key, value] of snapshot[name]) model[name].set(key, value);
+  const control = new PostgresMonitoringControlStore(model.pool("recover"), { scope: SCOPE, access: "recover", expectedDefinitionSha256: DEFINITION });
+  const postgres = new FictionalPostgres(join(directory!, "fictional-postgres.json")), verifier = createServiceVerifier(SERVICE_VERIFICATION);
+  const custody = new ServicePostgresCustodyStore(postgres.pool("recovery"), { scope: SCOPE, access: "recovery", expectedDefinitionSha256: FICTIONAL_DEFINITION }, verifier);
+  const provider = new FictionalRecurringHttp(); provider.account.id = SCOPE.accountId;
+  const nextEnd = Date.parse("2027-01-01T00:00:00Z") / 1000;
+  provider.current = bill("Renewed", END, nextEnd); provider.previous = bill("Current", START, END);
+  provider.subscription.latest_invoice = provider.current.invoice.id; provider.subscription.items.data[0].current_period_start = END; provider.subscription.items.data[0].current_period_end = nextEnd;
+  const now = () => new Date("2026-12-15T00:00:00Z");
+  const readRights = createRecurringRightsReader({ ...config, scope: SCOPE, now }, { httpClient: provider });
+  const loadInventory = async () => { throw new Error("Discovery must not need today's inventory"); };
+  const authenticateOwner = createMonitoringOwner(OWNER_CONFIG, async () => authResponse());
+  const workflow = createOwnedMonitoringWorkflow({ scope: SCOPE, control, custody, verifier, readRights, loadInventory, now, schedule: { cadenceSeconds: 604800, historyPeriods: 4, maxJobAgeSeconds: 60 } });
+  const runtime = createOwnedServiceRuntime({ scope: SCOPE, evidenceClass: "synthetic-fixture", store: custody, verifier, authenticateOwner, loadInventory, collectCanonicalSources: async () => { throw new Error("Discovery must not collect"); }, now }, workflow, control);
+  const handlers = createOwnedMonitoringHandlers({ origin: "https://fictional.invalid", scope: SCOPE, authenticateOwner, workflow, recover: runtime.recover });
+  let cursor: string | null = null, pages = 0;
+  const found: { jobId: string; reportSha256: string; reportLength: number }[] = [];
+  do {
+    const response = await handlers.GETReports(ownerRequest("fictional-new-auth-session", `https://fictional.invalid/reports${cursor ? `?after=${cursor}` : ""}`));
+    expect(response.status).toBe(200); const page = await response.json();
+    found.push(...page.reports); cursor = page.nextCursor; expect(++pages).toBeLessThan(16);
+  } while (cursor);
+  expect(found).toHaveLength(1); expect(found[0]).toMatchObject(expected);
+  const response = await handlers.GETReport(ownerRequest("fictional-new-auth-session", `https://fictional.invalid/report?jobId=${found[0].jobId}`));
+  expect(response.status).toBe(200); const bytes = Buffer.from(await response.arrayBuffer());
+  expect(bytes.length).toBe(expected.reportLength); expect(sha256(bytes)).toBe(expected.reportSha256);
+  expect(provider.calls.some(call => call.path === "/v1/invoices/in_Current")).toBe(true);
+  expect(provider.calls.some(call => call.path === "/v1/invoices/in_Renewed")).toBe(true);
+  expect(model.calls.every(call => !/^(INSERT|UPDATE)/.test(call.sql))).toBe(true);
+  expect(postgres.calls.every(call => !/^INSERT/.test(call.sql))).toBe(true);
+  writeFileSync(join(directory!, "recovered-original.md"), bytes);
+}, 30000);

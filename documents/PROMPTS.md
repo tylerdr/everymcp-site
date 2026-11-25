@@ -194,3 +194,67 @@ Resume in the same cloud environment after workspace maintenance; inspect curren
 
 ## 2026-10-29 — Reconnected revenue-readiness continuation
 User asks to review latest production/source, continue after Stripe reconnect, and drive toward meaningful revenue. Preserve root-owned publication, shared SQL installation and credential/provider boundaries. Prepare a useful paid-packet sample and source handoff while hosted acceptance dependencies remain unresolved; do not send campaigns or charge a live card.
+
+
+## 2026-11-12 — Recurring monitoring core, provider-free report stage
+
+Parent directs this existing lane to move beyond the held PR35 lead release toward automated evidence-backed MCP monitoring, durable delivery and customer recovery without manual fulfillment. PR35's denied merge is not retried. Complete the highest-value provider-free capability in a new current-main branch: deterministic watchlist reports comparing validated source receipts, explicit unknown/stale/cached evidence, immutable local report bundles and exact-byte recovery. Preserve PR30/33/35 source custody, private SQL-transfer/installation holds, affiliate account/terms decisions, provider/payment/customer-data/security boundaries and disabled GitHub Actions. Finish focused tests, independent review and an actionable paid-monitoring acceptance plan; no new subscription offer, provider calls, live collection, customer sends, paid activation or claims of actual recurring revenue.
+
+
+## 2026-11-12 — Default-off monitoring workflow integration
+
+Parent confirms PR36 publication and directs continuing the recurring workflow: reconcile existing scheduler/storage/Auth/delivery ownership, implement the narrowest useful default-off integration, and prove a provider-free end-to-end report→immutable persistence→original recovery path with missing/stale evidence. Add only an internal worker and local acceptance adapter around the existing report engine; keep production binding absent and delegate authoritative identity/recurring rights/storage to existing owners. Do not treat monitoring as a Starter Kit purchase, duplicate shared commerce infrastructure, execute held SQL, change hosted security/configuration, call paid providers or send customer data. Return the full nonsecret runtime/offer/payment decision packet inline; Preview is not hosted monitoring or MRR.
+
+## 2026-11-12 — Coordinated capture-contract extension
+
+Coordinator instruction (excerpt): “implement the smallest versioned bounded projection at the point where the existing collector already holds response bytes, update the schema/importer coherently, and consume it in PR36's real history/report producer. This is CODE ONLY.”
+
+Scope preserves retained v1 receipts/renderer, bounded excerpts, independent review, current source custody and all existing activation holds. No live collection or new dependency installation.
+
+## 2026-11-12 — Separate Node runtime receipt redesign
+
+Coordinator direction: “Proceed with bounded source redesign to a genuinely verifiable Vercel/Next runtime receipt, independent review, no collection/scheduling/setup or activation. Preserve existing evidence without asserting provenance equivalence; inspect current owner/PR overlap first.”
+
+Implement and review a separately versioned conditional Node admission/report/recovery path using synthetic inputs only. Preserve canonical Actions evidence, disabled Actions, prior denials, original Python renderers/artifacts and reserved PR30/33/35. No hosted attestation, storage, collector, credential, service or rights setup is authorized by this source assignment.
+
+## 2026-11-12 — Executable bounded Node collector continuation
+
+Coordinator directs this same PR36 owner to implement a real bounded Node collector connected through admission, report construction and original recovery using synthetic loopback HTTP fixtures. Independently review security before implementation and the final diff before publication. Preserve reserved PR30/33/35, old Python evidence and the disabled factory. No real monitored-source fetching, Actions, schedule, services/credentials/SQL, customer/provider/payment action, price/term change or activation.
+
+## 2026-11-12 — Latest-change buyer-value correction
+
+Coordinator identifies oldest-first preview budgeting in PR36: older full-history comparisons can exhaust the24-word quote allowance before the latest change. Version future rendering to prioritize the newest complete changed projection with balanced before/after excerpts and a clear Latest captured change summary. Keep historical evidence, unknown/stale limits and exact stored originals. Prove Node 21 → 22 remains readable after older periods and independently review the final source before publication.
+
+## 2026-11-12 — Monitoring owner identity boundary
+
+Coordinator directs this existing PR36 lane to inspect established storage, identity and billing custody, then implement one concrete nonoverlapping missing adapter with synthetic end-to-end acceptance and independent design/final review. Implement a separately namespaced monitoring owner adapter against the existing Supabase current-user protocol; preserve shared kit/Auth/commerce code, PR30/33/35, private SQL and denied operations. Identity alone grants no recurring rights. Keep runtime binding absent; no real account/customer reads, collection, setup, credentials, SQL, scheduling, provider/payment/email actions or commercial activation.
+
+## 2026-11-12 — Protected monitoring custody source proposal
+
+Coordinator authorizes a concrete established-stack custody adapter, unapplied schema/grant/RLS proposal and actual adapter/handler tests with fictional storage. Independently review security design before implementation and final source afterward. Separate trusted producer from authenticated owner access; preserve immutable originals, ownership, replay/concurrency safety and current recurring-rights checks. No hosted project selection, SQL installation/execution, Auth/provider/customer reads, credentials, scheduling, collection, new dependencies, activation or production release. Preserve reserved PR30/33/35 and all private-store/permissions denials.
+
+## 2026-11-12 — Native local custody harness preparation only
+
+Coordinator clarifies that preparing a disposable local PostgreSQL17.11 source-contract fixture does not require choosing a hosted target. Inspect installed capabilities and retained restrictions; prepare an independently reviewed bounded native harness and exact one-run approval packet, but do not acquire or execute an engine yet. Include native syntax, role/RLS/grant negatives, immutable original/replay/concurrency/restart behavior and checkpointed SQLSTATE/catalog evidence before assertions. Preserve exact definitions and explicitly typed text arrays. Cover clean PostgreSQL defaults, unrelated PUBLIC security-definer/read/denying-RLS access, grants restricted to unrelated anon/authenticated roles, legacy PUBLIC CREATE and direct-login versus SET ROLE identity. Keep guard deny-only; do not alter unrelated real grants. Identify the independent deployment-writer witness prerequisite separately. No hosted project/account/provider/private packet access or production activation.
+
+
+November12 parent qualification: dedicated database is not inherently necessary. Prepare clean defaults, PUBLIC SECURITY DEFINER, PUBLIC-readable table including denying RLS, unrelated anon/authenticated grants without membership, and legacy PUBLIC CREATE fixture states. Require direct current_user=session_user, refuse wrapper SET ROLE and NOLOGIN. Explain unrelated PUBLIC grants can interrupt recovery before unchanged fingerprint and foreign USAGE/invoker alone is not prohibited. No engine acquisition/execution, hosted target selection or unrelated ACL change authorized.
+
+
+November12 parent authorized one exact c69b636 native invocation under the reviewed bounds, with no retry/fallback/escalation. Recheck source/provenance, independently verify outcomes/cleanup and publish useful evidence to existing draft only. Invocation stopped at initial read-only uid-map failure; authority consumed, native tests unrun.
+
+
+November12 parent approved source-only implementation of a distinct authenticated SERVICE-RECORDED observation origin. Preserve old Python/GitHub and Node-v1/v2 verification/bytes; no platform/build attestation claim. Require independent design/final review, real producer authority, existing canonical owner/job/current-rights/custody checks, fictional end-to-end and cross-version refusal. No real key setup, collection, native retry/alternative runner, SQL, provider/customer/payment, configuration, merge or activation.
+
+
+### 2026-11-12 — Canonical watchlists and recurring rights source continuation
+
+Parent assigns this PR36 owner the next coherent source-only customer workflow: owned watchlist configuration, canonical bounded jobs and authoritative recurring generation/recovery rights for the distinct service-recorded path. Use actual adapters and deterministic fixtures, independently review design and final outcomes, retain default-off activation and exact legacy originals. No client price/paid flag or kit entitlement; no new price, real keys, collection/schedule, hosted/provider/customer/SQL/configuration access, merge or native retry/alternative runner. Preserve reserved PR30/33/35 and Tyler attribution.
+
+### 2026-11-12 — Actual catalog qualification and recovery-policy proposal
+
+Parent requests offline qualification of real checked-in catalog selections under the two-total-URL/single-host cap, exact rejections, and a bounded independently reviewed source correction if integration is incomplete. Preserve all source/network/evidence limits, reserved PR30/33/35 and originals; use actual-catalog fixtures with synthetic observations only. Also propose, without selecting or implementing, active paid generation plus retained-original recovery after cancellation with an explicit finite retention boundary and original-payment reversal rules. No external target collection, financial-policy change, setup, keys, provider/customer access, native retry/alternative runner, schedule, delivery or merge.
+
+### 2026-11-12 — Bounded offline compatibility evidence candidate
+
+Parent requests a defensible non-fetching profile-to-impact candidate, or only the narrow evidence-contract improvement first if retained receipts cannot support it. The frozen private manual-card experiment is not algorithmic or paid acceptance: its supporting full-text quotations were absent from retained previews. Require relevant complete evidence or abstain, verify quotation/source binding, distinguish potential workflow impact from documented or runtime-confirmed changes, and freeze contract/source before held-out evaluation. Do not tune to case IDs or hidden labels. Preserve original experiment, legacy receipts, PR30/33/35, disabled recovery-policy alternative and native no-retry/no-alternative-runner restriction. No collector, hosting/SQL, provider/model calls, schedule, commercial activation or merge.

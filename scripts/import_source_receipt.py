@@ -115,6 +115,8 @@ def validate_inventory_and_observations(report, catalog, curated, execution):
         for value in (observation, success):
             if value and (not monitor.valid_observation(value) or monitor.parse_date(value["checkedAt"]) > generated or value["receivedBytes"] > monitor.MAX_BODY_BYTES + 1):
                 raise ValueError("Contradictory or future-dated observation")
+            if value and 'documentProjection' in value:
+                monitor.projection.validate(value['documentProjection'], value, expected[url])
         if success and (success["state"] != "reachable" or not observation or monitor.parse_date(success["checkedAt"]) > monitor.parse_date(observation["checkedAt"])):
             raise ValueError("Last successful read is inconsistent with the latest attempt")
         if observation and observation["state"] == "reachable" and observation != success:

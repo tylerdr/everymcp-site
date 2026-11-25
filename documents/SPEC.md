@@ -173,3 +173,61 @@ Email confirmation codes provide first-time onboarding and sign-in through one f
 A dedicated NOINHERIT role is insufficient when PUBLIC grants expose other-product relations. Every receipt transaction must deny external effective table/column/sequence access, external schema CREATE, role memberships and callable user SECURITY DEFINER routines before reading/writing receipts. The app does not repair ACLs. Current shared Sprinter Website candidate fails; actual isolated login/database proof remains required. Return-page metadata reports status without assuming checkout completion.
 
 Checkout request admission (2026-10-23): maximum2048rawbytes and3seconds to complete JSON, before binding/account/store/provider work. Malformed, oversized, stalled and invalid UTF-8 requests refuse400. Existing authenticated valid checkout contract is unchanged.
+
+
+### Provider-free recurring-monitoring report stage (2026-11-12 candidate)
+
+A deterministic offline stage accepts bounded, independently verified public-source receipts and a stable-slug watchlist. It emits dated baseline, source-missing/recovery, inconclusive and complete-body-change evidence with both comparison pointers; repeated cached evidence does not become a new check. Explicit as-of freshness, distinct source coverage, previous success and unresolved findings remain visible. Content-addressed bundles support immutable local publication and original-byte recovery after process restart, without reading a newer catalog.
+
+This is the report-generation/recovery stage for a future automated subscription product. No new recurring offer or price, subscription entitlement, production storage, tenant boundary, scheduler, live collector or customer delivery is activated. Source HTTP checks do not establish MCP compatibility, uptime, outage duration, security or tool behavior. Current actual evidence is one historical manual collection; multi-run tests are synthetic. See SOURCE-HISTORY.md and MONITORING-ACCEPTANCE.md for exact behavior, limits and acceptance ownership. Existing one-time-kit commerce and provider gates are unchanged.
+
+
+### Default-off monitoring orchestration seam (2026-11-12 candidate)
+
+An internal worker consumes server-derived watchlists and verified worker/owner/recurring-rights adapters. Stable scoped period jobs prepare and verify immutable report bytes before committing a recoverable index; retries and concurrent workers select one original. Fresh recovery checks current owner and exact report-period rights and never rebuilds the artifact. `get_production_binding()` remains absent, so no environment flag, route or schedule can activate it. A local fixture store/Auth/rights adapter exercises the real engine; production infrastructure, recurring commercial rights and hosted acceptance remain separately owned. Periods are full-history snapshots at their end, not a claim that all retained events are new.
+
+### Bounded static document comparison candidate (2026-11-12)
+
+`public-source-v2` records section hashes and bounded heading/excerpt previews from already-obtained eligible response bytes; it never executes content or follows extracted links. `source-receipt-history-v2` shows dated section changes and explicit unavailability, with normalized equality limited to the captured representation. Exact v1 report/job recovery is retained. Source identity changes refuse comparison. SOURCE-DOCUMENT-PROJECTION.md defines limits and normalization; all v2 multi-period evidence is fictional and the recurring offer remains unapproved/off.
+
+### Separate Node receipt/admission candidate (2026-11-12)
+
+The existing Next/Node application now has default-off capture/report/recovery routes and deterministic source-history construction against injected authority/custody contracts. A separately versioned authenticated-custody receipt binds original server job, deployment authorization, scope, inventory, chronology and exact source/report bytes; admission retrieves trusted originals rather than accepting caller success/provenance. This origin is not canonical GitHub Actions provenance. Production writer authentication, Node collector, private storage and current-rights bindings remain unimplemented, and the factory is null. See MONITORING-NODE-RUNTIME.md for the concrete trust boundary and executed fictional acceptance. Existing Python original bytes remain unchanged.
+
+### Executable bounded Node collector candidate (2026-11-12)
+
+The Node collector reads at most two canonical same-host inventory sources plus one robots policy within a 30-second run, with pinned public DNS answers, normal TLS, strict framing and body limits, no redirects/decompression and conservative robots permission/pacing. Complete bytes feed strict bounded static projections. V2 custody receipts bind an admitted earlier capture for conditional304, last-success and cooldown continuity; v1 originals remain readable. Actual loopback fixtures exercise the full receipt/report/recovery path, with immutable output and explicit synthetic classification. Production authority/custody/current-rights/scheduling remain unbound and no actual recurring product is activated.
+
+Future Node renderer-v2 reports summarize the latest complete captured change before full history, with 12 words each for before/after per source. Newer unknown/noise evidence remains explicit. Older comparisons retain citations without consuming preview allowance; existing committed periods keep their original renderer/bytes.
+
+
+### Monitoring owner identity candidate (2026-11-12)
+
+The monitoring runtime now has a concrete Supabase current-user adapter using server-fixed project and product scope. Each recovery independently derives a versioned monitoring owner key from the authoritative user UUID, with confirmed-email/nonanonymous eligibility and bounded failures. Caller metadata, email changes and one-time kit payments cannot grant monitoring ownership or recurring rights. Actual route tests retain current-rights checks and immutable originals. Runtime activation, persistent custody, canonical job creation, deployment writer authority and recurring commerce remain unbound. See MONITORING-OWNER-BINDING.md; synthetic Auth is not live customer-session acceptance.
+
+
+### Protected monitoring custody candidate (2026-11-12)
+
+The Node workflow now has a real PostgreSQL custody adapter using separate producer/read access, immutable canonical starts/originals/job commits and current-owner/current-rights retrieval. A private-schema proposal and independent catalog-definition guard remain unapplied. Actual adapter/handler fixtures prove source behavior, including concurrent winner recovery and unchanged legacy bytes; they do not prove native SQL/RLS or hosted durability. Canonical watchlist creation, deployment writer authorization, recurring rights and runtime activation remain unimplemented/unbound. See MONITORING-POSTGRES-CUSTODY.md.
+
+
+### Native custody contract preparation (2026-11-12)
+
+A prepared, separately gated PostgreSQL17.11 fixture will test the actual proposal and SQL adapter against native grants/RLS/isolation/restart behavior. It remains unexecuted. Existing databases can qualify if effective ambient access meets the deny-only guard; unrelated later PUBLIC grants may interrupt recovery even with an unchanged monitoring fingerprint. Direct role login and hosted pooler identity require separate evidence. Disposable local testing requires no hosted target choice and grants no installation, credential or activation authority. See MONITORING-NATIVE-APPROVAL.md for one-run limits and provenance distinctions.
+
+### Distinct service-recorded origin (2026-11-12)
+
+The approved source design supports authenticated EveryMCP service-recorded observations as a distinct origin/version, with actual producer authentication, signed starts/completions, strict admission and immutable original custody/recovery. Signatures endorse service assertions; they do not prove exact builds, platform attestation, truthful fetch or independent time. Existing evidence keeps its original verification policy and bytes. Useful source-linked report comparison is shared through strict versioned entry points. The source fixture exercises actual collector→admission→SQL adapter→report→public-key-only fresh-process recovery; canonical jobs/recurring-rights binding and hosted activation remain pending. No customer-facing price or terms changed. See MONITORING-SERVICE-RECORDED.md.
+
+
+### Owned recurring monitoring source (2026-11-12)
+
+A disabled source workflow now joins authenticated watchlist configuration, canonical bounded jobs, protected enrollment reads and fresh recurring-rights verification to the actual service-recorded collector/report/custody path. Immutable signed owned reports retain expected-period gaps and latest representation assessments through original recovery. The explicit current-paid-subscription-v1 policy remains a draft requiring acceptance before activation, particularly historical recovery after cancellation or expiry. No actual product, price, cadence, enrollment, provider, SQL or runtime binding is selected. Existing kit and legacy evidence policies remain separate. See MONITORING-OWNED-WORKFLOW.md for supported cases and exact remaining gates.
+
+
+Actual-catalog qualification pins the 616-route/585-source inventory and exhaustively verifies one/two-route capture eligibility. Unsupported selections return 422 with safe reasons/counts; malformed inputs and stale mutation/version conflicts keep distinct responses. All canonical references count; rejected references cannot disappear into a partial scope. Existing source caps, evidence versions and originals remain unchanged. See MONITORING-CATALOG-QUALIFICATION.md; the linked 90-day cancellation/recovery alternative is unselected design documentation, not product behavior or published terms.
+
+
+### Compatibility evidence contract candidate (2026-11-12)
+
+A pure offline gate admits only complete plain-text/Markdown bodies matching independently selected verified service captures and their exact retained projections. Canonical profile declarations are bounded and do not prove dependency relevance. Exact UTF8 quotation spans share the existing 24-word/source budget. Missing/stale/incomplete/contradictory evidence produces whole-request abstention. Successful admission means ready for document review; document contract changes and potential workflow impact remain not assessed, runtime compatibility unverified and rights ungranted. No classifier, collector, route, new storage/retention or legacy receipt change is implemented. See MONITORING-COMPATIBILITY-EVIDENCE.md and the frozen machine contract.

@@ -1,0 +1,39 @@
+{
+  "notice": "Retained fictional v1 Node rendering from 1145838; no actual Vercel or source execution.",
+  "entries": [
+    {
+      "sourceFixtureIndex": 0,
+      "evidence": {
+        "receiptSha256": "0da6c26d5b6726975b618601762ac61deee2d96510d8f654c8b77bba3483e3d3",
+        "sourceSha256": "f3cd38c136adbb7c678990c50b2f5a10398e3fdcf407dc2ccaba1ebd108d46e6",
+        "executionId": "be860fa3-08d8-4af4-a806-9c23458bea23",
+        "deploymentId": "dpl_fictional",
+        "gitSha": "1111111111111111111111111111111111111111",
+        "startedAt": "2026-11-01T00:00:00.000Z",
+        "completedAt": "2026-11-01T00:00:03.000Z",
+        "origin": "vercel-next-custody-v1",
+        "evidenceClass": "synthetic-fixture"
+      }
+    },
+    {
+      "sourceFixtureIndex": 3,
+      "evidence": {
+        "receiptSha256": "cfa01a99bfb033a6b2aa4a8b7b188776b3485e919b7c024d18e95de6667add1b",
+        "sourceSha256": "7cd07ccfb764ca4367e21cc00da27e52304137fd7ba3fde9f978c1ddc2c9d293",
+        "executionId": "a7d15f45-41c8-4281-91e1-0c90c51f40b3",
+        "deploymentId": "dpl_fictional",
+        "gitSha": "1111111111111111111111111111111111111111",
+        "startedAt": "2026-11-04T00:00:00.000Z",
+        "completedAt": "2026-11-04T00:00:03.000Z",
+        "origin": "vercel-next-custody-v1",
+        "evidenceClass": "synthetic-fixture"
+      }
+    }
+  ],
+  "asOf": "2026-11-12T00:00:00Z",
+  "slugs": [
+    "example-mcp"
+  ],
+  "expectedSha256": "c73c2cc42ad5ec2776898dc7cbb3f0321c95358b750179c1cdd0f0a339ad0138",
+  "expectedBytes": 7079
+}

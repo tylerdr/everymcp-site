@@ -79,6 +79,27 @@ Maintainer references reviewed for the guide:
 - Microsoft Playwright MCP: https://github.com/microsoft/playwright-mcp
 - Firecrawl MCP: https://docs.firecrawl.dev/mcp-server
 
+### Worked change review: Brave Image Search
+
+Use this example if your research workflow collects image results. On September 9,
+2026, Brave corrected the tool description for `count`. Before the edit, it told
+clients to combine `count` with `offset` for another page. After the edit, it
+described image search as a single result set and advised increasing `count`
+when more results are needed. Brave included the correction in v2.1.4 on
+September 17. The edit establishes what the documentation says. Your client's
+request behavior still needs a separate check.
+
+- [Before and after in Brave's maintainer diff](https://github.com/brave/brave-search-mcp-server/pull/348/files)
+- [Brave v2.1.4 release notes](https://github.com/brave/brave-search-mcp-server/releases/tag/v2.1.4)
+
+**Client acceptance criterion (NOT RUN).** With network access disabled, use a
+local stub that records image-search requests and returns two fictional image
+URLs. Ask your workflow for five results. Pass if it sends one request with
+`count: 5`, omits `offset`, and reports the two returned URLs without requesting
+a second page or inventing three more. Record the client version, request count,
+and observed output in section 3. If your workflow only reads a known page with
+Fetch, mark this change inapplicable.
+
 ## 5. Choose your next step
 
 | What you need next | Where to continue |
